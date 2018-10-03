@@ -14,7 +14,7 @@
           <div class="carousel-caption carousel-caption-flat-height d-none d-md-block">
             <h1>Fale Conosco</h1>
           </div>
-          <img class="d-block w-100" src="inc/slider-construcao.jpg" alt="First slide">
+          <img class="d-block w-100" src="inc/img/slider-construcao.jpg" alt="First slide">
         </div>
       </div>
       <div class="container floater-destaque">
@@ -28,23 +28,23 @@
                     <div class="col-8">
                         <div class="fale-conosco-left">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     <input placeholder="Nome*" type="text">
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <input placeholder="Telefone*" type="text">
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-3">
+                                <div class="col">
                                     <input placeholder="Empresa*" type="email">
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-3">
+                                <div class="col-md-8">
                                     <input placeholder="Email*" type="text">
                                 </div>
-                                <div class="col- div-select">
+                                <div class="col-md-4 div-select">
                                     <select>
                                         <option value="volvo">Volvo</option>
                                         <option value="saab">Saab</option>
@@ -55,10 +55,10 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <textarea rows="4" cols="50" placeholder="Mensagem"></textarea> 
+                                    <textarea rows="5" cols="50" placeholder="Mensagem"></textarea> 
                                 </div>
                             </div>
-                            <button class="float-right btn botao-laranja">Enviar</button>
+                            <button class="btn botao-laranja">Enviar</button>
                     
                         </div>                        
                     
@@ -67,14 +67,14 @@
                         <div class="fale-conosco-right">
                             <p>Caso queira informações sobre valores de venda ou locação de equipamentos, solicite um orçamento ou entre em contato pelos telefones</p>
                             <h4>Central de Atendimento Lafaete(CAL)</h4>
-                            <p class="telefone">4007-2448</p>
+                            <h3 class="telefone">4007-2448</h3>
                             <span>(Atendimento Nacional)</span>
 
                             <h4>Caçambas</h4>
-                            <p class="telefone">(31) 3373-1360</p>
+                            <h3 class="telefone">(31) 3373-1360</h3>
                             <span>(Belo Horizonte)</span>
 
-                            <p class="telefone">(31) 98469-2807</p>
+                            <h3 class="telefone">(31) 98469-2807</h3>
                             <span>
                                 Atendimento exclusivo para caçambas - WhatsApp apenas para Belo Horizonte
                             </span>

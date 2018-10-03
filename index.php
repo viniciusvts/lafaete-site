@@ -86,17 +86,21 @@
           <p>Lorem ipsum dolor sit amet, sed platonem erroribus ut. Vix homero partem ut, quem doming philosophia eam no. Vis perpetua partiendo an, vim te natum intellegam. Viderer commune gloriatur mel ea, no decore corrumpit mel. Ex fastidii disputationi mel.</p>      
         </div>
 
-        <ul>
-          <li class="active">Todos</li>
-          <li>Categoria</li>
-          <li>Categoria</li>
-          <li>Categoria</li>
-          <li>Categoria</li>
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#todos">Todos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#maquinasLeves">Categoria</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#maquinasPesadas">Categoria</a>
+          </li>
         </ul>
 
         <div class="row">
           <?php for($c=0; $c<8; $c++){ ?>
-          <div class="col-3"> 
+          <div class="col-3 imagemGaleria maquinasLeves"> 
             <div class="over esconder">
               <svg enable-background="new 0 0 491.86 491.86" version="1.1" viewBox="0 0 491.86 491.86" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
                 <path d="m465.17 211.61h-184.92v-184.92c0-8.424-11.439-26.69-34.316-26.69s-34.316 18.267-34.316 26.69v184.92h-184.92c-8.423-1e-3 -26.69 11.438-26.69 34.314s18.267 34.316 26.69 34.316h184.92v184.92c0 8.422 11.438 26.69 34.316 26.69s34.316-18.268 34.316-26.69v-184.92h184.92c8.422 0 26.69-11.438 26.69-34.316s-18.27-34.315-26.693-34.315z" fill="#fff"/>
@@ -129,7 +133,7 @@
             <p>Lorem ipsum dolor sit amet, sed platonem erroribus ut. Vix homero partem ut, quem doming philosophia eam no. Vis perpetua partiendo an, vim te natum intellegam. Viderer commune gloriatur mel ea, no decore corrumpit mel. Ex fastidii disputationi mel.</p>
           </div>
           <div class="avatar">
-            <img src="inc/businessman.jpg" class="rounded-circle">            
+            <img src="inc/img/businessman.jpg" class="rounded-circle">            
           </div>
           <p class="nome">João da Silva</p>
           <p class="empresa">XYZ Engenharia</p>
@@ -143,7 +147,7 @@
             <p>Lorem ipsum dolor sit amet, sed platonem erroribus ut. Vix homero partem ut, quem doming philosophia eam no. Vis perpetua partiendo an, vim te natum intellegam. Viderer commune gloriatur mel ea, no decore corrumpit mel. Ex fastidii disputationi mel.</p>
           </div>
           <div class="avatar">
-            <img src="inc/businessman.jpg" class="rounded-circle">            
+            <img src="inc/img/businessman.jpg" class="rounded-circle">            
           </div>
           <p class="nome">João da Silva</p>
           <p class="empresa">XYZ Engenharia</p>
@@ -157,7 +161,7 @@
             <p>Lorem ipsum dolor sit amet, sed platonem erroribus ut. Vix homero partem ut, quem doming philosophia eam no. Vis perpetua partiendo an, vim te natum intellegam. Viderer commune gloriatur mel ea, no decore corrumpit mel. Ex fastidii disputationi mel.</p>
           </div>
           <div class="avatar">
-            <img src="inc/businessman.jpg" class="rounded-circle">            
+            <img src="inc/img/businessman.jpg" class="rounded-circle">            
           </div>
           <p class="nome">João da Silva</p>
           <p class="empresa">XYZ Engenharia</p>

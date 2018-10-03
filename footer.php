@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <a href="index.php"><img src="inc/logo-lafaete.png"></a>
+                <a href="index.php"><img src="inc/img/logo-lafaete.png"></a>
                 <p>A Lafaete é uma empresa do segmento de locação de equipamentos para construção civil, infraestrutura e mineração, destacando-se no mercado de Contêineres e Tendas Piramidais com design e fabricação própria. Atuante no setor de locação de máquinas pesadas e leves, caçambas, caminhões, geradores, torres de iluminação e veículos leves.</p>
                 <div class="social">
                     <a href=""><img src="inc/facebook-logo-button.svg" width="30px"></a>
@@ -78,6 +78,7 @@
 <script src="<?php //bloginfo('template_url');?>node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script>
+    // funcão esconder menu ao scroll página
     $(function(){   
         var nav = $('#menu-principal'); 
         var navTop = $('#menu-topo');  
@@ -94,6 +95,56 @@
             //navTop.removeClass("invisible");
         } 
         });  
+    });
+</script>
+
+<script>
+    // funcão lightbox
+    $(function(){
+        $('.galeria-img a img').click(function(e) {
+            e.preventDefault();
+            let imagemGaleria = $(this);
+            let srcImagem = imagemGaleria.attr('src');
+
+            $('.lightBox').removeClass('esconder');
+            $('.lightBox').addClass('fadeIn animated');
+            $('.lightBox-content img').attr('src', srcImagem);          
+        });
+
+        $('.fecharBotao').click(function(){
+            $('.lightBox').removeClass('fadeIn animated');  
+            $('.lightBox').addClass('esconder');       
+        });
+
+        $(document).on('keyup',function(pressEsc) {
+            if (pressEsc.keyCode == 27) {
+                $('.lightBox').removeClass('fadeIn animated');  
+                $('.lightBox').addClass('esconder');  
+            }
+        });
+    });
+</script>
+
+
+<script>
+    //funcção do filtro pega o hash do link com nome da classe correspondente
+    //retira o hash para comparar com a classe do link da li com a classe no link da imagem
+    // tudo que não for a hash clicada ou não for todos, chama a classe para esconder
+    //senão remove a classe esconder
+    $(function(){
+        $('.menu-imoveis ul li a').click(function(e) {
+            e.preventDefault();
+            let a = $(this).attr('href');
+            a = a.substr(1);
+            $('.imagemGaleria').each(function() {
+                if (!$(this).hasClass(a) && a != 'todos'){
+                    $(this).addClass('esconder');
+                }                
+                else{
+                    $(this).removeClass('esconder');
+                }                
+            });
+        });
     });
 </script>
 <?php wp_footer(); ?>

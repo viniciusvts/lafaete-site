@@ -12,7 +12,7 @@
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>            
           <button class="btn btn-laranja">Conheça nossas opções</button>
         </div>
-        <img class="d-block w-100" src="inc/slider-construcao.jpg" alt="First slide">
+        <img class="d-block w-100" src="inc/img/slider-construcao.jpg" alt="First slide">
       </div>
       <div class="carousel-item">
         <div class="carousel-caption d-none d-md-block">
@@ -20,7 +20,7 @@
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>            
           <button class="btn btn-laranja">Conheça nossas opções</button>
         </div>
-        <img class="d-block w-100" src="inc/slider-construcao.jpg" alt="First slide">
+        <img class="d-block w-100" src="inc/img/slider-construcao.jpg" alt="First slide">
       </div>
       <div class="carousel-item">
         <div class="carousel-caption d-none d-md-block">
@@ -28,7 +28,7 @@
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>            
           <button class="btn btn-laranja">Conheça nossas opções</button>
         </div>
-        <img class="d-block w-100" src="inc/slider-construcao.jpg" alt="First slide">
+        <img class="d-block w-100" src="inc/img/slider-construcao.jpg" alt="First slide">
       </div>
 
     </div>
@@ -43,9 +43,9 @@
     <div class="container floater-destaque">
       <div class="row">
         <div class="col cacambas">
-          <img src="inc/cacambas.png" width="100px">
+          <img src="inc/img/cacambas.png" width="100px">
           <h2>Caçambas</h2>
-          <p>Em diversos tamanhos e formatos para o depósito de resíduos de pequenas e grandes obras</p>
+          <p>Em diversos tamanhos e formatos para o depósito de resíduos de pequenas e grandes obras.</p>
         </div>
         <div class="col maquina">
           <svg version="1.1" viewBox="1 -90 639.99878 639" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" height="50px">
@@ -57,13 +57,13 @@
             <path d="m309.33 171.17h-64c-5.8906 0-10.664 4.7773-10.664 10.664 0 5.8945 4.7734 10.668 10.664 10.668h64c5.8906 0 10.668-4.7734 10.668-10.668 0-5.8867-4.7773-10.664-10.668-10.664z"/>
             <path d="m309.33 203.16h-64c-5.8906 0-10.664 4.7812-10.664 10.668 0 5.8906 4.7734 10.672 10.664 10.672h64c5.8906 0 10.668-4.7812 10.668-10.672 0-5.8867-4.7773-10.668-10.668-10.668z"/>
           </svg>
-          <h2>Caçambas</h2>
-          <p>Em diversos tamanhos e formatos para o depósito de resíduos de pequenas e grandes obras</p>
+          <h2>Máquina</h2>
+          <p>Uma gama completa de máquinas para obras de todos os tamanhos. Grande eficiência e operacionalidade.</p>
         </div>
         <div class="col modulos-habitacionais">
-          <img src="inc/modulos-habitacionais.png" width="100px">
-          <h2>Caçambas</h2>
-          <p>Em diversos tamanhos e formatos para o depósito de resíduos de pequenas e grandes obras</p>
+          <img src="inc/img/modulos-habitacionais.png" width="100px">
+          <h2>Módulos Habitacionais</h2>
+          <p>Módulos habitacionais em container de longa durabilidade, mesmo quando expostos ao sol e à chuva.</p>
         </div>
       </div>
     </div>

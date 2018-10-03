@@ -14,7 +14,7 @@
           <div class="carousel-caption carousel-caption-flat-height d-none d-md-block">
             <h1>Abertura de Chamado</h1>
           </div>
-          <img class="d-block w-100" src="inc/slider-construcao.jpg" alt="First slide">
+          <img class="d-block w-100" src="inc/img/slider-construcao.jpg" alt="First slide">
         </div>
       </div>
       <div class="container floater-destaque">

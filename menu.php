@@ -29,15 +29,15 @@
       </ul>
     </div>
     <div class="col-md-1">
-      <img src="inc/br.png" class="idioma idioma-on">
-      <img src="inc/en.png" class="idioma idioma-off">
+      <img src="inc/img/br.png" class="idioma idioma-on">
+      <img src="inc/img/en.png" class="idioma idioma-off">
     </div>
   </div>
 </div>
 
 
 <nav class="navbar navbar-expand-xl navbar-light bg-light fixed-top menu-container" id="menu-principal">
-  <a class="navbar-brand" href="index.php"><img src="inc/logo-lafaete.png"></a>
+  <a class="navbar-brand" href="index.php"><img src="inc/img/logo-lafaete.png"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -58,9 +58,9 @@
           Serviços
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="gestao-empresarial.php">Gestão Empresarial</a>
+        <a class="dropdown-item" href="gestao-ambiental.php">Gestão Ambiental</a>
         <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="gestao-de-residuo.php">Gestão de Resíduos</a>
+          <a class="dropdown-item" href="gestao-de-residuos.php">Gestão de Resíduos</a>
           <a class="dropdown-item" href="transbordo-e-triagem.php">Transbordo e Triagem</a>
           <a class="dropdown-item" href="terraplanagem.php">Terraplanagem</a>
           <!--<div class="dropdown-divider"></div>-->

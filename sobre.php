@@ -14,7 +14,7 @@
           <div class="carousel-caption carousel-caption-flat-height d-none d-md-block">
             <h1>A Lafaete</h1>
           </div>
-          <img class="d-block w-100" src="inc/slider-construcao.jpg" alt="First slide">
+          <img class="d-block w-100" src="inc/img/slider-construcao.jpg" alt="First slide">
         </div>
       </div>
     </div>
@@ -63,43 +63,43 @@
         </div>
         <div class="row">
           <div class="col-3">        
-            <img class="d-block w-100 rounded" src="inc/premio-gran-awards-2012.jpg" alt="Second slide"> 
+            <img class="d-block w-100 rounded" src="inc/img/premio-gran-awards-2012.jpg" alt="Second slide"> 
             <h3>Gran Awards de Excelência de Qualidade 2012</h3>
             <p>Destaque: qualidade dos produtos, serviços, atendimento e credibilidade da empresa no mercado. Instituto: Instituto Nacional de Excelência de Gestão de Qualidade Total Quality.</p>
           </div>
           <div class="col-3">        
-            <img class="d-block w-100 rounded" src="inc/premio-iso9001.jpg" alt="Second slide">
+            <img class="d-block w-100 rounded" src="inc/img/premio-iso9001.jpg" alt="Second slide">
             <h3>ISO 9001</h3>
             <p>Nossa fábrica possui o selo de Qualidade ISO 9001 para projetos, fabricação e fornecimento de módulos habitacionais, certificada pela DNV Business Assurance.</p>
           </div>
           <div class="col-3">        
-            <img class="d-block w-100 rounded" src="inc/premio-valence.jpg" alt="Second slide">  
+            <img class="d-block w-100 rounded" src="inc/img/premio-valence.jpg" alt="Second slide">  
             <h3>Maior Frota de Miniretro da América Latina</h3>
             <p>Certificação de maior frota de mini retroescavadeira JCB 1 CX da América Latina, atestada pela Valence Máquinas (distribuidor autorizado).</p>
           </div>
           <div class="col-3">        
-            <img class="d-block w-100 rounded" src="inc/logo-MBI.jpg" alt="Second slide">  
+            <img class="d-block w-100 rounded" src="inc/img/logo-MBI.jpg" alt="Second slide">  
             <h3>Modular Building Institute</h3>
             <p>A Lafaete faz parte do rol de membros do Modular Building Institute. Fundada em 1983, o Instituto de construção modular (MBI) é a associação comercial internacional sem fins lucrativos. Os membros são fabricantes, prestadores de construção modular.</p>
           </div>
 
           <div class="col-3">        
-            <img class="d-block w-100 rounded" src="inc/logo-MBI.jpg" alt="Second slide">  
+            <img class="d-block w-100 rounded" src="inc/img/logo-MBI.jpg" alt="Second slide">  
             <h3>Prêmio – Top Engenharias</h3>
             <p>Destaque: prestadora de serviços às Engenharias – Caçamba Coletora Entulho. Instituto: AEAEE – UFMG – Associação dos ex-alunos da Escola de Engenharia.</p>
           </div>
           <div class="col-3">        
-            <img class="d-block w-100 rounded" src="inc/logo-MBI.jpg" alt="Second slide">  
+            <img class="d-block w-100 rounded" src="inc/img/logo-MBI.jpg" alt="Second slide">  
             <h3>Prêmio – Top of Quality Brazil</h3>
             <p>Destaque na locação de caçambas e contêineres pelo Instituto OPB – Ordem dos Parlamentares do Brasil.</p>
           </div>
           <div class="col-3">        
-            <img class="d-block w-100 rounded" src="inc/logo-MBI.jpg" alt="Second slide">  
+            <img class="d-block w-100 rounded" src="inc/img/logo-MBI.jpg" alt="Second slide">  
             <h3>Selo Ambiental de Excelência da Gestão da Qualidade</h3>
             <p>Destaque: qualidade dos produtos, serviços, atendimento e credibilidade da empresa no mercado. Instituto: Instituto Nacional de Excelência de Gestão de Qualidade Total Quality.</p>
           </div>
           <div class="col-3">        
-            <img class="d-block w-100 rounded" src="inc/logo-MBI.jpg" alt="Second slide">  
+            <img class="d-block w-100 rounded" src="inc/img/logo-MBI.jpg" alt="Second slide">  
             <h3>Top of Quality Gold Internacional</h3>
             <p>Destaque: qualidade dos produtos, serviços, atendimento e credibilidade da empresa no mercado. Instituto: Instituto Nacional de Excelência de Gestão de Qualidade Total Quality.</p>
           </div>
