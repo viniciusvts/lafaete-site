@@ -44,7 +44,7 @@
             <div class="col-4">
                 <a href="single-blog.php">
                     <div class="card">
-                        <img class="card-img-top" src="inc/locacao-de-cacambas-1.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="inc/img/locacao-de-cacambas-1.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">Lorem Ipsum Dolor Sit amet, iudicabit deseruisse id sit.</h5>
                             <h6>Categoria</h6>

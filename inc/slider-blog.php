@@ -7,15 +7,15 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="inc/estrutura-metalica.jpg" alt="First slide" style="filter: brightness(100%); -webkit-filter brightness(100%);">
+          <img class="d-block w-100" src="inc/img/estrutura-metalica.jpg" alt="First slide" style="filter: brightness(100%); -webkit-filter brightness(100%);">
         </div>
         <div class="carousel-item">
           <div class="carousel-caption d-none d-md-block">
           </div>
-          <img class="d-block w-100" src="inc/estrutura-metalica.jpg" alt="First slide" style="filter: brightness(100%); -webkit-filter brightness(100%);">
+          <img class="d-block w-100" src="inc/img/estrutura-metalica.jpg" alt="First slide" style="filter: brightness(100%); -webkit-filter brightness(100%);">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="inc/estrutura-metalica.jpg" alt="First slide" style="filter: brightness(100%); -webkit-filter brightness(100%);">
+          <img class="d-block w-100" src="inc/img/estrutura-metalica.jpg" alt="First slide" style="filter: brightness(100%); -webkit-filter brightness(100%);">
         </div>
 
       </div>

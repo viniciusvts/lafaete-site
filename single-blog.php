@@ -11,15 +11,15 @@
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="inc/estrutura-metalica.jpg" alt="First slide" style="filter: brightness(100%); -webkit-filter brightness(100%);">
+          <img class="d-block w-100" src="inc/img/estrutura-metalica.jpg" alt="First slide" style="filter: brightness(100%); -webkit-filter brightness(100%);">
         </div>
         <div class="carousel-item">
           <div class="carousel-caption d-none d-md-block">
           </div>
-          <img class="d-block w-100" src="inc/estrutura-metalica.jpg" alt="First slide" style="filter: brightness(100%); -webkit-filter brightness(100%);">
+          <img class="d-block w-100" src="inc/img/estrutura-metalica.jpg" alt="First slide" style="filter: brightness(100%); -webkit-filter brightness(100%);">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="inc/estrutura-metalica.jpg" alt="First slide" style="filter: brightness(100%); -webkit-filter brightness(100%);">
+          <img class="d-block w-100" src="inc/img/estrutura-metalica.jpg" alt="First slide" style="filter: brightness(100%); -webkit-filter brightness(100%);">
         </div>
     </div>
     <!-- SLIDER -->
@@ -69,7 +69,7 @@
             <div class="col-4">
                 <a href="">
                     <div class="card">
-                        <img class="card-img-top" src="inc/locacao-de-cacambas-1.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="inc/img/locacao-de-cacambas-1.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">Lorem Ipsum Dolor Sit amet, iudicabit deseruisse id sit.</h5>
                             <h6>Categoria</h6>
