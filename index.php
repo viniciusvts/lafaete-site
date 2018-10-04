@@ -9,7 +9,7 @@
 
     <?php include_once("inc/slider.php");?>
 
-    <div class="container my-container" style="margin-top: 100px">
+    <div class="container my-container servicos">
       <div class="cabecalho">
         <h2>Serviços</h2>
         <span></span> 
@@ -87,14 +87,14 @@
         </div>
 
         <ul class="nav justify-content-center">
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#todos">Todos</a>
+          <li class="nav-item active">
+            <a class="nav-link" href="#todos">Todos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#maquinasLeves">Categoria</a>
+            <a class="nav-link" href="#maquinasLeves">Categoria</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#maquinasPesadas">Categoria</a>
+            <a class="nav-link" href="#maquinasPesadas">Categoria</a>
           </li>
         </ul>
 

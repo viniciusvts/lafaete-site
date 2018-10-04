@@ -5,7 +5,7 @@
       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     </ol>
-    <div class="carousel-inner">
+    <div class="carousel-inner carousel-caption-expand-height">
       <div class="carousel-item active">
         <div class="carousel-caption d-none d-md-block">
           <h1>As melhores soluções em Light Steel Frame</h1>

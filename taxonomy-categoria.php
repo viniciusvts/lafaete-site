@@ -42,14 +42,14 @@
     </div>
     <div class="container produtos-container menu-imoveis">
         <ul class="nav justify-content-center">
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#todos">Todos</a>
+          <li class="nav-item active">
+            <a class="nav-link" href="#todos">Todos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#maquinasLeves">Máquinas Leves</a>
+            <a class="nav-link" href="#maquinasLeves">Máquinas Leves</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#maquinasPesadas">Máquinas Pesadas</a>
+            <a class="nav-link" href="#maquinasPesadas">Máquinas Pesadas</a>
           </li>
         </ul>
         <div class="row">
