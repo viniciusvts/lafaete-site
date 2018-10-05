@@ -14,7 +14,7 @@
     <div class="container blog">
         <div class="row">
             <?php for($c=0; $c<6; $c++){ ?>
-            <div class="col-4">
+            <div class="col-md-4">
                 <a href="single-blog.php">
                     <div class="card">
                         <img class="card-img-top" src="inc/img/locacao-de-cacambas-1.jpg" alt="Card image cap">

@@ -9,7 +9,7 @@
 
     <?php include_once("inc/slider.php");?>
 
-    <div class="container my-container servicos">
+    <div class="container servicos">
       <div class="cabecalho">
         <h2>Serviços</h2>
         <span></span> 
@@ -172,12 +172,12 @@
 
     <div class="container-fluid"> 
       <div class="row">
-        <div class="col faca-um-orcamento">
+        <div class="col-md-6 faca-um-orcamento">
           <h2>Faça um Orçamento</h2>
           <p>Lorem ipsum dolor sit amet, sed platonem erroribus ut.</p>
           <button class="btn botao-laranja">Solicitar</button>
         </div>
-        <div class="col trabalhe-conosco"> 
+        <div class="col-md-6 trabalhe-conosco"> 
           <h2>Trabalhe Conosco</h2>
           <p>Lorem ipsum dolor sit amet, sed platonem erroribus ut. </p>
           <button class="btn botao-laranja">Cadastrar Currículo</button>
