@@ -11,7 +11,7 @@
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner carousel-flat-height">
         <div class="carousel-item active">
-          <div class="carousel-caption carousel-caption-flat-height d-none d-md-block">
+          <div class="carousel-caption carousel-caption-flat-height">
             <h1>Fale Conosco</h1>
           </div>
           <img class="d-block w-100" src="inc/img/slider-construcao.jpg" alt="First slide">
@@ -25,7 +25,7 @@
         <form>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-md-8 col-sm-12">
                         <div class="fale-conosco-left">
                             <div class="row">
                                 <div class="col-md-8">
@@ -63,7 +63,7 @@
                         </div>                        
                     
                     </div>
-                    <div class="col-4">
+                    <div class="col-md-4 col-sm-12">
                         <div class="fale-conosco-right">
                             <p>Caso queira informações sobre valores de venda ou locação de equipamentos, solicite um orçamento ou entre em contato pelos telefones</p>
                             <h4>Central de Atendimento Lafaete(CAL)</h4>

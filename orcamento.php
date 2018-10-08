@@ -11,7 +11,7 @@
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner carousel-flat-height">
         <div class="carousel-item active">
-          <div class="carousel-caption carousel-caption-flat-height d-none d-md-block">
+          <div class="carousel-caption carousel-caption-flat-height">
             <h1>Faça um Orçamento</h1>
           </div>
           <img class="d-block w-100" src="inc/img/slider-construcao.jpg" alt="First slide">
@@ -24,7 +24,7 @@
     <div class="fale-conosco">
         <div class="container-fluid">
             <div class="row">
-                <div class="col">
+                <div class="col-sm-12 col-md-6">
                     <div class="fale-conosco-left">
                         <div class="row">
                             <div class="col-md-9">
@@ -56,7 +56,7 @@
                     </div>
                 </div>
 
-                <div class="col">
+                <div class="col-sm-12 col-md-6">
                     <div class="fale-conosco-left">                        
                         <div class="row">
                             <div class="col-md-12">
