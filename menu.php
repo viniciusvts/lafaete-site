@@ -28,7 +28,7 @@
         </li>
       </ul>
     </div>
-    <div class="col-md-1">
+    <div class="col-md-1 d-none d-sm-none">
       <img src="inc/img/br.png" class="idioma idioma-on">
       <img src="inc/img/en.png" class="idioma idioma-off">
     </div>

@@ -22,7 +22,11 @@
     <link rel="icon" href="https://getbootstrap.com/docs/4.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="https://getbootstrap.com/docs/4.1/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
 
-    <title>Lafaete Locação de Equipamentos</title>
+    <title>Lafaete Locação de Equipamentos</title> 
 
-    <?php //wp_head(); ?>
+    <link rel="stylesheet" href="<?php //bloginfo('template_url');?>node_modules/main.css">   
+
+    <?php
+    //wp_head();
+    ?>
 </head>

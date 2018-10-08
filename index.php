@@ -7,7 +7,9 @@
     <?php //include_once('inc/slider-home.php'); ?>
     <?php //include_once('floater.php'); ?>
 
-    <?php include_once("inc/slider.php");?>
+    <?php 
+      include_once("inc/slider.php");
+    ?>
 
     <div class="container servicos">
       <div class="cabecalho">
