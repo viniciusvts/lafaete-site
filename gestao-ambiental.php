@@ -69,8 +69,6 @@
             </div>
         </div>
     </div>
-
-    <?php include_once("nossos-premios.php"); ?>
    
     <?php
     include_once('newsletter.php');

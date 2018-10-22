@@ -53,18 +53,19 @@
           </li>
         </ul>
         <div class="row">
-          <div class="default-service-column col-4 imagemGaleria maquinasLeves">
+          <div class="default-service-column col-md-4 imagemGaleria maquinasLeves">
               <div class="inner-box">
                 <div class="inner-most">
-                    <figure class="image-box">
-                      <a href="single-produtos.php">
-                        <img width="370" height="270" src="inc/img/mini-escavadeira-5500.jpg" class="img-responsive wp-post-image" alt="featured-image-1">
-                      </a>
-                    </figure>
+                  <figure class="image-box">
+                    <a href="single-produtos.php">
+                      <img width="370" height="270" src="inc/img/mini-escavadeira-5500.jpg" class="img-responsive wp-post-image" alt="featured-image-1">
+                    </a>
+                  </figure>
                   <div class="lower-part">
-                    <div class="left-curve"></div>
-                    <div class="right-curve"></div>
-                    
+                    <div class="left-curve">                      
+                    </div>
+                    <div class="right-curve">                      
+                    </div>                    
                     <div class="content">
                       <h3>Lorem Ipsum Dolor Sit Amet</h3>
                       <p>Máquinas Pesadas</p>
@@ -77,7 +78,7 @@
               </div>
           </div>
           
-          <div class="default-service-column col-4 imagemGaleria maquinasLeves">
+          <div class="default-service-column col-md-4 imagemGaleria maquinasLeves">
               <div class="inner-box">
                 <div class="inner-most">
                     <figure class="image-box">
@@ -101,7 +102,7 @@
               </div>
           </div> 
           
-          <div class="default-service-column col-4 imagemGaleria maquinasLeves">
+          <div class="default-service-column col-md-4 imagemGaleria maquinasLeves">
               <div class="inner-box">
                 <div class="inner-most">
                     <figure class="image-box">
@@ -125,7 +126,7 @@
               </div>
           </div>
 
-          <div class="default-service-column col-4 imagemGaleria maquinasPesadas">
+          <div class="default-service-column col-md-4 imagemGaleria maquinasPesadas">
               <div class="inner-box">
                 <div class="inner-most">
                     <figure class="image-box">
@@ -149,7 +150,7 @@
               </div>
           </div>
 
-          <div class="default-service-column col-4 imagemGaleria maquinasPesadas">
+          <div class="default-service-column col-md-4 imagemGaleria maquinasPesadas">
               <div class="inner-box">
                 <div class="inner-most">
                     <figure class="image-box">
@@ -173,7 +174,7 @@
               </div>
           </div> 
 
-          <div class="default-service-column col-4 imagemGaleria maquinasPesadas">
+          <div class="default-service-column col-md-4 imagemGaleria maquinasPesadas">
               <div class="inner-box">
                 <div class="inner-most">
                     <figure class="image-box">

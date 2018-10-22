@@ -1,5 +1,5 @@
 <!-- Footer-->
-<nav class="navbar navbar-expand-lg navbar-light bg-dark">     
+<nav class="navbar navbar-expand-lg navbar-light bg-dark" style="padding: 0">     
     <a href="index.php" class="d-block d-lg-none d-md-none"><img src="inc/img/logo-lafaete.png"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavFooter" aria-controls="navbarNavFooter" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -84,75 +84,4 @@
 <script src="<?php //bloginfo('template_url');?>node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="<?php //bloginfo('template_url');?>node_modules/main.js"></script>
-
-<script>
-    // funcão esconder menu ao scroll página
-    $(function(){   
-        var nav = $('#menu-principal'); 
-        var navTop = $('#menu-topo');  
-        $(window).scroll(function () { 
-        if ($(this).scrollTop() > 90) { 
-            //nav.removeClass("fixed-top");
-            nav.css('visibility','hidden');
-            navTop.css('visibility','hidden'); 
-            //navTop.addClass("invisible");
-        } else { 
-            //nav.addClass("fixed-top");
-            nav.css('visibility','visible');
-            navTop.css('visibility','visible'); 
-            //navTop.removeClass("invisible");
-        } 
-        });  
-    });
-</script>
-
-<script>
-    // funcão lightbox
-    $(function(){
-        $('.galeria-img a img').click(function(e) {
-            e.preventDefault();
-            let imagemGaleria = $(this);
-            let srcImagem = imagemGaleria.attr('src');
-
-            $('.lightBox').removeClass('esconder');
-            $('.lightBox').addClass('fadeIn animated');
-            $('.lightBox-content img').attr('src', srcImagem);          
-        });
-
-        $('.fecharBotao').click(function(){
-            $('.lightBox').removeClass('fadeIn animated');  
-            $('.lightBox').addClass('esconder');       
-        });
-
-        $(document).on('keyup',function(pressEsc) {
-            if (pressEsc.keyCode == 27) {
-                $('.lightBox').removeClass('fadeIn animated');  
-                $('.lightBox').addClass('esconder');  
-            }
-        });
-    });
-</script>
-
-
-<script>
-    //funcção do filtro pega o hash do link com nome da classe correspondente
-    //retira o hash para comparar com a classe do link da li com a classe no link da imagem
-    // tudo que não for a hash clicada ou não for todos, chama a classe para esconder
-    //senão remove a classe esconder
-    $(function(){
-        $('.menu-imoveis ul li a').click(function(e) {
-            e.preventDefault();
-            let a = $(this).attr('href');
-            a = a.substr(1);
-            $('.imagemGaleria').each(function() {
-                if (!$(this).hasClass(a) && a != 'todos'){
-                    $(this).addClass('esconder');
-                }                
-                else{
-                    $(this).removeClass('esconder');
-                }                
-            });
-        });
-    });
-</script>
 <?php wp_footer(); ?>

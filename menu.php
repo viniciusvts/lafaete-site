@@ -1,8 +1,8 @@
 <div class="container-fluid fixed-top topo-menu fixed-top" id="menu-topo">
   <div class="row">
-    <div class="col-md-11">
+    <div class="col-md-10">
       <ul>
-        <li>Canais de Atendimento: </li>
+        <li class="d-none d-sm-none ">Canais de Atendimento: </li>
         <li>
           <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
             <path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z" fill="#ffffff"/>
@@ -28,7 +28,14 @@
         </li>
       </ul>
     </div>
-    <div class="col-md-1 d-none d-sm-none">
+    <div class="col-md-1 col-lg-1 col-6">
+      <div class="social">
+          <a href=""><img src="inc/facebook-logo-button.svg" width="30px"></a>
+          <a href=""><img src="inc/instagram-logo.svg" width="30px"></a>
+          <a href=""><img src="inc/linkedin-button.svg" width="30px"></a>
+      </div>
+    </div>
+    <div class="col-md-1 col-lg-1 col-6">
       <img src="inc/img/br.png" class="idioma idioma-on">
       <img src="inc/img/en.png" class="idioma idioma-off">
     </div>
@@ -70,7 +77,7 @@
         <a class="nav-link" href="unidades.php">Unidades</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="clientes.php">Cliente</a>
+        <a class="nav-link" href="clientes.php">Clientes</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="atendimento.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -85,6 +92,16 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="blog.php">Blog</a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="atendimento.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Atendimento
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Eventos</a>
+          <a class="dropdown-item" href="index.php#projetos-especiais.php">Grandes Obras</a>
+        </div>
       </li>
     </ul>
     <!--<form class="form-inline my-2 my-lg-0">

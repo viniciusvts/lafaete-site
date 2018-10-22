@@ -39,7 +39,7 @@
                   </div>
                   <div class="col-md-4 formulario">
                       <input type="text" value="" name="s" id="s" placeholder="Digite seu email">
-                      <input class="btn" type="submit" id="searchsubmit" value="Assinar">    
+                      <input class="btn" type="submit" id="searchsubmit" value="Buscar">    
                   </div>
                   <div class="col-md-4">
                       <div class="blog-categorias">

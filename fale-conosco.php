@@ -46,10 +46,9 @@
                                 </div>
                                 <div class="col-md-4 div-select">
                                     <select>
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="mercedes">Mercedes</option>
-                                        <option value="audi">Audi</option>
+                                        <option value="volvo">Atendimento</option>
+                                        <option value="mercedes">Comercial</option>
+                                        <option value="audi">Vendas</option>
                                     </select>
                                 </div>
                             </div>
@@ -85,8 +84,6 @@
             </div>
         </form>
     </div>
-
-    <?php include_once("nossos-premios.php"); ?>
    
     <?php
     include_once('newsletter.php');

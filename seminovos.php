@@ -55,6 +55,7 @@
                             </div>
                             <p class="text-center">Unidade: Minas Gerais</p>
                         </div>
+                        <h3>Preço: R$290.000</h3>
                         <div class="more-link"><a href="taxonomy-categoria.php" class="read-more">Clique aqui</a></div>
                     </div>
                 </div>
@@ -64,8 +65,6 @@
         <?php } ?>
       </div>  
     </div>  
-
-    <?php include_once("nossos-premios.php"); ?>
    
     <?php
     include_once('newsletter.php');

@@ -80,10 +80,10 @@
 
     <?php include_once("nossos-premios.php"); ?>
 
-    <div class="container-fluid my-container projetos-recentes">
+    <div class="container-fluid my-container projetos-recentes" id="projetos-especiais">
       <div class="container">
         <div class="cabecalho">
-          <h2>Projeto Recentes</h2>
+          <h2>Grandes Obras</h2>
           <span></span> 
           <p>Lorem ipsum dolor sit amet, sed platonem erroribus ut. Vix homero partem ut, quem doming philosophia eam no. Vis perpetua partiendo an, vim te natum intellegam. Viderer commune gloriatur mel ea, no decore corrumpit mel. Ex fastidii disputationi mel.</p>      
         </div>
