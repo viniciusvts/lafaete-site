@@ -8,21 +8,24 @@
     <div class="carousel-inner carousel-caption-expand-height">
       <div class="carousel-item active">
         <div class="carousel-caption">
-          <h1>As melhores soluções em Light Steel Frame</h1>         
+          <h1>As melhores soluções em Light Steel Frame</h1>
+          <p>Lorem ipsum dolor sit amet, mei rebum tamquam percipit cu. An meliore rationibus est. Pro primis bonorum oportere no, patrioque vulputate intellegam ut duo.</p>      
           <button class="btn btn-laranja">Conheça nossas opções</button>
         </div>
         <img class="d-block w-100" src="inc/img/slider-construcao.jpg" alt="First slide">
       </div>
       <div class="carousel-item">
         <div class="carousel-caption">
-          <h1>As melhores soluções em Light Steel Frame</h1>           
+          <h1>As melhores soluções em Light Steel Frame</h1>  
+          <p>Lorem ipsum dolor sit amet, mei rebum tamquam percipit cu. An meliore rationibus est. Pro primis bonorum oportere no, patrioque vulputate intellegam ut duo.</p>         
           <button class="btn btn-laranja">Conheça nossas opções</button>
         </div>
         <img class="d-block w-100" src="inc/img/slider-construcao.jpg" alt="First slide">
       </div>
       <div class="carousel-item">
         <div class="carousel-caption">
-          <h1>As melhores soluções em Light Steel Frame</h1>           
+          <h1>As melhores soluções em Light Steel Frame</h1>
+          <p>Lorem ipsum dolor sit amet, mei rebum tamquam percipit cu. An meliore rationibus est. Pro primis bonorum oportere no, patrioque vulputate intellegam ut duo.</p>          
           <button class="btn btn-laranja">Conheça nossas opções</button>
         </div>
         <img class="d-block w-100" src="inc/img/slider-construcao.jpg" alt="First slide">

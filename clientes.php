@@ -78,7 +78,9 @@
             </div>
         </div>
     </div>
-       
+
+    <?php include_once("depoimentos.php"); ?>
+
     <?php
     include_once('newsletter.php');
     include_once('footer.php');

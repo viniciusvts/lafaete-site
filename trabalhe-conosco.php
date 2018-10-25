@@ -44,13 +44,13 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-3">
-                                    <input placeholder="Telefone" type="email">
+                                <div class="col-md-4">
+                                    <input placeholder="Telefone" type="text">
                                 </div>
-                                <div class="col-md-3">
-                                    <input placeholder="Email*" type="text">
+                                <div class="col-md-4">
+                                    <input placeholder="Email*" type="email">
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <input placeholder="Linkedin*" type="text">
                                 </div>
                             </div>

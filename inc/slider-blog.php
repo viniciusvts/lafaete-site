@@ -38,7 +38,7 @@
                       <p> Home » Produtos </p>
                   </div>
                   <div class="col-md-4 formulario">
-                      <input type="text" value="" name="s" id="s" placeholder="Digite seu email">
+                      <input type="text" value="" name="s" id="s" placeholder="Digite aqui">
                       <input class="btn" type="submit" id="searchsubmit" value="Buscar">    
                   </div>
                   <div class="col-md-4">
@@ -48,7 +48,9 @@
                               <path d="M24,11c0-0.6-0.4-1-1-1H1c-0.6,0-1,0.4-1,1v2c0,0.6,0.4,1,1,1h22c0.6,0,1-0.4,1-1V11z"/>
                               <path d="M24,19c0-0.6-0.4-1-1-1H1c-0.6,0-1,0.4-1,1v2c0,0.6,0.4,1,1,1h22c0.6,0,1-0.4,1-1V19z"/>                    
                           </svg>
-                      <p>Ver Categorias</p>  
+                            <a href="#">
+                                <p data-toggle="modal" data-target="#exampleModalLong">Ver Categorias</p> 
+                            </a> 
                       </div> 
                   </div>
               </div>  
@@ -56,3 +58,26 @@
       </div>
     </div>
     <!-- SLIDER -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Categorias</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li><a href="">Catetoria 1</a></li>
+                        <li><a href="">Catetoria 1</a></li>
+                        <li><a href="">Catetoria 1</a></li>
+                        <li><a href="">Catetoria 1</a></li>
+                        <li><a href="">Catetoria 1</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -54,7 +54,7 @@
       <li class="nav-item">
         <a class="nav-link" href="sobre.php">A Lafaete</a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="produtos.php">Produtos<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
@@ -96,11 +96,12 @@
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="atendimento.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Atendimento
+          Projetos
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Eventos</a>
-          <a class="dropdown-item" href="index.php#projetos-especiais.php">Grandes Obras</a>
+          <a class="dropdown-item" href="taxonomy-eventos.php">Eventos</a>
+          <a class="dropdown-item" href="grandes-obras.php">Grandes Obras</a>
+          <a class="dropdown-item" href="projetos-sociais.php">Projetos Sociais</a>
         </div>
       </li>
     </ul>

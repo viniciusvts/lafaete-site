@@ -55,7 +55,8 @@
                     <div class="left-curve"></div>
                     <div class="right-curve"></div>                    
                     <div class="content">
-                      <h3>Lorem Ipsum Dolor Sit Amet</h3>
+                      <h3>Máquina</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                       <div class="more-link"><a href="taxonomy-categoria.php" class="read-more">Clique aqui</a></div>
                     </div>
                 </div>

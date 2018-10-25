@@ -17,8 +17,6 @@
           <img class="d-block w-100" src="inc/img/slider-construcao.jpg" alt="First slide">
         </div>
       </div>
-      <div class="container floater-destaque">
-    </div>
     </div>
     <div id="produtos">
       <div class="container produto-floater">

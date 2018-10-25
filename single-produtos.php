@@ -9,12 +9,12 @@
 
     <!-- SLIDER -->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner carousel-flat-height">
+      <div class="carousel-inner">
         <div class="carousel-item active">
-          <div class="carousel-caption carousel-caption-flat-height d-none d-md-block">
+          <div class="carousel-caption d-none d-md-block">
             <h1>Retroescavadeira</h1>
           </div>
-          <img class="d-block w-100" src="inc/img/slider-construcao.jpg" alt="First slide">
+          <img class="d-block w-100" src="inc/img/trator-new-holland-premio-do-ano.jpg" alt="First slide">
         </div>
       </div>
 
@@ -38,12 +38,37 @@
                             <path d="M24,11c0-0.6-0.4-1-1-1H1c-0.6,0-1,0.4-1,1v2c0,0.6,0.4,1,1,1h22c0.6,0,1-0.4,1-1V11z"/>
                             <path d="M24,19c0-0.6-0.4-1-1-1H1c-0.6,0-1,0.4-1,1v2c0,0.6,0.4,1,1,1h22c0.6,0,1-0.4,1-1V19z"/>                    
                         </svg>
-                    <p>Ver Categorias</p>  
+                        <a href="#">
+                            <p data-toggle="modal" data-target="#exampleModalLong">Ver Categorias</p> 
+                        </a> 
                     </div> 
                 </div>
             </div>  
         </div>    
       </div>      
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Categorias</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li><a href="">Catetoria 1</a></li>
+                        <li><a href="">Catetoria 1</a></li>
+                        <li><a href="">Catetoria 1</a></li>
+                        <li><a href="">Catetoria 1</a></li>
+                        <li><a href="">Catetoria 1</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="produtos">
@@ -70,78 +95,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="container-fluid produtos-container especificacoes-produtos">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <div class="cabecalho">
-              <h2>Especificações Técnicas</h2>
-              <span></span> 
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col col-especificacoes">         
-            <div class="circulo"><p class="text-center">JCB</p></div>
-            <h5 class="text-center">Marca</h5>
-          </div>
-
-          <div class="col col-especificacoes">         
-            <div class="circulo"><p class="text-center">3C</p></div>
-            <h5 class="text-center">Modelo</h5>
-          </div>
-
-          <div class="col col-especificacoes">         
-            <div class="circulo"><p class="text-center">92 HP (4x4)</p></div>
-            <h5 class="text-center">Potência</h5>
-          </div>
-
-          <div class="col col-especificacoes">         
-            <div class="circulo"><p class="text-center">Caçamba 1m³</p></div>
-            <h5 class="text-center">Capacidade</h5>
-          </div>
-
-          <div class="col col-especificacoes">         
-            <div class="circulo"><p class="text-center">7t</p></div>
-            <h5 class="text-center">Peso Operacional</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!--
-    <div class="lightBox">
-      <span class="fecharBotao">&times;</span>
-      <svg id="anterior" width="50px" height="50px" enable-background="new 0 0 405.456 405.456" version="1.1" viewBox="0 0 405.456 405.456" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-        <path d="m341.31 74.135c-0.078-4.985-2.163-9.911-5.688-13.438l-55-55c-3.599-3.601-8.659-5.697-13.75-5.697s-10.151 2.096-13.75 5.697l-183.28 183.28c-3.601 3.599-5.697 8.659-5.697 13.75s2.096 10.151 5.697 13.75l183.28 183.28c3.599 3.601 8.659 5.697 13.75 5.697s10.151-2.096 13.75-5.697l55-55c3.591-3.598 5.681-8.651 5.681-13.734s-2.09-10.136-5.681-13.734l-114.56-114.56 114.56-114.56c3.665-3.667 5.765-8.848 5.688-14.031z" fill="#fff"/>
-      </svg>         
-      <div class="lightBox-content">
-        <img src="" class="img-fluid rounded"/>
-      </div>
-      <svg id="seguinte" width="50px" height="50px" enable-background="new 0 0 405.457 405.457" version="1.1" viewBox="0 0 405.457 405.457" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-        <path d="m64.147 331.32c0.078 4.985 2.163 9.911 5.688 13.438l55 55c3.599 3.601 8.659 5.697 13.75 5.697s10.151-2.096 13.75-5.697l183.28-183.28c3.601-3.599 5.697-8.659 5.697-13.75s-2.096-10.151-5.697-13.75l-183.28-183.28c-3.599-3.601-8.659-5.697-13.75-5.697s-10.151 2.096-13.75 5.697l-55 55c-3.591 3.598-5.681 8.651-5.681 13.734s2.09 10.136 5.681 13.734l114.56 114.56-114.56 114.56c-3.664 3.667-5.765 8.848-5.688 14.031z" fill="#fff"/>
-      </svg>
-    </div>-->
-
-    <div id="carousel" class="lightBox">
-      <span class="fecharBotao">&times;</span>
-      <svg id="prev" width="50px" height="50px" enable-background="new 0 0 405.456 405.456" version="1.1" viewBox="0 0 405.456 405.456" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-        <path d="m341.31 74.135c-0.078-4.985-2.163-9.911-5.688-13.438l-55-55c-3.599-3.601-8.659-5.697-13.75-5.697s-10.151 2.096-13.75 5.697l-183.28 183.28c-3.601 3.599-5.697 8.659-5.697 13.75s2.096 10.151 5.697 13.75l183.28 183.28c3.599 3.601 8.659 5.697 13.75 5.697s10.151-2.096 13.75-5.697l55-55c3.591-3.598 5.681-8.651 5.681-13.734s-2.09-10.136-5.681-13.734l-114.56-114.56 114.56-114.56c3.665-3.667 5.765-8.848 5.688-14.031z" fill="#fff"/>
-      </svg>  
-      <div id="itens">
-        <ul>                
-          <li><div class="item"><img src="inc/img/trator-new-holland-premio-do-ano.jpg" class="img-responsive wp-post-image" alt="featured-image-1"></div></li>
-          <li><div class="item"><img src="inc/img/trator-new-holland-premio-do-ano.jpg" class="img-responsive wp-post-image" alt="featured-image-1"></div></li>
-          <li><div class="item"><img src="inc/img/trator-new-holland-premio-do-ano.jpg" class="img-responsive wp-post-image" alt="featured-image-1"></div></li>
-          <li><div class="item"><img src="inc/img/trator-new-holland-premio-do-ano.jpg" class="img-responsive wp-post-image" alt="featured-image-1"></div></li>
-        </ul>
-      </div>
-
-      <svg id="next" width="50px" height="50px" enable-background="new 0 0 405.457 405.457" version="1.1" viewBox="0 0 405.457 405.457" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-        <path d="m64.147 331.32c0.078 4.985 2.163 9.911 5.688 13.438l55 55c3.599 3.601 8.659 5.697 13.75 5.697s10.151-2.096 13.75-5.697l183.28-183.28c3.601-3.599 5.697-8.659 5.697-13.75s-2.096-10.151-5.697-13.75l-183.28-183.28c-3.599-3.601-8.659-5.697-13.75-5.697s-10.151 2.096-13.75 5.697l-55 55c-3.591 3.598-5.681 8.651-5.681 13.734s2.09 10.136 5.681 13.734l114.56 114.56-114.56 114.56c-3.664 3.667-5.765 8.848-5.688 14.031z" fill="#fff"/>
-      </svg>
     </div>
 
     <div class="container">
@@ -193,7 +146,27 @@
     </div>  
 
     <?php include_once("nossos-premios.php"); ?>
-   
+
+    <!--LIGHTBOX-->
+    <div id="carousel" class="lightBox">
+      <span class="fecharBotao">&times;</span>
+      <svg id="prev" width="50px" height="50px" enable-background="new 0 0 405.456 405.456" version="1.1" viewBox="0 0 405.456 405.456" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+        <path d="m341.31 74.135c-0.078-4.985-2.163-9.911-5.688-13.438l-55-55c-3.599-3.601-8.659-5.697-13.75-5.697s-10.151 2.096-13.75 5.697l-183.28 183.28c-3.601 3.599-5.697 8.659-5.697 13.75s2.096 10.151 5.697 13.75l183.28 183.28c3.599 3.601 8.659 5.697 13.75 5.697s10.151-2.096 13.75-5.697l55-55c3.591-3.598 5.681-8.651 5.681-13.734s-2.09-10.136-5.681-13.734l-114.56-114.56 114.56-114.56c3.665-3.667 5.765-8.848 5.688-14.031z" fill="#fff"/>
+      </svg>  
+      <div id="itens">
+        <ul>                
+          <li><div class="item"><img src="inc/img/trator-new-holland-premio-do-ano.jpg" class="img-responsive wp-post-image" alt="featured-image-1"></div></li>
+          <li><div class="item"><img src="inc/img/trator-new-holland-premio-do-ano.jpg" class="img-responsive wp-post-image" alt="featured-image-1"></div></li>
+          <li><div class="item"><img src="inc/img/trator-new-holland-premio-do-ano.jpg" class="img-responsive wp-post-image" alt="featured-image-1"></div></li>
+          <li><div class="item"><img src="inc/img/trator-new-holland-premio-do-ano.jpg" class="img-responsive wp-post-image" alt="featured-image-1"></div></li>
+        </ul>
+      </div>
+
+      <svg id="next" width="50px" height="50px" enable-background="new 0 0 405.457 405.457" version="1.1" viewBox="0 0 405.457 405.457" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+        <path d="m64.147 331.32c0.078 4.985 2.163 9.911 5.688 13.438l55 55c3.599 3.601 8.659 5.697 13.75 5.697s10.151-2.096 13.75-5.697l183.28-183.28c3.601-3.599 5.697-8.659 5.697-13.75s-2.096-10.151-5.697-13.75l-183.28-183.28c-3.599-3.601-8.659-5.697-13.75-5.697s-10.151 2.096-13.75 5.697l-55 55c-3.591 3.598-5.681 8.651-5.681 13.734s2.09 10.136 5.681 13.734l114.56 114.56-114.56 114.56c-3.664 3.667-5.765 8.848-5.688 14.031z" fill="#fff"/>
+      </svg>
+    </div>
+
     <?php
     include_once('newsletter.php');
     include_once('footer.php');
