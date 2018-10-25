@@ -72,7 +72,7 @@
     </div>
 
     <div id="produtos">
-      <div class="container-fluid produto-floater">
+      <div class="container produto-floater">
         <div class="row">
           <div class="col-md-8 texto">
             <div class="container">
