@@ -30,9 +30,9 @@
     </div>
     <div class="col-md-1 col-lg-1 col-6">
       <div class="social">
-          <a href=""><img src="inc/facebook-logo-button.svg" width="30px"></a>
-          <a href=""><img src="inc/instagram-logo.svg" width="30px"></a>
-          <a href=""><img src="inc/linkedin-button.svg" width="30px"></a>
+          <a href="https://www.facebook.com/lafaetelocacao" target="_blank"><img src="inc/facebook-logo-button.svg" width="30px"></a>
+          <a href="https://www.instagram.com/lafaetelocacao/" target="_blank"><img src="inc/instagram-logo.svg" width="30px"></a>
+          <a href="https://pt.linkedin.com/company/lafaete-loca-es-de-equipamentos" target="_blank"><img src="inc/linkedin-button.svg" width="30px"></a>
       </div>
     </div>
     <div class="col-md-1 col-lg-1 col-6">

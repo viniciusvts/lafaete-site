@@ -11,7 +11,7 @@
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <div class="carousel-caption d-none d-md-block">
+          <div class="carousel-caption">
             <h1>Retroescavadeira</h1>
           </div>
           <img class="d-block w-100" src="inc/img/trator-new-holland-premio-do-ano.jpg" alt="First slide">
@@ -144,9 +144,7 @@
         <?php } ?>
       </div>  
     </div>  
-
-    <?php include_once("nossos-premios.php"); ?>
-
+    
     <!--LIGHTBOX-->
     <div id="carousel" class="lightBox">
       <span class="fecharBotao">&times;</span>

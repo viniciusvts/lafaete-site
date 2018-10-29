@@ -188,8 +188,6 @@
       </div>  
     </div>  
 
-    <?php include_once("nossos-premios.php"); ?>
-
     <!--LIGHTBOX-->
     <div id="carousel" class="lightBox">
       <span class="fecharBotao">&times;</span>
