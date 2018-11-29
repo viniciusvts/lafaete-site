@@ -1,4 +1,4 @@
-    <div class="fale-conosco">
+    <div class="fale-conosco" id="faca-um-orcamento">
       <div class="container-fluid">
         <div class="cabecalho">
           <h2>Faça um orçamento</h2>
@@ -45,7 +45,7 @@
                         </div>
                         <div class="col-md-12">
                             <h4>Produtos Desejados</h4>
-                            <?php for($produtos = 0; $produtos < 9; $produtos++){ ?>
+                            <?php for($produtos = 0; $produtos < 8; $produtos++){ ?>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                                 <label class="form-check-label" for="inlineRadio1">Caçambas</label>

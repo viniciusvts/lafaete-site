@@ -23,7 +23,7 @@
     <div class="fale-conosco">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-12">
                     <div class="fale-conosco-left">
                         <div class="bread">
                             <svg class="svg-inline--fa fa-home fa-w-18" aria-hidden="true" data-icon="home" data-prefix="fas" role="img" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
@@ -50,7 +50,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-12">
                     <?php include_once("inc/faca-um-orcamento.php"); ?>
                 </div>
             </div>

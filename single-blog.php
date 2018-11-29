@@ -104,65 +104,7 @@
                 <li style="font-weight: 400;"><span style="font-weight: 400;">Conhecer os períodos de manutenção de cada modelo.</span></li>
                 </ul>
                 <p>&nbsp;</p>
-                <div id="newsletter-lafaete-cfc4eda92432b3a6728e" role="main"><section id="form-newsletter-lafaete-cfc4eda92432b3a6728e">
-                <div id="form-container-newsletter-lafaete-cfc4eda92432b3a6728e" class="cleanslate">
-                    <div id="conversion-newsletter-lafaete-cfc4eda92432b3a6728e" class="wrapper">
-                        <header>
-                        <hgroup>
-                            <h1>Está gostando do artigo?</h1>
-                            <h2>Assine a nossa newsletter e receba conteúdos direto no seu e-mail</h2>
-                        </hgroup>
-                        </header>
-                    <section>
-                <form id="conversion-form-newsletter-lafaete-cfc4eda92432b3a6728e" action="https://www.rdstation.com.br/api/1.2/conversions" method="POST" data-internal-rdstation-form="" data-form-autofill="">
-
-                    <input type="hidden" name="token_rdstation" value="81ce3cf25ae83d4eb7f490b0b251f5e4">
-                    <input type="hidden" name="identificador" value="newsletter-lafaete">
-                    <input type="hidden" name="_is" value="6">
-                    <input type="hidden" name="redirect_to" value="">
-                    <input type="hidden" name="c_utmz" value="">
-                    <input type="hidden" name="traffic_source" value="">
-                    <input type="hidden" name="client_id" value="">
-                    <input type="hidden" name="thankyou_message" value="Obrigado!" disabled="">
-                    
-
-                    <div id="error-container-newsletter-lafaete-cfc4eda92432b3a6728e" class="hide">
-                    <p>Preencha corretamente os campos marcados</p>
-                    </div>
-
-                    <div class="field"><input type="text" name="name" id="name" value="" class="form-control required js-text" placeholder="Nome*" required="required"></div>
-                <div class="field"><input type="email" name="email" id="email" value="" class="form-control required js-email" placeholder="Email*" required="required"></div>
-
-                    <div class="actions">
-                    <input type="submit" class="call_button" id="cf_submit-newsletter-lafaete-cfc4eda92432b3a6728e" value="Receber conteúdos em primeira mão">
-                    <img src="//d335luupugsy2.cloudfront.net/images/ajax-loader.gif" id="ajax-loader-newsletter-lafaete-cfc4eda92432b3a6728e" class="hide" alt="#{Enviando...}">
-                    </div>
-
-                    <p class="notice">Não se preocupe, seus dados estarão seguros conosco.</p>
-
-                    <div style="position: fixed!important; left: -5000px!important;">
-                    <input type="text" name="emP7yF13ld" readonly="" autocomplete="false" tabindex="-1" value="">
-                    <input type="text" name="sh0uldN07ch4ng3" readonly="" autocomplete="false" tabindex="-1" value="should_not_change">
-                    </div>
-                </form>
-                </section>
-
-                <script>
-                document.querySelectorAll('input[name=emP7yF13ld],input[name=sh0uldN07ch4ng3]').forEach(function(element) {
-                    element.addEventListener('focus', function(e) {
-                    e.target.removeAttribute('readonly');
-                    });
-                });
-                </script>
-
-
-                    </div>
-                </div>
-                </section></div>
-                <p><script type="text/javascript" src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js"></script><br>
-                <script type="text/javascript">
-                new RDStationForms('newsletter-lafaete-cfc4eda92432b3a6728e-html', 'UA-34414227-1').createForm();
-                </script></p>
+                
                 <h2><span style="font-weight: 400;">Tipos de estruturas metálicas</span></h2>
                 <p><span style="font-weight: 400;">Há uma variedade de modelos para as ligas e peças de aço, escolher o que melhor se adequa ao seu projeto é uma ação que deve ser analisada por profissionais e empresas qualificadas. </span></p>
                 <p><span style="font-weight: 400;">Cada segmento é destinado a um objetivo de projeto, levando em conta a durabilidade do empreendimento, o tipo de negócio e a exposição.</span></p>
@@ -192,20 +134,20 @@
                 <h3><strong>Maior evento esportivo do mundo</strong></h3>
                 <p><span style="font-weight: 400;">Para o maior evento esportivo do mundo que aconteceu no Rio de Janeiro em 2016, foram necessários 1.060 módulos habitacionais para a organização e montagem do evento. Toda estrutura foi produzida pela </span><a href="http://lafaetelocacao.com.br/" target="_blank" rel="noopener"><span style="font-weight: 400;">empresa de estrutura metálica</span></a><span style="font-weight: 400;"> Lafaete. </span></p>
                 <p><span style="font-weight: 400;">Entre os módulos, estavam locações para: escritórios, refeitórios, cozinhas em container, vestiários, módulos de enfermagem, área de bombeiros, sanitários comuns e PNE (Portadores de Deficiência Física).</span></p>
-                <p><img class="wp-image-2328 aligncenter" src="http://www.lafaetelocacao.com.br/wp-content/uploads/2018/03/Canteiro-Administrativo-300915-165446-1-1024x682.jpg" alt="" width="600" height="399" srcset="http://www.lafaetelocacao.com.br/wp-content/uploads/2018/03/Canteiro-Administrativo-300915-165446-1-1024x682.jpg 1024w, http://www.lafaetelocacao.com.br/wp-content/uploads/2018/03/Canteiro-Administrativo-300915-165446-1-300x200.jpg 300w, http://www.lafaetelocacao.com.br/wp-content/uploads/2018/03/Canteiro-Administrativo-300915-165446-1-768x511.jpg 768w" sizes="(max-width: 600px) 100vw, 600px"></p>
-                <p><img class="wp-image-2396 aligncenter" src="http://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/projetos-de-containers-banheiro-olimpiadas-1024x576.jpg" alt="projetos de containers banheiro olimpiadas" width="600" height="338" srcset="http://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/projetos-de-containers-banheiro-olimpiadas-1024x576.jpg 1024w, http://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/projetos-de-containers-banheiro-olimpiadas-300x169.jpg 300w, http://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/projetos-de-containers-banheiro-olimpiadas-768x432.jpg 768w" sizes="(max-width: 600px) 100vw, 600px"></p>
+                <p><img class="wp-image-2328 aligncenter" src="https://www.lafaetelocacao.com.br/wp-content/uploads/2018/03/Canteiro-Administrativo-300915-165446-1-1024x682.jpg" alt="" width="600" height="399" srcset="http://www.lafaetelocacao.com.br/wp-content/uploads/2018/03/Canteiro-Administrativo-300915-165446-1-1024x682.jpg 1024w, http://www.lafaetelocacao.com.br/wp-content/uploads/2018/03/Canteiro-Administrativo-300915-165446-1-300x200.jpg 300w, http://www.lafaetelocacao.com.br/wp-content/uploads/2018/03/Canteiro-Administrativo-300915-165446-1-768x511.jpg 768w" sizes="(max-width: 600px) 100vw, 600px"></p>
+                <p><img class="wp-image-2396 aligncenter" src="https://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/projetos-de-containers-banheiro-olimpiadas-1024x576.jpg" alt="projetos de containers banheiro olimpiadas" width="600" height="338" srcset="http://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/projetos-de-containers-banheiro-olimpiadas-1024x576.jpg 1024w, http://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/projetos-de-containers-banheiro-olimpiadas-300x169.jpg 300w, http://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/projetos-de-containers-banheiro-olimpiadas-768x432.jpg 768w" sizes="(max-width: 600px) 100vw, 600px"></p>
                 <h3><strong>Hotel Lagoa </strong></h3>
                 <p><span style="font-weight: 400;">Exemplo como o do Hotel Lagoa mostra o sistema composto da utilização da estrutura metálica Light Steel Frame associado ao concreto ou cimento. </span></p>
                 <p><span style="font-weight: 400;">Esse sistema é conhecido como construção híbrida ou mista, permite rápida conclusão no processo da obra e economia na utilização das matérias-primas originais da construção por alvenaria.</span></p>
-                <p><img class="aligncenter wp-image-2515" src="http://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/hotel-lagoa-1024x768.jpg" alt="Hotel Lagoa" width="600" height="450" srcset="http://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/hotel-lagoa-1024x768.jpg 1024w, http://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/hotel-lagoa-300x225.jpg 300w, http://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/hotel-lagoa-768x576.jpg 768w, http://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/hotel-lagoa.jpg 1600w" sizes="(max-width: 600px) 100vw, 600px"></p>
+                <p><img class="aligncenter wp-image-2515" src="https://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/hotel-lagoa-1024x768.jpg" alt="Hotel Lagoa" width="600" height="450" srcset="http://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/hotel-lagoa-1024x768.jpg 1024w, http://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/hotel-lagoa-300x225.jpg 300w, http://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/hotel-lagoa-768x576.jpg 768w, http://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/hotel-lagoa.jpg 1600w" sizes="(max-width: 600px) 100vw, 600px"></p>
                 <h3><span style="font-weight: 400;"><strong>Escolas, galpões, postos de saúde e restaurantes</strong> </span></h3>
                 <p><span style="font-weight: 400;">Empreendimentos como esses indicam a utilização das estruturas metálicas em &nbsp;projetos de pequeno e médio porte. </span></p>
                 <p><span style="font-weight: 400;">Como vimos, não há dimensões exatas na utilização desse sistema, visto que ele é definido junto com o cliente durante o planejamento do projeto. &nbsp;</span></p>
                 <p><span style="font-weight: 400;">A variedade e personalização do projeto mostram como as estruturas podem ser facilmente adaptadas ao que você deseja, </span><a href="http://www.lafaetelocacao.com.br/atendimento/fale-conosco/" target="_blank" rel="noopener"><span style="font-weight: 400;">clique aqui</span></a><span style="font-weight: 400;"> para conversamos sobre o que podemos fazer pelo seu projeto.</span></p>
-                <p><span style="font-weight: 400;">Gostou dos projetos apresentados? </span><a href="http://www.lafaetelocacao.com.br/artigos/projetos-de-containers/" target="_blank" rel="noopener"><span style="font-weight: 400;">Confira também os 9 empreendimentos brasileiros utilizando container</span></a><span style="font-weight: 400;">, aproveite as inspirações e capriche nas ideias.</span></p>
+                <p><span style="font-weight: 400;">Gostou dos projetos apresentados? </span><a href="https://www.lafaetelocacao.com.br/artigos/projetos-de-containers/" target="_blank" rel="noopener"><span style="font-weight: 400;">Confira também os 9 empreendimentos brasileiros utilizando container</span></a><span style="font-weight: 400;">, aproveite as inspirações e capriche nas ideias.</span></p>
                 <p><span style="font-weight: 400;">Implante a estrutura metálica ao seu projeto!</span></p>
                 <p><span style="font-weight: 400;"><img class="aligncenter wp-image-1029" src="http://www.lafaetelocacao.com.br/wp-content/uploads/2017/07/escola-1024x768.jpg" alt="Escola feita de container" width="600" height="450" srcset="http://www.lafaetelocacao.com.br/wp-content/uploads/2017/07/escola-1024x768.jpg 1024w, http://www.lafaetelocacao.com.br/wp-content/uploads/2017/07/escola-300x225.jpg 300w, http://www.lafaetelocacao.com.br/wp-content/uploads/2017/07/escola-768x576.jpg 768w" sizes="(max-width: 600px) 100vw, 600px"></span></p>
-                <p><img class="wp-image-2502 aligncenter" src="http://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/parada-do-espeto-externo.jpg" alt="Parte externa da lanchonete Parada do Espeto" width="600" height="434" srcset="http://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/parada-do-espeto-externo.jpg 597w, http://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/parada-do-espeto-externo-300x217.jpg 300w" sizes="(max-width: 600px) 100vw, 600px"></p>
+                <p><img class="wp-image-2502 aligncenter" src="https://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/parada-do-espeto-externo.jpg" alt="Parte externa da lanchonete Parada do Espeto" width="600" height="434" srcset="http://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/parada-do-espeto-externo.jpg 597w, http://www.lafaetelocacao.com.br/wp-content/uploads/2018/07/parada-do-espeto-externo-300x217.jpg 300w" sizes="(max-width: 600px) 100vw, 600px"></p>
                 <h2><span style="font-weight: 400;">Conheça a Lafaete, soluções em estrutura metálica</span></h2>
                 <p><span style="font-weight: 400;">A maioria dos projetos apresentados aqui foram desenvolvidos na empresa de estrutura metálica </span><a href="http://lafaetelocacao.com.br" target="_blank" rel="noopener"><span style="font-weight: 400;">Lafaete</span></a><span style="font-weight: 400;">. </span></p>
                 <p><span style="font-weight: 400;">Com 45 anos no mercado de soluções construtivas, desenvolvemos projetos para venda ou locação de estruturas metálicas, assim como equipamentos, caçambas, torres de iluminação, sombreadores, geradores de energia, tendas e consultoria em gestão ambiental. </span></p>

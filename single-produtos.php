@@ -86,7 +86,7 @@
               A máquina conta a configuração do braço e lança de longo alcance que possibilitam melhor utilização em escavações profundas. A locação da retroescavadeira é indicada para escavação de grande porte, abertura de valas, nivelamento e carregamento de caminhão em terreno firme e seco.
               A Retroescavadeira conta com os seguintes acessórios que acrescentam em seu desempenho
               Rompedor Hidráulico: ideal para romper concretos e resíduos sólidos.</p>
-              <button class="btn">Faça um orçamento agora</button>
+              <a href="#faca-um-orcamento"><button class="btn">Faça um orçamento agora</button></a>
             </div>
           </div>
           <div class="col-md-4 pagamento">
@@ -166,6 +166,7 @@
     </div>
 
     <?php
+    include_once('inc/form-orcamento.php');
     include_once('newsletter.php');
     include_once('footer.php');
     ?>

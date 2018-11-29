@@ -24,7 +24,7 @@
 
     <title>Lafaete Locação de Equipamentos</title> 
 
-    <link rel="stylesheet" href="<?php //bloginfo('template_url');?>node_modules/main.css">  
+    <link rel="stylesheet" href="<?php //bloginfo('template_url');?>node_modules/main.css">
 
     <?php
     //wp_head();

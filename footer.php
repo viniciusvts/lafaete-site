@@ -59,11 +59,11 @@
                     <div class="col-md-2">
                         <h3>Atendimento</h3>
                         <ul>
-                            <a href=""><li>Fale Conosco</li>
-                            <a href=""><li>Orçamento</li>
-                            <a href=""><li>Trabalhe conosco</li>
-                            <a href=""><li>Abertura de chamado</li>
-                            <a href=""><li>Vendas</li>
+                            <a href=""><li>Fale Conosco</li></a>
+                            <a href=""><li>Orçamento</li></a>
+                            <a href=""><li>Trabalhe conosco</li></a>
+                            <a href=""><li>Abertura de chamado</li></a>
+                            <a href=""><li>Vendas</li></a>
                         </ul>
                     </div>
                 </div>  
@@ -84,4 +84,5 @@
 <script src="<?php //bloginfo('template_url');?>node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="<?php //bloginfo('template_url');?>node_modules/main.js"></script>
-<?php wp_footer(); ?>
+<script src="<?php //bloginfo('template_url');?>node_modules/slider.js"></script>
+<?php //wp_footer(); ?>

@@ -9,22 +9,21 @@
                             <span></span>                     
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-8">
                                 <input placeholder="Empresa*" type="text">
                             </div>
-
-                            <div class="col-md-12 div-select">
+                            <div class="col-md-4 div-select">
                                 <input placeholder="CNPJ*" type="text">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <input placeholder="Nome*" type="text">
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-2">
                                 <input placeholder="Telefone*" type="text">
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <input placeholder="Email*" type="text">
                             </div>
                         </div>
@@ -55,7 +54,6 @@
                                 <input placeholder="Local da sua Obra*" type="text">
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col">
                                 <textarea rows="4" cols="50" placeholder="Informações Adicionais"></textarea> 
