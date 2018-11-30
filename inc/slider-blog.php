@@ -5,11 +5,11 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       </ol>
-      <div class="carousel-inner">
+      <div class="carousel-inner ">
         <div class="carousel-item active">
           <img class="d-block w-100" src="inc/img/estrutura-metalica.jpg" alt="First slide" style="filter: brightness(100%); -webkit-filter brightness(100%);">
         </div>
-        <div class="carousel-item">
+        <div class="carousel-item ">
           <div class="carousel-caption">
           </div>
           <img class="d-block w-100" src="inc/img/estrutura-metalica.jpg" alt="First slide" style="filter: brightness(100%); -webkit-filter brightness(100%);">

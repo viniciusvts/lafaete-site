@@ -11,7 +11,7 @@
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner carousel-flat-height">
         <div class="carousel-item active">
-          <div class="carousel-caption carousel-caption-flat-height d-none d-md-block">
+          <div class="carousel-caption carousel-caption-flat-height">
             <h1>A Lafaete</h1>
           </div>
           <img class="d-block w-100" src="inc/img/modulo-destaque.jpg" alt="First slide">
@@ -83,22 +83,27 @@
           </div>
 
           <div class="col-6 col-md-3">        
-            <img class="d-block w-100 rounded" src="inc/img/logo-MBI.jpg" alt="Second slide">  
+            <img class="d-block w-100 rounded" src="inc/img/terceiro-premio-de-enegenharias.jpg" alt="Second slide">  
             <h3>Prêmio – Top Engenharias</h3>
             <p>Destaque: prestadora de serviços às Engenharias – Caçamba Coletora Entulho. Instituto: AEAEE – UFMG – Associação dos ex-alunos da Escola de Engenharia.</p>
           </div>
           <div class="col-6 col-md-3">        
-            <img class="d-block w-100 rounded" src="inc/img/logo-MBI.jpg" alt="Second slide">  
+            <img class="d-block w-100 rounded" src="inc/img/premio-top-quality-brasil.jpg" alt="Second slide">  
             <h3>Prêmio – Top of Quality Brazil</h3>
             <p>Destaque na locação de caçambas e contêineres pelo Instituto OPB – Ordem dos Parlamentares do Brasil.</p>
           </div>
           <div class="col-6 col-md-3">        
-            <img class="d-block w-100 rounded" src="inc/img/logo-MBI.jpg" alt="Second slide">  
+            <img class="d-block w-100 rounded" src="inc/img/selo-ambiental-da-gestao-da-qualidade.jpg" alt="Second slide">  
             <h3>Selo Ambiental de Excelência da Gestão da Qualidade</h3>
             <p>Destaque: qualidade dos produtos, serviços, atendimento e credibilidade da empresa no mercado. Instituto: Instituto Nacional de Excelência de Gestão de Qualidade Total Quality.</p>
           </div>
           <div class="col-6 col-md-3">        
-            <img class="d-block w-100 rounded" src="inc/img/logo-MBI.jpg" alt="Second slide">  
+            <img class="d-block w-100 rounded" src="inc/img/top-of-quality-gold-internacional.jpg" alt="Second slide">  
+            <h3>Top of Quality Gold Internacional</h3>
+            <p>Destaque: qualidade dos produtos, serviços, atendimento e credibilidade da empresa no mercado. Instituto: Instituto Nacional de Excelência de Gestão de Qualidade Total Quality.</p>
+          </div>
+          <div class="col-6 col-md-3">        
+            <img class="d-block w-100 rounded" src="inc/img/grand-awards-de-excelencia-de-qualidade.jpg" alt="Second slide">  
             <h3>Top of Quality Gold Internacional</h3>
             <p>Destaque: qualidade dos produtos, serviços, atendimento e credibilidade da empresa no mercado. Instituto: Instituto Nacional de Excelência de Gestão de Qualidade Total Quality.</p>
           </div>

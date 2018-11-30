@@ -26,7 +26,7 @@
 
             <h3 class="servicos-titulo">Gestão Ambiental</h3>
             <p class="servicos-paragrafo">Lorem ipsum dolor sit amet, sed platonem erroribus ut. Vix homero partem ut, quem doming philosophia eam no. Vis perpetua partiendo an, vim te natum intellegam. Viderer commune gloriatur mel ea, no decore corrumpit mel. Ex fastidii disputationi mel.</p>
-            <div class="botao"><button type="button" class="btn btn-light">Leia mais</button></div>
+            <div class="botao"><a href="http://localhost/lafaete/gestao-ambiental.php"><button type="button" class="btn btn-light">Leia mais</button></a></div>
           </div>
         </div> 
 
@@ -37,7 +37,7 @@
             </svg>
             <h3 class="servicos-titulo">Gestão de Resíduos</h3>
             <p class="servicos-paragrafo">Lorem ipsum dolor sit amet, sed platonem erroribus ut. Vix homero partem ut, quem doming philosophia eam no. Vis perpetua partiendo an, vim te natum intellegam. Viderer commune gloriatur mel ea, no decore corrumpit mel. Ex fastidii disputationi mel.</p>
-            <div class="botao"><button type="button" class="btn btn-light">Leia mais</button></div>
+            <div class="botao"><a href="http://localhost/lafaete/gestao-de-residuos.php"><button type="button" class="btn btn-light">Leia mais</button></a></div>
           </div>
         </div> 
 
@@ -53,7 +53,7 @@
 
             <h3 class="servicos-titulo">Transbordo e Triagem</h3>
             <p class="servicos-paragrafo">Lorem ipsum dolor sit amet, sed platonem erroribus ut. Vix homero partem ut, quem doming philosophia eam no. Vis perpetua partiendo an, vim te natum intellegam. Viderer commune gloriatur mel ea, no decore corrumpit mel. Ex fastidii disputationi mel.</p>
-            <div class="botao"><button type="button" class="btn btn-light">Leia mais</button></div>
+            <div class="botao"><a href="http://localhost/lafaete/transbordo-e-triagem.php"><button type="button" class="btn btn-light">Leia mais</button></a></div>
           </div>
         </div> 
 
@@ -71,7 +71,7 @@
 
             <h3 class="servicos-titulo">Terraplanagem</h3>
             <p class="servicos-paragrafo">Lorem ipsum dolor sit amet, sed platonem erroribus ut. Vix homero partem ut, quem doming philosophia eam no. Vis perpetua partiendo an, vim te natum intellegam. Viderer commune gloriatur mel ea, no decore corrumpit mel. Ex fastidii disputationi mel.</p>
-            <div class="botao"><button type="button" class="btn btn-light">Leia mais</button></div>
+            <div class="botao"><a href="http://localhost/lafaete/terraplanagem.php"><button type="button" class="btn btn-light">Leia mais</button></a></div>
           </div>
         </div> 
    
@@ -87,12 +87,12 @@
         <div class="col-md-6 faca-um-orcamento">
           <h2>Faça um Orçamento</h2>
           <p>Lorem ipsum dolor sit amet, sed platonem erroribus ut.</p>
-          <button class="btn botao-laranja">Solicitar</button>
+          <a href="http://localhost/lafaete/orcamento.php"><button class="btn botao-laranja">Solicitar</button></a>
         </div>
         <div class="col-md-6 trabalhe-conosco"> 
           <h2>Trabalhe Conosco</h2>
           <p>Lorem ipsum dolor sit amet, sed platonem erroribus ut. </p>
-          <button class="btn botao-laranja">Cadastrar Currículo</button>
+          <a href="http://localhost/lafaete/trabalhe-conosco.php"><button class="btn botao-laranja">Cadastrar Currículo</button></a>
         </div>
       </div>
     </div>

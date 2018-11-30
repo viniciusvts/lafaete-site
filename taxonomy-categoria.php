@@ -44,10 +44,10 @@
             <a class="nav-link" href="#todos">Todos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#maquinasLeves">Máquinas Leves</a>
+            <a class="nav-link" href="#maquinasPesadas">Máquinas Pesadas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#maquinasPesadas">Máquinas Pesadas</a>
+            <a class="nav-link" href="#maquinasLeves">Máquinas Leves</a>
           </li>
         </ul>
         <div class="row">
