@@ -55,9 +55,7 @@
               <div class="inner-box">
                 <div class="inner-most">
                   <figure class="image-box">
-                    <a href="single-produtos.php">
-                      <img width="370" height="270" src="inc/img/mini-escavadeira-5500.jpg" class="img-responsive wp-post-image" alt="featured-image-1">
-                    </a>
+                    <img width="370" height="270" src="inc/img/mini-escavadeira-5500.jpg" class="img-responsive wp-post-image" alt="featured-image-1">
                   </figure>
                   <div class="lower-part">
                     <div class="left-curve">                      
@@ -79,11 +77,9 @@
           <div class="default-service-column col-md-4 imagemGaleria maquinasLeves">
               <div class="inner-box">
                 <div class="inner-most">
-                    <figure class="image-box">
-                      <a href="single-produtos.php">
-                        <img width="370" height="270" src="inc/img/mini-escavadeira-5500.jpg" class="img-responsive wp-post-image" alt="featured-image-1">
-                      </a>
-                    </figure>
+                  <figure class="image-box">
+                    <img width="370" height="270" src="inc/img/mini-escavadeira-5500.jpg" class="img-responsive wp-post-image" alt="featured-image-1">
+                  </figure>
                   <div class="lower-part">
                     <div class="left-curve"></div>
                     <div class="right-curve"></div>
@@ -103,11 +99,9 @@
           <div class="default-service-column col-md-4 imagemGaleria maquinasLeves">
               <div class="inner-box">
                 <div class="inner-most">
-                    <figure class="image-box">
-                      <a href="single-produtos.php">
-                        <img width="370" height="270" src="inc/img/mini-escavadeira-5500.jpg" class="img-responsive wp-post-image" alt="featured-image-1">
-                      </a>
-                    </figure>
+                  <figure class="image-box">
+                    <img width="370" height="270" src="inc/img/mini-escavadeira-5500.jpg" class="img-responsive wp-post-image" alt="featured-image-1">
+                  </figure>
                   <div class="lower-part">
                     <div class="left-curve"></div>
                     <div class="right-curve"></div>
@@ -127,11 +121,9 @@
           <div class="default-service-column col-md-4 imagemGaleria maquinasPesadas">
               <div class="inner-box">
                 <div class="inner-most">
-                    <figure class="image-box">
-                      <a href="single-produtos.php">
-                        <img width="370" height="270" src="inc/img/Dynapac-CA250-SITE.jpg" class="img-responsive wp-post-image" alt="featured-image-1">
-                      </a>
-                    </figure>
+                  <figure class="image-box">
+                    <img width="370" height="270" src="inc/img/mini-escavadeira-5500.jpg" class="img-responsive wp-post-image" alt="featured-image-1">
+                  </figure>
                   <div class="lower-part">
                     <div class="left-curve"></div>
                     <div class="right-curve"></div>
@@ -151,11 +143,9 @@
           <div class="default-service-column col-md-4 imagemGaleria maquinasPesadas">
               <div class="inner-box">
                 <div class="inner-most">
-                    <figure class="image-box">
-                      <a href="single-produtos.php">
-                        <img width="370" height="270" src="inc/img/Dynapac-CA250-SITE.jpg" class="img-responsive wp-post-image" alt="featured-image-1">
-                      </a>
-                    </figure>
+                  <figure class="image-box">
+                    <img width="370" height="270" src="inc/img/mini-escavadeira-5500.jpg" class="img-responsive wp-post-image" alt="featured-image-1">
+                  </figure>
                   <div class="lower-part">
                     <div class="left-curve"></div>
                     <div class="right-curve"></div>
@@ -175,11 +165,9 @@
           <div class="default-service-column col-md-4 imagemGaleria maquinasPesadas">
               <div class="inner-box">
                 <div class="inner-most">
-                    <figure class="image-box">
-                      <a href="single-produtos.php">
-                        <img width="370" height="270" src="inc/img/Dynapac-CA250-SITE.jpg" class="img-responsive wp-post-image" alt="featured-image-1">
-                      </a>
-                    </figure>
+                  <figure class="image-box">
+                    <img width="370" height="270" src="inc/img/mini-escavadeira-5500.jpg" class="img-responsive wp-post-image" alt="featured-image-1">
+                  </figure>
                   <div class="lower-part">
                     <div class="left-curve"></div>
                     <div class="right-curve"></div>

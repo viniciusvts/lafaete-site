@@ -3,24 +3,35 @@
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
       <div class="carousel-caption d-none d-md-block">
-        <h1>AS MELHORES SOLUÇÕES EM MÓDULOS HABITACIONAIS</h1>  
-        <p>Nossos módulos habitacionais em container são as melhores opções em estruturas móveis, projetados de acordo com a necessidade do seu projeto, evento ou obra, o que permite ações como acoplagem, sobreposição e içamento.</p>
+        <h1>AS MELHORES SOLUÇÕES EM MÓDULOS CONTAINER</h1>  
+        <p>Nossos módulos container em container são as melhores opções em estruturas móveis, projetados de acordo com a necessidade do seu projeto, evento ou obra, o que permite ações como acoplagem, sobreposição e içamento.</p>
         <button class="btn btn-laranja">Conheça nossas opções</button>
       </div>
       <img class="d-block w-100" src="inc/img/slider-container.jpg" alt="First slide">
     </div>
     <div class="carousel-item">
       <div class="carousel-caption">
+        <h1>As melhores opções em máquinas e equipamentos</h1>
+        <p>Lorem ipsum dolor sit amet, mei rebum tamquam percipit cu. An meliore rationibus est. Pro primis bonorum oportere no, patrioque vulputate intellegam ut duo.</p>
+        <button class="btn btn-laranja">Conheça nossas opções</button>
+      </div>
+      <img class="d-block w-100" src="inc/img/iluminacao-trator-agricola-john-deere-serie-8r-eaeagricola.jpg" alt="First slide">
+    </div>
+
+    <div class="carousel-item">
+      <div class="carousel-caption">
         <h1>As melhores soluções em Light Steel Frame</h1>
-        p>Lorem ipsum dolor sit amet, mei rebum tamquam percipit cu. An meliore rationibus est. Pro primis bonorum oportere no, patrioque vulputate intellegam ut duo.</p>
+        <p>Lorem ipsum dolor sit amet, mei rebum tamquam percipit cu. An meliore rationibus est. Pro primis bonorum oportere no, patrioque vulputate intellegam ut duo.</p>
         <button class="btn btn-laranja">Conheça nossas opções</button>
       </div>
       <img class="d-block w-100" src="inc/img/slider-construcao.jpg" alt="First slide">
     </div>
+
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -37,7 +48,7 @@
     <div class="col-md-4 modulos-habitacionais">
       <img src="inc/img/modulos-habitacionais.png">
       <h2>Módulos Container</h2>
-      <p>Módulos habitacionais em container de longa durabilidade, mesmo quando expostos ao sol e à chuva.</p>
+      <p>Módulos Container de longa durabilidade, mesmo quando expostos ao sol e à chuva.</p>
     </div>
     <div class="col-md-4 maquina">
       <svg version="1.1" viewBox="1 -90 639.99878 639" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" height="50px">

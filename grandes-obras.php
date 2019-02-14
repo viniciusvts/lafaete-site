@@ -7,7 +7,7 @@
     <?php //include_once('inc/slider-home.php'); ?>
     <?php //include_once('floater.php'); ?>
 
-        <!-- SLIDER -->
+
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner carousel-flat-height">
         <div class="carousel-item active">
@@ -19,22 +19,38 @@
       </div>
     </div>
 
+    <section id="galeria" class="projetos-sociais">
+      <span class="fecharBotao">&times;</span>
+      <div class="conteudo">
+        <ul id="imagens">
+            <li class="fade">
+              <span class="numero">1 / 3</span>
+              <img src="inc/img/programa-gestao-residuos-construcao-civil.jpg" alt="imagem 1" class="imagem-responsiva">
+            </li>
+            <li class="fade">
+              <span class="numero">2 / 3</span>
+              <img src="inc/img/programa-gestao-residuos-construcao-civil.jpg" alt="imagem 2" class="imagem-responsiva">
+            </li>
+            <li class="fade">
+              <span class="numero">3 / 3</span>
+              <img src="inc/img/programa-gestao-residuos-construcao-civil.jpg" alt="imagem 3" class="imagem-responsiva">
+            </li>
+        </ul>
+        <div id="botoes">
+            <a href="" id="seguinte">&#10095;</a>
+            <a href="" id="anterior">&#10094;</a>
+        </div>
+      </div>
+      <div id="dots">
+        <span class="dot ativo"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </section>
+
+    <!--
     <div class="container-fluid my-container projetos-recentes" id="grandesobras">
         <div class="container">
-
-        <!--
-        <ul class="nav justify-content-center">
-            <li class="nav-item active">
-            <a class="nav-link" href="#todos">Todos</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#maquinasLeves">Categoria</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#maquinasPesadas">Categoria</a>
-            </li>
-        </ul>-->
-
         <div class="row">
             <?php for($c=0; $c<6; $c++){ ?>
             <div class="col-md-4 imagemGaleria maquinasLeves"> 
@@ -55,7 +71,36 @@
             <?php } ?>
         </div>
         </div>
-    </div>
+    </div>-->
+
+    <div class="container produtos-container">
+      <div class="row">
+        <?php for($c=0; $c<3; $c++){ ?>
+        <div class="default-service-column col-md-4">
+          <div class="inner-box">
+              <div class="inner-most">
+                <figure class="image-box">
+                  <a href="#">
+                    <img width="100%" height="270" src="inc/img/programa-gestao-residuos-construcao-civil.jpg" class="img-responsive wp-post-image" alt="featured-image-1">
+                  </a>
+                  </figure>
+                <div class="lower-part">
+                    <div class="left-curve"></div>
+                    <div class="right-curve"></div>                    
+                    <div class="content">
+                      <h3>RAMAL FERROVIÁRIO S11D</h3>
+                      <p>Local: Canaã dos Carajás/ Parauapebas – PA</p>
+                      <p>Tempo de obra: 3 anos</p>
+                      <p>Quantidade de equipamentos: 180</p>
+                      <p>Serviço prestado: Locação de equipamentos para terraplanagem</p>                   
+                    </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <?php } ?>
+      </div>  
+    </div>  
     
     <?php
     include_once('newsletter.php');

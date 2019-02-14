@@ -1,6 +1,6 @@
 <div class="container-fluid fixed-top topo-menu fixed-top" id="menu-topo">
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-10 col-lg-10 col-sm-12">
       <ul>
         <li class="d-none d-sm-none ">Canais de Atendimento: </li>
         <li>
@@ -28,23 +28,23 @@
         </li>
       </ul>
     </div>
-    <div class="col-md-1 col-lg-1 col-6">
+    <div class="col-md-1 col-lg-1 col-sm-6">
       <div class="social">
           <a href="https://www.facebook.com/lafaetelocacao" target="_blank"><img src="inc/facebook-logo-button.svg" width="30px"></a>
           <a href="https://www.instagram.com/lafaetelocacao/" target="_blank"><img src="inc/instagram-logo.svg" width="30px"></a>
           <a href="https://pt.linkedin.com/company/lafaete-loca-es-de-equipamentos" target="_blank"><img src="inc/linkedin-button.svg" width="30px"></a>
       </div>
     </div>
-    <div class="col-md-1 col-lg-1 col-6">
-      <img src="inc/img/br.png" class="idioma idioma-on">
-      <img src="inc/img/en.png" class="idioma idioma-off">
+    <div class="col-md-1 col-lg-1 col-sm-6">
+      <img src="inc/img/br.png" class="idioma idioma-on img-fluid">
+      <img src="inc/img/en.png" class="idioma idioma-off img-fluid">
     </div>
   </div>
 </div>
 
 
 <nav class="navbar navbar-expand-xl navbar-light bg-light fixed-top menu-container" id="menu-principal">
-  <a class="navbar-brand" href="index.php"><img src="inc/img/logo-lafaete.png"></a>
+  <a class="navbar-brand" href="index.php"><img src="inc/img/logo-lafaete.png" width="170px"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

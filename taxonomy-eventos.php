@@ -47,10 +47,8 @@
           <div class="inner-box">
               <div class="inner-most">
                 <figure class="image-box">
-                  <a href="single-eventos.php">
-                    <img width="100%" height="270" src="inc/img/5dbf54d3-d518-4d8b-aa64-7f871d56ac61.jpg" class="img-responsive wp-post-image" alt="featured-image-1">
-                  </a>
-                  </figure>
+                  <img width="100%" height="270" src="inc/img/5dbf54d3-d518-4d8b-aa64-7f871d56ac61.jpg" class="img-responsive wp-post-image" alt="featured-image-1">                  
+                </figure>
                 <div class="lower-part">
                     <div class="left-curve"></div>
                     <div class="right-curve"></div>                    

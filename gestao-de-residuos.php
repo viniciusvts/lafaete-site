@@ -12,7 +12,7 @@
       <div class="carousel-inner carousel-flat-height">
         <div class="carousel-item active">
           <div class="carousel-caption carousel-caption-flat-height d-none d-md-block">
-            <h1>Gestão de Resíduos</h1>
+            <h1>PROGRAMA DE GESTÃO DE RESÍDUOS PARA CONSTRUÇÃO CIVIL – PGRCC</h1>
           </div>
           <img class="d-block w-100" src="inc/img/classificacao-de-residuos.jpg" alt="First slide">
         </div>
@@ -33,34 +33,24 @@
                             <p> Home » Serviços » Gestão de Resíduos </p>
                         </div>
                         <div class="row">
-                            <div class="col">   
-                                <h2>PROGRAMA DE GESTÃO DE RESÍDUOS PARA CONSTRUÇÃO CIVIL – PGRCC</h2> </br>                          
-                                <p>A Lafaete possui uma ampla linha de produtos e serviços que visa realizar a gestão ambiental da sua empresa, incluindo tratamento de resíduos – desde a sua geração até a destinação final.</p>
-                                <p>Além disso, por meio de consultorias ambientais, a Lafaete ainda elabora diagnósticos precisos, apontando soluções para diversos tipos de empreendimentos e contribuindo para redução dos impactos da construção no meio ambiente.</p>
-                                <p>Faz parte do nosso portfólio complementar de serviços o fornecimento de outorgas, treinamentos e reciclagens, relatórios de monitoramento, além de palestras relacionadas ao ambiente da construção.</p>
-                                <h4>Consultoria Ambiental</h4>
-                                <p>
-                                – Acompanhamento de Condicionantes do Licenciamento;<br>
-                                – Elaboração de Documentos Ambientais;<br>
-                                – Laudos e Estudos Técnicos Ambientais;<br>
-                                – Outorgas;<br>
-                                – Licenciamento Ambiental;<br>
-                                – Projetos Especiais.</p>
-                                <h4>Gestão de resíduos sólidos</h4>
-                                – Elaboração do Plano de Resíduos Sólidos;<br>
-                                – Implantação do Gerenciamento dos Resíduos Sólidos;<br>
-                                – Inventário de Resíduos;<br>
-                                – Transporte e Destinação Final dos Resíduos Especiais, Perigosos e do Serviço de Saúde;<br>
-                                – Locação de Equipamentos: caçambas estacionárias, compactadoras, além de caminhões<br>
-                                poliguindastes, basculantes e roll on.</p>
-                                <h4>Gestão de água e energia</h4>
-                                – Elaboração de Projetos de Economia de Energia;<br>
-                                – Projetos de Reuso e Economia de Água;<br>
-                                – Treinamentos de Economia de Água e Energia;<br>
-                                – Projetos de Estações de Tratamento de Efluentes Industriais, de Oficinas e de pequenos geradores (residências, clinicas e obras);<br>
-                                – Elaboração do Precend da Copasa.</p>
-                                <h4>Logística e transporte de resíduos</h4>
-                                A Lafaete Gestão Ambiental também oferece locação de equipamentos e possui frota própria, que auxiliam na gestão e transporte de resíduos de saúde, perigosos e não perigosos, como guindastes, caminhão munck, caminhão basculantes, mini carregadeira bobcat e caçambas de 1m³.</p>
+                            <div class="col-md-12">                     
+                              <p>O Inovar, desenvolvido pela Lafaete, é um Programa de Gestão de Resíduos para Construção Civil.</p>
+                            </div>
+                            <div class="col-md-7">   
+                              <p>Trata-se de uma atividade moderna implementada pela empresa na construção civil. Resume-se na prestação de consultoria ambiental na área de construção civil, adequando o canteiro de obra para atender as normas ambientais vigentes. Visa, ainda, propor soluções ambientais mais abrangentes, minimizando os danos e riscos, além de sugerir novas alternativas para destinação final dos resíduos da construção civil e acompanhar o desenvolvimento de PGRCC. A meta do programa é tornar o canteiro de obras mais sustentável em todos os aspectos: ambiental, econômico e social.</p>
+                              <p>Por meio desse trabalho, nossa proposta é oferecer gerenciamento, transporte e destinação para os resíduos de construção civil em Belo Horizonte. O trabalho é dividindo em 3 etapas.</p>
+                              
+                              <h4>Fase de implantação</h4>
+                              <p>Nesta etapa, será feita a implantação do PGRCC e também uma campanha de conscientização nas obras.</p>
+                              
+                              <h4>Fase de acompanhamento</h4>
+                              <p>Neste período, será definido o cronograma de implantação e serão feitas visitas semanais em todas as obras para acompanhar o andamento das atividades, elaboração de relatórios e indicadores de desenvolvimento do programa, bem como análise mensal do andamento do projeto.</p>
+
+                              <h4>Fase final</h4>
+                              <p>Neste período, serão elaborados relatórios gerais sobre o desenvolvimento do projeto ao longo do semestre, indicadores financeiros e ambientais das obras, possibilitando a avaliação do projeto, os ganhos ambientais, sociais e econômicos, bem como a viabilidade de sua implantação permanente.</p>
+                            </div>
+                            <div class="col-md-5">
+                              <img src="https://via.placeholder.com/800" class="img-fluid rounded">
                             </div>
                         </div>
                     </div>

@@ -12,9 +12,9 @@
                         <a href="index.php" class="d-none d-sm-block"><img src="inc/img/logo-lafaete.png"></a>
                         <p>A Lafaete é uma empresa do segmento de locação de equipamentos para construção civil, infraestrutura e mineração, destacando-se no mercado de Contêineres e Tendas Piramidais com design e fabricação própria. Atuante no setor de locação de máquinas pesadas e leves, caçambas, caminhões, geradores, torres de iluminação e veículos leves.</p>
                         <div class="social">
-                            <a href=""><img src="inc/facebook-logo-button.svg" width="30px"></a>
-                            <a href=""><img src="inc/instagram-logo.svg" width="30px"></a>
-                            <a href=""><img src="inc/linkedin-button.svg" width="30px"></a>
+                            <a href="https://www.facebook.com/lafaetelocacao" target="_blank"><img src="inc/facebook-logo-button.svg" width="30px"></a>
+                            <a href="https://www.instagram.com/lafaetelocacao/" target="_blank"><img src="inc/instagram-logo.svg" width="30px"></a>
+                            <a href="https://www.linkedin.com/company/lafaetelocacao/" target="_blank"><img src="inc/linkedin-button.svg" width="30px"></a>
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -26,7 +26,7 @@
                             <a href=""><li>Eventos</li></a>
                             <a href=""><li>Geradores</li></a>
                             <a href=""><li>Máquinas</li></a>
-                            <a href=""><li>Módulos Habitacionais</li></a>
+                            <a href=""><li>Módulos Container</li></a>
                             <a href=""><li>Sombreadores</li></a>
                             <a href=""><li>Torres de Iluminação</li></a>
                             <a href=""><li>Veículos</li></a>
@@ -44,16 +44,16 @@
                     <div class="col-md-2">
                         <h3>Unidades</h3>
                         <ul>
-                        <a href=""><li>Porto Velho - RO</li></a>
-                        <a href=""><li>São João da Barra - RJ</li></a>
-                        <a href=""><li>São Luís - MA</li></a>
-                        <a href=""><li>Mirassol - SP</li></a>
-                        <a href=""><li>Parauapebas - PA</li></a>
-                        <a href=""><li>Jaboatão do Guararapes - PE</li></a>
-                        <a href=""><li>Imperatriz - MA</li></a>
-                        <a href=""><li>Duque de Caxias - RJ</li></a>
-                        <a href=""><li>São Paulo - SP</li></a>
-                        <a href=""><li>Belo Horizonte - MG</li></a>
+                            <a href=""><li>Porto Velho - RO</li></a>
+                            <a href=""><li>São João da Barra - RJ</li></a>
+                            <a href=""><li>São Luís - MA</li></a>
+                            <a href=""><li>Mirassol - SP</li></a>
+                            <a href=""><li>Parauapebas - PA</li></a>
+                            <a href=""><li>Jaboatão do Guararapes - PE</li></a>
+                            <a href=""><li>Imperatriz - MA</li></a>
+                            <a href=""><li>Duque de Caxias - RJ</li></a>
+                            <a href=""><li>São Paulo - SP</li></a>
+                            <a href=""><li>Belo Horizonte - MG</li></a>
                         </ul>
                     </div>
                     <div class="col-md-2">
@@ -69,7 +69,7 @@
                 </div>  
             </div>
             <div class="container rodape">
-                <p>Copyright 2018 | Todos os direitos reservados a <span>Lafaete Locações</span></p>
+                <p>Copyright 2019 | Todos os direitos reservados a <span>Lafaete Locações</span></p>
             </div>
         </div>
     </div>
@@ -78,7 +78,6 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="<?php //bloginfo('template_url');?>node_modules/jquery/dist/jquery.js"></script>
 <script src="<?php //bloginfo('template_url');?>node_modules/popper.js/dist/popper.min.js"></script>
 <script src="<?php //bloginfo('template_url');?>node_modules/bootstrap/dist/js/bootstrap.min.js"></script>

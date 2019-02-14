@@ -12,7 +12,7 @@
       <div class="carousel-inner carousel-flat-height">
         <div class="carousel-item active">
           <div class="carousel-caption carousel-caption-flat-height d-none d-md-block">
-            <h1>Transbordo e Triagem</h1>
+            <h1>ÁREA DE TRANSBORDO E TRIAGEM – ATT</h1>
           </div>
           <img class="d-block w-100" src="inc/img/servico-triagem.jpg" alt="First slide">
         </div>
@@ -33,33 +33,13 @@
                             <p>Home » Serviços » Transbordo e Triagem </p>
                         </div>
                         <div class="row">
-                            <div class="col">  
-                                <h2>Área de Transbordo e Triagem - ATT</h2> </br>                           
-                                <p>A Lafaete possui uma ampla linha de produtos e serviços que visa realizar a gestão ambiental da sua empresa, incluindo tratamento de resíduos – desde a sua geração até a destinação final.</p>
-                                <p>Além disso, por meio de consultorias ambientais, a Lafaete ainda elabora diagnósticos precisos, apontando soluções para diversos tipos de empreendimentos e contribuindo para redução dos impactos da construção no meio ambiente.</p>
-                                <p>Faz parte do nosso portfólio complementar de serviços o fornecimento de outorgas, treinamentos e reciclagens, relatórios de monitoramento, além de palestras relacionadas ao ambiente da construção.</p>
-                                <h4>Consultoria Ambiental</h4>
-                                – Acompanhamento de Condicionantes do Licenciamento;<br>
-                                – Elaboração de Documentos Ambientais;<br>
-                                – Laudos e Estudos Técnicos Ambientais;<br>
-                                – Outorgas;<br>
-                                – Licenciamento Ambiental;<br>
-                                – Projetos Especiais.</p>
-                                <h4>Gestão de resíduos sólidos</h4>
-                                – Elaboração do Plano de Resíduos Sólidos;<br>
-                                – Implantação do Gerenciamento dos Resíduos Sólidos;<br>
-                                – Inventário de Resíduos;<br>
-                                – Transporte e Destinação Final dos Resíduos Especiais, Perigosos e do Serviço de Saúde;<br>
-                                – Locação de Equipamentos: caçambas estacionárias, compactadoras, além de caminhões<br>
-                                poliguindastes, basculantes e roll on.</p>
-                                <h4>Gestão de água e energia</h4>
-                                – Elaboração de Projetos de Economia de Energia;<br>
-                                – Projetos de Reuso e Economia de Água;<br>
-                                – Treinamentos de Economia de Água e Energia;<br>
-                                – Projetos de Estações de Tratamento de Efluentes Industriais, de Oficinas e de pequenos geradores (residências, clinicas e obras);<br>
-                                – Elaboração do Precend da Copasa.</p>
-                                <h4>Logística e transporte de resíduos</h4>
-                                A Lafaete Gestão Ambiental também oferece locação de equipamentos e possui frota própria, que auxiliam na gestão e transporte de resíduos de saúde, perigosos e não perigosos, como guindastes, caminhão munck, caminhão basculantes, mini carregadeira bobcat e caçambas de 1m³.</p>
+                            <div class="col-md-8">                           
+                                <p>A Lafaete reconhece a importância da conservação dos recursos naturais, por isso criamos a ATT, uma unidade destinada ao transbordo e triagem de materiais recolhidos nas obras.</p>
+                                <p>Todos os resíduos coletados pelas caçambas e caminhões são encaminhados para a unidade, onde é feita a seleção reciclável, separando materiais como: plástico, vidro, papel, sucata, terra, entulho e madeira, direcionando-os aos seus devidos destinos.</p>
+                                <p>Essa iniciativa reforça o compromisso da Lafaete com o desenvolvimento sustentável, presente em todas as etapas dos serviços prestados.</p>
+                            </div>
+                            <div class="col-md-4">
+                              <img src="https://via.placeholder.com/800" class="img-fluid rounded">
                             </div>
                         </div>
                     </div>

@@ -32,10 +32,13 @@
                             <p>Home » Serviços » Gestão Empresarial </p>
                         </div>
                         <div class="row">
-                            <div class="col">                            
-                                <p>A Lafaete possui uma ampla linha de produtos e serviços que visa realizar a gestão ambiental da sua empresa, incluindo tratamento de resíduos – desde a sua geração até a destinação final.
+                            <div class="col-md-12">
+                              <p>A Lafaete possui uma ampla linha de produtos e serviços que visa realizar a gestão ambiental da sua empresa, incluindo tratamento de resíduos – desde a sua geração até a destinação final.
                                 Além disso, por meio de consultorias ambientais, a Lafaete ainda elabora diagnósticos precisos, apontando soluções para diversos tipos de empreendimentos e contribuindo para redução dos impactos da construção no meio ambiente.
-                                Faz parte do nosso portfólio complementar de serviços o fornecimento de outorgas, treinamentos e reciclagens, relatórios de monitoramento, além de palestras relacionadas ao ambiente da construção.</p>
+                                Faz parte do nosso portfólio complementar de serviços o fornecimento de outorgas, treinamentos e reciclagens, relatórios de monitoramento, além de palestras relacionadas ao ambiente da construção.
+                              </p>
+                            </div>
+                            <div class="col-md-7">                            
                                 <h4>Consultoria Ambiental</h4>
                                 <p>
                                     – Acompanhamento de Condicionantes do Licenciamento;<br>
@@ -47,6 +50,7 @@
                                 </p>
 
                                 <h4>Gestão de resíduos sólidos</h4>
+
                                 <p>
                                 – Elaboração do Plano de Resíduos Sólidos;<br>
                                 – Implantação do Gerenciamento dos Resíduos Sólidos;<br>
@@ -57,6 +61,7 @@
                                 </p>
                                 
                                 <h4>Gestão de água e energia</h4>
+
                                 <p>
                                 – Elaboração de Projetos de Economia de Energia;<br>
                                 – Projetos de Reuso e Economia de Água;<br>
@@ -65,7 +70,11 @@
                                 – Elaboração do Precend da Copasa.</p>
 
                                 <h4>Logística e transporte de resíduos</h4>
+
                                 <p>A Lafaete Gestão Ambiental também oferece locação de equipamentos e possui frota própria, que auxiliam na gestão e transporte de resíduos de saúde, perigosos e não perigosos, como guindastes, caminhão munck, caminhão basculantes, mini carregadeira bobcat e caçambas de 1m³.</p>
+                            </div>
+                            <div class="col-md-5">
+                              <img src="https://via.placeholder.com/800" class="img-fluid rounded">
                             </div>
                         </div>
                     </div>

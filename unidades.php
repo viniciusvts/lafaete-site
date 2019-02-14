@@ -44,11 +44,6 @@
                 </form>-->
                 <div class="produtos-container menu-imoveis">
                     <ul class="nav justify-content-center">
-                        <!--
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#todos">Inicio</a>
-                        </li>-->
-
                         <li class="nav-item">
                             <a class="nav-link" href="#portovelho">Porto Velho</a>
                         </li>
@@ -65,9 +60,13 @@
                             <a class="nav-link" href="#mirassol">Mirassol</a>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item" style="display:inline-block">
                             <a class="nav-link" href="#paraupebas">Paraupebas</a>
                         </li>
+
+                    </ul>
+
+                    <ul class="nav justify-content-center">
 
                         <li class="nav-item">
                             <a class="nav-link" href="#jaboataodoguararapes">Jaboatão do Guararapes</a>
@@ -92,11 +91,73 @@
                 </div>         
             </div>
 
-            <div class="col-md-12 imagemGaleria portovelho esconder">
+            <div class="col-md-12 imagemGaleria portovelho esconder">               
                 <h2 class="laranja">Porto Velho - RO</h2> 
                 <h3 class="telefone"><strong>Telefone:</strong> (69) 3210-5373</h3>  
-                <p><strong>Endereço:</strong> Rua Mamoré, 411, Três Marias Porto Velho - RO</p>  
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.4438058985666!2d-43.97084518508513!3d-19.947829686593735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa697a4b4f26511%3A0xf3b83d2dfc10d6ed!2sR.+Paraoquena%2C+181+-+Nova+Granada%2C+Belo+Horizonte+-+MG%2C+30431-420!5e0!3m2!1spt-BR!2sbr!4v1490167883226" width="100%" height="550" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+                <p><strong>Endereço:</strong> Rua Mamoré, 411, Três Marias Porto Velho - RO</p>                                 
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15771.926767325627!2d-63.851806332506264!3d-8.787789593688418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92325b9f21fd2599%3A0x28119a54397b511e!2sR.+Mamor%C3%A9%2C+411+-+Conj.+Jamari%2C+Porto+Velho+-+RO!5e0!3m2!1spt-BR!2sbr!4v1490274373097" width="100%" height="550" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+                <div class="container produtos-container">
+                    <div class="cabecalho">
+                        <h2 class="text-center">Produtos disponíveis em Porto Velho - RO</h2>
+                        <span></span>
+                    </div>
+                    <div class="row">
+                        <div class="default-service-column col-md-4">
+                            <div class="inner-box">
+                                <div class="inner-most">
+                                    <figure class="image-box">
+                                        <img width="100%" height="270" src="inc/img/categoria-01-2.png" class="img-responsive wp-post-image" alt="featured-image-1">                                    
+                                    </figure>
+                                    <div class="lower-part">
+                                        <div class="left-curve"></div>
+                                        <div class="right-curve"></div>                    
+                                        <div class="content">
+                                        <h3>Caçambas</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        <div class="more-link"><a href="taxonomy-categoria.php" class="read-more">Clique aqui</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="default-service-column col-md-4">
+                            <div class="inner-box">
+                                <div class="inner-most">
+                                    <figure class="image-box">
+                                        <img width="100%" height="270" src="inc/img/caminhao-munck.jpg" class="img-responsive wp-post-image" alt="featured-image-1">                                   
+                                    </figure>
+                                    <div class="lower-part">
+                                        <div class="left-curve"></div>
+                                        <div class="right-curve"></div>                    
+                                        <div class="content">
+                                        <h3>Caminhões</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        <div class="more-link"><a href="taxonomy-categoria.php" class="read-more">Clique aqui</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="default-service-column col-md-4">
+                            <div class="inner-box">
+                                <div class="inner-most">
+                                    <figure class="image-box">
+                                        <img width="100%" height="270" src="inc/img/categoria-03.jpg" class="img-responsive wp-post-image" alt="featured-image-1">                                    
+                                    </figure>
+                                    <div class="lower-part">
+                                        <div class="left-curve"></div>
+                                        <div class="right-curve"></div>                    
+                                        <div class="content">
+                                        <h3>Estruturas Metálicas</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        <div class="more-link"><a href="taxonomy-categoria.php" class="read-more">Clique aqui</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div> 
             </div>
 
             <div class="col-md-12 imagemGaleria saojoaodabarra esconder">
@@ -152,7 +213,7 @@
                 <h2 class="laranja">São Paulo - SP</h2> 
                 <h3 class="telefone"><strong>Telefone:</strong> (11) 4777-0291</h3>  
                 <p><strong>Endereço:</strong> Av. José Giorgi, 440, Granja Viana II, Cotia São Paulo - SP</p>  
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.640093223906!2d-43.27692808597278!3d-22.66720373506231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9973a16a1009df%3A0xc4180e4dbfbe8af7!2sR.+Eust%C3%A1quio+Azevedo%2C+153+-+10+-+Ch%C3%A1caras+Arcampo%2C+Duque+de+Caxias+-+RJ%2C+25251-600!5e0!3m2!1spt-BR!2sbr!4v1490275596762" width="100%" height="550" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.2812575071985!2d-46.86763168594564!3d-23.59424396869047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cfaa7e745036e1%3A0xc69bfed786c72152!2sAv.+Jos%C3%A9+Giorgi%2C+440+-+Granja+Viana+II%2C+Cotia+-+SP%2C+06707-100!5e0!3m2!1spt-BR!2sbr!4v1490275648845" width="100%" height="550" frameborder="0" style="border:0" allowfullscreen=""></iframe>
             </div>
 
             <div class="col-md-12 imagemGaleria belohorizonte esconder">

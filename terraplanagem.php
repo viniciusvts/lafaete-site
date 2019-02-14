@@ -32,20 +32,38 @@
                             <p>Home » Serviços » Terraplanagem </p>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                                      
-                                <p>O Inovar, desenvolvido pela Lafaete, é um Programa de Gestão de Resíduos para Construção Civil.</p>
-                                <p>Trata-se de uma atividade moderna implementada pela empresa na construção civil. Resume-se na prestação de consultoria ambiental na área de construção civil, adequando o canteiro de obra para atender as normas ambientais vigentes. Visa, ainda, propor soluções ambientais mais abrangentes, minimizando os danos e riscos, além de sugerir novas alternativas para destinação final dos resíduos da construção civil e acompanhar o desenvolvimento de PGRCC. A meta do programa é tornar o canteiro de obras mais sustentável em todos os aspectos: ambiental, econômico e social.</p>
-                                <p>Por meio desse trabalho, nossa proposta é oferecer gerenciamento, transporte e destinação para os resíduos de construção civil em Belo Horizonte. O trabalho é dividindo em 3 etapas.</p>
-                                
-                                <h4>Fase de implantação</h4>
-                                <p>Nesta etapa, será feita a implantação do PGRCC e também uma campanha de conscientização nas obras.</p>
+                            <div class="col-md-8">                                                      
+                              <p>Nem sempre os terrenos possuem as características necessárias para a construção de um projeto. Isso acontece devido às irregularidades do solo. Nesses casos, é muito comum realizar processos como terraplanagem para que a terra fique nivelada, gerando condições para que o local seja trabalhado. Desse modo, o local fica apto para construções, estradas, barragens e tantos outros tipos de obras.</p>
+                              
+                              <h4>O que oferecemos?</h4>
 
-                                <h4>Fase de acompanhamento</h4>
-                                <p>Neste período, será definido o cronograma de implantação e serão feitas visitas semanais em todas as obras para acompanhar o andamento das atividades, elaboração de relatórios e indicadores de desenvolvimento do programa, bem como análise mensal do andamento do projeto.</p>
+                              <ul>
+                                <li>Aterro</li>
+                                <li>Desaterro</li>
+                                <li>Nivelamento</li>
+                                <li>Compactação de solo</li>
+                                <li>Serviços de terraplanagem no geral</li>
+                              </ul>
 
-                                <h4>Fase final</h4>
-                                <p>Neste período, serão elaborados relatórios gerais sobre o desenvolvimento do projeto ao longo do semestre, indicadores financeiros e ambientais das obras, possibilitando a avaliação do projeto, os ganhos ambientais, sociais e econômicos, bem como a viabilidade de sua implantação permanente.</p>
+                              <h4>O que oferecemos?</h4>
+                              <p>Cada local possui características topográficas únicas, demandando adequações específicas. Onde há excesso de terra, é preciso realizar obras de terraplanagem para retirá-las, como a escavação e remoção. Em locais onde há pouca terra, é utilizado o aterro através dos caminhões basculantes, por exemplo.</p>
+                              <p>É preciso saber quais as cotas e níveis do terreno onde a obra será executada. Dependendo dos níveis, será preciso fazer um levantamento topográfico. O ideal é que o nível do terreno esteja o mais próximo da região, avaliando até mesmo o tipo de terra da do local.</p>
+                              <p>Após um estudo, verificaremos qual processo será utilizado para viabilizar o nivelamento do terreno. De modo geral, esse serviço de terraplanagem consiste em um conjunto de cinco etapas: escavação, carregamento, transporte, espalhamento e compactação de terra.</p>
+
+                              <h4>Vantagens da Terraplanagem da Lafaete</h4>
+
+                              <ul>
+                                <li>Análise do local</li>
+                                <li>Equipe de profissionais treinada</li>
+                                <li>Equipamentos modernos e confiáveis</li>
+                                <li>Terreno limpo, pronto para ser utilizado</li>
+                              </ul>
+
+                              <h4>Vantagens da Terraplanagem da Lafaete</h4>
+                              <p>Os dois termos estão corretos, a diferença é que terraplanagem se tornou mais comum, enquanto terraplenagem é o termo utilizado por técnicos e profissionais que realizam o serviço. Entretanto, as duas palavras têm como sinônimos o nivelamento de terra.</p>
+                            </div>
+                            <div class="col-md-4">
+                              <img src="https://via.placeholder.com/800" class="img-fluid rounded">
                             </div>
                         </div>
                     </div>
