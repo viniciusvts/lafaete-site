@@ -1,21 +1,24 @@
-=== WhatsApp Chat ===
-Contributors: quadlayers, franmastromarino
+=== WP Social Chat ===
+Contributors: quadlayers
 Donate link: https://quadlayers.com/portfolio/wordpress-whatsapp-chat/
-Tags: whatsapp, button, chat, support, contact, click to chat, directly message whatsapp, floating whatsapp, whatsapp chat, whatsapp support, whatsapp business, messaging, help desk
+Tags: whatsapp, whatsapp button, whatsapp chat, whatsapp support, contact, click to chat, directly message whatsapp, floating whatsapp, whatsapp business, messaging, help desk
 Requires at least: 4.6
-Tested up to: 5.2
-Requires PHP: 5.3
-Stable tag: 4.3.0
+Tested up to: 5.2.2
+Stable tag: 4.3.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-WhatsApp Chat WP allows your website visitors and customers to contact you or your team through WhatsApp chat with a single click.
+Formerly "WhatsApp Chat". This plugin allows your site visitors and customers to contact you or your team through WhatsApp chat with a single click.
 
 == Description ==
 
 [Premium](https://quadlayers.com/portfolio/wordpress-whatsapp-chat/) | [Demo](https://quadlayers.com/whatsapp-chat/) | [Community](https://www.facebook.com/groups/quadlayers/)
 
 WhatsApp Chat for WordPress allows your customers to open a conversation from your website directly to your WhatsApp phone number. This plugin includes a button where you can include a pre-filled message which will be automatically included in the conversation.
+
+== Formerly WhatsApp Chat ==
+
+This plugin was formerly known as "WhatsApp Chat". WordPress forced us on August 8, 2019 to change the name of the plugin due to use of the "WhatsApp" word in the name. We apologize for the problems that the downtime may have caused to you.
 
 == Why WhatsApp? ==
 WhatsApp is these days the most popular instant messaging application in the world and is available in more than 100 countries and supporting more than 50 languages.
@@ -24,11 +27,11 @@ This means most of our users <span style="background-color: #f6d5d9;">use</span>
 
 Generating leads is the key to every business success, and the WhatsApp chat button can help you to increase your overall sales and reach this goal.
 == WhatsApp Button ==
-With the WhatsApp chat button, your visitors will be allowed to send a message directly to your phone number. To start configuring it, you have to go to the button tab inside the WhatsApp Chat section that you can find in your admin dashboard.
+With the WhatsApp chat button, your visitors will be allowed to send a message directly to your phone number. To start configuring it, you have to go to the button tab inside the WhatsApp chat section that you can find in your admin dashboard.
 
 Inside the button tab, you'll to switch between two different layouts, define if you want to include rounded edges, the position where you want to show the WhatsApp button, the text that will be displayed inside, the phone number and the default user message.
 == WhatsApp Chat ==
-WhatsApp Chat also allows you to include a box to show some contact information and a personalized message. This box can be activated through the Box tab inside the WhatsApp Chat section and here you can define the header and footer message, contact name, phone, work, and avatar.
+WhatsApp Chat also allows you to include a box to show some contact information and a personalized message. This box can be activated through the Box tab inside the WhatsApp chat section and here you can define the header and footer message, contact name, phone, work, and avatar.
 == WhatsApp Premium ==
 The premium version of the WhatsApp Chat plugin allows you to include multiple team member agents with their names and labels inside the contact box to provide direct contact to the different support areas of your site.
 

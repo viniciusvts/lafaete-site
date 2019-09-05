@@ -32,7 +32,8 @@
                         q: params.term,
                         name: name,
                         per_page: 10,
-                        action: 'qlwapp_get_posts'
+                        action: 'qlwapp_get_posts',
+                        nonce: $select.data('nonce')
                     };
                 },
                 processResults: function (response) {

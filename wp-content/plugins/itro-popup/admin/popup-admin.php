@@ -60,7 +60,8 @@ if( !isset($submitted_form ))
 	/*opt 34*/'enter_button_url',
 	/*opt 35*/'absolute_mobile_pos',
 	/*opt 36*/'countdown_text',
-	/*opt 37*/'close_cross_url'
+	/*opt 37*/'close_cross_url',
+        /*opt 38*/'users_display'
 	);
 	
 	$submitted_form = 'mt_submit_hidden';
@@ -164,7 +165,7 @@ if( isset($_POST[ $submitted_form ]) && $_POST[ $submitted_form ] == 'Y' || isse
 <script type="text/javascript" src="<?php echo itroPath . 'scripts/'; ?>jscolor/jscolor.js"></script>
 
 <div style="display:table; width:100%;">
-	<h1 style="float:left;"><?php _e( 'I.T.RO. Popup Plugin - Settings', 'itro-plugin');?></h1>
+	<h1 style="float:left;"><?php _e( 'ITRO Popup Plugin - Settings', 'itro-plugin');?></h1>
 	<h4 style="float:right; margin-right:30px;">VER: <?php echo $ITRO_VER; ?></h4>
 </div>
 
@@ -190,10 +191,17 @@ if( isset($_POST[ $submitted_form ]) && $_POST[ $submitted_form ] == 'Y' || isse
 				<!-- popup display location!-->
 				<p>
 					<h3><?php _e("DECIDE WHERE POPUP WILL BE DISPLAYED","itro-plugin")?></h3>
+                                        <h4>For the users:</h4>
+                                        <fieldset>
+                                            <input type="radio" name="<?php echo $opt_name[38];?>" id="clickable_a" value="all" <?php if($opt_val[38]=='all'){echo 'checked="checked"';} ?>/> <label for="clickable_a"> <?php _e('All users', 'itro-plugin'); ?> </label> &nbsp;&nbsp;&nbsp; 
+                                            <input type="radio" name="<?php echo $opt_name[38];?>" id="clickable_b" value="not_logged" <?php if($opt_val[38]=='not_logged'){echo 'checked="checked"';} ?>/> <label for="clickable_b"> <?php _e('Not logged in users ', 'itro-plugin'); ?> </label> &nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="<?php echo $opt_name[38];?>" id="clickable_c" value="logged" <?php if($opt_val[38]=='logged' || $opt_name[38]==NULL){echo 'checked="checked"';} ?>/> <label for="clickable_c"> <?php _e('Logged in users', 'itro-plugin'); ?> </label>
+                                        </fieldset>
+                                        <h4>For the page:</h4>
 					<fieldset>
-						<input type="radio" id="only_selected" name="<?php echo $opt_name[18];?>" value="some"<?php if($opt_val[18]=='some'){echo 'checked="checked"';} ?>/><?php _e("Only selected pages", 'itro-plugin' ); ?><img style="vertical-align:super; cursor:help" src="<?php echo itroImages . 'question_mark.png' ; ?>" title="<?php _e("Multiple choices with CTRL+Click or SHIFT+Arrow up or down",'itro-plugin');?>">&nbsp;&nbsp;&nbsp;
-						<input type="radio" name="<?php echo $opt_name[18];?>" value="all" <?php if($opt_val[18]=='all' ){echo 'checked="checked"';} ?>/><?php _e("All pages", 'itro-plugin' ); ?>&nbsp;&nbsp;&nbsp;
-						<input type="radio" name="<?php echo $opt_name[18];?>" value="none" <?php if($opt_val[18]=='none' || $opt_val[18]== NULL){echo 'checked="checked"';} ?>/><?php _e("No page", 'itro-plugin' ); ?>
+                                            <input type="radio" id="only_selected" name="<?php echo $opt_name[18];?>" value="some"<?php if($opt_val[18]=='some'){echo 'checked="checked"';} ?>/> <label for="only_selected"> <?php _e("Only selected pages", 'itro-plugin' ); ?> </label> <img style="vertical-align:super; cursor:help" src="<?php echo itroImages . 'question_mark.png' ; ?>" title="<?php _e("Multiple choices with CTRL+Click or SHIFT+Arrow up or down",'itro-plugin');?>">&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" id="only_selected_a" name="<?php echo $opt_name[18];?>" value="all" <?php if($opt_val[18]=='all' ){echo 'checked="checked"';} ?>/> <label for="only_selected_a"> <?php _e("All pages", 'itro-plugin' ); ?> </label> &nbsp;&nbsp;&nbsp;
+                                            <input type="radio" id="only_selected_b" name="<?php echo $opt_name[18];?>" value="none" <?php if($opt_val[18]=='none' || $opt_val[18]== NULL){echo 'checked="checked"';} ?>/> <label for="only_selected_b"> <?php _e("No page", 'itro-plugin' ); ?> </label>
 					</fieldset>
 					<div onClick="document.getElementById('only_selected').checked = true;">
 						<select name="<?php echo $opt_name[19]; ?>" multiple size="1">

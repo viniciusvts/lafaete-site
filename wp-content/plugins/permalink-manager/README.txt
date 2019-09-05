@@ -3,13 +3,13 @@ Contributors: mbis
 Donate link: https://www.paypal.me/Bismit
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: urls, permalinks, custom permalinks, url, permalink, woocommerce permalinks
+Tags: permalinks, custom permalinks, translate permalinks, woocommerce permalinks
 Requires at least: 4.4.0
 Requires PHP: 5.4
-Tested up to: 5.2.1
-Stable tag: 2.2.4
+Tested up to: 5.2.3
+Stable tag: 2.2.6
 
-Advanced plugin that allows to set-up custom permalinks (bulk editors included), slugs and permastructures (WooCommerce compatible).
+Permalink Manager Pro allows to easily change full URL addresses of posts, pages, custom post types, terms and WooCommerce links. You can also set  different permalink formats per language or bulk change the URLs.
 
 == Description ==
 
@@ -30,6 +30,8 @@ The plugin supports all custom post types & custom taxonomies and popular 3rd pa
 
 = Need additional features & priority support? =
 Buy <a href="https://permalinkmanager.pro?utm_source=wordpress">Permalink Manager Pro here</a>.
+
+https://www.youtube.com/watch?v=KMOtAK5c7t8
 
 = Additional features available in Permalink Manager Pro =
 
@@ -66,16 +68,25 @@ To display the URI editor metabox click on gray "Permalink Editor" displayed bel
 
 == Frequently Asked Questions ==
 
-= Q. Can I delete/disable Permalink Manager after the permalinks are updated? =
-A. Yes, if you used Permalink Manager only to regenerate the slugs (native post names). Please note that if you use custom permalinks (that differ from the native ones), they will no longer be used after the plugin is disabled.
+= Can I define different permalink formats per each language.
+Yes, it is possible if you are using either WPML or Polylang. You can find <a href="https://permalinkmanager.pro/docs/tutorials/how-to-translate-permalinks/">the full instructions here</a>.
+
+= Can I use Permalink Manager to change the terms permalinks (eg. post or product categories)?
+This feature is available only in Permalink Manager Pro.
+
+= Will the old permalink automatically redirect the new custom ones?
+Yes, Permalink Manager will automatically redirect the native permalinks (used when the plugin is disabled or before it was activated) to the actual, custom permalinks.
+
+= Can I add custom fields to the permalinks?
+This feature is available in paid version of plugin. Please go <a href="https://permalinkmanager.pro/docs/tutorials/how-to-use-custom-fields-inside-wordpress-permalinks/">here for more details</a>.
+
+= Does this plugin support Buddypress?
+Currently there is no 100% guarantee that Permalink Manager will work correctly with Buddypress.
+
+= Can I delete/disable Permalink Manager after the permalinks are updated? =
+Yes, if you used Permalink Manager only to regenerate the slugs (native post names). Please note that if you use custom permalinks (that differ from the native ones), they will no longer be used after the plugin is disabled.
 
 It is because Permalink Manager overwrites one of the core Wordpress functionalities to bypass the rewrite rules ("regular expressions" to detect the posts/pages/taxonomies/etc. and another parameters from the URL) by using the array of custom permalinks (you can check them in "Debug" tab) that are used only by my plugin.
-
-= Q. Can I use Permalink Manager to change the terms permalinks (eg. post or product categories)?
-A. This feature is available only in Permalink Manager Pro.
-
-= Q. Does this plugin support Buddypress?
-A. Currently there is no 100% guarantee that Permalink Manager will work correctly with Buddypress.
 
 == Screenshots ==
 
@@ -90,9 +101,17 @@ A. Currently there is no 100% guarantee that Permalink Manager will work correct
 
 == Changelog ==
 
-= 2.2.4=
+= 2.2.6 =
+* More debug functions added
+* Better support for Hebrew letters
+* Support for location custom fields in WP Store Locator - CSV Manager plugin
+* Improved support for Gutenberg editor (reported by Cedric Busuttil)
+
+= 2.2.4/2.2.5=
 * Minor code improvements
 * Yoast SEO Breadcrumbs - further improvements
+* Hotfix for Toolset custom fields support (Permalink Manager Pro)
+* Hotfix for Polylang URL modes
 
 = 2.2.3 =
 * Code improvements for WP All Import integration functions

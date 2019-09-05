@@ -1,55 +1,5 @@
 [
     {
-        "name": "galbar/jsonpath",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Galbar/JsonPath-PHP.git",
-            "reference": "3820fd4da177f5cf180aa47260d57086e4e4ba29"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Galbar/JsonPath-PHP/zipball/3820fd4da177f5cf180aa47260d57086e4e4ba29",
-            "reference": "3820fd4da177f5cf180aa47260d57086e4e4ba29",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.4"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~4.0",
-            "sami/sami": ">=3.3.0",
-            "satooshi/php-coveralls": ">=1.0.1"
-        },
-        "time": "2019-05-06T10:17:27+00:00",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "JsonPath\\": "src/Galbar/",
-                "Utilities\\": "src/Galbar/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "authors": [
-            {
-                "name": "Alessio Linares",
-                "email": "alessio@alessio.cc",
-                "role": "Software Engineer"
-            }
-        ],
-        "description": "JSONPath implementation for querying and updating JSON objects",
-        "keywords": [
-            "json",
-            "jsonpath",
-            "path"
-        ]
-    },
-    {
         "name": "gmulti/morphism-php",
         "version": "0.3.0",
         "version_normalized": "0.3.0.0",
@@ -183,23 +133,23 @@
     },
     {
         "name": "weglot/translation-definitions",
-        "version": "v2.1.4",
-        "version_normalized": "2.1.4.0",
+        "version": "v2.1.6",
+        "version_normalized": "2.1.6.0",
         "source": {
             "type": "git",
             "url": "https://github.com/weglot/weglot-translation-definitions.git",
-            "reference": "d2d1ef460c8b7d690e3699569dd08ab631b1308e"
+            "reference": "e547040d25fd90d502628416fa4b359bb5c78b1c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/weglot/weglot-translation-definitions/zipball/d2d1ef460c8b7d690e3699569dd08ab631b1308e",
-            "reference": "d2d1ef460c8b7d690e3699569dd08ab631b1308e",
+            "url": "https://api.github.com/repos/weglot/weglot-translation-definitions/zipball/e547040d25fd90d502628416fa4b359bb5c78b1c",
+            "reference": "e547040d25fd90d502628416fa4b359bb5c78b1c",
             "shasum": ""
         },
         "require": {
             "php": ">=5"
         },
-        "time": "2019-05-17T09:36:33+00:00",
+        "time": "2019-06-28T09:22:32+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -221,17 +171,17 @@
     },
     {
         "name": "weglot/weglot-php",
-        "version": "0.5.24",
-        "version_normalized": "0.5.24.0",
+        "version": "0.5.31",
+        "version_normalized": "0.5.31.0",
         "source": {
             "type": "git",
             "url": "https://github.com/weglot/weglot-php.git",
-            "reference": "49e1a559d2b1e73539148ec00c701a87065b3d31"
+            "reference": "8e3369a8d09b6ee8c75d1172516db2f56260ced9"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/weglot/weglot-php/zipball/49e1a559d2b1e73539148ec00c701a87065b3d31",
-            "reference": "49e1a559d2b1e73539148ec00c701a87065b3d31",
+            "url": "https://api.github.com/repos/weglot/weglot-php/zipball/8e3369a8d09b6ee8c75d1172516db2f56260ced9",
+            "reference": "8e3369a8d09b6ee8c75d1172516db2f56260ced9",
             "shasum": ""
         },
         "require": {
@@ -244,7 +194,7 @@
             "codeception/codeception": "^2.4",
             "vlucas/phpdotenv": "^2.4"
         },
-        "time": "2019-05-17T13:01:34+00:00",
+        "time": "2019-09-02T12:15:58+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -258,15 +208,15 @@
         ],
         "authors": [
             {
-                "name": "Thomas Deneulin",
-                "email": "thomas@weglot.com",
-                "role": "Review"
-            },
-            {
                 "name": "Baptiste Leduc",
                 "email": "baptiste@weglot.com",
                 "homepage": "https://baptiste-leduc.now.sh/",
                 "role": "Developer"
+            },
+            {
+                "name": "Thomas Deneulin",
+                "email": "thomas@weglot.com",
+                "role": "Review"
             }
         ],
         "description": "PHP library for the Weglot API",

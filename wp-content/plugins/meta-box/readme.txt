@@ -5,7 +5,7 @@ Tags: meta-box, custom fields, custom field, meta, meta-boxes, admin, advanced, 
 Requires at least: 4.3
 Requires PHP: 5.3
 Tested up to: 5.2.2
-Stable tag: 5.0.0
+Stable tag: 5.1.2
 License: GPLv2 or later
 
 Meta Box plugin is a powerful, professional developer toolkit to create custom meta boxes and custom fields for WordPress.
@@ -102,6 +102,7 @@ You'll have ultimate control to add whatever meta box and custom fields in WordP
 
 #### Premium Extensions
 
+- [MB Blocks](https://metabox.io/plugins/mb-blocks/): Create custom Gutenberg blocks with PHP, using the same syntax in Meta Box.
 - [Meta Box Builder](https://metabox.io/plugins/meta-box-builder/): Create custom meta boxes and custom fields in WordPress using a user-friendly drag-and-drop interface.
 - [Meta Box Group](https://metabox.io/plugins/meta-box-group/): Create repeatable groups of WordPress custom fields for better appearance and structure.
 - [MB Settings Page](https://metabox.io/plugins/mb-settings-page/): Create settings pages for themes, plugins or websites with beautiful syntax.
@@ -166,6 +167,75 @@ To getting started with the plugin, please read the [Quick Start Guide](https://
 
 == Changelog ==
 
+= 5.1.2 - 2019-08-29 =
+
+**Fixed**
+
+- Fix adding >= 2 blocks containing a wysiwyg field not rendering
+- Fix CSS for wyswigy field in Gutenberg
+- Do not show upgrade message in the Dashboard for premium users
+- Fix media field is blank
+- Fix cannot access to license page in Multisite
+
+**Changed**
+
+- Fire `change` and/or `mb_change` events when fields change to update custom blocks in real-time (requires [MB Blocks](https://metabox.io/plugins/mb-blocks/) extension)
+
+= 5.1.1 - 2019-08-23 =
+
+**Fixed**
+
+- Fix sanitizing number always return 0 if it's blank
+- Fix sanitizing URL
+
+**Changed**
+
+- Set default field 'type' to 'text', make it optional and help you write less code
+- File/image fields: do not show add new file link if max_file_uploads = 1
+
+= [5.1.0 - 2019-08-19](https://metabox.io/meta-box-510/) =
+
+**Fixed**
+
+- Fatal error with `RWMB_About::redirect()`
+- Ensure change event fires when editors change
+- Fix `rwmb_{$field_id}_choice_label` not working for cloneable fields
+- Fix missing dependency (underscore) for datepicker JS
+- Fix unindex notice for key_value field
+- Fix alignment for video field
+
+**Changed**
+
+- Update notification sytem
+- Improve sanitization for fields. See [documentation](https://docs.metabox.io/sanitization/) for details.
+
+= 5.0.1 - 2019-07-25 =
+
+**Fixed**
+
+- Fix license notification always show
+
+= [5.0.0 - 2019-07-24](https://metabox.io/meta-box-5-released/) =
+
+**IMPORTANT:** Since version 5.0.0, the plugin requires PHP >= 5.3. If you use an older PHP version, please ask your host to upgrade or use an older version of Meta Box.
+
+**Changed**
+
+- New minimum PHP version is now 5.3.
+- Rewrite all JavaScript to prepare for Gutenberg blocks
+- Allow to create meta box with no fields.
+
+**Added**
+
+- Add the updater for auto update of premium extensions
+- Add support for `user`, `settings_pages` in `rwmb_get_object_fields`
+
+**Fixed**
+
+- Fix warning for cloneable single image.
+
 [See full changelog here](https://metabox.io/changelog/).
 
 == Upgrade Notice ==
+
+Since version 5.0.0, the plugin requires PHP >= 5.3. If you use an older PHP version, please ask your host to upgrade or use an older version of Meta Box.

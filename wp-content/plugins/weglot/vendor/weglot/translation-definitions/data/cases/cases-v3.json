@@ -220,7 +220,37 @@
     ]
   },
   {
-    "name": "tag with br",
+    "name": "Nested tags 15",
+    "body": "<p> <b> This is another nested test </b><br></p>",
+    "expected": [
+      {
+        "t": 1,
+        "w": " This is another nested test "
+      }
+    ]
+  },
+  {
+    "name": "Nested tags 16",
+    "body": "<p>This <strong>is</strong> another nested test<br></p>",
+    "expected": [
+      {
+        "t": 1,
+        "w": "This <strong wg-1=\"\">is</strong> another nested test<br wg-2=\"\">"
+      }
+    ]
+  },
+  {
+    "name": "Nested tags 17",
+    "body": "<p>This ending tag must not be here<br></p>",
+    "expected": [
+      {
+        "t": 1,
+        "w": "This ending tag must not be here"
+      }
+    ]
+  },
+  {
+    "name": "Tag with br",
     "body": "<p>Hello, <br> a test!</p>",
     "expected": [
       {
@@ -230,7 +260,7 @@
     ]
   },
   {
-    "name": "tag with br",
+    "name": "Tag with br",
     "body": "<p>Hello, <br> a test! how are <b>you</b></p>",
     "expected": [
       {
@@ -337,7 +367,7 @@
   },
   {
     "name": "Link tag with pdf",
-    "body": "<p><a href='/my-document.pdf'>Click here!</a></p>",
+    "body": "<p><a href=\"/my-document.pdf\">Click here!</a></p>",
     "expected": [
       {
         "t": 8,
@@ -346,6 +376,20 @@
       {
         "t": 1,
         "w": "Click here!"
+      }
+    ]
+  },
+  {
+    "name": "Link tag with pdf 2",
+    "body": "<p>Hello! <a href=\"/my-document.pdf\">Click here!</a></p>",
+    "expected": [
+      {
+        "t": 8,
+        "w": "/my-document.pdf"
+      },
+      {
+        "t": 1,
+        "w": "Hello! <a wg-1=\"\">Click here!</a>"
       }
     ]
   },

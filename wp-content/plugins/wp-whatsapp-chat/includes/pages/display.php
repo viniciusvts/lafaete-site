@@ -45,7 +45,7 @@
           <tr class="qlwapp-premium-field">
             <th scope="row"><?php esc_html_e(ucwords($type->label)); ?></th>
             <td>
-              <select id="qlwapp_select2_<?php echo esc_attr($type->name); ?>" multiple="multiple" name="<?php echo esc_attr(QLWAPP_DOMAIN . '[display][' . $type->name . '][]'); ?>" style="width:350px" data-placeholder="<?php printf(esc_html__('Select for %s&hellip;', 'wp-whatsapp-chat'), $type->label); ?>" aria-label="<?php echo esc_attr($type->label); ?>"  data-name="<?php echo esc_attr($type->name); ?>" class="<?php echo esc_attr($count->publish < 11 ? 'qlwapp-select2' : 'qlwapp-select2-ajax' ); ?>">
+              <select data-nonce="<?php echo wp_create_nonce('qlwapp_get_posts'); ?>" id="qlwapp_select2_<?php echo esc_attr($type->name); ?>" multiple="multiple" name="<?php echo esc_attr(QLWAPP_DOMAIN . '[display][' . $type->name . '][]'); ?>" style="width:350px" data-placeholder="<?php printf(esc_html__('Select for %s&hellip;', 'wp-whatsapp-chat'), $type->label); ?>" aria-label="<?php echo esc_attr($type->label); ?>"  data-name="<?php echo esc_attr($type->name); ?>" class="<?php echo esc_attr($count->publish < 11 ? 'qlwapp-select2' : 'qlwapp-select2-ajax' ); ?>">
                 <option value="none" <?php echo selected(true, in_array('none', (array) $qlwapp['display'][$type->name])); ?>><?php echo esc_html__('Exclude from all', 'wp-whatsapp-chat'); ?></option>
                 <option value="archive" <?php echo selected(true, in_array('archive', (array) $qlwapp['display'][$type->name])); ?>><?php echo esc_html__('Archive', 'wp-whatsapp-chat'); ?></option>
                 <?php

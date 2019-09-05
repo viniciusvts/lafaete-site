@@ -1,19 +1,19 @@
 <?php
 /*
 Plugin Name: ITRO Popup Plugin
-Plugin URI: http://www.itroteam.com
+Plugin URI: https://www.itroteam.com
 Description: EN - Show a perfecly centered customizable popup and a popup-system for age-restricted site and allow to insert own HTML code. IT - Visualizza un popup perfettamente centrato e personalizzabile con possibile blocco per i siti con restrizioni di eta' e permette di inserire il proprio codice HTML.
 Author: ITRO Team
 E-mail: support@itroteam.com
 Text Domain: itro-popup
-Version: 5.0.2
-Author URI: http://www.itroteam.com
+Version: 5.1
+Author URI: https://www.itroteam.com
 */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 global $ITRO_VER;
-$ITRO_VER = '5.0.2';
+$ITRO_VER = '5.1';
 
 global $popup_fired; //it check if there is a popup visualization via shortcode or via automatic visualization
 $popup_fired = false;

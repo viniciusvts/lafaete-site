@@ -535,7 +535,7 @@ class Permalink_Manager_Admin_Functions extends Permalink_Manager_Class {
 
 		$html = "<div id=\"permalink-manager\" class=\"wrap\">";
 
-		$donate_link = defined('PERMALINK_MANAGER_PRO') ? "" : sprintf("<a href=\"%s\" target=\"_blank\" class=\"page-title-action\">%s</a>", PERMALINK_MANAGER_DONATE, __("Donate", "permalink-manager"));
+		$donate_link = (Permalink_Manager_Admin_Functions::is_pro_active()) ? "" : sprintf("<a href=\"%s\" target=\"_blank\" class=\"page-title-action\">%s</a>", PERMALINK_MANAGER_DONATE, __("Donate", "permalink-manager"));
 		$html .= sprintf("<h2 id=\"plugin-name-heading\">%s <a href=\"http://maciejbis.net\" class=\"author-link\" target=\"_blank\">%s</a> %s</h2>", PERMALINK_MANAGER_PLUGIN_NAME, __("by Maciej Bis", "permalink-manager"), $donate_link);
 
 		// Display the tab navigation
@@ -544,8 +544,11 @@ class Permalink_Manager_Admin_Functions extends Permalink_Manager_Class {
 			$active_class = ($this->active_section === $section_name) ? 'nav-tab-active nav-tab' : 'nav-tab';
 			$section_url = $this->get_admin_url("&section={$section_name}");
 
-			$html .= "<a href=\"{$section_url}\" class=\"{$active_class} section_{$section_name}\">{$section_properties['name']}</a>";
+			$html .= sprintf("<a href=\"%s\" class=\"%s section_%s\">%s</a>", $section_url, $active_class, $section_name, $section_properties['name']);
 		}
+
+		// Upgrade to Pro version
+		$html .= (Permalink_Manager_Admin_Functions::is_pro_active() == false) ? sprintf("<a href=\"%s\" target=\"_blank\" class=\"nav-tab section_upgrade\">%s</a>", 'https://permalinkmanager.pro/buy-permalink-manager-pro/?utm_source=plugin_upgrade', __('Upgrade to PRO', 'permalink-manager')) : '';
 		$html .= "</div>";
 
 		// Now display the active section

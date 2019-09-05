@@ -1,10 +1,10 @@
 ﻿=== ITRO Popup Plugin ===
-Contributors: ITRO
+Contributors: ITRO,martinalucaroni
 Donate link: https://www.itroteam.com/leave-a-review/
 Tags: multilingual popup, popup, popup message, popuup optin, popup box, popup ads, popup advertising, popup block, popup content warning, fancy box, fancy popup, advertising popup, pop-up, lightbox popup
 Requires at least: 3.0.1
-Tested up to: 4.7.3
-Stable tag: 5.0.2
+Tested up to: 5.2.2
+Stable tag: 5.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -131,6 +131,12 @@ LIVE DEMOS - [CLICK HERE!](https://www.itroteam.com/wordpress-popup-samples-demo
 BACKEND SCREENSHOT - [CLICK HERE!](https://www.itroteam.com/wordpress-popup-samples-demos/#backend)
 
 == Changelog ==
+= 5.1 =
+ADDED: control for logged users for popup display
+
+= 5.0.3 =
+FIXED: woocommerce deprecated function:view support request https://wordpress.org/support/topic/woocommerce_get_page_id-deprecated-2/
+
 = 5.0.2 =
 IMPROVED: system info on the popup admin page
 ADDED: force table installation in case something gone wrong during plugin activation

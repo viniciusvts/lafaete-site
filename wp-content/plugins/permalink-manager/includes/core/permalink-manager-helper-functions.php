@@ -442,7 +442,7 @@ class Permalink_Manager_Helper_Functions extends Permalink_Manager_Class {
 
 		// $clean = iconv('UTF-8', 'ASCII//TRANSLIT', $clean);
 		$percent_sign = ($keep_percent_sign) ? "\%" : "";
-		$clean = preg_replace("/[^\p{Thai}\p{Xwd}a-zA-Z0-9{$percent_sign}\/_\.|+ -]/u", '', $clean);
+		$clean = preg_replace("/[^\p{Thai}\p{Xwd}\p{Hebrew}a-zA-Z0-9{$percent_sign}\/_\.|+ -]/u", '', $clean);
 		$clean = ($force_lowercase) ? strtolower(trim($clean, '-')) : trim($clean, '-');
 
 		// Remove special characters
@@ -488,6 +488,10 @@ class Permalink_Manager_Helper_Functions extends Permalink_Manager_Class {
 		$force_custom_slugs = apply_filters('permalink_manager_force_custom_slugs', $force_custom_slugs, $slug, $object);
 
 		if($force_custom_slugs) {
+			// Decode URI-encoded characters
+			//$slug = urldecode($slug);
+			//$title = urldecode($title);
+
 			$title = (!empty($object->name)) ? $object->name : $object->post_title;
 			$title = self::remove_slashes($title);
 

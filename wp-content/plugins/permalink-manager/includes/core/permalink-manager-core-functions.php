@@ -362,31 +362,16 @@ class Permalink_Manager_Core_Functions extends Permalink_Manager_Class {
 		}
 
 		/**
-		 * 8. Debug mode
+		 * 8. Debug data
 		 */
-		if(isset($_REQUEST['debug_url'])) {
-			$debug_info['uri_parts'] = $uri_parts;
-			$debug_info['old_query_vars'] = $old_query;
-			$debug_info['new_query_vars'] = $query;
-			$debug_info['detected_id'] = (!empty($pm_query['id'])) ? $pm_query['id'] : "-";
-
-			if(isset($post_type)) {
-				$debug_info['post_type'] = $post_type;
-			} else if(isset($term_taxonomy)) {
-				$debug_info['taxonomy'] = $term_taxonomy;
-			}
-
-			// License key info
-			if(class_exists('Permalink_Manager_Pro_Functions')) {
-				$license_key = $permalink_manager->functions['pro-functions']->get_license_key();
-
-				// Mask the license key
-				$debug_info['license_key'] = preg_replace('/([^-]+)-([^-]+)-([^-]+)-([^-]+)$/', '***-***-$3', $license_key);
-			}
-
-			$debug_txt = sprintf("<pre style=\"display:block;\">%s</pre>", print_r($debug_info, true));
-			wp_die($debug_txt);
+		if(!empty($taxonomy)) {
+			$content_type = "Taxonomy: {$term_taxonomy}";
+		} else if(!empty($post_type)) {
+			$content_type = "Post type: {$post_type}";
+		} else {
+			$content_type = '';
 		}
+		$query = apply_filters('permalink_manager_filter_query', $query, $old_query, $uri_parts, $pm_query, $content_type);
 
 		if($return_object && !empty($term)) {
 			return $term;
@@ -431,24 +416,30 @@ class Permalink_Manager_Core_Functions extends Permalink_Manager_Class {
 	/**
    * Display 404 if requested page does not exist in pagination
    */
-  function fix_pagination_pages() {
-    global $wp_query;
+	function fix_pagination_pages() {
+		global $wp_query;
 
-    // 1. Get the post object
-    $post = get_queried_object();
+		// 1. Get the queried object
+		$post = get_queried_object();
 
 		// 2. Check if post object is defined
-    if(empty($post->post_type)) { return; }
+		if(!empty($post->post_type)) {
+			// 2A. Check if pagination is detected
+			$current_page = (!empty($wp_query->query_vars['page'])) ? $wp_query->query_vars['page'] : 1;
+			$current_page = (empty($wp_query->query_vars['page']) && !empty($wp_query->query_vars['paged'])) ? $wp_query->query_vars['paged'] : $current_page;
 
-    // 3. Check if pagination is detected
-    $current_page = (!empty($wp_query->query_vars['page'])) ? $wp_query->query_vars['page'] : 1;
-		$current_page = (empty($wp_query->query_vars['page']) && !empty($wp_query->query_vars['paged'])) ? $wp_query->query_vars['paged'] : $current_page;
+			// 2B. Count post pages
+			$num_pages = substr_count(strtolower($post->post_content), '<!--nextpage-->') + 1;
 
-    // 4. Count post pages
-    $num_pages = substr_count(strtolower($post->post_content), '<!--nextpage-->') + 1;
+			$is_404 = ($current_page > 1 && ($current_page > $num_pages)) ? true : false;
+		}
+		// 3. Force 404 if no posts are loaded
+		else if(!empty($wp_query->query['paged']) && $wp_query->post_count == 0) {
+			$is_404 = true;
+		}
 
 		// 5. Block non-existent pages (Force 404 error)
-    if($current_page > 1 && ($current_page > $num_pages)) {
+		if($is_404) {
 			$wp_query->is_404 = true;
 			$wp_query->query = $wp_query->queried_object = $wp_query->queried_object_id = null;
 			$wp_query->set_404();
@@ -458,8 +449,8 @@ class Permalink_Manager_Core_Functions extends Permalink_Manager_Class {
 			include(get_query_template('404'));
 
 			die();
-    }
-  }
+		}
+	}
 
 	/**
 	 * Redirects
@@ -491,6 +482,9 @@ class Permalink_Manager_Core_Functions extends Permalink_Manager_Class {
 		// Get home URL
 		$home_url = rtrim(get_option('home'), "/");
 		$home_dir = parse_url($home_url, PHP_URL_PATH);
+
+		// Set up $correct_permalink variable
+		$correct_permalink = '';
 
 		// Fix for WP installed in directories (remove the directory name from the URI)
 		if(!empty($home_dir)) {
@@ -628,15 +622,7 @@ class Permalink_Manager_Core_Functions extends Permalink_Manager_Class {
 		/**
 		 * 5. Debug redirect
 		 */
-		if(isset($_REQUEST['debug_redirect'])) {
- 			$debug_info['query_vars'] = $wp_query->query_vars;
- 			$debug_info['redirect_url'] = (!empty($correct_permalink)) ? $correct_permalink : '-';
- 			$debug_info['redirect_type'] = (!empty($redirect_type)) ? $redirect_type : "-";
- 			$debug_info['queried_object'] = (!empty($queried_object)) ? $queried_object : "-";
-
- 			$debug_txt = sprintf("<pre style=\"display:block;\">%s</pre>", print_r($debug_info, true));
- 			wp_die($debug_txt);
- 		}
+		$correct_permalink = apply_filters('permalink_manager_filter_redirect', $correct_permalink, $redirect_type, $queried_object);
 
 		/**
 		 * 6. Ignore default URIs (or do nothing if redirects are disabled)

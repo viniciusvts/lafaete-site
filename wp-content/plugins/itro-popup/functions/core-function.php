@@ -78,7 +78,7 @@ function itro_display_popup() {
     if ($popup_fired === true) {
 	return;
     }
-
+    
     /* check if it is the preview visualization */
     if (!empty($_GET['itro_preview']) && $_GET['itro_preview'] == 'yes' && is_user_logged_in()) {
 	$is_preview = true;
@@ -86,13 +86,28 @@ function itro_display_popup() {
 	$is_preview = false;
     }
 
+    /*user display control*/
+    switch (itro_get_option('users_display')){
+        case 'logged':
+            if(!is_user_logged_in() && !$is_preview){
+                return;
+            }
+            break;
+        case 'not_logged':
+            if (is_user_logged_in() && !$is_preview) {
+		return;
+	    }
+	    break;
+     }
+
     /* woocommerce shop page identification */
+    //TODO: controllare se è ancora necessaria la verifica dell'id della pagina shop
     $woo_shop = NULL;
     $woo_shop_id = NULL;
-    if (function_exists('is_shop') && function_exists('woocommerce_get_page_id')) /* if this functions exist, woocommerce is installed! */ {
+    if (function_exists('is_shop') && function_exists('wc_get_page_id')) /* if this functions exist, woocommerce is installed! */ {
 	if (is_shop()) /* if the actual page is the standard woocommerce shop page */ {
 	    $woo_shop = true;
-	    $woo_shop_id = woocommerce_get_page_id('shop');
+	    $woo_shop_id = wc_get_page_id('shop');
 	}
     }
 
@@ -109,7 +124,8 @@ function itro_display_popup() {
 	case 'some':
 	    if (isset($selected_page_id)) {
 		foreach ($selected_page_id as $single_id) {
-		    if ($single_id == $current_page_id || ( $single_id == $woo_shop_id && $woo_shop )) /* if the selected id is the current page id popup will be displayed OR if the woo_shop_id has been selected and you are in the woocommerce standard shop page ($woo_shop == true), popup will be displayed.  */ {
+                     /* if the selected id is the current page id popup will be displayed OR if the woo_shop_id has been selected and you are in the woocommerce standard shop page ($woo_shop == true), popup will be displayed.  */
+		    if ($single_id == $current_page_id || ( $single_id == $woo_shop_id && $woo_shop )) {
 			$id_match++;
 		    }
 		}
@@ -117,30 +133,24 @@ function itro_display_popup() {
 	    if ((is_front_page() && itro_get_option('blog_home') == 'yes') || (is_home() && itro_get_option('blog_home') == 'yes')) {
 		$id_match++;
 	    }
-	    if ($id_match != NULL || $is_preview) {
-		$popup_fired = true;
-		itro_style();
-		itro_popup_template();
-		itro_popup_js();
+	    if ($id_match == NULL && !$is_preview) {
+		return;
 	    }
-	    break;
-	case 'all':
-	    $popup_fired = true;
-	    itro_style();
-	    itro_popup_template();
-	    itro_popup_js();
 	    break;
 	case 'none':
-	    if ($is_preview) {
-		$popup_fired = true;
-		itro_style();
-		itro_popup_template();
-		itro_popup_js();
+	    if (!$is_preview) {
+		return;
 	    }
 	    break;
-    }
+    } 
+    itro_render_popup();
 }
-
+function itro_render_popup(){
+        itro_style();
+        itro_popup_template();
+        itro_popup_js();
+    }
+    
 /* ------------------------- SELECT PAGES FUNCTIONS */
 
 function itro_check_selected_id($id_to_check) {
@@ -221,7 +231,12 @@ function ipp_validate_data($data_name, $data) {
 	    $data = ($data != 'yes' ? NULL : $data );
 	    break;
 	case 'page_selection':
-	    if (!in_array($data, array('some', 'all', 'none'))) {
+	    if (!in_array($data, ['some', 'all', 'none'])) {
+		$data = 'none';
+	    }
+	    break;
+        case 'users_display':
+            if (!in_array($data, ['logged', 'all', 'not_logged'])) {
 		$data = 'none';
 	    }
 	    break;

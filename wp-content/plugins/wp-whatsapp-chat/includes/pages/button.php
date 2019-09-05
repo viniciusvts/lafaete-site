@@ -39,7 +39,7 @@
                 <th scope="row"><?php esc_html_e('Icon', 'wp-whatsapp-chat'); ?></th>
                 <td>
                     <div class="submit qlwapp-premium-field">
-                        <?php submit_button(__('Add Icon', 'wp-whatsapp-chat'), 'secondary', null, false, array('id' => 'btn-add-icon')); ?>
+                        <?php submit_button(esc_html__('Add Icon', 'wp-whatsapp-chat'), 'secondary', null, false, array('id' => 'btn-add-icon')); ?>
                         <p class="description hidden"><small><?php esc_html_e('This is a premium feature', 'wp-whatsapp-chat'); ?></small></p>    
                     </div>
                     <input type="text" name="<?php echo esc_attr(QLWAPP_DOMAIN); ?>[button][icon]" placeholder="<?php echo esc_html($this->defaults['button']['icon']); ?>" value="<?php echo esc_attr($qlwapp['button']['icon']); ?>" class="qlwapp-input"/>
@@ -65,7 +65,7 @@
             <tr>
                 <th scope="row"><?php esc_html_e('Phone', 'wp-whatsapp-chat'); ?></th>
                 <td>
-                    <input type="text" name="<?php echo esc_attr(QLWAPP_DOMAIN . '[button][phone]'); ?>" placeholder="<?php echo esc_html($this->defaults['button']['phone']); ?>" value="<?php echo esc_attr($qlwapp['button']['phone']); ?>" class="qlwapp-input" pattern="[\+]\d[0-9]{6,15}$"/>
+                    <input type="text" name="<?php echo esc_attr(QLWAPP_DOMAIN . '[button][phone]'); ?>" placeholder="<?php echo esc_html($this->defaults['button']['phone']); ?>" value="<?php echo esc_attr($qlwapp['button']['phone']); ?>" class="qlwapp-input" pattern="\d[0-9]{6,15}$"/>
                     <p class="description hidden"><?php esc_html_e('Full phone number in international format.', 'wp-whatsapp-chat'); ?></p>  
 
                 </td>

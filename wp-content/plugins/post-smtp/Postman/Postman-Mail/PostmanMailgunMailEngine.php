@@ -1,6 +1,12 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
+
 require_once 'mailgun/mailgun.php';
+
 use Mailgun\Mailgun;
+use Mailgun\HttpClientConfigurator;
 
 if ( ! class_exists( 'PostmanMailgunMailEngine' ) ) {
 
@@ -18,14 +24,15 @@ if ( ! class_exists( 'PostmanMailgunMailEngine' ) ) {
 		// the result
 		private $transcript;
 
+		private $api_endpoint;
 		private $apiKey;
 		private $domainName;
 		private $mailgunMessage;
 
 		/**
 		 *
-		 * @param unknown $senderEmail
-		 * @param unknown $accessToken
+		 * @param mixed $senderEmail
+		 * @param mixed $accessToken
 		 */
 		function __construct( $apiKey, $domainName ) {
 			assert( ! empty( $apiKey ) );
@@ -48,6 +55,7 @@ if ( ! class_exists( 'PostmanMailgunMailEngine' ) ) {
 		 */
 		public function send( PostmanMessage $message ) {
 			$options = PostmanOptions::getInstance();
+			$this->api_endpoint = ! is_null( $options->getMailgunRegion() ) ? 'https://api.eu.mailgun.net' : 'https://api.mailgun.net';
 
 			// add the Postman signature - append it to whatever the user may have set
 			if ( ! $options->isStealthModeEnabled() ) {
@@ -161,7 +169,10 @@ if ( ! class_exists( 'PostmanMailgunMailEngine' ) ) {
 					$this->logger->debug( 'Sending mail' );
 				}
 
-				$mg = Mailgun::create( $this->apiKey );
+				$configurator = new HttpClientConfigurator();
+				$configurator->setEndpoint( $this->api_endpoint . '/v3/'. $this->domainName .'/messages');
+				$configurator->setApiKey($this->apiKey);
+				$mg = Mailgun::configure($configurator);
 
 				// Make the call to the client.
 				$result = $this->processSend( $mg );
@@ -217,7 +228,7 @@ if ( ! class_exists( 'PostmanMailgunMailEngine' ) ) {
 
 		private function addHeader( $name, $value, $deprecated = '' ) {
 			if ( $value && ! empty( $value ) ) {
-				$this->mailgunMessage['h:' . $name] = $value;
+				$this->mailgunMessage['h:' . $name] = preg_replace('/.*:\s?/', '', $value);
 			}
 		}
 

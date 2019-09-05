@@ -3,8 +3,8 @@
  * Plugin Name:       WhatsApp Chat
  * Plugin URI:        https://quadlayers.com/portfolio/wordpress-whatsapp-chat/
  * Description:       WhatsApp Chat allows your visitors to contact you or your team through WhatsApp chat with a single click.
- * Version:           4.3.0
- * Author:            WhatsApp Chat
+ * Version:           4.3.8
+ * Author:            QuadLayers
  * Author URI:        https://quadlayers.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
@@ -18,7 +18,7 @@ if (!defined('QLWAPP_PLUGIN_NAME')) {
   define('QLWAPP_PLUGIN_NAME', 'WhatsApp Chat');
 }
 if (!defined('QLWAPP_PLUGIN_VERSION')) {
-  define('QLWAPP_PLUGIN_VERSION', '4.3.0');
+  define('QLWAPP_PLUGIN_VERSION', '4.3.8');
 }
 if (!defined('QLWAPP_PLUGIN_FILE')) {
   define('QLWAPP_PLUGIN_FILE', __FILE__);
@@ -54,6 +54,70 @@ if (!class_exists('QLWAPP')) {
 
     protected static $instance;
 
+    function ajax_dismiss_notice() {
+      if (current_user_can('manage_options')) {
+
+        if (!empty($_REQUEST) && check_admin_referer('qlwapp_dismiss_notice', 'nonce')) {
+
+          if ($notice_id = ( isset($_REQUEST['notice_id']) ) ? sanitize_key($_REQUEST['notice_id']) : '') {
+
+            update_user_meta(get_current_user_id(), $notice_id, true);
+
+            wp_send_json($notice_id);
+          }
+        }
+      }
+      wp_die();
+    }
+
+    function add_notices() {
+
+      if (!get_transient('qlwapp-first-rating') && !get_user_meta(get_current_user_id(), 'qlwapp-user-rating', true)) {
+        ?>
+        <div id="qlwapp-admin-rating" class="qlwapp-notice notice is-dismissible" data-notice_id="qlwapp-user-rating">
+          <div class="notice-container" style="padding-top: 10px; padding-bottom: 10px; display: flex; justify-content: left; align-items: center;">
+            <div class="notice-image">
+              <img style="border-radius:50%;max-width: 90px;" src="<?php echo plugins_url('/assets/img/logo.jpg', QLWAPP_PLUGIN_FILE); ?>" alt="<?php echo esc_html(QLWAPP_PLUGIN_NAME); ?>>">
+            </div>
+            <div class="notice-content" style="margin-left: 15px;">
+              <p>
+                <?php printf(esc_html__('Hello! Thank you for choosing the %s plugin!', 'wp-whatsapp-chat'), QLWAPP_PLUGIN_NAME); ?>
+                <br/>
+                <?php esc_html_e('Could you please give it a 5-star rating on WordPress? We know its a big favor, but we\'ve worked very much and very hard to release this great product. Your feedback will boost our motivation and help us promote and continue to improve this product.', 'wp-whatsapp-chat'); ?>
+              </p>
+              <a href="<?php echo esc_url(QLWAPP_REVIEW_URL); ?>" class="button-primary" target="_blank">
+                <?php esc_html_e('Yes, of course!', 'wp-whatsapp-chat'); ?>
+              </a>
+              <a href="<?php echo esc_url(QLWAPP_SUPPORT_URL); ?>" class="button-secondary" target="_blank">
+                <?php esc_html_e('Report a bug', 'wp-whatsapp-chat'); ?>
+              </a>
+            </div>				
+          </div>
+        </div>
+        <script>
+          (function ($) {
+            $('.qlwapp-notice').on('click', '.notice-dismiss', function (e) {
+              e.preventDefault();
+              var notice_id = $(e.delegateTarget).data('notice_id');
+              $.ajax({
+                type: 'POST',
+                url: ajaxurl,
+                data: {
+                  notice_id: notice_id,
+                  action: 'qlwapp_dismiss_notice',
+                  nonce: '<?php echo wp_create_nonce('qlwapp_dismiss_notice'); ?>'
+                },
+                success: function (response) {
+                  console.log(response);
+                },
+              });
+            });
+          })(jQuery);
+        </script>
+        <?php
+      }
+    }
+
     function includes() {
       include_once('includes/defaults.php');
       include_once('includes/frontend.php');
@@ -77,12 +141,13 @@ if (!class_exists('QLWAPP')) {
           }
         </style>
         <?php
-
       }
     }
 
     function init() {
       add_action('admin_footer', array($this, 'add_premium_js'));
+      add_action('admin_notices', array($this, 'add_notices'));
+      add_action('wp_ajax_qlwapp_dismiss_notice', array($this, 'ajax_dismiss_notice'));
     }
 
     public static function do_activation() {

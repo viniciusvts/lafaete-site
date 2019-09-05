@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitb9057a853289224ea9fa1d5dcedb206d
+class ComposerStaticInitf5265850c3d873e108b5abc992d12723
 {
     public static $files = array (
         '6c200413eed8aeea54dbaf934a31b127' => __DIR__ . '/..' . '/weglot/simplehtmldom/src/simple_html_dom.php',
@@ -48,20 +48,6 @@ class ComposerStaticInitb9057a853289224ea9fa1d5dcedb206d
                 0 => __DIR__ . '/..' . '/weglot/simplehtmldom/src',
             ),
         ),
-        'U' => 
-        array (
-            'Utilities\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/galbar/jsonpath/src/Galbar',
-            ),
-        ),
-        'J' => 
-        array (
-            'JsonPath\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/galbar/jsonpath/src/Galbar',
-            ),
-        ),
     );
 
     public static $classMap = array (
@@ -71,10 +57,10 @@ class ComposerStaticInitb9057a853289224ea9fa1d5dcedb206d
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitb9057a853289224ea9fa1d5dcedb206d::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitb9057a853289224ea9fa1d5dcedb206d::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitb9057a853289224ea9fa1d5dcedb206d::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitb9057a853289224ea9fa1d5dcedb206d::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitf5265850c3d873e108b5abc992d12723::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitf5265850c3d873e108b5abc992d12723::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitf5265850c3d873e108b5abc992d12723::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitf5265850c3d873e108b5abc992d12723::$classMap;
 
         }, null, ClassLoader::class);
     }

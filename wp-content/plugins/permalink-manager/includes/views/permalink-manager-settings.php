@@ -61,18 +61,18 @@ class Permalink_Manager_Settings extends Permalink_Manager_Class {
 					),
 					'setup_redirects' => array(
 						'type' => 'single_checkbox',
-						'label' => __('Auto-create "Extra Redirects" for old permalinks', 'permalink-manager'),
+						'label' => __('Auto-create "Extra Redirects" for old version of permalinks', 'permalink-manager'),
 						'input_class' => '',
 						'pro' => true,
 						'disabled' => true,
-						'description' => __('If enabled, the redirects will be automatially created for old custom permalinks, after posts or terms are updated.', 'permalink-manager')
+						'description' => __('If enabled, the redirects will be automatially created for old custom permalinks, after posts or terms URLs are changed.', 'permalink-manager')
 					),
 					'redirect' => array(
 						'type' => 'select',
 						'label' => __('Redirect', 'permalink-manager'),
 						'input_class' => 'settings-select',
 						'choices' => array(0 => __('Disable', 'permalink-manager'), "301" => __('Enable "301 redirect"', 'permalink-manager'), "302" => __('Enable "302 redirect"', 'permalink-manager')),
-						'description' => __('If enabled - the visitors will be redirected from native permalinks to your custom permalinks.<br /><strong>Only native permalinks & extra redirects will be redirected to new custom permalinks</strong>.', 'permalink-manager')
+						'description' => __('If enabled - the visitors will be redirected from native permalinks to your custom permalinks.', 'permalink-manager')
 					),
 					'trailing_slashes' => array(
 						'type' => 'select',

@@ -28,8 +28,6 @@ class Option_Service_Weglot {
 	protected $options_default = [
 		'api_key_private'                  => '',
 		'api_key'                          => '',
-		'has_first_settings'               => true,
-		'show_box_first_settings'          => false,
 		'language_from'                    => 'en',
 		'languages'                        => [],
 		'auto_switch'                      => false,
@@ -48,13 +46,13 @@ class Option_Service_Weglot {
 				'flag_type'     => Helper_Flag_Type::RECTANGLE_MAT,
 				'custom_css'    => '',
 			],
-			'has_first_settings'               => true,
-			'show_box_first_settings'          => false,
 			'rtl_ltr_style'                    => '',
-			'active_wc_reload'                 => false,
+			'active_wc_reload'                 => true,
 			'flag_css'                         => '',
 		],
 		'allowed' => true,
+        'has_first_settings'               => true,
+        'show_box_first_settings'          => false,
 	];
 
 	/**
@@ -66,7 +64,7 @@ class Option_Service_Weglot {
 		'menu_switcher'                    => [],
 		'custom_urls'                      => [],
 		'flag_css'                         => '',
-		'active_wc_reload'                 => false,
+		'active_wc_reload'                 => true,
 	];
 
 	/**
@@ -387,6 +385,10 @@ class Option_Service_Weglot {
 		$exclude_blocks[]   = '#query-monitor';
 		$exclude_blocks[]   = '.menu-item-weglot';
 		$exclude_blocks[]   = '.menu-item-weglot a';
+		$exclude_blocks[]   = '.mini-cart-counter';
+		$exclude_blocks[]   = '.material-icons';
+		$exclude_blocks[]   = '.fas';
+		$exclude_blocks[]   = '.amount'; //Added to prevent prices to pass
 
 		return apply_filters( 'weglot_exclude_blocks', $exclude_blocks );
 	}
@@ -424,6 +426,7 @@ class Option_Service_Weglot {
 		$exclude_urls[]   = '/sitemaps.xml';
 		$exclude_urls[]   = 'wp-comments-post.php';
 		$exclude_urls[]   = '/ct_template'; // Compatibility Oxygen
+		$exclude_urls[]   = '/main-sitemap.xsl'; // SEO by Rank Math
 
 		$translate_amp = weglot_get_translate_amp_translation();
 		if ( ! $translate_amp ) {

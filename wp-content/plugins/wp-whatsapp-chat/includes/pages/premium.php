@@ -3,7 +3,7 @@
     <div class="welcome-header">
       <h1><?php esc_html_e('Premium', 'wp-whatsapp-chat'); ?></h1>
       <div class="about-description">
-        <?php esc_html_e('Unlock the power of our premium WhatsApp Chat plugin which allows you to include unlimited agent accounts with their names and labels inside the box to provide direct contact to the different support areas of your site.', 'wp-whatsapp-chat'); ?>
+        <?php printf(esc_html__('Unlock the power of our premium %s plugin which allows you to include unlimited agent accounts with their names and labels inside the box to provide direct contact to the different support areas of your site.', 'wp-whatsapp-chat'), QLWAPP_PLUGIN_NAME); ?>
       </div>
       <br/>
       <a style="background-color: #006cff;color: #ffffff;text-decoration: none;padding: 10px 30px;border-radius: 30px;margin: 10px 0 0 0;display: inline-block;" target="_blank" href="<?php echo esc_url(QLWAPP_PURCHASE_URL); ?>"><?php esc_html_e('Purchase Now', 'wp-whatsapp-chat'); ?></a>
@@ -13,7 +13,7 @@
     <div class="feature-section">
       <h3><?php esc_html_e('Multiple agents', 'wp-whatsapp-chat'); ?></h3>
       <p>
-        <?php esc_html_e('WhatsApp Chat allows you to include unlimited agent accounts with their names and labels inside the box to provide direct contact to the different support areas of your site.', 'wp-whatsapp-chat'); ?>
+        <?php printf(esc_html__('%s allows you to include unlimited agent accounts with their names and labels inside the box to provide direct contact to the different support areas of your site.', 'wp-whatsapp-chat'), QLWAPP_PLUGIN_NAME); ?>
       </p>
     </div>
     <div class="feature-section">
@@ -44,7 +44,7 @@
     <div class="welcome-header">
       <h1><?php esc_html_e('Chatbox interface', 'wp-whatsapp-chat'); ?></h1>
       <div class="about-description">
-        <?php esc_html_e('WhatsApp chat for WordPress allows you to include a chatbox for each agent where your users can type their first message.', 'wp-whatsapp-chat'); ?>
+        <?php printf(esc_html__('%s for WordPress allows you to include a chatbox for each agent where your users can type their first message.', 'wp-whatsapp-chat'), QLWAPP_PLUGIN_NAME); ?>
         <?php //esc_html_e('Take in mind that this chat dosent allow .', 'wp-whatsapp-chat'); ?>
       </div>
     </div>

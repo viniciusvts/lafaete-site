@@ -1,3 +1,32 @@
+= 4.3.8 =
+* Fix. admin menu capability
+
+= 4.3.7 =
+* Fix. rtl support for admin badge
+* Fix. readme update
+
+= 4.3.6 =
+* Fix. small css fixes
+
+= 4.3.5 =
+* Fix. small css fixes
+
+= 4.3.4 =
+* Fix. + removed from phone pattern
+
+= 4.3.3 =
+* Fix. + removed from phone numbers
+
+= 4.3.2 =
+* Fix. sanitize added to ajax search post 
+* Fix. nonce validation added to qlwapp_dismiss_notice ajax action
+* Fix. current_user_can validation added to qlwapp_dismiss_notice ajax action
+* Fix. nonce validation added to qlwapp_get_posts ajax action
+* Fix. current_user_can validation added to qlwapp_get_posts ajax action
+
+= 4.3.1 =
+* Fix. WhatsApp Chat renamed
+
 = 4.3.0 =
 * Fix. bad spelling
 * Fix. whatsapp chat pro features not working

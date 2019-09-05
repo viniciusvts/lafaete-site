@@ -141,7 +141,13 @@ jQuery(document).ready(function() {
 				},
 				success: function(data) {
 					if(data.length > 5) {
-						var results = JSON.parse(data);
+						try {
+							var results = JSON.parse(data);
+						} catch (e) {
+							console.log(e);
+							console.log(data);
+							return;
+						}
 
 						// Loop through results
 						jQuery.each(results, function(key, is_duplicate) {
@@ -178,16 +184,16 @@ jQuery(document).ready(function() {
 	});
 
 	/**
-	 * Check if a all any of displayed custom URIs is not duplicated
+	 * Check if any of displayed custom URIs is not duplicated
 	 */
-	if(jQuery('.custom_uri').length > 0) {
+	if(jQuery('#uri_editor .custom_uri').length > 0) {
 		permalink_manager_duplicate_check(false, true);
 	}
 
 	/**
 	 * Disable "Edit URI" input if URI should be updated automatically
 	 */
-	jQuery('.permalink-manager-edit-uri-box select[name="auto_update_uri"]').on('change', function() {
+	jQuery('#permalink-manager').on('change', '.permalink-manager-edit-uri-box select[name="auto_update_uri"]', function() {
 		var selected = jQuery(this).find('option:selected');
 		var auto_update_status = jQuery(selected).data('auto-update');
 
@@ -239,32 +245,71 @@ jQuery(document).ready(function() {
 	 */
 	jQuery('#permalink-manager .save-row.hidden').removeClass('hidden');
 	jQuery('#permalink-manager').on('click', '#permalink-manager-save-button', function() {
-		var pm_container = jQuery(this).parents('#permalink-manager');
-		var pm_fields = jQuery(pm_container).find("input, select");
-		var pm_data = jQuery(pm_fields).serialize() + '&action=' + 'pm_save_permalink';
-		var button = jQuery(this);
-
-		jQuery.ajax({
-			type: 'POST',
-			url: permalink_manager.ajax_url,
-			data: pm_data,
-			beforeSend: function() {
-				jQuery(pm_container).LoadingOverlay("show", {
-					background  : "rgba(0, 0, 0, 0.1)",
-				});
-			},
-			success: function(html) {
-				jQuery(pm_container).find('.permalink-manager-gutenberg').replaceWith(html);
-				jQuery(pm_container).LoadingOverlay("hide");
-
-				if(wp && wp.data !== 'undefined') {
-					wp.data.dispatch('core/editor').refreshPost();
-				}
-      }
-		});
-
+		pm_reload_gutenberg_uri_editor();
 		return false;
 	});
+
+	var pm_reload_pending = false;
+	function pm_reload_gutenberg_uri_editor() {
+		var pm_container = jQuery('#permalink-manager.postbox');
+		var pm_fields = jQuery(pm_container).find("input, select");
+		var pm_data = jQuery(pm_fields).serialize() + '&action=' + 'pm_save_permalink';
+
+		// Do not duplicate AJAX requests
+		if(!pm_reload_pending) {
+			// console.log(pm_data);
+
+			jQuery.ajax({
+				type: 'POST',
+				url: permalink_manager.ajax_url,
+				data: pm_data,
+				beforeSend: function() {
+					pm_reload_pending = true;
+
+					jQuery(pm_container).LoadingOverlay("show", {
+						background  : "rgba(0, 0, 0, 0.1)",
+					});
+				},
+				success: function(html) {
+					jQuery(pm_container).find('.permalink-manager-gutenberg').replaceWith(html);
+					jQuery(pm_container).LoadingOverlay("hide");
+
+					if(wp && wp.data !== 'undefined') {
+						wp.data.dispatch('core/editor').refreshPost();
+					}
+
+					pm_reload_pending = false;
+	      }
+			});
+		}
+	}
+
+	/**
+	 * Reload the URI Editor in Gutenberg after the post is published or the title/slug is changed
+	 */
+	if(typeof wp !== 'undefined' && typeof wp.data !== 'undefined' && typeof wp.data.select !== 'undefined' && typeof wp.blocks !== 'undefined' && typeof wp.data.subscribe !== 'undefined') {
+		wp.data.subscribe(function () {
+			var isSavingPost = wp.data.select('core/editor').isSavingPost();
+			var isAutosavingPost = wp.data.select('core/editor').isAutosavingPost();
+
+			if(isSavingPost && !isAutosavingPost) {
+				old_status = wp.data.select('core/editor').getCurrentPostAttribute('status');
+				new_status = wp.data.select('core/editor').getEditedPostAttribute('status');
+
+				old_title = wp.data.select('core/editor').getCurrentPostAttribute('title');
+				new_title = wp.data.select('core/editor').getEditedPostAttribute('title');
+
+				old_slug = wp.data.select('core/editor').getCurrentPostAttribute('slug');
+				new_slug = wp.data.select('core/editor').getEditedPostAttribute('slug');
+
+				if((old_status !== new_status && new_status == 'publish') || (old_title !== new_title) || (old_slug !== new_slug)) {
+					setTimeout(function() {
+						pm_reload_gutenberg_uri_editor();
+					}, 1500);
+				}
+			}
+		})
+	};
 
 	/**
 	 * Help tooltips
@@ -397,7 +442,12 @@ jQuery(document).ready(function() {
 					progress = updated_count = 0;
 					jQuery(form).attr("data-updated_count", 0);
 				}
-      }
+      },
+			error: function(xhr, status, error_data) {
+				alert('Tthere was a problem running this tool and the process could not be completed. You can find more details in browser\'s console log.')
+				console.log('Status: ' + status);
+				console.log('Please send the debug data to contact@permalinkmanager.pro:\n\n' + xhr.responseText);
+			}
 		});
 
 		return false;

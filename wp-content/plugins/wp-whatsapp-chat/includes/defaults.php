@@ -26,23 +26,23 @@ if (!class_exists('QLWAPP_Options')) {
               'name' => '',
           ),
           'user' => array(
-              'message' => esc_html__('Hello! I\'m testing the WhatsApp Chat plugin @https://quadlayers.com', 'wp-whatsapp-chat')
+              'message' => sprintf(esc_html__('Hello! I\'m testing the %s plugin @https://quadlayers.com', 'wp-whatsapp-chat'), QLWAPP_PLUGIN_NAME)
           ),
           'button' => array(
               'layout' => 'button',
               'position' => 'bottom-right',
               'text' => esc_html__('How can I help you?', 'wp-whatsapp-chat'),
               'icon' => 'qlwapp-whatsapp-icon',
-              'phone' => '+441234567890',
+              'phone' => '441234567890',
               'developer' => 'no',
               'rounded' => 'yes',
-              'timefrom'=> '08:00',
-              'timeto'=> '18:00'
+              'timefrom' => '08:00',
+              'timeto' => '18:00'
           ),
           'box' => array(
               'enable' => 'no',
               'header' => '<h3>Hello!</h3><p>Click one of our representatives below to chat on WhatsApp or send us an email to <a href="mailto:hello@quadlayers.com">hello@quadlayers.com</a></p>',
-              'footer' => '<p>Call us to <a href="tel://542215676835">+542215676835</a> from <em><time>0:00hs</time></em> a <em><time>24:00hs</time></em></p>'
+              'footer' => '<p>Call us to <a href="tel://542215676835">542215676835</a> from <em><time>0:00hs</time></em> a <em><time>24:00hs</time></em></p>'
           ),
           'chat' => array(
               'emoji' => 'no',
@@ -52,13 +52,13 @@ if (!class_exists('QLWAPP_Options')) {
               0 => array(
                   'chat' => true,
                   'avatar' => 'https://www.gravatar.com/avatar/00000000000000000000000000000000',
-                  'phone' => '+441234567890',
+                  'phone' => '441234567890',
                   'firstname' => 'John',
                   'lastname' => 'Doe',
                   'label' => esc_html__('Support', 'wp-whatsapp-chat'),
                   'message' => esc_html__('Hello! I\'m John from the support team.', 'wp-whatsapp-chat'),
-                  'timefrom'=> '08:00',
-                  'timeto'=> '18:00'
+                  'timefrom' => '08:00',
+                  'timeto' => '18:00'
               ),
           ),
           'display' => array(
@@ -132,6 +132,17 @@ if (!class_exists('QLWAPP_Options')) {
       global $qlwapp;
 
       $options = get_option(QLWAPP_DOMAIN);
+
+      if (isset($options['button']['phone'])) {
+        $options['button']['phone'] = str_replace('+', '', $options['button']['phone']);
+      }
+      if (isset($options['contacts'])) {
+        if (count($options['contacts'])) {
+          foreach ($options['contacts'] as $id => $c) {
+            $options['contacts'][$id]['phone'] = str_replace('+', '', $c['phone']);
+          }
+        }
+      }
 
       if (isset($options['box']['enable']) && $options['box']['enable'] == 1) {
         $options['box']['enable'] = 'yes';

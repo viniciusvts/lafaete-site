@@ -7,6 +7,7 @@ class Permalink_Manager_Third_Parties extends Permalink_Manager_Class {
 
 	public function __construct() {
 		add_action('init', array($this, 'init_hooks'), 99);
+		add_action('plugins_loaded', array($this, 'init_early_hooks'), 99);
 	}
 
 	function init_hooks() {
@@ -134,6 +135,17 @@ class Permalink_Manager_Third_Parties extends Permalink_Manager_Class {
 
 			add_action('pmxi_after_xml_import', array($this, 'wpai_schedule_regenerate_uris_after_xml_import'), 10, 1);
 			add_action('wpai_regenerate_uris_after_import_event', array($this, 'wpai_regenerate_uris_after_import'), 10, 1);
+		}
+	}
+
+	/**
+	 * Some of the hooks must be called shortly after all the plugins are loaded
+	 */
+	public function init_early_hooks() {
+		// 1. WP Store Locator
+		if(class_exists('WPSL_CSV')) {
+			add_action('added_post_meta', array($this, 'wpsl_regenerate_after_import'), 10, 4);
+			add_action('updated_post_meta', array($this, 'wpsl_regenerate_after_import'), 10, 4);
 		}
 	}
 
@@ -438,8 +450,12 @@ class Permalink_Manager_Third_Parties extends Permalink_Manager_Class {
 		// Get element language code
 		if(!empty($_REQUEST['data']) && strpos($_REQUEST['data'], "target_lang")) {
 			$language_code = preg_replace('/(.*target_lang=)([^=&]+)(.*)/', '$2', $_REQUEST['data']);
-		} else if($pagenow == 'post.php' && !empty($_GET['lang'])) {
+		} else if(in_array($pagenow, array('post.php', 'post-new.php')) && !empty($_GET['lang'])) {
 			$language_code = $_GET['lang'];
+		} else if(!empty($_REQUEST['icl_post_language'])) {
+			$language_code = $_REQUEST['icl_post_language'];
+		} else if(!empty($_POST['action']) && $_POST['action'] == 'pm_save_permalink' && defined('ICL_LANGUAGE_CODE')) {
+			$language_code = ICL_LANGUAGE_CODE;
 		} else {
 			$language_code = self::get_language_code($element);
 		}
@@ -962,6 +978,22 @@ class Permalink_Manager_Third_Parties extends Permalink_Manager_Class {
 		}
 
 		update_option('permalink-manager-uris', $permalink_manager_uris);
+	}
+
+	/**
+	 * 10. Store Locator - CSV Manager
+	 */
+	public function wpsl_regenerate_after_import($meta_id, $post_id, $meta_key, $meta_value) {
+		global $permalink_manager_uris;
+
+		if(strpos($meta_key, 'wpsl_') !== false && isset($_POST['wpsl_csv_import_nonce'])) {
+			$default_uri = Permalink_Manager_URI_Functions_Post::get_default_post_uri($post_id);
+
+			if($default_uri) {
+				$permalink_manager_uris[$post_id] = $default_uri;
+				update_option('permalink-manager-uris', $permalink_manager_uris);
+			}
+		}
 	}
 
 }

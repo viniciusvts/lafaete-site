@@ -4,13 +4,15 @@
 * Plugin Name:       Permalink Manager Lite
 * Plugin URI:        https://permalinkmanager.pro?utm_source=plugin
 * Description:       Advanced plugin that allows to set-up custom permalinks (bulk editors included), slugs and permastructures (WooCommerce compatible).
-* Version:           2.2.4
+* Version:           2.2.6
 * Author:            Maciej Bis
 * Author URI:        http://maciejbis.net/
 * License:           GPL-2.0+
 * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
 * Text Domain:       permalink-manager
 * Domain Path:       /languages
+* WC requires at least: 3.0.0
+* WC tested up to:      3.7.0
 */
 
 // If this file is called directly or plugin is already defined, abort.
@@ -21,7 +23,7 @@ if (!defined('WPINC')) {
 // Define the directories used to load plugin files.
 define( 'PERMALINK_MANAGER_PLUGIN_NAME', 'Permalink Manager' );
 define( 'PERMALINK_MANAGER_PLUGIN_SLUG', 'permalink-manager' );
-define( 'PERMALINK_MANAGER_VERSION', '2.2.4' );
+define( 'PERMALINK_MANAGER_VERSION', '2.2.6' );
 define( 'PERMALINK_MANAGER_FILE', __FILE__ );
 define( 'PERMALINK_MANAGER_DIR', untrailingslashit(dirname(__FILE__)) );
 define( 'PERMALINK_MANAGER_BASENAME', dirname(plugin_basename(__FILE__)));
@@ -61,6 +63,7 @@ class Permalink_Manager_Class {
 				'third-parties' => 'Permalink_Manager_Third_Parties',
 				'core-functions' => 'Permalink_Manager_Core_Functions',
 				'gutenberg' => 'Permalink_Manager_Gutenberg',
+				'debug' => 'Permalink_Manager_Debug_Functions',
 				'pro-functions' => 'Permalink_Manager_Pro_Functions'
 			),
 			'views' => array(
@@ -70,7 +73,6 @@ class Permalink_Manager_Class {
 				'settings' => 'Permalink_Manager_Settings',
 				'debug' => 'Permalink_Manager_Debug',
 				'pro-addons' => 'Permalink_Manager_Pro_Addons',
-				'upgrade' => 'Permalink_Manager_Upgrade',
 				'help' => 'Permalink_Manager_Help',
 				'uri-editor-tax' => false,
 				'uri-editor-post' => false

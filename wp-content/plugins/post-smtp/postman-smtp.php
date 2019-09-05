@@ -1,17 +1,22 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
 /*
  * Plugin Name: Post SMTP
  * Plugin URI: https://wordpress.org/plugins/post-smtp/
  * Description: Email not reliable? Post SMTP is the first and only WordPress SMTP plugin to implement OAuth 2.0 for Gmail, Hotmail and Yahoo Mail. Setup is a breeze with the Configuration Wizard and integrated Port Tester. Enjoy worry-free delivery even if your password changes!
- * Version: 1.9.4
- * Author: Jason Hendriks, Yehuda Hassine
+ * Version: 2.0.4
+ * Author: Yehuda Hassine
  * Text Domain: post-smtp
  * Author URI: https://postmansmtp.com
  * License: GPLv2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
+/*
+ * Post SMTP (aka Postman SMTP) was originally developed by Jason Hendriks
+ */
 // The Postman Mail API
 //
 // filter postman_test_email: before calling wp_mail, implement this filter and return true to disable the success/fail counters
@@ -29,14 +34,17 @@
 // -- class autoloading
 // -- Add dismiss option for "unconfigured message" .. for multisites
 // -- customize sent-mail icon WordPress dashboard
-// -- multisite support for site-wide email configuration. allow network admin to choose whether subdomains may override with their own settings. subdomains may override with their own settings.
 // -- multiple mailbox support
+
+
 /**
  * DO some check and Start Postman
  */
 
 define( 'POST_BASE', __FILE__ );
 define( 'POST_PATH', __DIR__ );
+define( 'POST_URL', plugins_url('', POST_BASE ) );
+define( 'POST_SMTP_VER', '2.0.4' );
 
 $postman_smtp_exist = in_array( 'postman-smtp/postman-smtp.php', (array) get_option( 'active_plugins', array() ) );
 $required_php_version = version_compare( PHP_VERSION, '5.6.0', '<' );
@@ -111,7 +119,7 @@ add_action( 'admin_footer', 'post_dismiss_not_configured' );
 /**
  * Create the main Postman class to start Postman
  *
- * @param unknown $startingMemory
+ * @param mixed $startingMemory
  */
 function post_start( $startingMemory ) {
 	post_setupPostman();
@@ -123,5 +131,6 @@ function post_start( $startingMemory ) {
  */
 function post_setupPostman() {
 	require_once 'Postman/Postman.php';
-	$kevinCostner = new Postman( __FILE__, '1.9.4' );
+	$kevinCostner = new Postman( __FILE__, POST_SMTP_VER );
+	do_action( 'post_smtp_init');
 }
