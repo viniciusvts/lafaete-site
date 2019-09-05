@@ -1,0 +1,135 @@
+@font-face {
+    font-family: myFont;
+    src: local('Oswald-Regular.ttf'), url('../inc/tipografia/Oswald-Regular.ttf');    
+}
+
+@font-face {
+    font-family: myFontLight;
+    src: local('Oswald-Light.ttf'), url('../inc/tipografia/Oswald-Light.ttf');
+}
+
+* {
+    font-family: myFontLight, "Montserrat", "Trebuchet MS", "Arial", sans-serif;    
+}
+
+ a{
+    color: $laranja;
+ }
+
+ a:hover{
+    color: $laranjaClaro;
+ }
+
+
+h1{
+    font-size: 3rem;
+}
+
+h1, h2, h3, h4{
+    font-family: myFont;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+h1 b, h2 b, h3 b, h4 b{
+    color: $laranja;
+}
+
+h3{
+    font-size: 1.2rem;
+}
+
+h4{
+    font-size: 1.1rem;
+}
+
+p, ul li{
+    font-size: 18px;
+}
+
+ul li{
+    font-family: myFontLight, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
+}
+
+p{
+    font-family: myFontLight, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
+    letter-spacing: normal;
+    line-height: inherit;
+}
+
+.laranja{
+    color: $laranja;
+}
+
+.laranjaClaro{
+    color: $laranjaClaro;
+}
+
+.btn{
+    border-radius: 0;
+}
+
+.esconder{
+    display: none;
+    z-index: -1;
+}
+
+.my-container{
+    padding: 3% 0;
+}
+
+.menu-container{
+    padding: 0 4%;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+    background-color: $laranja;
+}
+
+.nav-pills .nav-link{
+    border: 1px solid $cinzaClaro;
+    margin-bottom: 5px;
+}
+
+.modal-body ul li{
+    list-style: none;
+}
+
+.modal-body ul{    
+    padding: 0;
+}
+
+
+.submenu-categorias{
+    position: absolute;
+    background-color: $cinzaDark;
+    color: white;
+    padding: 10px 36px;
+    right: 0;
+    top: 40px;
+    z-index: 2;
+    border-radius: 4px;
+
+    @include box-shadow(0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19));
+
+    ul{
+        list-style: none;
+        padding: 0;
+        color: white;
+        li{
+            padding: 7px 0;
+            a{
+                color: white;
+            }
+        }
+    }
+}
+
+.botao-laranja button, .botao-laranja {
+    background: $laranja;
+    padding: 10px 50px 10px 50px;
+    text-transform: uppercase;
+    border: none;
+    color: white;
+    margin-top: 44px;
+}

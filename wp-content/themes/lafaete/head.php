@@ -9,8 +9,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php bloginfo('template_url');?>/node_modules/bootstrap/compiler/bootstrap.css">
-    <link rel="stylesheet" media="(max-width: 1199px)" href="<?php bloginfo('template_url');?>/node_modules/bootstrap/compiler/style-mobile.css" />
-    <link rel="stylesheet" media="(min-width: 1200px)" href="<?php bloginfo('template_url');?>/node_modules/bootstrap/compiler/style.css" />
+    <link rel="stylesheet" media="(max-width: 1199px)" href="<?php bloginfo('template_url');?>/css/style-mobile.css" />
+    <link rel="stylesheet" media="(min-width: 1200px)" href="<?php bloginfo('template_url');?>/css/style.css" />
     
     <link rel="stylesheet" href="<?php bloginfo('template_url');?>/node_modules/animate.css">
 

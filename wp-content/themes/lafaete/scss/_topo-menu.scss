@@ -1,0 +1,48 @@
+/*topo-menu*/
+#menu-topo ul li svg{
+    width: 15px;
+    margin: 0 3px;
+    margin-bottom: 6px;
+}
+.topo-menu{
+    margin: 10px 0;
+    border-bottom: 1px solid $cinzaEscuro;
+    color: white;
+}
+
+.topo-menu ul li{
+    list-style: none;
+    display: inline-table;
+    margin-right: 10px; 
+}
+
+#menu-principal{
+    margin-top: 70px;
+    text-transform: uppercase;
+}
+
+#menu-principal ul li a{
+    color: white;
+}
+
+.dropdown-menu{
+    background-color: $laranja;
+}
+
+.dropdown-menu a:hover{
+    background: $cinzaEscuro;
+}
+
+.idioma{
+    margin: 0 2px;
+    width: 24px
+}
+
+.idioma-on{
+    opacity: 1;
+}
+
+.idioma-off{
+    opacity: 0.5;
+}
+/*topo-menu*/

@@ -1,0 +1,30 @@
+
+/*especificacoes*/
+.especificacoes-produtos{
+    background: white;
+    padding: 40px;
+}
+
+.col-especificacoes p{
+    display:table-cell;
+	vertical-align:middle;
+	font-weight:bold;
+	font-size:16px;
+}
+
+.col-especificacoes h5{
+    margin-top: 10px
+}
+
+.col-especificacoes .circulo{
+    width:150px;
+	height:150px;
+	display:table;
+	border-radius:100%;
+	border: 2px solid $laranja;
+    margin:0 auto;
+    color: white;
+    background: $laranjaClaro;
+
+}
+/*especificacoes*/
