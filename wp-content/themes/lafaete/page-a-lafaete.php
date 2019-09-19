@@ -49,7 +49,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-md-8">
-                    <h3><?php the_sub_field('titulo'); ?></h3>
+                    <h2><?php the_sub_field('titulo'); ?></h2>
                     <?php the_sub_field('descricao'); ?>
                   </div>
                   <div class="col-md-4">
