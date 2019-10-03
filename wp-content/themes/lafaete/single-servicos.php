@@ -30,20 +30,20 @@
               <div class="row">
                 <?php                             
                   if(have_posts()): the_post();
+                  $image = get_field('imagem');
                 ?>
-                  <div class="col-md-6">
+                  <div class="<?php if(!empty($image)): echo "col-md-6"; else: echo "col-md-12"; endif;?>">
                     <?php 
                       the_content(); 
                     ?>
                   </div>
-                  <div class="col-md-6">
-                    <?php
-                      $image = get_field('imagem');
+                  <?php                      
                       if(!empty($image) ) :                                
                     ?>
-                      <img src="<?php echo $image['url']; ?>" class="d-block w-100 img-fluid rounded" alt="<?php echo $image['alt']; ?>" />
-                    <?php endif; ?>
-                  </div>
+                    <div class="col-md-6">                    
+                        <img src="<?php echo $image['url']; ?>" class="d-block w-100 img-fluid rounded" alt="<?php echo $image['alt']; ?>" />                    
+                    </div>
+                  <?php endif; ?>
                 <?php
                   endif;
                 ?>

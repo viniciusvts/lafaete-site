@@ -4,29 +4,109 @@
     position: relative;    
     text-align: center;
     font-size: 1rem;
+
+    h3{
+        color: $laranja;
+        margin: 20px 0;
+        text-align: left;
+    }
+    .col-md-2, .col-md-3, .col-sm-3, .col-lg-3, .col-xs-3{
+        margin: 20px 0;
+    }
+    p{
+        color: white;
+        text-align: left;
+    }
+
+    .botao button{
+        background: $laranja;
+        color: white;
+        padding: 10px 50px 10px 50px;
+        text-transform: uppercase;
+        border: none;
+        margin: 40px 0;
+    }
+
+    img{
+        @include transition(0.4s ease all);
+        &:hover{
+            margin-top: -10px;
+            @include transition(0.4s ease all);
+        }
+    }
+    
 }
 
-.nossos-premios .col-md-2, .nossos-premios .col-md-3, .nossos-premios .col-sm-3, .nossos-premios .col-lg-3, .nossos-premios .col-xs-3{
-    margin: 20px 0;
+#slider_container {
+    width:1200px;
+    height:200px;
+    overflow:hidden;
+    margin:0 auto;
+    scroll-behavior: smooth;
+    
+    @include breakpoint(desktops){
+        width: 300px; 
+        height:300px;
+    }
 }
 
-.nossos-premios h3{
-    color: $laranja;
-    margin: 20px 0;
-    text-align: left;
+#slider_container.active {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+    transform: scale(1);
+    @include transition(0.4s ease all);
 }
 
-.nossos-premios p{
-    color: white;
-    text-align: left;
+#slider_images {
+    /* This is the bit that moves. It has 4 images, so 4 * 450 = 1800. You could use javascript
+    to work this out instead by counting images. */
+    width:1200px;
+    @include transition(0.8s ease all);
+    @include breakpoint(desktops){
+        width: 1800px; 
+    }
 }
 
-.nossos-premios .botao button{
-    background: $laranja;
-    color: white;
-    padding: 10px 50px 10px 50px;
-    text-transform: uppercase;
-    border: none;
-    margin: 40px 0;
+#slider_images img {
+    padding:0 5px;
+    margin:0;
+    float:left;
+    width:200px;
+    height:200px;
+    border-radius: 4px;
+    @include transition(0.4s ease all);
+    &:hover{
+        margin-top: -10px;
+        @include transition(0.4s ease all);
+    }
+    @include breakpoint(desktops){
+        width: 300px; 
+        height:300px;
+        margin: 0;
+    }
+}
+
+#slider_controls{
+    margin: 20px auto;
+    position: relative;
+    display: none;
+    span{
+        border-radius: 50%;
+        height: 15px;
+        width: 15px;
+        position: relative;
+        display: inline-block;
+        background: white;
+        opacity: 0.4;
+        margin: 5px;
+        cursor: pointer;
+    }
+    span.selected{
+        opacity: 1;
+    }
+
+    @include breakpoint(desktops){
+        display: block;
+    }
 }
 /*nossos-premios*/

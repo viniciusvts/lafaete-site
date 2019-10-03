@@ -1,0 +1,36 @@
+@mixin transition($parameter){
+    transition: $parameter;
+	-webkit-transition:$parameter;
+	-ms-transition:$parameter;
+	-o-transition:$parameter;
+	-moz-transition:$parameter;
+}
+
+// colocamos 3 pontos pois é recebido mais de um parêmetro, mas estes são aplicados numa mesma variável 
+@mixin box-shadow($shadow...){
+    box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    -webkit-box-shadow: $shadow;
+}
+
+
+@mixin breakpoint($point) {
+    @if $point == smartphones {
+      @media (max-width: $smartphones) { @content ; }
+   }
+    @else if $point == tablets {
+      @media (max-width: $tablets) { @content ; }
+   }
+     @else if $point == desktops {
+      @media (max-width: $desktops) { @content ; }
+   }
+    @else if $point == largeDesktops {
+      @media (max-width: $largeDesktops)  { @content ; }
+   }
+    @else if $point == hdDesktops {
+      @media (max-width: $hdDesktops)  { @content ; }
+    }
+    @else if $point == fullHdDesktops {
+      @media (max-width: $fullHdDesktops)  { @content ; }
+    }
+}

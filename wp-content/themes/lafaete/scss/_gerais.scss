@@ -12,6 +12,10 @@
     font-family: myFontLight, "Montserrat", "Trebuchet MS", "Arial", sans-serif;    
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
  a{
     color: $laranja;
  }
@@ -55,6 +59,11 @@ p{
     font-family: myFontLight, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
     letter-spacing: normal;
     line-height: inherit;
+}
+
+iframe{
+    display: block;
+    margin: 40px 0;
 }
 
 .laranja{

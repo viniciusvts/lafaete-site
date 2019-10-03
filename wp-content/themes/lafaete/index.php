@@ -14,14 +14,14 @@
       <div class="cabecalho">
         <h2>Serviços</h2>
         <span></span> 
-        <p>Lorem ipsum dolor sit amet, sed platonem erroribus ut. Vix homero partem ut, quem doming philosophia eam no. Vis perpetua partiendo an, vim te natum intellegam. Viderer commune gloriatur mel ea, no decore corrumpit mel. Ex fastidii disputationi mel.</p>
+        <!--<p>Lorem ipsum dolor sit amet, sed platonem erroribus ut. Vix homero partem ut, quem doming philosophia eam no. Vis perpetua partiendo an, vim te natum intellegam. Viderer commune gloriatur mel ea, no decore corrumpit mel. Ex fastidii disputationi mel.</p>-->
       </div>
       <div class="row">
         <?php
           $servicos = new WP_Query(array('post_type' => 'servicos', 'order' => 'ASC'));
           while($servicos->have_posts()) : $servicos->the_post();    
         ?>
-        <div class="col-md-3">
+        <div class="col-md-4">
           <div class="servicos-col">
             <?php the_field('icone'); ?>
             <h3 class="servicos-titulo"><?php the_title(); ?></h3>

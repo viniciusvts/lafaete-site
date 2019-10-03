@@ -1008,7 +1008,7 @@ div#v-pills-tabContent {
 /*newsletter*/
 /*footer*/
 .footer {
-  background: url("../../../inc/img/footer.jpg");
+  background: url("../inc/img/footer.jpg");
   background-position: center;
   background-size: inherit;
   background-repeat: no-repeat;

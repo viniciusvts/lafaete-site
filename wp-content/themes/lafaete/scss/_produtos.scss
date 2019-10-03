@@ -61,20 +61,14 @@
 	position:relative;
 	border:1px solid $laranja;
 	max-width:420px;
-	margin:0 auto;
-	transition:all 400ms ease;
-	-webkit-transition:all 400ms ease;
-	-ms-transition:all 400ms ease;
-	-o-transition:all 400ms ease;
-	-moz-transition:all 400ms ease;		
+    margin:0 auto;
+    height:100%;
+	@include transition(0.8s ease all);	    
 }
 
 .default-service-column .inner-box:hover{
-	-webkit-box-shadow:0px 0px 7px 5px rgba(0,0,0,0.05);
-	-ms-box-shadow:0px 0px 7px 5px rgba(0,0,0,0.05);
-	-o-box-shadow:0px 0px 7px 5px rgba(0,0,0,0.05);
-	-moz-box-shadow:0px 0px 7px 5px rgba(0,0,0,0.05);
-    box-shadow:0px 0px 7px 5px rgba(0,0,0,0.05);
+    @include transition(0.8s ease all);	
+	@include box-shadow(0px 0px 7px 5px rgba(0,0,0,0.05));
 }
 
 .default-service-column .inner-most{
@@ -150,8 +144,8 @@
 }
 
 .default-service-column .content h3{
-	position:relative;
-	margin-bottom:5px;
+	position: relative;
+	margin-bottom: 25px;
     text-align: center;
 }
 
@@ -180,36 +174,107 @@
 .default-service-column:hover .content .read-more{
 	border-color:#fdc236;	
 }
-#produtos .produto-floater .texto{
-    position: relative;    
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background: $laranja;
-    z-index: 2;
-}
+#produtos{
+    margin-top: 50px;
 
-#produtos .produto-floater .texto h2, .produto-floater .texto p {
-    position: relative;
-    z-index: 2;
-    color: white;
-    padding: 10px;
-}
+    .produto-floater .texto{
+        position: relative;    
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background: $laranja;
+        z-index: 2;
+    }
 
-#produtos .produto-floater .texto p{
-    font-size: 17px;
-    margin: 10px;
-}
+    .produto-floater .texto h2, .produto-floater .texto p {
+        position: relative;
+        z-index: 2;
+        color: white;
+        padding: 10px;
+    }
 
-#produtos .produto-floater .texto span{
-    color: black;
-}
+    .produto-floater .texto p{
+        font-size: 17px;
+        margin: 10px;
+    }
 
-#produtos .produto-floater .texto button, .produto-floater button{
-    background: $cinzaEscuro;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 10px;
+    .produto-floater .texto span{
+        color: black;
+    }
+
+    .produto-floater .texto button, .produto-floater button{
+        background: $cinzaEscuro;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 10px;
+    }
+
+    .produto-floater .texto::after{
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0px;
+        bottom: 0;
+        right: -60px;
+        width: 200px;
+        height: 100%;
+        background-color:$laranja;
+        -webkit-transform: skew(-20deg);
+        -moz-transform: skew(-20deg);
+        -o-transform: skew(-20deg);
+        -ms-transform: skew(-20deg);
+        transform: skew(-10deg);
+        z-index: 1;
+    }
+
+    .produto-floater{
+        background: white;
+        height: auto;
+        -webkit-box-shadow: 0px 1px 13px -2px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0px 1px 13px -2px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 1px 13px -2px rgba(0, 0, 0, 0.2);
+        position: relative;
+        left: 0;
+        right: 0;
+        bottom: 0px;
+        z-index: 0;
+    }
+
+    .produto-floater .pagamento{
+        padding: 60px 0px;
+        position: relative;
+        z-index: 2;
+        padding-left: 70px;
+    }
+    
+    .produto-floater .pagamento h4{
+        text-align: center;
+    }
+    
+    .produto-floater .pagamento img{
+        width: 270px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .produto-floater .texto .bread svg, .sobre .bread svg, .bread svg{
+        fill: white;
+        width: 25px;
+        float: left;
+        margin: 0 10px 0 0;
+    }
+    
+    .sobre .bread svg, .bread svg{
+        fill: $cinzaEscuro;
+    }
+    
+    .produto-floater .texto .bread p, .sobre .texto .bread p{
+        margin: 0;
+        padding: 0;
+        font-family: myFont, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
+    }
 }
 
 .produto-floater button{
@@ -220,72 +285,6 @@
     color: white;
 }
 
-#produtos .produto-floater .texto::after{
-    content: "";
-	display: block;
-	position: absolute;
-    top: 0px;
-    bottom: 0;
-	right: -60px;
-	width: 200px;
-	height: 100%;
-	background-color:$laranja;
-	-webkit-transform: skew(-20deg);
-	-moz-transform: skew(-20deg);
-	-o-transform: skew(-20deg);
-	-ms-transform: skew(-20deg);
-    transform: skew(-10deg);
-    z-index: 1;
-}
-
-#produtos .produto-floater{
-    background: white;
-    height: auto;
-    -webkit-box-shadow: 0px 1px 13px -2px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0px 1px 13px -2px rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 1px 13px -2px rgba(0, 0, 0, 0.2);
-    position: relative;
-    left: 0;
-    right: 0;
-    bottom: 0px;
-    z-index: 0;
-}
-
-#produtos .produto-floater .pagamento{
-    padding: 60px 0px;
-    position: relative;
-    z-index: 2;
-    padding-left: 70px;
-}
-
-#produtos .produto-floater .pagamento h4{
-    text-align: center;
-}
-
-#produtos .produto-floater .pagamento img{
-    width: 270px;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    display: block;
-}
-
-#produtos .produto-floater .texto .bread svg, .sobre .bread svg, .bread svg{
-    fill: white;
-    width: 25px;
-    float: left;
-    margin: 0 10px 0 0;
-}
-
-.sobre .bread svg, .bread svg{
-    fill: $cinzaEscuro;
-}
-
-#produtos .produto-floater .texto .bread p, .sobre .texto .bread p{
-    margin: 0;
-    padding: 0;
-    font-family: myFont, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
-}
 
 .produtos-container{
     margin-top: 20px;

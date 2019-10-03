@@ -91,7 +91,7 @@ function categoria_produto_taxonomy() {
 		'show_tagcloud'              => true,
 		'rewrite'                    => $rewrite,
 	);
-	register_taxonomy( 'produto', array( 'produto' ), $args );
+	register_taxonomy( 'produtos', array( 'produto' ), $args );
 }
 add_action( 'init', 'categoria_produto_taxonomy', 0 );
 ?>

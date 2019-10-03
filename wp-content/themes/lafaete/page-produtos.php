@@ -28,7 +28,7 @@
               </svg>
               <p> Home » Produtos </p>
             </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p><?php if(have_posts()): the_post(); the_content(); endif; ?></p>
             <a href="#faca-um-orcamento"><button class="btn">Faça um orçamento agora</button></a>
           </div>
           <div class="col-md-4 pagamento">
@@ -45,7 +45,7 @@
           if($produtos->have_posts()) : $produtos->the_post();        
 
           $terms = get_terms( array(
-            'taxonomy' => 'produto',
+            'taxonomy' => 'produtos',
             'parent' => 0,
             'hide_empty' => false,
           ) );
@@ -72,138 +72,7 @@
           </div>
         </div>
 
-        <?php endforeach; endif; ?>
-
-        <!--
-        <div class="default-service-column col-md-4">
-          <div class="inner-box">
-              <div class="inner-most">
-                <figure class="image-box">
-                  <img width="100%" height="270" src="<?php bloginfo('template_url');?>/inc/img/caminhao-munck.jpg" class="img-responsive wp-post-image" alt="featured-image-1">
-                </figure>
-                <div class="lower-part">
-                    <div class="left-curve"></div>
-                    <div class="right-curve"></div>                    
-                    <div class="content">
-                      <h3>Caminhões</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                      <div class="more-link"><a href="taxonomy-categoria.php" class="read-more">Clique aqui</a></div>
-                    </div>
-                </div>
-              </div>
-          </div>
-        </div>
-        <div class="default-service-column col-md-4">
-          <div class="inner-box">
-              <div class="inner-most">
-                <figure class="image-box">
-                    <img width="100%" height="270" src="<?php bloginfo('template_url');?>/inc/img/categoria-03.jpg" class="img-responsive wp-post-image" alt="featured-image-1">
-                  </figure>
-                <div class="lower-part">
-                    <div class="left-curve"></div>
-                    <div class="right-curve"></div>                    
-                    <div class="content">
-                      <h3>Estruturas Metálicas</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                      <div class="more-link"><a href="taxonomy-categoria.php" class="read-more">Clique aqui</a></div>
-                    </div>
-                </div>
-              </div>
-          </div>
-        </div>
-
-        <div class="default-service-column col-md-4">
-          <div class="inner-box">
-              <div class="inner-most">
-                <figure class="image-box">
-                    <img width="100%" height="270" src="<?php bloginfo('template_url');?>/inc/img/categoria-09.jpg" class="img-responsive wp-post-image" alt="featured-image-1">
-                  </figure>
-                <div class="lower-part">
-                    <div class="left-curve"></div>
-                    <div class="right-curve"></div>                    
-                    <div class="content">
-                      <h3>Geradores</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                      <div class="more-link"><a href="taxonomy-categoria.php" class="read-more">Clique aqui</a></div>
-                    </div>
-                </div>
-              </div>
-          </div>
-        </div>
-        <div class="default-service-column col-md-4">
-          <div class="inner-box">
-              <div class="inner-most">
-                <figure class="image-box">
-                    <img width="100%" height="270" src="<?php bloginfo('template_url');?>/inc/img/categoria-04.jpg" class="img-responsive wp-post-image" alt="featured-image-1">
-                  </figure>
-                <div class="lower-part">
-                    <div class="left-curve"></div>
-                    <div class="right-curve"></div>                    
-                    <div class="content">
-                      <h3>Máquinas  </h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                      <div class="more-link"><a href="taxonomy-categoria.php" class="read-more">Clique aqui</a></div>
-                    </div>
-                </div>
-              </div>
-          </div>
-        </div>
-        <div class="default-service-column col-md-4">
-          <div class="inner-box">
-              <div class="inner-most">
-                <figure class="image-box">
-                    <img width="100%" height="270" src="<?php bloginfo('template_url');?>/inc/img/modulo-categoria.jpg" class="img-responsive wp-post-image" alt="featured-image-1">
-                  </figure>
-                <div class="lower-part">
-                    <div class="left-curve"></div>
-                    <div class="right-curve"></div>                    
-                    <div class="content">
-                      <h3>Módulos Container</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                      <div class="more-link"><a href="taxonomy-categoria.php" class="read-more">Clique aqui</a></div>
-                    </div>
-                </div>
-              </div>
-          </div>
-        </div>
-
-        <div class="default-service-column col-md-4">
-          <div class="inner-box">
-              <div class="inner-most">
-                <figure class="image-box">
-                    <img width="100%" height="270" src="<?php bloginfo('template_url');?>/inc/img/sombreadores-categoria.jpg" class="img-responsive wp-post-image" alt="featured-image-1">
-                  </figure>
-                <div class="lower-part">
-                    <div class="left-curve"></div>
-                    <div class="right-curve"></div>                    
-                    <div class="content">
-                      <h3>Sombreadores</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                      <div class="more-link"><a href="taxonomy-categoria.php" class="read-more">Clique aqui</a></div>
-                    </div>
-                </div>
-              </div>
-          </div>
-        </div>
-        <div class="default-service-column col-md-4">
-          <div class="inner-box">
-              <div class="inner-most">
-                <figure class="image-box">
-                  <img width="100%" height="270" src="<?php bloginfo('template_url');?>/inc/img/veiculos-categoria.jpg" class="img-responsive wp-post-image" alt="featured-image-1">
-                </figure>
-                <div class="lower-part">
-                    <div class="left-curve"></div>
-                    <div class="right-curve"></div>                    
-                    <div class="content">
-                      <h3>Veículos</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                      <div class="more-link"><a href="taxonomy-categoria.php" class="read-more">Clique aqui</a></div>
-                    </div>
-                </div>
-              </div>
-          </div>
-        </div>
-        -->
+        <?php endforeach; endif; ?>        
       </div>  
     </div>  
    

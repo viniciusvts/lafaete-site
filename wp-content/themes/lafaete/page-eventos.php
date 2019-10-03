@@ -60,7 +60,6 @@
                     <div class="content">
                       <h3><?php the_title(); ?></h3>
                       <p><?php the_field('descricao'); ?></p>
-                      <div class="more-link"><a href="<?php the_permalink(); ?>" class="read-more">Ver Detalhes</a></div>
                     </div>
                 </div>
               </div>

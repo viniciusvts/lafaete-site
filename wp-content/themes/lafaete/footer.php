@@ -8,7 +8,7 @@
         <div class="footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <a href="index.php" class="d-none d-sm-block"><img src="<?php bloginfo('template_url');?>/inc/img/logo-lafaete.png"></a>
                         <p>A Lafaete é uma empresa do segmento de locação de equipamentos para construção civil, infraestrutura e mineração, destacando-se no mercado de Contêineres e Tendas Piramidais com design e fabricação própria. Atuante no setor de locação de máquinas pesadas e leves, caçambas, caminhões, geradores, torres de iluminação e veículos leves.</p>
                         <div class="social">
@@ -20,50 +20,58 @@
                     <div class="col-md-2">
                         <h3>Produtos</h3>
                         <ul>
-                            <a href=""><li>Caçambas</li></a>
-                            <a href=""><li>Caminhões</li></a>
-                            <a href=""><li>Estruturas Metálicas</li></a>
-                            <a href=""><li>Eventos</li></a>
-                            <a href=""><li>Geradores</li></a>
-                            <a href=""><li>Máquinas</li></a>
-                            <a href=""><li>Módulos Container</li></a>
-                            <a href=""><li>Sombreadores</li></a>
-                            <a href=""><li>Torres de Iluminação</li></a>
-                            <a href=""><li>Veículos</li></a>
+                            <?php
+                               $produtos = get_terms( array(
+                                    'taxonomy' => 'produtos',
+                                    'hide_empty' => false
+                                ) );
+                                foreach($produtos as $produto):                                    
+                            ?>
+                            <a href=" <?php bloginfo('url'); ?>/produtos/<?php echo $produto->slug; ?>">
+                                <li><?php echo $produto->name; ?></li>
+                            </a>
+                            <?php
+                                endforeach;
+                            ?>
                         </ul>
                     </div>
                     <div class="col-md-2">
                         <h3>Serviços</h3>
                         <ul>
-                            <a href=""><li>Área de Transbordo e Triagem – ATT</li></a>
-                            <a href=""><li>Programa de Gestão de Resíduos para Construção Civil – PGRCC</li></a>
-                            <a href=""><li>Terraplanagem</li></a>
-                            <a href=""><li>Gestão Ambiental</li></a>
+                            <?php
+                               $servicos = new WP_Query(array('post_type'=>'servicos'));
+                                while($servicos->have_posts()): $servicos->the_post();                               
+                            ?>
+                            <a href="<?php the_permalink(); ?>">
+                                <li><?php the_title(); ?></li>
+                            </a>
+                            <?php
+                                endwhile;
+                            ?>
                         </ul>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <h3>Unidades</h3>
                         <ul>
-                            <a href=""><li>Porto Velho - RO</li></a>
-                            <a href=""><li>São João da Barra - RJ</li></a>
-                            <a href=""><li>São Luís - MA</li></a>
-                            <a href=""><li>Mirassol - SP</li></a>
-                            <a href=""><li>Parauapebas - PA</li></a>
-                            <a href=""><li>Jaboatão do Guararapes - PE</li></a>
-                            <a href=""><li>Imperatriz - MA</li></a>
-                            <a href=""><li>Duque de Caxias - RJ</li></a>
-                            <a href=""><li>São Paulo - SP</li></a>
-                            <a href=""><li>Belo Horizonte - MG</li></a>
+                            <?php
+                               $unidades = new WP_Query(array('post_type'=>'unidades'));
+                                while($unidades->have_posts()): $unidades->the_post();                               
+                            ?>
+                            <a href="<?php the_permalink(); ?>">
+                                <li><?php the_title(); ?></li>
+                            </a>
+                            <?php
+                                endwhile;
+                            ?>
                         </ul>
                     </div>
                     <div class="col-md-2">
                         <h3>Atendimento</h3>
                         <ul>
-                            <a href=""><li>Fale Conosco</li></a>
-                            <a href=""><li>Orçamento</li></a>
-                            <a href=""><li>Trabalhe conosco</li></a>
-                            <a href=""><li>Abertura de chamado</li></a>
-                            <a href=""><li>Vendas</li></a>
+                            <a href="<?php bloginfo('url');?>/atendimento/fale-conosco"><li>Fale Conosco</li></a>
+                            <a href="<?php bloginfo('url');?>/atendimento/orcamento"><li>Orçamento</li></a>
+                            <a href="<?php bloginfo('url');?>/atendimento/trabalhe-conosco"><li>Trabalhe conosco</li></a>
+                            <a href="<?php bloginfo('url');?>/atendimento/abertura-de-chamado"><li>Abertura de chamado</li></a>
                         </ul>
                     </div>
                 </div>  
@@ -81,6 +89,6 @@
 <script src="<?php bloginfo('template_url');?>/node_modules/jquery/dist/jquery.js" defer></script>
 <script src="<?php bloginfo('template_url');?>/node_modules/popper.js/dist/popper.min.js" defer></script>
 <script src="<?php bloginfo('template_url');?>/node_modules/bootstrap/dist/js/bootstrap.min.js" defer></script>
-<script src="<?php bloginfo('template_url');?>/node_modules/main.js" defer></script>
-<script src="<?php bloginfo('template_url');?>/node_modules/slider.js" defer></script>
+<script src="<?php bloginfo('template_url');?>/js/main.js" defer></script>
+<script src="<?php bloginfo('template_url');?>/js/slider.js" defer></script>
 <?php wp_footer(); ?>
