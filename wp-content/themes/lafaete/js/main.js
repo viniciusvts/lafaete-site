@@ -149,9 +149,9 @@ slider.addEventListener('mousemove', (e) => {
   const x = e.pageX - slider.offsetLeft;
   const walk = (x - startX) * 1; // quantas casas o sroll vai andar
   let scrollMatch = slider.scrollLeft = scrollLeft - walk;
-  let positionBulletActive = Math.floor(scrollMatch/100);
+  let positionBulletActive = Math.floor(scrollMatch/100)/3;
   
-    if(Math.floor(scrollMatch/100) * 100 % 300){
+    if(Math.floor(scrollMatch/100) * 100 % 300 == 0){
         console.log(positionBulletActive);
         if(!sliderControl[positionBulletActive].classList.contains('selected')){        
             sliderControl[positionBulletActive].classList.add('selected');
