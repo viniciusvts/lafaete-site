@@ -23,7 +23,8 @@
                             <?php
                                $produtos = get_terms( array(
                                     'taxonomy' => 'produtos',
-                                    'hide_empty' => false
+                                    'hide_empty' => true,
+                                    'parent' => 0
                                 ) );
                                 foreach($produtos as $produto):                                    
                             ?>
