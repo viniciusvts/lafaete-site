@@ -10,7 +10,6 @@
     z-index: 2;
     color: white;
     text-transform: uppercase;
-    font-family: myFont, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
 }
 
 .newsletter .texto p{
@@ -84,29 +83,52 @@
     padding-top: 40px;
     padding-bottom: 80px;
     width: 100%;
+
+    h3{
+        margin-bottom: 40px; 
+    }
+
+    ul{
+        padding: 0;
+    
+        li{
+            list-style: none;
+            margin-left: 0;
+            padding-left: 0;
+            color: white;
+            a{
+                color: white;
+                margin-left: 0px;
+                &:hover{
+                    color: $laranja;
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+
+    p{
+        margin: 20px 0;
+        text-align: left;
+    }
+
+    .rodape{
+        border-top: 1px solid $laranja;
+        margin-top: 40px;
+
+        p{
+            text-align: center !important;
+        }
+        span{
+            color: $laranja;
+        }
+    }
 }
 
 .footer p, .footer h3,.footer ul li {
     color: $cinzaClaro;
 }
 
-.footer p{
-    margin: 20px 0;
-    text-align: left;
-}
-
-.footer h3{
-    margin-bottom: 40px; 
-}
-
-.footer ul{
-    padding: 0;
-}
-.footer li{
-    list-style: none;
-    margin-left: 0;
-    padding-left: 0;
-}
 
 .footer .social img, .topo-menu .social img{
     margin-right: 0px;
@@ -115,18 +137,6 @@
     width: 24px
 }
 
-.footer .rodape{
-    border-top: 1px solid $laranja;
-    margin-top: 40px;
-}
-
-.footer .rodape p{
-    text-align: center !important;
-}
-
-.footer .rodape span{
-    color: $laranja;
-}
 
 /*footer*/
 
@@ -138,11 +148,10 @@
     z-index: 3;
     padding: 10px 0;  
     color: white;
-}
-
-.footer-floater p{
-    margin-top: 20px;
-    text-align: right;
+    p{
+        margin-top: 20px;
+        text-align: right;
+    }
 }
 
 

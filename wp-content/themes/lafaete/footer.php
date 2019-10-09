@@ -28,9 +28,11 @@
                                 ) );
                                 foreach($produtos as $produto):                                    
                             ?>
-                            <a href=" <?php bloginfo('url'); ?>/produtos/<?php echo $produto->slug; ?>">
-                                <li><?php echo $produto->name; ?></li>
-                            </a>
+                            <li>
+                                <a href=" <?php bloginfo('url'); ?>/produtos/<?php echo $produto->slug; ?>">
+                                    <?php echo $produto->name; ?>
+                                </a>
+                            </li>
                             <?php
                                 endforeach;
                             ?>
@@ -43,9 +45,11 @@
                                $servicos = new WP_Query(array('post_type'=>'servicos'));
                                 while($servicos->have_posts()): $servicos->the_post();                               
                             ?>
-                            <a href="<?php the_permalink(); ?>">
-                                <li><?php the_title(); ?></li>
-                            </a>
+                            <li>
+                                <a href="<?php the_permalink(); ?>">
+                                    <?php the_title(); ?>
+                                </a>
+                            </li>
                             <?php
                                 endwhile;
                             ?>
@@ -58,9 +62,11 @@
                                $unidades = new WP_Query(array('post_type'=>'unidades'));
                                 while($unidades->have_posts()): $unidades->the_post();                               
                             ?>
-                            <a href="<?php the_permalink(); ?>">
-                                <li><?php the_title(); ?></li>
-                            </a>
+                            <li>
+                                <a href="<?php the_permalink(); ?>">
+                                    <?php the_title(); ?>
+                                </a>
+                            </li>
                             <?php
                                 endwhile;
                             ?>
@@ -69,10 +75,10 @@
                     <div class="col-md-2">
                         <h3>Atendimento</h3>
                         <ul>
-                            <a href="<?php bloginfo('url');?>/atendimento/fale-conosco"><li>Fale Conosco</li></a>
-                            <a href="<?php bloginfo('url');?>/atendimento/orcamento"><li>Orçamento</li></a>
-                            <a href="<?php bloginfo('url');?>/atendimento/trabalhe-conosco"><li>Trabalhe conosco</li></a>
-                            <a href="<?php bloginfo('url');?>/atendimento/abertura-de-chamado"><li>Abertura de chamado</li></a>
+                            <li><a href="<?php bloginfo('url');?>/atendimento/fale-conosco">Fale Conosco</a></li>
+                            <li><a href="<?php bloginfo('url');?>/atendimento/orcamento">Orçamento</a></li>
+                            <li><a href="<?php bloginfo('url');?>/atendimento/trabalhe-conosco">Trabalhe conosco</a></li>
+                            <li><a href="<?php bloginfo('url');?>/atendimento/abertura-de-chamado">Abertura de chamado</a></li>
                         </ul>
                     </div>
                 </div>  

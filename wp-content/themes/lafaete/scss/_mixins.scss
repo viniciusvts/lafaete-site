@@ -1,4 +1,4 @@
-@mixin transition($parameter){
+@mixin transition($parameter: 0.5s ease all){
     transition: $parameter;
 	-webkit-transition:$parameter;
 	-ms-transition:$parameter;

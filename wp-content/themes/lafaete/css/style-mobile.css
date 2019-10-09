@@ -944,7 +944,6 @@ div#v-pills-tabContent {
   z-index: 2;
   color: white;
   text-transform: uppercase;
-  font-family: myFont, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
 }
 
 .newsletter .texto p {
@@ -1017,28 +1016,43 @@ div#v-pills-tabContent {
   padding-bottom: 80px;
   width: 100%;
 }
-
-.footer p, .footer h3, .footer ul li {
-  color: #e7e7e7;
+.footer h3 {
+  margin-bottom: 40px;
 }
-
+.footer ul {
+  padding: 0;
+}
+.footer ul li {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  color: white;
+}
+.footer ul li a {
+  color: white;
+  margin-left: 0px;
+}
+.footer ul li a:hover {
+  color: #ff7e3b;
+  margin-left: 5px;
+}
 .footer p {
   margin: 20px 0;
   text-align: left;
 }
-
-.footer h3 {
-  margin-bottom: 40px;
+.footer .rodape {
+  border-top: 1px solid #ff7e3b;
+  margin-top: 40px;
+}
+.footer .rodape p {
+  text-align: center !important;
+}
+.footer .rodape span {
+  color: #ff7e3b;
 }
 
-.footer ul {
-  padding: 0;
-}
-
-.footer li {
-  list-style: none;
-  margin-left: 0;
-  padding-left: 0;
+.footer p, .footer h3, .footer ul li {
+  color: #e7e7e7;
 }
 
 .footer .social img, .topo-menu .social img {
@@ -1046,19 +1060,6 @@ div#v-pills-tabContent {
   margin-bottom: 20px;
   display: inline-block;
   width: 24px;
-}
-
-.footer .rodape {
-  border-top: 1px solid #ff7e3b;
-  margin-top: 40px;
-}
-
-.footer .rodape p {
-  text-align: center !important;
-}
-
-.footer .rodape span {
-  color: #ff7e3b;
 }
 
 /*footer*/
@@ -1071,7 +1072,6 @@ div#v-pills-tabContent {
   padding: 10px 0;
   color: white;
 }
-
 .footer-floater p {
   margin-top: 20px;
   text-align: right;

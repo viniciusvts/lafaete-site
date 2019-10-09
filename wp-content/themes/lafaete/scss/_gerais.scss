@@ -16,13 +16,15 @@ html {
     scroll-behavior: smooth;
 }
 
- a{
-    color: $laranja;
- }
 
- a:hover{
-    color: $laranjaClaro;
- }
+a{
+    @include transition();
+    &:hover{
+        color: $laranjaClaro;
+        text-decoration: none;
+        @include transition();
+    }
+}
 
 
 h1{
