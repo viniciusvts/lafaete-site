@@ -289,6 +289,8 @@
 .produtos-container{
     margin-top: 20px;
     margin-bottom: 40px;
+    display: block;
+    z-index: 1;
 }
 
 .produtos-container .menu-produtos{
@@ -365,7 +367,8 @@
     .services-style-one .default-service-column{
         position:relative;
         margin-bottom:30px;
-        text-align:center;	
+        text-align:center;
+        transform: scale(1);	
     }
 
     .default-service-column{
