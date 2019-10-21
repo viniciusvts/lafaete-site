@@ -31,7 +31,7 @@ function custom_depoimentos() {
 		'label'                 => __( 'depoimentos', 'Depoimentos de clientes' ),
 		'description'           => __( 'Depoimentos de clientes', 'Depoimentos de clientes' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title'),
+		'supports'              => array( 'title', 'thumbnail'),
 		'taxonomies'            => array( 'depoimentos'),
 		'hierarchical'          => true,
 		'public'                => true,

@@ -5,7 +5,6 @@
   <body>
     <?php include_once('menu.php'); ?>
 
-    <?php if(have_posts()) : the_post(); ?>
     <!-- SLIDER -->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -62,7 +61,7 @@
         <div class="row">
           <div class="col-md-8 texto">
             <div class="container">
-              <p> <?php the_content(); ?></p>
+              <p> <?php if(have_posts()): the_post(); the_content(); endif; ?></p>
               <a href="#faca-um-orcamento"><button class="btn">Faça um orçamento agora</button></a>
             </div>
           </div>
@@ -74,92 +73,100 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="cabecalho">
-        <h2>Galeria de Fotos</h2>
-        <span></span> 
-      </div>
-    </div> 
+    <?php
+      if(get_field('galeria')):
+    ?> 
+      <div class="container">
+        <div class="cabecalho">
+          <h2>Galeria de Fotos</h2>
+          <span></span> 
+        </div>
+      </div> 
 
-    <section id="galeria">
-      <span class="fecharBotao">&times;</span>
-      <div class="conteudo">
-        <ul id="imagens">
-            <li class="fade">
-              <span class="numero">1 / 6</span>
-              <img src="inc/img/trator-new-holland-premio-do-ano.jpg" alt="imagem 1" class="imagem-responsiva">
-            </li>
-            <li class="fade">
-              <span class="numero">2 / 6</span>
-              <img src="inc/img/trator-new-holland-premio-do-ano.jpg" alt="imagem 2" class="imagem-responsiva">
-            </li>
-            <li class="fade">
-              <span class="numero">3 / 6</span>
-              <img src="inc/img/trator-new-holland-premio-do-ano.jpg" alt="imagem 3" class="imagem-responsiva">
-            </li>
-            <li class="fade">
-              <span class="numero">4 / 6</span>
-              <img src="inc/img/trator-new-holland-premio-do-ano.jpg" alt="imagem 4" class="imagem-responsiva">
-            </li>
-            <li class="fade">
-              <span class="numero">5 / 6</span>
-              <img src="inc/img/trator-new-holland-premio-do-ano.jpg" alt="imagem 4" class="imagem-responsiva">
-            </li>
-            <li class="fade">
-              <span class="numero">6 / 6</span>
-              <img src="inc/img/trator-new-holland-premio-do-ano.jpg" alt="imagem 4" class="imagem-responsiva">
-            </li>
-        </ul>
-        <div id="botoes">
-            <a href="" id="seguinte">&#10095;</a>
-            <a href="" id="anterior">&#10094;</a>
+      <section id="galeria">
+        <span class="fecharBotao">&times;</span>
+        <div class="conteudo">
+          <ul id="imagens">
+              <li class="fade">
+                <span class="numero">1 / 6</span>
+                <img src="inc/img/trator-new-holland-premio-do-ano.jpg" alt="imagem 1" class="imagem-responsiva">
+              </li>
+              <li class="fade">
+                <span class="numero">2 / 6</span>
+                <img src="inc/img/trator-new-holland-premio-do-ano.jpg" alt="imagem 2" class="imagem-responsiva">
+              </li>
+              <li class="fade">
+                <span class="numero">3 / 6</span>
+                <img src="inc/img/trator-new-holland-premio-do-ano.jpg" alt="imagem 3" class="imagem-responsiva">
+              </li>
+              <li class="fade">
+                <span class="numero">4 / 6</span>
+                <img src="inc/img/trator-new-holland-premio-do-ano.jpg" alt="imagem 4" class="imagem-responsiva">
+              </li>
+              <li class="fade">
+                <span class="numero">5 / 6</span>
+                <img src="inc/img/trator-new-holland-premio-do-ano.jpg" alt="imagem 4" class="imagem-responsiva">
+              </li>
+              <li class="fade">
+                <span class="numero">6 / 6</span>
+                <img src="inc/img/trator-new-holland-premio-do-ano.jpg" alt="imagem 4" class="imagem-responsiva">
+              </li>
+          </ul>
+          <div id="botoes">
+              <a href="" id="seguinte">&#10095;</a>
+              <a href="" id="anterior">&#10094;</a>
+          </div>
+        </div>
+        <div id="dots">
+          <span class="dot ativo"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="row">
+          <?php
+            $images = get_field('galeria'); 
+            $size = 'medium'; // (thumbnail, medium, large, full or custom size)
+            if( $images ): 
+              foreach( $images as $image ):
+          ?>
+          <div class="col-md-4 imagem">
+            <?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
+          </div>  
+            <?php
+              endforeach;
+              endif; 
+            ?>
         </div>
       </div>
-      <div id="dots">
-        <span class="dot ativo"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-      </div>
-    </section>
-
     <?php
       endif;
-      wp_reset_postdata();
-    ?> 
-
-
-    <div class="container">
-      <div class="row">
-        <?php
-          $images = get_field('galeria'); 
-          $size = 'medium'; // (thumbnail, medium, large, full or custom size)
-          if( $images ): 
-            foreach( $images as $image ):
-        ?>
-        <div class="col-md-4 imagem">
-          <?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
-        </div>  
-          <?php
-            endforeach;
-            endif; 
-          ?>
-      </div>
-    </div>
+    ?>
 
     <?php
-      $related = get_posts( 
-        array( 
-          'post_type' => 'produto',
-          'category__in' => wp_get_post_categories( $post->ID ), 
-          'numberposts'  => 3, 
-          'post__not_in' => array( $post->ID ) 
-        ) 
+    $terms = get_the_terms( $post->ID , 'produtos', 'string');
+    $term_ids = wp_list_pluck($terms,'term_id');
+      $args = array(
+        'post_type' => 'produto',
+        'tax_query' => array(
+            array(
+              'taxonomy' => 'produtos',
+              'field'    => 'id',
+              'terms'    => $term_ids,
+            ),
+            'post__not_in'=>array($post->ID),
+            'posts_per_page' => 3,
+            'ignore_sticky_posts' => 1,
+            'orderby' => 'rand',
+        ),
       );
-
-      if( $related ): 
+      $query = new WP_Query( $args );
+      if($query->have_posts()):
     ?>
 
     <div class="container">
@@ -169,8 +176,7 @@
       </div>
       <div class="row">
         <?php
-          foreach( $related as $post ) :
-          setup_postdata($post);
+          while($query->have_posts()): $query->the_post();
         ?>  
         <div class="default-service-column col-md-4">
           <div class="inner-box">
@@ -189,11 +195,13 @@
               </div>
           </div>
         </div>
-        <?php endforeach; wp_reset_postdata(); ?>
+        <?php endwhile; wp_reset_postdata(); ?>
       </div>  
     </div>  
 
-    <?php endif; ?>
+    <?php
+      endif;
+    ?>
     
     <?php
     include_once('inc/form-orcamento.php');

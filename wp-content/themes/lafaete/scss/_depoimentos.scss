@@ -3,6 +3,7 @@
 .depoimentos {
 
     background: url('../inc/img/depoimentos.jpg');
+    background-attachment: fixed;
 
     .balao{
         background: $cinzaClaro;
@@ -82,6 +83,9 @@
 
     p{
         color: $cinzaEscuro;
+    }
+    .nome{
+        font-weight: 700;
     }
 }
 
