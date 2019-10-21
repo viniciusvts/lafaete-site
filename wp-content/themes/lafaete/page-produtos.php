@@ -4,20 +4,9 @@
 
   <body>
     <?php include_once('menu.php'); ?>
+    
+    <?php include_once('flat-header.php'); ?>
 
-    <!-- SLIDER -->
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner carousel-flat-height">
-        <div class="carousel-item active">
-          <div class="carousel-caption carousel-caption-flat-height">
-            <h1><?php the_title(); ?></h1>
-          </div>
-          <img class="d-block w-100" src="<?php bloginfo('template_url');?>/inc/img/slider-construcao.jpg" alt="First slide">
-        </div>
-      </div>
-      <div class="container floater-destaque">
-    </div>
-    </div>
     <div id="produtos">
       <div class="container produto-floater">
         <div class="row">
