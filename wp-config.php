@@ -18,18 +18,58 @@
  * @package WordPress
  */
 
+/* Não Alterar o código abaixo */
+$dbhost = ''; /* Deixar em branco para utilizar o padrão (automático) */
+$dbuser = ''; /* Deixar em branco para utilizar o padrão (automático) */
+$dbpassword = ''; /* Deixar em branco para utilizar o padrão (automático) */
+
+$server_addr = $_SERVER['SERVER_ADDR'];
+switch ($server_addr) {
+    case '::1':
+    case '127.0.0.1':
+        $dbhost_default = 'localhost';
+        $dbname = 'lafaete_bd';
+        $dbuser_default = 'root';
+        $dbpassword_default = 'root';
+        define('DEV_MODE', true);
+        define('WP_HOME','http://localhost/lafaete/');
+        define('WP_SITEURL','http://localhost/lafaete/');
+	break;
+
+    case '172.31.29.159':
+        $dbhost_default = 'pro-ciapipe.c6kc9wk9fak1.us-west-2.rds.amazonaws.com';
+        $dbname = 'lafaete_bd';
+        $dbuser_default = 'root';
+        $dbpassword_default = 'fZBy8NhelGwQNS';
+        define('DEV_MODE', false);
+        define('WP_HOME','https://dnaformarketing.com.br/lafaete/');
+        define('WP_SITEURL','https://dnaformarketing.com.br/lafaete/');
+	break;
+
+    default:
+        $dbhost_default = 'localhost';
+        $dbname = 'lafaete_bd';
+        $dbuser_default = '';
+        $dbpassword_default = '';
+        define('DEV_MODE', false);
+        define('WP_HOME','https://www.lafaete.com.br/');
+        define('WP_SITEURL','https://www.lafaete.com.br/');
+	break;
+}
+
+
 // ** Configurações do MySQL - Você pode pegar estas informações com o serviço de hospedagem ** //
 /** O nome do banco de dados do WordPress */
 define( 'DB_NAME', 'lafaete_bd' );
 
 /** Usuário do banco de dados MySQL */
-define( 'DB_USER', 'root' );
+define( 'DB_USER', $dbuser_default );
 
 /** Senha do banco de dados MySQL */
-define( 'DB_PASSWORD', 'root' );
+define( 'DB_PASSWORD', $dbpassword_default );
 
 /** Nome do host do MySQL */
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', $dbhost_default );
 
 /** Charset do banco de dados a ser usado na criação das tabelas. */
 define( 'DB_CHARSET', 'utf8mb4' );

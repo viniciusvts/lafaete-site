@@ -27,7 +27,7 @@
                       <path d="M24,19c0-0.6-0.4-1-1-1H1c-0.6,0-1,0.4-1,1v2c0,0.6,0.4,1,1,1h22c0.6,0,1-0.4,1-1V19z"/>                    
                   </svg>
                   <a href="#">
-                      <p data-toggle="modal" data-target="#exampleModalLong">Ver Categorias</p> 
+                    <p data-toggle="modal" data-target="#exampleModalLong">Ver Categorias</p> 
                   </a> 
               </div> 
 
@@ -36,6 +36,7 @@
                     <?php
                       $categorias = get_categories( array(
                         'orderby' => 'name',
+                        'taxonomy' => 'vendas',
                         'parent'  => 0
                       ));
                       foreach($categorias as $categoria) : 
@@ -58,7 +59,8 @@
       <div class="row">
         <?php
           $seminovos = new WP_Query(array(
-            "post_type" => "vendas"
+            "post_type" => "venda",
+            "posts_per_page" => 6
           ));
           while($seminovos->have_posts()) : $seminovos->the_post(); 
         ?>
@@ -66,7 +68,7 @@
           <div class="inner-box">
               <div class="inner-most">
                 <figure class="image-box">
-                  <?php the_post_thumbnail('medium', array('class' => 'img-fluid w-100')); ?>                  
+                  <?php the_post_thumbnail('medium'); ?>                  
                 </figure>
                 <div class="lower-part">
                     <div class="left-curve"></div>
@@ -76,21 +78,19 @@
                         <div class="mx-auto">
                             <div class="row">
                                 <div class="col">
-                                    <p class="text-center">Modelo: <?php the_field('modelo'); ?></p>
+                                  <p class="text-center">Modelo: <?php the_field('modelo'); ?></p>
                                 </div>
                                 <div class="col">
                                     <p class="text-center">Série: <?php the_field('serie'); ?></p>
                                 </div>
-                            </div>
-
-                            
+                            </div>                            
                             <div class="row">
-                                <div class="col">
-                                    <p class="text-center">Ano: <?php the_field('ano'); ?></p>
-                                </div>
-                                <div class="col">
-                                    <p class="text-center">Horímetro: <?php the_field('horimetro'); ?></p>
-                                </div>
+                              <div class="col">
+                                <p class="text-center">Ano: <?php the_field('ano'); ?></p>
+                              </div>
+                              <div class="col">
+                                <p class="text-center">Horímetro: <?php the_field('horimetro'); ?></p>
+                              </div>
                             </div>
                             <p class="text-center">Unidade: <?php the_field('unidade'); ?></p>
                         </div>

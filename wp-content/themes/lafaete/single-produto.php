@@ -10,6 +10,7 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="carousel-caption">
+            <h2>Locação de</h2>
             <h1><?php the_title(); ?></h1>
           </div>
           <?php the_post_thumbnail('full', array('class' => 'd-block img-fluid')); ?> 
@@ -43,11 +44,20 @@
 
                   <div class="submenu-categorias esconder">
                     <ul>
-                      <li><a href="">Catetoria 1</a></li>
-                      <li><a href="">Catetoria 1</a></li>
-                      <li><a href="">Catetoria 1</a></li>
-                      <li><a href="">Catetoria 1</a></li>
-                      <li><a href="">Catetoria 1</a></li>
+                      <?php
+                        $categorias = get_categories( array(
+                          'orderby' => 'name',
+                          'taxonomy' => 'vendas',
+                          'parent'  => 0
+                        ));
+                        foreach($categorias as $categoria) : 
+                      ?>
+                      <li>
+                        <a href="<?php bloginfo('url') ?>/vendas/<?php echo $categoria->slug; ?>">
+                          <?php echo $categoria->name; ?>
+                        </a>
+                      </li>
+                      <?php endforeach; ?>
                     </ul>
                   </div>
                 </div>
