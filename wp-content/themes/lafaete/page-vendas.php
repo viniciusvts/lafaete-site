@@ -58,11 +58,14 @@
     <div class="container">
       <div class="row">
         <?php
-          $seminovos = new WP_Query(array(
+		$postsPerPage = get_option( 'posts_per_page' );
+		$paged = $_GET['sheet'];
+		$seminovos = new WP_Query(array(
             "post_type" => "venda",
-            "posts_per_page" => 6
-          ));
-          while($seminovos->have_posts()) : $seminovos->the_post(); 
+			'posts_per_page' => $postsPerPage,
+			'paged' => $paged,
+		));
+		while($seminovos->have_posts()) : $seminovos->the_post(); 
         ?>
         <div class="default-service-column col-md-4">
           <div class="inner-box">
@@ -104,7 +107,31 @@
         <?php endwhile; ?>
       </div>  
     </div>  
-   
+	<div class="row">
+		<div class="paginate">
+			<div class="line-L col-6">
+				<?php
+					//links da paginação
+					$prev = get_prev_page_link( $seminovos->max_num_pages);
+					$next = get_next_page_link( $seminovos->max_num_pages);
+					if($prev){
+						echo "<a class='page-btn' href='".$prev."'>";
+						echo "Anterior";
+						echo "</a>";
+					}
+				?>
+			</div>
+			<div class="line-Right col-6">
+				<?php
+					if($next){
+						echo "<a class='page-btn' href='".$next."'>";
+						echo "Próxima";
+						echo "</a>";
+					}
+				?>
+			</div>
+		</div>
+	</div>
     <?php
     include_once('newsletter.php');
     include_once('footer.php');

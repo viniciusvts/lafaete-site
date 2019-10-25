@@ -70,11 +70,14 @@
       ?>
       <div class="row">
 
-        <?php         
-          $args = array(
+		<?php
+		$postsPerPage = get_option( 'posts_per_page' );
+		$paged = $_GET['sheet'];
+		$args = array(
             'post_type' => 'venda',
             'order' => 'ASC' ,
-            'posts_per_page' => -1,
+			'posts_per_page' => $postsPerPage,
+			'paged' => $paged,
             'tax_query' => array(
               array(
                 'taxonomy' => 'vendas',
@@ -116,9 +119,33 @@
             </div>
           </div>
         </div> 
-
           <?php endwhile; endif; wp_reset_postdata();?>
-      </div>  
+	  </div>  
+	  <div class="row">
+			<div class="paginate">
+				<div class="line-L col-6">
+					<?php
+					//links da paginação
+					$prev = get_prev_page_link( $produtos->max_num_pages);
+					$next = get_next_page_link( $produtos->max_num_pages);
+						if($prev){
+							echo "<a class='page-btn' href='".$prev."'>";
+							echo "Anterior";
+							echo "</a>";
+						}
+					?>
+				</div>
+				<div class="line-Right col-6">
+					<?php
+						if($next){
+							echo "<a class='page-btn' href='".$next."'>";
+							echo "Próxima";
+							echo "</a>";
+						}
+					?>
+				</div>
+			</div>
+		</div>
     </div>  
    
     <?php

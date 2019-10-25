@@ -1093,7 +1093,6 @@ iframe {
 }
 
 .produtos-container ul li {
-  border: 1px solid #e7e7e7;
   margin: 10px 4px 10px 4px;
   border-radius: 6px;
 }
@@ -1384,6 +1383,33 @@ iframe {
 
   /*produtos*/
 }
+.paginate {
+  margin: 0 auto 30px;
+}
+.paginate .page-btn {
+  color: #fdc236;
+  transition: all 400ms ease;
+  -webkit-transition: all 400ms ease;
+  -ms-transition: all 400ms ease;
+  -o-transition: all 400ms ease;
+  -moz-transition: all 400ms ease;
+  border: solid 1px;
+  padding: 5px 15px;
+}
+.paginate .page-btn:hover {
+  color: #ff7e3b;
+}
+
+.line-L {
+  text-align: left;
+  float: left !important;
+}
+
+.line-Right {
+  text-align: right;
+  float: right !important;
+}
+
 /*sobre*/
 .sobre {
   background: white;

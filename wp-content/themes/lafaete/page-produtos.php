@@ -29,17 +29,24 @@
     </div>
     <div class="container produtos-container">
       <div class="row">
-        <?php
-          $produtos = new WP_Query(array('post_type' => 'produto'));
-          if($produtos->have_posts()) : $produtos->the_post();        
+		<?php
+		$postsPerPage = get_option( 'posts_per_page' );
+		$paged = $_GET['sheet']; 
+		$args = array(
+			'post_type' => 'produto',
+			'posts_per_page' => $postsPerPage,
+			'paged' => $paged,
+		);
+		$produtos = new WP_Query($args);
+		if($produtos->have_posts()) : $produtos->the_post();        
 
-          $terms = get_terms( array(
-            'taxonomy' => 'produtos',
-            'parent' => 0,
-            'hide_empty' => false,
-          ) );
-          foreach ( $terms as $term ):
-          $image = get_field('imagem', $term);          
+		$terms = get_terms( array(
+		'taxonomy' => 'produtos',
+		'parent' => 0,
+		'hide_empty' => false,
+		) );
+		foreach ( $terms as $term ):
+		$image = get_field('imagem', $term);          
         ?>
 
         <div class="default-service-column col-md-4">
@@ -62,7 +69,32 @@
         </div>
 
         <?php endforeach; endif; ?>        
-      </div>  
+	  </div>  
+	  	<div class="row">
+			<div class="paginate">
+				<div class="line-L col-6">
+					<?php
+					//links da paginação
+					$prev = get_prev_page_link( $produtos->max_num_pages);
+					$next = get_next_page_link( $produtos->max_num_pages);
+						if($prev){
+							echo "<a class='page-btn' href='".$prev."'>";
+							echo "Anterior";
+							echo "</a>";
+						}
+					?>
+				</div>
+				<div class="line-Right col-6">
+					<?php
+						if($next){
+							echo "<a class='page-btn' href='".$next."'>";
+							echo "Próxima";
+							echo "</a>";
+						}
+					?>
+				</div>
+			</div>
+		</div>
     </div>  
    
     <?php
