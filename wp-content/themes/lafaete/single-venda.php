@@ -27,7 +27,14 @@
                     <?php wp_custom_breadcrumbs(); ?>
                 </div>
                 <div class="col-md-4 formulario">
-                    <?php get_search_form();?>
+					<?php $search = $_GET['searchkey'];?>
+					<form ROLE="search" action="<?php bloginfo( 'wpurl' ) ?>/vendas" method="get">
+						<div>
+							<label class="screen-reader-text" for="s">Pesquisar por:</label>
+							<input type="text" value="<?php echo($search); ?>" name="searchkey" id="searchkey">
+							<input type="submit" id="searchsubmit" value="Pesquisar">
+						</div>
+					</form>
                 </div>
                 <div class="col-md-4">
                     <div class="blog-categorias">

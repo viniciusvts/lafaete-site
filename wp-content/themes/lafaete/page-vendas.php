@@ -17,7 +17,14 @@
               <?php wp_custom_breadcrumbs() ?>
           </div>
           <div class="col-md-4 formulario">
-              <?php get_search_form();?>
+              <?php $search = $_GET['searchkey'];?>
+			  <form ROLE="search" action="<?php echo($_SERVER['REQUEST_URI']); ?>" method="get">
+			  	<div>
+					<label class="screen-reader-text" for="s">Pesquisar por:</label>
+					<input type="text" value="<?php echo($search); ?>" name="searchkey" id="searchkey">
+					<input type="submit" id="searchsubmit" value="Pesquisar">
+				</div>
+			</form>
           </div>
           <div class="col-md-4">
               <div class="blog-categorias">
@@ -58,11 +65,25 @@
     <div class="container">
       <div class="row">
         <?php
-          $seminovos = new WP_Query(array(
-            "post_type" => "venda",
-            "posts_per_page" => 6
-          ));
-          while($seminovos->have_posts()) : $seminovos->the_post(); 
+		$postsPerPage = get_option( 'posts_per_page' );
+		$paged = $_GET['sheet'];
+		$search = $_GET['searchkey'];
+		if( isset( $search ) ){
+			$args = array(
+			'post_type' => 'venda',
+			'post_per_page' => $postsPerPage,
+			'paged' => $paged,
+			's' => $search,
+			);
+		}else{
+			$args = array(
+				'post_type' => 'venda',
+				'post_per_page' => $postsPerPage,
+				'paged' => $paged,
+			);
+		}
+		$seminovos = new WP_Query($args);
+		while($seminovos->have_posts()) : $seminovos->the_post(); 
         ?>
         <div class="default-service-column col-md-4">
           <div class="inner-box">
@@ -104,7 +125,31 @@
         <?php endwhile; ?>
       </div>  
     </div>  
-   
+	<div class="row">
+		<div class="paginate">
+			<div class="line-L col-6">
+				<?php
+					//links da paginação
+					$prev = get_prev_page_link( $seminovos->max_num_pages);
+					$next = get_next_page_link( $seminovos->max_num_pages);
+					if($prev){
+						echo "<a class='page-btn' href='".$prev."'>";
+						echo "Anterior";
+						echo "</a>";
+					}
+				?>
+			</div>
+			<div class="line-Right col-6">
+				<?php
+					if($next){
+						echo "<a class='page-btn' href='".$next."'>";
+						echo "Próxima";
+						echo "</a>";
+					}
+				?>
+			</div>
+		</div>
+	</div>
     <?php
     include_once('newsletter.php');
     include_once('footer.php');

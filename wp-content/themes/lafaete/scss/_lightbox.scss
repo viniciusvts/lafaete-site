@@ -8,7 +8,11 @@
     top:0;
     bottom:0;
     height: 100%;
-    z-index: 9999;
+	z-index: 9999;
+	@include mediaScreenMax($tablets){
+		width: 100vw;
+		height: 100vh;
+	}
 }
 
 .fecharBotao {
@@ -28,14 +32,24 @@
 }
 
 .conteudo {
-    background-color: $cinzaEscuro;
+    //background-color: $cinzaEscuro;
     max-width: 1170px;
     position: relative;
     margin: auto;
     overflow: hidden;
     z-index: 0;
     bottom: 0;
-    max-height: 700px;
+	max-height: 700px;
+	.fade{
+		height: 100%;
+	}
+	ul{
+		height: 80vh;
+	}
+	li img{
+		object-fit: contain;
+		height: 100%;
+	}
 }
 
 .conteudo ul {
@@ -64,7 +78,18 @@ img { vertical-align: middle; }
 }
 
 .imagem{
-    margin: 20px 0;
+	margin: 20px 0;
+	max-height: 300px;
+	img{
+		height: 100%;
+		object-fit: cover;
+		transition: all 500ms ease-in-out;
+		cursor: pointer;
+		&:hover{
+			transform: scale(1.1);
+			transition: all 500ms ease-in-out;
+		}
+	}
 }
 
 /*
@@ -102,7 +127,7 @@ img { vertical-align: middle; }
     font-weight: bold;
     font-size: 18px;
     transition: 0.6s ease;
-    border-radius: 0 13px 13px 0;       
+    border-radius: 13px;//0 13px 13px 0;       
     z-index: 3;
 }
 
@@ -112,7 +137,7 @@ img { vertical-align: middle; }
 
 #seguinte {
     right: 0;
-    border-radius: 13px 0 0 13px;
+    //border-radius: 13px 0 0 13px;
 }
 
 #anterior:hover, #seguinte:hover {
