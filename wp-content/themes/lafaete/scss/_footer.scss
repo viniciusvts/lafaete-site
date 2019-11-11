@@ -148,6 +148,7 @@
     z-index: 3;
     padding: 10px 0;  
     color: white;
+    transition-duration: .5s;
     p{
         margin-top: 20px;
         text-align: right;
@@ -196,6 +197,9 @@
 
     .newsletter .formulario{
         padding: 20px;
+        @include breakpoint(smartphones) {
+            padding: 20px 20px 90px 20px;
+        }
     }
 
     .newsletter .formulario input[type=text], .blog-floater .formulario input[type=text]{
