@@ -2394,6 +2394,11 @@ img {
     margin-top: 40px;
   }
 }
+@media (max-width: 1199px) and (max-width: 575.98px) {
+  .footer .rodape {
+    margin-bottom: 63px;
+  }
+}
 @media (max-width: 1199px) {
   .footer .rodape p {
     text-align: center !important;
