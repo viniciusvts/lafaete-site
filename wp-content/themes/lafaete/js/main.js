@@ -29,6 +29,9 @@ window.onscroll = function (oEvent) {
                 this.floater.removeAttribute('style')
             } else { 
                 this.floater.setAttribute('style', 'bottom:63px')
+                if($(this).scrollTop() > (newh + 200)) {
+                    this.floater.setAttribute('style', 'bottom:0')
+                }
             } 
         } catch(e) { 
             // exit withou errors logs
