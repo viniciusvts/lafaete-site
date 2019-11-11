@@ -265,6 +265,9 @@
     .footer .rodape{
         border-top: 1px solid $laranja;
         margin-top: 40px;
+        @include breakpoint(smartphones) {
+            margin-bottom: 63px;
+        }
     }
 
     .footer .rodape p{
