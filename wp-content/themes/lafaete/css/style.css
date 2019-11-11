@@ -1054,7 +1054,7 @@ iframe {
 @media (max-width: 575.98px) {
   #produtos .produto-floater .texto::after {
     width: 50px;
-    right: 90px;
+    right: 68px;
   }
 }
 #produtos .produto-floater {
