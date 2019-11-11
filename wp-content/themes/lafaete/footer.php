@@ -1,5 +1,5 @@
 <!-- Footer-->
-<nav class="navbar navbar-expand-lg navbar-light bg-dark">     
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">     
     <a href="index.php" class="d-block d-lg-none d-md-none"><img src="<?php bloginfo('template_url');?>/inc/img/logo-lafaete.png"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavFooter" aria-controls="navbarNavFooter" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
