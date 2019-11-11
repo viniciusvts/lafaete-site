@@ -8,6 +8,9 @@
     margin: 10px 0;
     border-bottom: 1px solid $cinzaEscuro;
     color: white;
+    @include breakpoint(smartphones) {
+        transform: translateY(55px);
+    }
 }
 
 .topo-menu ul li{
@@ -25,6 +28,9 @@
 #menu-principal{
     margin-top: 70px;
     text-transform: uppercase;
+    @include breakpoint(smartphones) {
+        margin-top: 0;
+    }
 }
 
 #menu-principal ul li a{
@@ -52,3 +58,8 @@
     opacity: 0.5;
 }
 /*topo-menu*/
+nav.navbar {
+    @include breakpoint(smartphones) {
+        padding: 0 15px;
+    }
+}

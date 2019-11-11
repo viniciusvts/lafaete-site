@@ -7,7 +7,10 @@
 	-webkit-transition:all 400ms ease;
 	-ms-transition:all 400ms ease;
 	-o-transition:all 400ms ease;
-	-moz-transition:all 400ms ease;	
+    -moz-transition:all 400ms ease;	
+    @include breakpoint(smartphones) {
+        background-color: #414141 !important;
+    }
 }
 
 .bg-dark{
@@ -51,7 +54,6 @@
 
 @media (max-width: 1199px) {
     /*slider*/
-    .bg-light{/*background-color: rgba(0, 0, 0, 0) !important; background: linear-gradient(180deg, black 0%, black 11%, rgba(0, 0, 0, 0) 100%)*/ background-color: rgba(0, 0, 0, 0) !important}
 
     .bg-dark{
         /* padding: 0;*/

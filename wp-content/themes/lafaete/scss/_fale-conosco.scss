@@ -1,8 +1,9 @@
 /*fale-conosco*/
 .fale-conosco{
-    padding: 70px;
+    // padding: 70px;
     background: $cinzaLight;
     color: $cinzaEscuro;
+    padding-bottom: 50px;
 }
 
 .fale-conosco h3{
@@ -41,6 +42,9 @@
 }
 .fale-conosco-left{
     padding: 30px;
+    @include breakpoint(smartphones) {
+        margin-top: 15px;
+    }
 }
 .fale-conosco-right .telefone{
     color: $laranja;
@@ -49,6 +53,9 @@
     margin: 0px;
     font-weight: 500;
     line-height: auto;
+    @include breakpoint(smartphones) {
+        font-size: 1.5rem;
+    }
 }
 
 .fale-conosco-right h4{
