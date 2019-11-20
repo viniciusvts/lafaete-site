@@ -32,6 +32,8 @@ switch ($server_addr) {
         $dbuser_default = 'root';
         $dbpassword_default = 'root';
         define('DEV_MODE', true);
+        define('WP_DEBUG', true);
+        define('WP_DEBUG_DISPLAY', true );
         define('WP_HOME','http://localhost/lafaete/');
         define('WP_SITEURL','http://localhost/lafaete/');
 	break;
@@ -48,19 +50,19 @@ switch ($server_addr) {
 
     default:
         $dbhost_default = 'localhost';
-        $dbname = 'lafaete_bd';
-        $dbuser_default = '';
-        $dbpassword_default = '';
+        $dbname = 'lafaetel_site_bd';
+        $dbuser_default = 'lafaetel_user';
+        $dbpassword_default = 'DNA#Site$Lafa';
         define('DEV_MODE', false);
-        define('WP_HOME','https://www.lafaete.com.br/');
-        define('WP_SITEURL','https://www.lafaete.com.br/');
+        define('WP_HOME','https://www.lafaetelocacao.com.br/novo');
+        define('WP_SITEURL','https://www.lafaetelocacao.com.br/novo');
 	break;
 }
 
-
+define('WP_MEMORY_LIMIT', '256M');
 // ** Configurações do MySQL - Você pode pegar estas informações com o serviço de hospedagem ** //
 /** O nome do banco de dados do WordPress */
-define( 'DB_NAME', 'lafaete_bd' );
+define( 'DB_NAME', $dbname );
 
 /** Usuário do banco de dados MySQL */
 define( 'DB_USER', $dbuser_default );
