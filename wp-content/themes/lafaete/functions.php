@@ -160,7 +160,14 @@
   }
   add_filter('post_link', 'change_blog_links', 1, 3);
   /* End Reescrita blog */
-
+  //custom wp-login css
+  function custom_login_css() {
+      $sources = '<link rel="stylesheet" type="text/css" href="'.get_stylesheet_directory_uri().'/css/wp-admin.css"/>';
+      $sources .= '<script defer src="'.get_stylesheet_directory_uri().'/js/wp-admin.js"/></script>';
+      echo $sources;
+  }
+  add_action('login_head', 'custom_login_css');
+  //end custom wp-login css
 
   // INICIO AREA DE INCLUDES CUSTOM POST TYPE:  
   include_once 'inc/wp_bootstrap_navwalker.php';
