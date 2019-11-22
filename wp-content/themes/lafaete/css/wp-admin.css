@@ -1,0 +1,16 @@
+.login h1 a {
+    background-image: url('../inc/img/favicon.png');
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+}
+ 
+body.login {
+    background: #272727;
+}
+.login #backtoblog a, .login #nav a{
+    color: whitesmoke;
+}
+#login{
+    padding: 2% 0 0;
+}
