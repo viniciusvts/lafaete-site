@@ -26,7 +26,7 @@
 }
 
 #menu-principal{
-    margin-top: 70px;
+    margin-top: 60px;
     text-transform: uppercase;
     @include breakpoint(smartphones) {
         margin-top: 0;
@@ -35,6 +35,12 @@
 
 #menu-principal ul li a{
     color: white;
+    @include mediaScreenMax($largeDesktops){
+        padding-left: 30px;
+    }
+    @include mediaScreenMax($smartphones){
+        padding-left: 0px;
+    }
 }
 
 .dropdown-menu{

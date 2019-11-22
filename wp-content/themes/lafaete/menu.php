@@ -1,6 +1,6 @@
 <div class="container-fluid fixed-top topo-menu fixed-top" id="menu-topo">
   <div class="row">
-    <div class="col-md-11 col-lg-11 col-sm-12">
+    <div class="col-lg-10 col-md-9 col-sm-12">
       <ul>
         <li class="d-none d-sm-none ">Canais de Atendimento: </li>
         <li>
@@ -28,11 +28,11 @@
         </li>
       </ul>
     </div>
-    <div class="col-md-1 col-lg-1 col-sm-6">
-      <div class="social">
-          <a href="https://www.facebook.com/lafaetelocacao" target="_blank"><img src="<?php bloginfo('template_url');?>/inc/svg/facebook-logo-button.svg" width="30px"></a>
-          <a href="https://www.instagram.com/lafaetelocacao/" target="_blank"><img src="<?php bloginfo('template_url');?>/inc/svg/instagram-logo.svg" width="30px"></a>
-          <a href="https://pt.linkedin.com/company/lafaete-loca-es-de-equipamentos" target="_blank"><img src="<?php bloginfo('template_url');?>/inc/svg/linkedin-button.svg" width="30px"></a>
+    <div class="col-lg-2 col-md-2 col-sm-6">
+      <div class="social d-flex">
+          <a href="https://www.facebook.com/lafaetelocacao" target="_blank" class="mr-auto ml-auto"><img src="<?php bloginfo('template_url');?>/inc/svg/facebook-logo-button.svg" width="30px"></a>
+          <a href="https://www.instagram.com/lafaetelocacao/" target="_blank" class="mr-auto ml-auto"><img src="<?php bloginfo('template_url');?>/inc/svg/instagram-logo.svg" width="30px"></a>
+          <a href="https://pt.linkedin.com/company/lafaete-loca-es-de-equipamentos" target="_blank" class="mr-auto ml-auto"><img src="<?php bloginfo('template_url');?>/inc/svg/linkedin-button.svg" width="30px"></a>
       </div>
     </div>
     <!--<div class="col-md-1 col-lg-1 col-sm-6">

@@ -15,7 +15,7 @@ if(isset($_POST["email"])){
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 texto">
-					<?php if($wpmail){ ?>
+					<?php if( isset($_POST["email"]) ){ ?>
 					<h2>Em breve entraremos em contato.</h2>
 					<?php }else{ ?>
 					<p> Quer receber <span>novidades exclusivas</span> ?</p>

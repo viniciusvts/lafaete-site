@@ -97,6 +97,7 @@ iframe {
 
 .my-container {
   padding: 3% 0;
+  overflow: hidden;
 }
 
 .menu-container {
@@ -193,7 +194,7 @@ iframe {
 }
 
 #menu-principal {
-  margin-top: 70px;
+  margin-top: 60px;
   text-transform: uppercase;
 }
 @media (max-width: 575.98px) {
@@ -204,6 +205,16 @@ iframe {
 
 #menu-principal ul li a {
   color: white;
+}
+@media (max-width: 1199.98px) {
+  #menu-principal ul li a {
+    padding-left: 30px;
+  }
+}
+@media (max-width: 575.98px) {
+  #menu-principal ul li a {
+    padding-left: 0px;
+  }
 }
 
 .dropdown-menu {
@@ -411,7 +422,7 @@ iframe {
   -o-transition: all 400ms ease;
   -moz-transition: all 400ms ease;
 }
-@media (max-width: 575.98px) {
+@media (max-width: 1199.98px) {
   .bg-light {
     background-color: #414141 !important;
   }
@@ -550,6 +561,12 @@ iframe {
 @media (max-width: 991.98px) {
   #slider_container {
     width: 300px;
+    height: 300px;
+  }
+}
+@media (max-width: 1199.98px) {
+  #slider_container {
+    width: 800px;
     height: 300px;
   }
 }
@@ -1375,7 +1392,7 @@ iframe {
   }
 
   #produtos .produto-floater .pagamento img {
-    width: 270px;
+    width: 220px;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -1584,6 +1601,12 @@ iframe {
 
 .blog .texto {
   padding: 20px;
+}
+
+@media (max-width: 575.98px) {
+  .d-sm-flex {
+    display: flex;
+  }
 }
 
 /*blog*/
@@ -2033,6 +2056,7 @@ img {
   background: #f4f5f9;
   color: #6a6a6a;
   padding-bottom: 50px;
+  padding-top: 50px;
 }
 
 .fale-conosco h3 {
@@ -2105,7 +2129,7 @@ img {
 .fale-conosco-left input[type=text], .fale-conosco-left input[type=email], .fale-conosco textarea, .fale-conosco .div-select select {
   width: 100%;
   border: 0;
-  border-bottom: 1px solid #e7e7e7;
+  border: 1px solid #e7e7e7;
   margin: 10px 0;
   padding: 10px 0;
   color: #9b9b9b;
