@@ -1,6 +1,11 @@
 wp-admin/error_log
 wp-content/cache/
 wp-content/wflogs/
+#plugins que não funcionam ou não interessam localmente
+wp-content/plugins/autoptimize/
+wp-content/plugins/integracao-rd-station/
+wp-content/plugins/super-socializer/
+wp-content/plugins/wp-mail-smtp/
 cgi-bin/
 .htaccess
 .ftpquota
