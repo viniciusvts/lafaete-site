@@ -112,11 +112,21 @@ $(function(){
 let sliderControl = document.querySelectorAll('#slider_controls span');
 let sliderImages = document.querySelector('#slider_images');
 let sliderImage = document.querySelectorAll('#slider_images img');
-let sizeImage =  document.querySelector('#slider_images img').offsetWidth;
 
-let numberOfImages = document.querySelectorAll('#slider_images img').length;
-let sliderContainer = 'width:' + sizeImage * numberOfImages + 'px';
-let sizeContainer = document.getElementById('slider_images').setAttribute('style', sliderContainer);
+try {
+    let sizeImage =  document.querySelector('#slider_images img').offsetWidth;
+} catch(e) {
+    console.warn(e);
+}
+
+try {
+    let numberOfImages = document.querySelectorAll('#slider_images img').length;
+    let sliderContainer = 'width:' + sizeImage * numberOfImages + 'px';
+    let sizeContainer = document.getElementById('slider_images').setAttribute('style', sliderContainer);
+} catch(e) {
+    // statements
+    console.warn(e);
+}
 
 const slider = document.querySelector('#slider_container');
 let isDown = false;
@@ -147,40 +157,61 @@ for(let indexSliderControl = 0; indexSliderControl < sliderControl.length; index
         }       
     }
 }
+if(slider){
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      slider.classList.add('active');
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
 
-slider.addEventListener('mousedown', (e) => {
-  isDown = true;
-  slider.classList.add('active');
-  startX = e.pageX - slider.offsetLeft;
-  scrollLeft = slider.scrollLeft;
-});
+    slider.addEventListener('mouseleave', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
 
-slider.addEventListener('mouseleave', () => {
-  isDown = false;
-  slider.classList.remove('active');
-});
+    slider.addEventListener('mouseup', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
 
-slider.addEventListener('mouseup', () => {
-  isDown = false;
-  slider.classList.remove('active');
-});
-
-slider.addEventListener('mousemove', (e) => {
-  if(!isDown) return;
-  e.preventDefault();
-  const x = e.pageX - slider.offsetLeft;
-  const walk = (x - startX) * 1; // quantas casas o sroll vai andar
-  let scrollMatch = slider.scrollLeft = scrollLeft - walk;
-  let positionBulletActive = Math.floor(scrollMatch/100)/3;
-  
-    if(Math.floor(scrollMatch/100) * 100 % 300 == 0){
-        console.log(positionBulletActive);
-        if(!sliderControl[positionBulletActive].classList.contains('selected')){        
-            sliderControl[positionBulletActive].classList.add('selected');
+    slider.addEventListener('mousemove', (e) => {
+      if(!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 1; // quantas casas o sroll vai andar
+      let scrollMatch = slider.scrollLeft = scrollLeft - walk;
+      let positionBulletActive = Math.floor(scrollMatch/100)/3;
+      
+        if(Math.floor(scrollMatch/100) * 100 % 300 == 0){
+            console.log(positionBulletActive);
+            if(!sliderControl[positionBulletActive].classList.contains('selected')){        
+                sliderControl[positionBulletActive].classList.add('selected');
+            }
         }
-    }
+    });
 
-  
-
-});
+}
 // fim slider draggable
+
+/**
+ * Cria em todos os forms um campo hidden com a url atual
+ * @example
+ * setTimeout(addUrlToForms, 2000); 
+ * @author Vinicius de Santana
+ */
+function addUrlToForms(){
+    //cria input com a url atual como valor para identificação no RD
+    input01 = document.createElement("input");
+    input01.setAttribute("type", "hidden")
+    input01.setAttribute("name", "urlOrigem")
+    input01.value = window.location.href;
+    forms = document.querySelectorAll("form");
+    for (var i = 0; i < forms.length; i++) {
+        forms[i].appendChild( input01.cloneNode(true) );
+    }
+}
+
+window.addEventListener('load', function(e){
+    addUrlToForms();// setTimeout(addUrlToForms, 2000);    
+});
