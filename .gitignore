@@ -1,0 +1,10 @@
+wp-admin/error_log
+wp-content/cache/
+wp-content/wflogs/
+cgi-bin/
+.htaccess
+.ftpquota
+.idea/
+#eclipse IDE
+.buildpath
+.project
