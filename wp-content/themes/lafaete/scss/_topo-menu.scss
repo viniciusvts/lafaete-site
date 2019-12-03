@@ -69,3 +69,13 @@ nav.navbar {
         padding: 0 15px;
     }
 }
+.txtAlignCenter{
+    @include mediaScreenMax($largeDesktops){
+        text-align: center;
+    }
+}
+.pbNav{
+    @include mediaScreenMax($largeDesktops){
+        padding-bottom: 20px;
+    }
+}

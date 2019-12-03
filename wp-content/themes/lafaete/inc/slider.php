@@ -31,7 +31,7 @@
         while( $material->have_posts() ) : $material->the_post();                         
     ?>
     <div class="carousel-item <?php if($slider == 0) : echo 'active'; endif; ?>">
-      <div class="carousel-caption d-none d-md-block">
+      <div class="carousel-caption d-md-block">
         <h1><?php the_title(); ?></h1>  
         <p><?php the_field('subtitulo'); ?></p>
         <a href="<?php the_field('link'); ?>"><button class="btn btn-laranja">Conheça nossas opções</button></a>
@@ -40,7 +40,9 @@
         $image = get_field('imagem');
         if( !empty($image) ):
       ?>
+      <a href="<?php the_field('link'); ?>">
         <img src="<?php echo $image['url']; ?>" class="d-block w-100 img-fluid" alt="<?php echo $image['alt']; ?>" />
+      </a>
       <?php endif; ?>  
     </div>
     <?php

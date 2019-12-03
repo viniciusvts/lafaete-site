@@ -49,7 +49,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse txtAlignCenter pbNav" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto ">
       <li class="nav-item">
         <a class="nav-link" href="<?php bloginfo('url'); ?>/a-lafaete">A Lafaete</a>
@@ -64,9 +64,9 @@
         <a class="nav-link dropdown-toggle" href="servicos" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Serviços
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu txtAlignCenter" aria-labelledby="navbarDropdown">
         <a class="dropdown-item" href="<?php bloginfo('url'); ?>/servicos/gestao-ambiental">Gestão Ambiental</a>
-        <div class="dropdown-divider"></div>
+        <div class="dropdown-divider txtAlignCenter"></div>
           <a class="dropdown-item" href="<?php bloginfo('url'); ?>/servicos/gestao-de-residuos">Gestão de Resíduos</a>
           <a class="dropdown-item" href="<?php bloginfo('url'); ?>/servicos/transbordo-e-triagem">Transbordo e Triagem</a>
           <a class="dropdown-item" href="<?php bloginfo('url'); ?>/servicos/terraplanagem">Terraplanagem</a>
@@ -83,7 +83,7 @@
         <a class="nav-link dropdown-toggle" href="<?php bloginfo('url'); ?>/atendimento" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Atendimento
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu txtAlignCenter" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="<?php bloginfo('url'); ?>/atendimento/orcamento">Orçamento</a>
           <a class="dropdown-item" href="<?php bloginfo('url'); ?>/atendimento/fale-conosco">Contato</a>
           <a class="dropdown-item" href="<?php bloginfo('url'); ?>/atendimento/trabalhe-conosco">Trabalhe Conosco</a>
@@ -98,7 +98,7 @@
         <a class="nav-link dropdown-toggle" href="<?php bloginfo('url'); ?>/atendimento" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Projetos
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu txtAlignCenter" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="<?php bloginfo('url'); ?>/eventos">Eventos</a>
           <a class="dropdown-item" href="<?php bloginfo('url'); ?>/grandes-obras">Grandes Obras</a>
           <a class="dropdown-item" href="<?php bloginfo('url'); ?>/projetos-sociais">Projetos Sociais</a>
