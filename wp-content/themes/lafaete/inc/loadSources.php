@@ -17,7 +17,7 @@ function add_css_and_js() {
   $urlPath = $jsUriPath . $archive;
   $internalPath = $jsInternalPath . $archive;
   $fileVersion = filemtime($internalPath);
-  wp_enqueue_script( $archive, $urlPath, array (), $fileVersion, true);
+  wp_enqueue_script( $archive, $urlPath, array (), $fileVersion, false);
   
   $archive = 'popper.min.js';
   $urlPath = $jsUriPath . $archive;
