@@ -16,18 +16,6 @@ function add_css_and_js() {
   $internalPath = $jsInternalPath . $archive;
   $fileVersion = filemtime($internalPath);
   wp_enqueue_script( $archive, $urlPath, array (), $fileVersion, true);
-
-  $archive = 'bootstrap.min.js';
-  $urlPath = $jsUriPath . $archive;
-  $internalPath = $jsInternalPath . $archive;
-  $fileVersion = filemtime($internalPath);
-  wp_enqueue_script( $archive, $urlPath, array ('jquery.min.js'), $fileVersion, true);
-
-  $archive = 'main.js';
-  $urlPath = $jsUriPath . $archive;
-  $internalPath = $jsInternalPath . $archive;
-  $fileVersion = filemtime($internalPath);
-  wp_enqueue_script( $archive, $urlPath, array ('jquery.min.js'), $fileVersion, true);
   
   $archive = 'popper.min.js';
   $urlPath = $jsUriPath . $archive;
@@ -35,11 +23,23 @@ function add_css_and_js() {
   $fileVersion = filemtime($internalPath);
   wp_enqueue_script( $archive, $urlPath, array ('jquery.min.js'), $fileVersion, true);
 
+  $archive = 'bootstrap.min.js';
+  $urlPath = $jsUriPath . $archive;
+  $internalPath = $jsInternalPath . $archive;
+  $fileVersion = filemtime($internalPath);
+  wp_enqueue_script( $archive, $urlPath, array ('popper.min.js'), $fileVersion, true);
+
+  $archive = 'main.js';
+  $urlPath = $jsUriPath . $archive;
+  $internalPath = $jsInternalPath . $archive;
+  $fileVersion = filemtime($internalPath);
+  wp_enqueue_script( $archive, $urlPath, array ('bootstrap.min.js'), $fileVersion, true);
+
   $archive = 'slider.js';
   $urlPath = $jsUriPath . $archive;
   $internalPath = $jsInternalPath . $archive;
   $fileVersion = filemtime($internalPath);
-  wp_enqueue_script( $archive, $urlPath, array ('jquery.min.js'), $fileVersion, true);
+  wp_enqueue_script( $archive, $urlPath, array ('main.js'), $fileVersion, true);
   
   /*if(is_page('simulacao')) {//caso a página seja simulador
     $archive = 'simulator.js';
@@ -71,7 +71,7 @@ function add_css_and_js() {
   $urlPath = $cssUriPath . $archive;
   $internalPath = $cssInternalPath . $archive;
   $fileVersion = filemtime($internalPath);
-  wp_enqueue_style( $archive, $urlPath, array('bootstrap.css'), $fileVersion, $media );
+  wp_enqueue_style( $archive, $urlPath, array('style.css'), $fileVersion, $media );
   
   $archive = 'fontOsvald';
   $urlPath = "https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700";
