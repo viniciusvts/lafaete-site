@@ -89,13 +89,4 @@
         </div>
     </div>
 </nav>
-
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="<?php bloginfo('template_url');?>/node_modules/jquery/dist/jquery.js" defer></script>
-<script src="<?php bloginfo('template_url');?>/node_modules/popper.js/dist/popper.min.js" defer></script>
-<script src="<?php bloginfo('template_url');?>/node_modules/bootstrap/dist/js/bootstrap.min.js" defer></script>
-<script src="<?php bloginfo('template_url');?>/js/main.js" defer></script>
-<script src="<?php bloginfo('template_url');?>/js/slider.js" defer></script>
 <?php wp_footer(); ?>
