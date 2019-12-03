@@ -7,6 +7,8 @@
  * @author Vinicius de Santana
  */
 function add_css_and_js() {
+  //remove jquery padrão do wp
+  wp_deregister_script( 'jquery' );
   //scripts: wp_enqueue_script( $nome, $origem, $dependencia, $versao, $rodape );
   $jsInternalPath = get_template_directory() . "/"."js/";
   $jsUriPath = get_template_directory_uri() . "/"."js/";
