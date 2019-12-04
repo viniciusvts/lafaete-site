@@ -73,7 +73,7 @@
     border: 0;
     border: 1px solid $cinzaClaro;
     margin: 10px 0;
-    padding: 10px 0;
+    padding: 10px;
     color: $cinzaMedio;
 }
 
@@ -87,5 +87,13 @@
 
 .fale-conosco-left input::placeholder, .fale-conosco-left textarea::placeholder{
     color: $cinzaMedio;
+}
+.btn-fo{
+    @include mediaScreenMin($desktops){
+        margin-top: 4%;
+    }
+}
+.card-text{
+    color: #212529;
 }
 /*fale-conosco*/

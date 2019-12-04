@@ -1130,7 +1130,7 @@ iframe {
   position: relative;
   display: inline-block;
   border-bottom: 1px solid transparent;
-  color: #fdc236;
+  color: #ff7e3b;
   transition: all 400ms ease;
   -webkit-transition: all 400ms ease;
   -ms-transition: all 400ms ease;
@@ -1140,11 +1140,16 @@ iframe {
 
 .default-service-column .content .read-more:hover,
 .default-service-column:hover .content .read-more {
-  border-color: #fdc236;
+  border-color: #ff7e3b;
 }
 
 #produtos {
   margin-top: 50px;
+}
+@media (max-width: 767.98px) {
+  #produtos {
+    margin-top: 0;
+  }
 }
 #produtos .produto-floater .texto {
   position: relative;
@@ -1190,10 +1195,14 @@ iframe {
   transform: skew(-10deg);
   z-index: 1;
 }
-@media (max-width: 575.98px) {
+@media (max-width: 991.98px) {
   #produtos .produto-floater .texto::after {
-    width: 50px;
-    right: 68px;
+    width: 150px;
+  }
+}
+@media (max-width: 767.98px) {
+  #produtos .produto-floater .texto::after {
+    background: rgba(0, 0, 0, 0);
   }
 }
 #produtos .produto-floater {
@@ -1209,10 +1218,20 @@ iframe {
   z-index: 0;
 }
 #produtos .produto-floater .pagamento {
-  padding: 60px 0px;
+  padding: 160px 0px;
   position: relative;
   z-index: 2;
   padding-left: 70px;
+}
+@media (max-width: 991.98px) {
+  #produtos .produto-floater .pagamento {
+    padding: 260px 0 0 50px;
+  }
+}
+@media (max-width: 767.98px) {
+  #produtos .produto-floater .pagamento {
+    padding: 20px;
+  }
 }
 #produtos .produto-floater .pagamento h4 {
   text-align: center;
@@ -1447,7 +1466,7 @@ iframe {
     position: relative;
     display: inline-block;
     border-bottom: 1px solid transparent;
-    color: #fdc236;
+    color: #ff7e3b;
     transition: all 400ms ease;
     -webkit-transition: all 400ms ease;
     -ms-transition: all 400ms ease;
@@ -1457,7 +1476,7 @@ iframe {
 
   .default-service-column .content .read-more:hover,
 .default-service-column:hover .content .read-more {
-    border-color: #fdc236;
+    border-color: #ff7e3b;
   }
 
   #produtos .produto-floater .texto {
@@ -1503,16 +1522,19 @@ iframe {
     right: 0;
   }
 
-  #produtos .produto-floater .pagamento {
-    padding: 20px;
-    position: relative;
-    z-index: 2;
+  /*produtos*/
+}
+@media (max-width: 1199px) and (max-width: 767.98px) {
+  #produtos .produto-floater {
+    overflow: hidden;
   }
-
+}
+@media (max-width: 1199px) {
   #produtos .produto-floater .pagamento h4 {
     text-align: center;
   }
-
+}
+@media (max-width: 1199px) {
   #produtos .produto-floater .pagamento img {
     width: 220px;
     left: 0;
@@ -1520,42 +1542,45 @@ iframe {
     margin: 0 auto;
     display: block;
   }
-
+}
+@media (max-width: 1199px) {
   #produtos .produto-floater .texto .bread svg, .sobre .bread svg, .bread svg {
     fill: white;
     width: 25px;
     float: left;
     margin: 0 10px 0 0;
   }
-
+}
+@media (max-width: 1199px) {
   .sobre .bread svg, .bread svg {
     fill: #6a6a6a;
   }
-
+}
+@media (max-width: 1199px) {
   #produtos .produto-floater .texto .bread p, .sobre .texto .bread p {
     margin: 0;
     padding: 0;
     font-family: myFontLight, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
   }
-
+}
+@media (max-width: 1199px) {
   .produtos-container {
     margin-top: auto;
     margin-bottom: 40px;
   }
-
+}
+@media (max-width: 1199px) {
   .produtos-container .menu-produtos {
     left: 0;
     right: 0;
     margin: 0 auto;
   }
-
-  /*produtos*/
 }
 .paginate {
   margin: 0 auto 30px;
 }
 .paginate .page-btn {
-  color: #fdc236;
+  color: #ff7e3b;
   transition: all 400ms ease;
   -webkit-transition: all 400ms ease;
   -ms-transition: all 400ms ease;
@@ -1690,6 +1715,11 @@ iframe {
   font-family: myFontLight, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
   color: white;
 }
+@media (max-width: 767.98px) {
+  .blog-floater p, #crumbs {
+    margin-bottom: 15px;
+  }
+}
 
 .blog-floater a:hover {
   text-decoration: none;
@@ -1711,6 +1741,11 @@ iframe {
   margin: 0 auto;
   display: inline-flex;
   float: right;
+}
+@media (max-width: 767.98px) {
+  .blog-categorias {
+    margin: 25px auto 0;
+  }
 }
 
 .blog a {
@@ -2253,7 +2288,7 @@ img {
   border: 0;
   border: 1px solid #e7e7e7;
   margin: 10px 0;
-  padding: 10px 0;
+  padding: 10px;
   color: #9b9b9b;
 }
 
@@ -2267,6 +2302,16 @@ img {
 
 .fale-conosco-left input::placeholder, .fale-conosco-left textarea::placeholder {
   color: #9b9b9b;
+}
+
+@media (min-width: 991.98px) {
+  .btn-fo {
+    margin-top: 4%;
+  }
+}
+
+.card-text {
+  color: #212529;
 }
 
 /*fale-conosco*/

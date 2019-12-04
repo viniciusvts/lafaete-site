@@ -163,7 +163,7 @@
 	position:relative;
 	display:inline-block;
 	border-bottom:1px solid transparent;
-	color:#fdc236;
+	color:#ff7e3b;
 	transition:all 400ms ease;
 	-webkit-transition:all 400ms ease;
 	-ms-transition:all 400ms ease;
@@ -173,10 +173,13 @@
 
 .default-service-column .content .read-more:hover,
 .default-service-column:hover .content .read-more{
-	border-color:#fdc236;	
+	border-color:#ff7e3b;	
 }
 #produtos{
     margin-top: 50px;
+    @include mediaScreenMax($tablets){
+        margin-top: 0;
+    }
 
     .produto-floater .texto{
         position: relative;    
@@ -226,9 +229,11 @@
         -ms-transform: skew(-20deg);
         transform: skew(-10deg);
         z-index: 1;
-        @include breakpoint(smartphones) {
-            width: 50px;
-            right: 68px;
+        @include mediaScreenMax($desktops){
+            width: 150px;
+        }
+        @include mediaScreenMax($tablets){
+            background: rgba(0,0,0,0);
         }
     }
 
@@ -246,10 +251,16 @@
     }
 
     .produto-floater .pagamento{
-        padding: 60px 0px;
+        padding: 160px 0px;
         position: relative;
         z-index: 2;
         padding-left: 70px;
+        @include mediaScreenMax($desktops){
+            padding: 260px 0 0 50px;
+        }
+        @include mediaScreenMax($tablets){
+            padding: 20px;
+        }
     }
     
     .produto-floater .pagamento h4{
@@ -492,7 +503,7 @@
         position:relative;
         display:inline-block;
         border-bottom:1px solid transparent;
-        color:#fdc236;
+        color:#ff7e3b;
         transition:all 400ms ease;
         -webkit-transition:all 400ms ease;
         -ms-transition:all 400ms ease;
@@ -502,7 +513,7 @@
 
     .default-service-column .content .read-more:hover,
     .default-service-column:hover .content .read-more{
-        border-color:#fdc236;	
+        border-color:#ff7e3b;	
     }
     #produtos .produto-floater .texto{
         position: relative;    
@@ -545,12 +556,9 @@
         position: relative;
         left: 0;
         right: 0;
-    }
-
-    #produtos .produto-floater .pagamento{
-        padding: 20px;
-        position: relative;
-        z-index: 2;
+        @include mediaScreenMax($tablets){
+            overflow: hidden;
+        }
     }
 
     #produtos .produto-floater .pagamento h4{
@@ -596,7 +604,7 @@
 .paginate{
 	margin: 0 auto 30px;
 	.page-btn{
-		color:#fdc236;
+		color:#ff7e3b;
 		transition:all 400ms ease;
 		-webkit-transition:all 400ms ease;
 		-ms-transition:all 400ms ease;
