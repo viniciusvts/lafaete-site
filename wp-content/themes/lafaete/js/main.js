@@ -1,3 +1,86 @@
+//carrosseis
+
+/**
+ * Provê o rolamento para a direita do carrossel adicione essa função ao onclick do botão
+ * @example
+ * var button = document.getElementById("button");
+ * button.onclick = scrollR
+ * @author Vinicius de Santana
+ */
+function scrollR(){
+    var carroussel = this;
+    do{
+        carroussel = carroussel.parentNode;
+    }while( !(carroussel.classList.contains("bp-carousel")) );
+    var innerCarrossel = carroussel.querySelector(".bp-carousel-inner")
+    innerCarrossel.scrollLeft += innerCarrossel.querySelector(".bp-item").offsetWidth;
+}
+
+/**
+ * Provê o rolamento para a esquerda do carrossel adicione essa função ao onclick do botão
+ * @example
+ * var button = document.getElementById("button");
+ * button.onclick = scrollL
+ * @author Vinicius de Santana
+ */
+function scrollL(){
+    var carroussel = this;
+    do{
+        carroussel = carroussel.parentNode;
+    }while( !(carroussel.classList.contains("bp-carousel")) );
+    var innerCarrossel = carroussel.querySelector(".bp-carousel-inner")
+    innerCarrossel.scrollLeft -= innerCarrossel.querySelector(".bp-item").offsetWidth;
+}
+
+/**
+ * Caucula a necessidade do cursor de seta no carrossel os eliminando se necessário
+ * @author Vinicius de Santana
+ */
+function setasNoCarrossel(){
+    var carroussel = document.querySelectorAll(".bp-carousel");
+    for (var i = 0; i<carroussel.length; i++){
+        var cards = carroussel[i].querySelectorAll(".bp-carousel-inner .bp-item");
+        var cardsWidthTotal = 0;
+        for (var j = 0; j<cards.length; j++){
+            cardsWidthTotal += cards[j].offsetWidth;
+        }
+        if (cardsWidthTotal < carroussel[i].offsetWidth){
+            carroussel[i].querySelector(".arrow-right").style.display = "none";
+            carroussel[i].querySelector(".arrow-left").style.display = "none";
+        }else{
+            carroussel[i].querySelector(".arrow-right").style.display = "";
+            carroussel[i].querySelector(".arrow-left").style.display = "";
+        }
+    }
+}
+
+/**
+ * Adiciona as funções de scroll aos butoes do carrossel
+ * @author Vinicius de Santana
+ */
+function acaoNoBotaoDoCarrossel(){
+    var carroussel = document.querySelectorAll(".bp-carousel");
+    for (var i = 0; i<carroussel.length; i++){
+        var buttonRight = carroussel[i].querySelector(".arrow-right");
+        buttonRight.onclick = scrollR;
+    //buttonRight.onmouseover = scrollR;
+        var buttonLeft = carroussel[i].querySelector(".arrow-left");
+        buttonLeft.onclick = scrollL;
+    //buttonLeft.onmouseover = scrollL;
+    }
+}
+
+/**
+ * Inicia todos os carrosseis
+ * @author Vinicius de Santana
+ */
+function initCarrossel(){
+    //remove as setas do carrossel se necessário
+    setasNoCarrossel();
+    //adiciona a ação ao butoes
+    acaoNoBotaoDoCarrossel();
+}
+
 // funcão esconder menu ao dar scroll página
 $(function(){   
     var nav = $('#menu-principal'); 
@@ -214,4 +297,5 @@ function addUrlToForms(){
 
 window.addEventListener('load', function(e){
     addUrlToForms();// setTimeout(addUrlToForms, 2000);    
+    initCarrossel();
 });

@@ -30,7 +30,7 @@
     img{
         @include transition(0.4s ease all);
         &:hover{
-            margin-top: -10px;
+            transform: scale(1.05);
             @include transition(0.4s ease all);
         }
     }
@@ -113,4 +113,74 @@
         display: block;
     }
 }
+
+.mt-np{
+    margin-top: 0;
+    @include mediaScreenMax($desktops){
+        margin-top: -15%
+    }
+    @include mediaScreenMax($tablets){
+        margin-top: -10%
+    }
+    @include mediaScreenMax($smartphones){
+        margin-top: -35%
+    }
+}
+
+
 /*nossos-premios*/
+///bp carousel
+.bp-carousel {
+    display: flex;
+    .bp-carousel-inner {
+        overflow: hidden;
+        width: 100%;
+        height: 300px;
+        scroll-behavior: smooth;
+        display: flex;
+    }
+    .bp-item {
+        margin-left: auto;
+        margin-right: auto;
+        min-height: 300px;
+    }
+    .arrow-left, .arrow-right {
+        position: relative;
+        margin-top: 10%;
+        cursor: pointer;
+        transition: transform 0.1s ease-in-out;
+    }
+    .arrow-right {
+        right: 20px;
+        &:before {
+            content: "›";
+            display: inline-block;
+            vertical-align: middle;
+            //margin-right: 10px;
+            font-size: 60px;
+            position: relative;
+            margin-left: 40px;
+        }
+    }
+    .arrow-left:before {
+        content: "‹";
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 30px;
+        font-size: 60px;
+        position: relative;
+        //margin-left: 20px;
+    }
+}
+//fim bp-caroussel
+//
+///inicio bp-carousel especifico para lafaete
+.bp-one {
+    padding: 40px 0 40px 0;
+}
+
+.bp-item {
+    img{
+        width: 100%;
+    }
+}
