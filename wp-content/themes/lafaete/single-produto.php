@@ -71,24 +71,7 @@
         </div>    
       </div>      
     </div>
-
-    <div id="produtos">
-      <div class="container produto-floater">
-        <div class="row">
-          <div class="col-md-8 texto">
-            <div class="container">
-              <p> <?php if(have_posts()): the_post(); the_content(); endif; ?></p>
-              <a href="#faca-um-orcamento"><button class="btn">Faça um orçamento agora</button></a>
-            </div>
-          </div>
-          <div class="col-md-4 pagamento">
-            <h4>Condições de Pagamento</h4>
-            <img src="<?php bloginfo('template_url'); ?>/inc/img/pagseguro.png">
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <?php include_once('inc/produtos-orcamento-agora.php'); ?>
     <?php
       if(get_field('galeria')):
     ?> 
