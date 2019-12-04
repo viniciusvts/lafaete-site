@@ -42,8 +42,7 @@
                     <?php the_sub_field('descricao'); ?>
                   </div>
                   <div class="col-md-4">
-                    <?php $image = get_sub_field('imagem'); ?>
-                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" class="img-fluid w-100" />                  
+                    <img src="<?php echo the_post_thumbnail_url('thumbnail'); ?>" alt="<?php the_sub_field('titulo'); ?>" class="img-fluid w-100" />                  
                   </div>
                 </div>
               </div>
