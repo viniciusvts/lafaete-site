@@ -54,8 +54,29 @@
       <li class="nav-item">
         <a class="nav-link" href="<?php bloginfo('url'); ?>/a-lafaete">A Lafaete</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php bloginfo('url'); ?>/produtos">Produtos<span class="sr-only">(current)</span></a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#">Produtos<span class="sr-only">(current)</span></a>
+        <div class="dropdown-menu txtAlignCenter" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/produtos">Todos os Produtos</a>
+        <div class="dropdown-divider txtAlignCenter"></div>
+          <?php
+          $categorias = get_categories( 
+            array(
+              'orderby' => 'name',
+              'taxonomy' => 'cidade',
+              'parent'  => 0,
+              'hide_empty' => true,
+            )
+          );
+          foreach($categorias as $categoria){
+            $href = get_bloginfo('url')  ."/". $categoria->taxonomy ."/" . $categoria->slug ."/";
+            $name = $categoria->name;
+          ?>
+          <a class="dropdown-item" href="<?php echo( $href ); ?>"><?php echo( $name ); ?></a>
+          <?php
+          }
+          ?>
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php bloginfo('url'); ?>/vendas">Seminovos</a>
