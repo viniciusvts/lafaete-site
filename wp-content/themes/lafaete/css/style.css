@@ -220,6 +220,7 @@ iframe {
 
 .dropdown-menu {
   background-color: #ff7e3b;
+  margin: 0;
 }
 
 .dropdown-menu a:hover {
