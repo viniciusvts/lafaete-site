@@ -87,8 +87,9 @@
     
       } elseif ( !is_single() && !is_page() && get_post_type() != 'post' && !is_404() ) {
         $post_type = get_post_type_object(get_post_type());
-        echo $before . $post_type->labels->singular_name . $after;
-    
+        if(isset($post_type) ){
+          echo $before . $post_type->labels->singular_name . $after;
+        }
       } elseif ( is_attachment() ) {
         $parent = get_post($post->post_parent);
         $cat = get_the_category($parent->ID); $cat = $cat[0];
