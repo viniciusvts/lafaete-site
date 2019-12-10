@@ -18,11 +18,6 @@
  * @package WordPress
  */
 
-/* Não Alterar o código abaixo */
-$dbhost = ''; /* Deixar em branco para utilizar o padrão (automático) */
-$dbuser = ''; /* Deixar em branco para utilizar o padrão (automático) */
-$dbpassword = ''; /* Deixar em branco para utilizar o padrão (automático) */
-
 $server_addr = $_SERVER['SERVER_ADDR'];
 switch ($server_addr) {
     case '::1':
@@ -31,11 +26,11 @@ switch ($server_addr) {
         $dbname = 'lafaete_bd';
         $dbuser_default = 'root';
         $dbpassword_default = 'root';
-        define('DEV_MODE', true);
-        define('WP_DEBUG', true);
-        define('WP_DEBUG_DISPLAY', true );
-        define('WP_HOME','http://localhost/lafaete/');
-        define('WP_SITEURL','http://localhost/lafaete/');
+        $devMode = true;
+        $wpDebug = true;
+        $wpDebugDisplay = true ;
+        $wpHome = 'http://localhost/lafaete/';
+        $wpSiteUrl = 'http://localhost/lafaete/';
 	break;
 
     case '172.31.29.159':
@@ -43,9 +38,9 @@ switch ($server_addr) {
         $dbname = 'lafaete_bd';
         $dbuser_default = 'root';
         $dbpassword_default = 'fZBy8NhelGwQNS';
-        define('DEV_MODE', false);
-        define('WP_HOME','https://dnaformarketing.com.br/lafaete/');
-        define('WP_SITEURL','https://dnaformarketing.com.br/lafaete/');
+        $devMode = false;
+        $wpHome = 'https://dnaformarketing.com.br/lafaete/';
+        $wpSiteUrl = 'https://dnaformarketing.com.br/lafaete/';
 	break;
 
     default:
@@ -53,9 +48,9 @@ switch ($server_addr) {
         $dbname = 'lafaetel_site_bd';
         $dbuser_default = 'lafaetel_user';
         $dbpassword_default = 'DNA#Site$Lafa';
-        define('DEV_MODE', false);
-        define('WP_HOME','https://www.lafaetelocacao.com.br/novo');
-        define('WP_SITEURL','https://www.lafaetelocacao.com.br/novo');
+        $devMode = false;
+        $wpHome = 'https://www.lafaetelocacao.com.br/novo';
+        $wpSiteUrl = 'https://www.lafaetelocacao.com.br/novo';
 	break;
 }
 
@@ -78,6 +73,10 @@ define( 'DB_CHARSET', 'utf8mb4' );
 
 /** O tipo de Collate do banco de dados. Não altere isso se tiver dúvidas. */
 define('DB_COLLATE', '');
+
+define('WP_DEBUG_DISPLAY', $wpDebugDisplay );
+define('WP_HOME', $wpHome);
+define('WP_SITEURL', $wpSiteUrl);
 
 /**#@+
  * Chaves únicas de autenticação e salts.
@@ -124,7 +123,7 @@ $table_prefix = 'wp_';
  *
  * @link https://codex.wordpress.org/pt-br:Depura%C3%A7%C3%A3o_no_WordPress
  */
-define('WP_DEBUG', false);
+define('WP_DEBUG', $devMode);
 
 /* Isto é tudo, pode parar de editar! :) */
 
