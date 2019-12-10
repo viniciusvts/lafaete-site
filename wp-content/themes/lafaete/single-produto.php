@@ -1,7 +1,10 @@
 <!doctype html>
 <html lang="pt-br">
-  <?php include_once('head.php'); ?>
-
+  <?php
+  include_once('head.php');
+  $tipoProduto = isset( $_GET['tipo-produto'] ) ? $_GET['tipo-produto'] : null;
+  $cidade = isset( $_GET['cidade'] ) ? $_GET['cidade'] : null;
+  ?>
   <body>
     <?php include_once('menu.php'); ?>
 
@@ -10,8 +13,18 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="carousel-caption">
-            <h2>Locação de</h2>
-            <h1><?php the_title(); ?></h1>
+            <h1>
+              <p><?php
+              echo("Locação de ");
+              if( isset($tipoProduto) ){
+                echo($tipoProduto);
+                if( isset($cidade) ){
+                  echo(" em ");
+                  echo($cidade);
+                }
+              }
+              ?></p>
+              <?php the_title(); ?></h1>
           </div>
           <?php the_post_thumbnail('full', array('class' => 'd-block img-fluid')); ?> 
         </div>
