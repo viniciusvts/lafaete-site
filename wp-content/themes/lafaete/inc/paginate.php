@@ -14,6 +14,7 @@
  * @param string|null $postType Tipo de post ou custom post retornado.
  * @param int $prevOrNext se quer o link anterior "0" se quer o próximo "1". Padrão = 0.
  * @param int $posPerPage o numero de post por página
+ * @deprecated
  *
  * @return string Uma string conteno o link previo ou posterior da página
  */
@@ -60,11 +61,12 @@ function get_paginate( $postType=null, $prevOrNext = 0, $postsPerPage = 0){
  * @return string|null Uma string conteno o link previo ou posterior da página
  * @author Vinicius de Santana
  * @example get_next_page_link( wp_query->max_num_pages);
- * @version 0.2.1 second version
+ * @version 0.2.3
  */
 function get_next_page_link($maxNumberPages=null) {
+    global $wp_query;
     $maxNumberPages = $maxNumberPages ? $maxNumberPages : $wp_query->max_num_pages;
-    $paged = $_GET['sheet'];
+    $paged = isset( $_GET['sheet'] ) ? $_GET['sheet'] : null ;
     $HOST_ATUAL = "http://$_SERVER[HTTP_HOST]";
     $URI_ATUAL = "$_SERVER[REQUEST_URI]";
     
@@ -97,11 +99,12 @@ function get_next_page_link($maxNumberPages=null) {
  * @return string|null Uma string conteno o link previo ou posterior da página
  * @author Vinicius de Santana
  * @example get_prev_page_link( wp_query->max_num_pages);
- * @version 0.2.1 second version
+ * @version 0.2.3
  */
 function get_prev_page_link($maxNumberPages=null) {
+    global $wp_query;
     $maxNumberPages = $maxNumberPages ? $maxNumberPages : $wp_query->max_num_pages;
-    $paged = $_GET['sheet'];
+    $paged = isset( $_GET['sheet'] ) ? $_GET['sheet'] : null ;
     $HOST_ATUAL = "http://$_SERVER[HTTP_HOST]";
     $URI_ATUAL = "$_SERVER[REQUEST_URI]";
     
