@@ -1,6 +1,7 @@
 wp-admin/error_log
 wp-content/cache/
 wp-content/wflogs/
+wp-content/uploads/
 #plugins que não funcionam ou não interessam localmente
 wp-content/plugins/autoptimize/
 wp-content/plugins/integracao-rd-station/
