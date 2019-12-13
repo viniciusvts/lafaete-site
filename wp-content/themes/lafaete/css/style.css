@@ -1196,14 +1196,9 @@ iframe {
   transform: skew(-10deg);
   z-index: 1;
 }
-@media (max-width: 991.98px) {
+@media (max-width: 1199.98px) {
   #produtos .produto-floater .texto::after {
-    width: 150px;
-  }
-}
-@media (max-width: 767.98px) {
-  #produtos .produto-floater .texto::after {
-    background: rgba(0, 0, 0, 0);
+    display: none;
   }
 }
 #produtos .produto-floater {
@@ -1224,12 +1219,7 @@ iframe {
   z-index: 2;
   padding-left: 70px;
 }
-@media (max-width: 991.98px) {
-  #produtos .produto-floater .pagamento {
-    padding: 260px 0 0 50px;
-  }
-}
-@media (max-width: 767.98px) {
+@media (max-width: 1199.98px) {
   #produtos .produto-floater .pagamento {
     padding: 20px;
   }
