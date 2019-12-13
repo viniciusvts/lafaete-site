@@ -12,24 +12,56 @@
     <div class="container blog">
         <div class="row">
           <?php
-          $card = new WP_Query(array('posts_per_page' => '6'));
+          $postsPerPage = get_option( 'posts_per_page' );
+          $paged = isset( $_GET['sheet'] )? $_GET['sheet'] : 1;
+          $args = array(
+            'posts_per_page' => $postsPerPage,
+            'paged' => $paged,
+          );
+          $card = new WP_Query($args);
           while($card->have_posts()) : $card->the_post(); ?>
           <div class="col-md-4">
               <a href="<?php the_permalink(); ?>">
                   <div class="card">
                       <?php the_post_thumbnail('medium', array('class' => 'card-img-top img-fluid')); ?>
                       <div class="card-body">
-                          <h5 class="card-title"><?php echo wp_trim_words( get_the_title(), 14, '...' ); ?></h5>
+                          <h5 class="card-title card-text"><?php echo wp_trim_words( get_the_title(), 14, '...' ); ?></h5>
                           <h6><?php the_category(); ?></h6>
-                          <p class="card-text"><?php echo wp_trim_words( get_the_excerpt(), 19, ' [...] ' ); ?></p>
+                          <p class="card-text"><?php echo wp_trim_words( get_the_content(), 19, ' [...] ' ); ?></p>
                       </div>
                   </div>
               </a>
           </div>
           <?php endwhile;?>
         </div>
-    </div>        
-   
+    </div>
+    <!-- paginação -->
+    <div class="row">
+			<div class="paginate">
+				<div class="line-L col-6">
+					<?php
+					//links da paginação
+					$prev = get_prev_page_link( $card->max_num_pages);
+					$next = get_next_page_link( $card->max_num_pages);
+						if($prev){
+							echo "<a class='page-btn' href='".$prev."'>";
+							echo "Anterior";
+							echo "</a>";
+						}
+					?>
+				</div>
+				<div class="line-Right col-6">
+					<?php
+						if($next){
+							echo "<a class='page-btn' href='".$next."'>";
+							echo "Próxima";
+							echo "</a>";
+						}
+					?>
+				</div>
+			</div>
+		</div>
+    <!-- /paginação -->
     <?php
     include_once('newsletter.php');
     include_once('footer.php');
