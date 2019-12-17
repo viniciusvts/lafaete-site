@@ -3,12 +3,16 @@
     position: relative;
     left: 0;
     right: 0;
+    svg {
+        height: 50px;
+        width: auto;
+        fill: white;
+    }
 }
-
 .floater-destaque .cacambas, .floater-destaque .maquina, .floater-destaque .modulos-habitacionais{
     text-align: center;
     color: white;
-    padding: 40px 20px;
+    padding: 40px;
     font-family: myFont, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
 }
 
