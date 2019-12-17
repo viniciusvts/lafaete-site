@@ -1,10 +1,10 @@
 /* Error: Undefined mixin.
  *     ,
- * 200 | /         @include breakpoint(smartphones) {
- * 201 | |             padding: 20px 20px 90px 20px;
- * 202 | \         }
+ * 201 | /         @include breakpoint(smartphones) {
+ * 202 | |             padding: 20px 20px 20px 20px;
+ * 203 | \         }
  *     '
- *   scss\_footer.scss 200:9       @import
+ *   scss\_footer.scss 201:9       @import
  *   scss\style-mobile.scss 957:9  root stylesheet */
 
 body::before {
@@ -15,5 +15,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined mixin.\a     \2577 \a 200 \2502  \250c          @include breakpoint(smartphones) {\a 201 \2502  \2502              padding: 20px 20px 90px 20px;\a 202 \2502  \2514          }\a     \2575 \a   scss\\_footer.scss 200:9       @import\a   scss\\style-mobile.scss 957:9  root stylesheet";
+  content: "Error: Undefined mixin.\a     \2577 \a 201 \2502  \250c          @include breakpoint(smartphones) {\a 202 \2502  \2502              padding: 20px 20px 20px 20px;\a 203 \2502  \2514          }\a     \2575 \a   scss\\_footer.scss 201:9       @import\a   scss\\style-mobile.scss 957:9  root stylesheet";
 }
