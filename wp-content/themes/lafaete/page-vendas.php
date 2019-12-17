@@ -17,7 +17,7 @@
               <?php wp_custom_breadcrumbs() ?>
           </div>
           <div class="col-md-4 formulario">
-              <?php $search = $_GET['searchkey'];?>
+            <?php $search = isset( $_GET['searchkey'] ) ? $_GET['searchkey'] : ''; ?>
 			  <form ROLE="search" action="<?php echo($_SERVER['REQUEST_URI']); ?>" method="get">
 			  	<div>
 					<label class="screen-reader-text" for="s">Pesquisar por:</label>
@@ -66,8 +66,8 @@
       <div class="row">
         <?php
 		$postsPerPage = get_option( 'posts_per_page' );
-		$paged = $_GET['sheet'];
-		$search = $_GET['searchkey'];
+		$paged = isset( $_GET['sheet'] ) ? $_GET['sheet'] : 1;
+		$search = isset( $_GET['searchkey'] ) ? $_GET['searchkey'] : '';
 		if( isset( $search ) ){
 			$args = array(
 			'post_type' => 'venda',
@@ -135,8 +135,8 @@
                         <div class="more-link"><a href="<?php the_permalink(); ?>" class="read-more">Clique aqui</a></div>
                     </div>
                 </div>
-              </div>
-          </div>
+            </div>
+          </a>
         </div>
         <?php endwhile; ?>
       </div>  

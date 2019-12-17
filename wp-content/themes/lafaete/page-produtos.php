@@ -16,7 +16,7 @@
                   <?php wp_custom_breadcrumbs() ?>
                 </div>
                 <div class="col-md-6 formulario">
-					<?php $search = $_GET['searchkey'];?>
+					<?php $search = isset( $_GET['searchkey'] ) ? $_GET['searchkey'] : '';?>
 					<form ROLE="search" action="<?php echo($_SERVER['REQUEST_URI']); ?>" method="get">
 						<div>
 							<label class="screen-reader-text" for="s">Pesquisar por:</label>
@@ -64,8 +64,8 @@
       <div class="row">
 		<?php
 		$postsPerPage = get_option( 'posts_per_page' );
-		$paged = $_GET['sheet'];
-		$search = $_GET['searchkey'];
+		$paged = isset( $_GET['sheet'] ) ? $_GET['sheet'] : 1;
+		$search = isset( $_GET['searchkey'] ) ? $_GET['searchkey'] : '';
 		if( isset( $search ) ){
 			$args = array(
 				'post_type' => 'produto',
@@ -87,26 +87,28 @@
 				$categorias = get_the_terms( $post->ID, 'produtos' );
 		?>
 		<div class="default-service-column col-md-4 imagemGaleria <?php  foreach($categorias as $categoria): if(get_queried_object()->term_id !== $categoria->term_id): echo $categoria->slug; endif; endforeach; ?>">
-			<div class="inner-box">
-				<div class="inner-most">
-				<figure class="image-box">
-					<?php the_post_thumbnail('medium'); ?>
-				</figure>
-				<div class="lower-part">
-					<div class="left-curve">                      
-					</div>
-					<div class="right-curve">                      
-					</div>                    
-					<div class="content">
-					<h3><?php the_title(); ?></h3>
-					<p> <?php foreach($categorias as $categoria): if(get_queried_object()->term_id !== $categoria->term_id): echo $categoria->name; endif; endforeach; ?> </p>
-					<div class="more-link">
-						<a href="<?php the_permalink(); ?>" class="read-more">Clique aqui</a>
+			<a href="<?php the_permalink(); ?>" class="card-text">
+				<div class="inner-box">
+					<div class="inner-most">
+					<figure class="image-box">
+						<?php the_post_thumbnail('medium'); ?>
+					</figure>
+					<div class="lower-part">
+						<div class="left-curve">                      
+						</div>
+						<div class="right-curve">                      
+						</div>                    
+						<div class="content">
+						<h3><?php the_title(); ?></h3>
+						<p> <?php foreach($categorias as $categoria): if(get_queried_object()->term_id !== $categoria->term_id): echo $categoria->name; endif; endforeach; ?> </p>
+						<div class="more-link">
+							<a href="<?php the_permalink(); ?>" class="read-more">Clique aqui</a>
+						</div>
+						</div>
 					</div>
 					</div>
 				</div>
-				</div>
-			</div>
+			</a>
 		</div> 
 		<?php endwhile; endif; wp_reset_postdata();?>
 		<?php

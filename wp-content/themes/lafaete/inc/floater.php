@@ -1,7 +1,7 @@
 <div class="footer-floater produto-floater">
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-xl-4">
                 <a href="#faca-um-orcamento"><button class="btn btn-fo">Faça um orçamento agora</button></a>
             </div>
             <div class="col-md-3">
