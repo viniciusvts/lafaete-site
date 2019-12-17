@@ -414,7 +414,7 @@ function addUrlToForms(){
 
 window.addEventListener('load', function(e){
     addUrlToForms();// setTimeout(addUrlToForms, 2000);
-    footer_floater();
+    // footer_floater();
     bpCarrousel = new carousel();//initCarrossel();
 });
 
