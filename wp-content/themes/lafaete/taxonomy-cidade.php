@@ -101,7 +101,7 @@
                   <p><?php
                     foreach($categorias as $categoria){
                       if($queried_object->term_id !== $categoria->term_id){
-                        echo $categoria->name;
+                        echo $categoria->name.'-';
                       }
                     }
                   ?></p>
