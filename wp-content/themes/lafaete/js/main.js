@@ -1,84 +1,224 @@
-//carrosseis
-
+/*!DNA main.js*/
 /**
- * Provê o rolamento para a direita do carrossel adicione essa função ao onclick do botão
- * @example
- * var button = document.getElementById("button");
- * button.onclick = scrollR
- * @author Vinicius de Santana
+ * carrosseis
  */
-function scrollR(){
-    var carroussel = this;
-    do{
-        carroussel = carroussel.parentNode;
-    }while( !(carroussel.classList.contains("bp-carousel")) );
-    var innerCarrossel = carroussel.querySelector(".bp-carousel-inner")
-    innerCarrossel.scrollLeft += innerCarrossel.querySelector(".bp-item").offsetWidth;
-}
-
-/**
- * Provê o rolamento para a esquerda do carrossel adicione essa função ao onclick do botão
- * @example
- * var button = document.getElementById("button");
- * button.onclick = scrollL
- * @author Vinicius de Santana
- */
-function scrollL(){
-    var carroussel = this;
-    do{
-        carroussel = carroussel.parentNode;
-    }while( !(carroussel.classList.contains("bp-carousel")) );
-    var innerCarrossel = carroussel.querySelector(".bp-carousel-inner")
-    innerCarrossel.scrollLeft -= innerCarrossel.querySelector(".bp-item").offsetWidth;
-}
-
-/**
- * Caucula a necessidade do cursor de seta no carrossel os eliminando se necessário
- * @author Vinicius de Santana
- */
-function setasNoCarrossel(){
-    var carroussel = document.querySelectorAll(".bp-carousel");
-    for (var i = 0; i<carroussel.length; i++){
-        var cards = carroussel[i].querySelectorAll(".bp-carousel-inner .bp-item");
-        var cardsWidthTotal = 0;
-        for (var j = 0; j<cards.length; j++){
-            cardsWidthTotal += cards[j].offsetWidth;
-        }
-        if (cardsWidthTotal < carroussel[i].offsetWidth){
-            carroussel[i].querySelector(".arrow-right").style.display = "none";
-            carroussel[i].querySelector(".arrow-left").style.display = "none";
-        }else{
-            carroussel[i].querySelector(".arrow-right").style.display = "";
-            carroussel[i].querySelector(".arrow-left").style.display = "";
+class carousel{
+    /**
+     * Provê o rolamento para a direita do carrossel adicione essa função ao onclick do botão
+     * @example
+     * var button = document.getElementById("button");
+     * button.onclick = scrollR
+     * @author Vinicius de Santana
+     */
+    scrollR(){
+        var mycarroussel = this;
+        do{
+            mycarroussel = mycarroussel.parentNode;
+        }while( !(mycarroussel.classList.contains("bp-carousel")) );
+        var innerCarrossel = mycarroussel.querySelector(".bp-carousel-inner");
+        /**variável salva a posição atual do carrossel*/
+        var oldScroll = innerCarrossel.scrollLeft;
+        //scrola para a posição nova
+        innerCarrossel.scrollLeft += innerCarrossel.offsetWidth;
+        //se a posição nova é igual a antiga significa que chegamos ao final do carrossel
+        setTimeout(function(){//set timeout pq scroll behavior atrasa a leitura de scrollLeft
+            if( (innerCarrossel.scrollLeft - oldScroll) < innerCarrossel.offsetWidth){
+                //então coloco o carrossel no inicio
+                innerCarrossel.scrollLeft = 0;
+            }
+        }, 500);
+        //verifica se tem bullets e troca para o bullet que deve ficar ativo
+        var myDots = mycarroussel.querySelectorAll(".dots");
+        for(var i = 0; i < myDots.length ; i++){
+            if( myDots[i].classList.contains("active") ){
+                myDots[i].classList.remove("active");
+                var prox = i+1;
+                if(prox == myDots.length){
+                    myDots[0].classList.add("active");
+                }else{
+                    myDots[prox].classList.add("active");
+                }
+                return
+            }
         }
     }
-}
-
-/**
- * Adiciona as funções de scroll aos butoes do carrossel
- * @author Vinicius de Santana
- */
-function acaoNoBotaoDoCarrossel(){
-    var carroussel = document.querySelectorAll(".bp-carousel");
-    for (var i = 0; i<carroussel.length; i++){
-        var buttonRight = carroussel[i].querySelector(".arrow-right");
-        buttonRight.onclick = scrollR;
-    //buttonRight.onmouseover = scrollR;
-        var buttonLeft = carroussel[i].querySelector(".arrow-left");
-        buttonLeft.onclick = scrollL;
-    //buttonLeft.onmouseover = scrollL;
+    
+    /**
+     * Provê o rolamento para a esquerda do carrossel adicione essa função ao onclick do botão
+     * @example
+     * var button = document.getElementById("button");
+     * button.onclick = scrollL
+     * @author Vinicius de Santana
+     */
+    scrollL(){
+        var mycarroussel = this;
+        do{
+            mycarroussel = mycarroussel.parentNode;
+        }while( !(mycarroussel.classList.contains("bp-carousel")) );
+        var innerCarrossel = mycarroussel.querySelector(".bp-carousel-inner")
+        /**variável salva a posição atual do carrossel*/
+        var oldScroll = innerCarrossel.scrollLeft;
+        //scrola para a posição nova
+        innerCarrossel.scrollLeft -= innerCarrossel.offsetWidth;
+        //se a posição nova é igual a antiga significa que chegamos ao final do carrossel
+        setTimeout(function(){//set timeout pq scroll behavior atrasa a leitura de scrollLeft
+            if( (oldScroll - innerCarrossel.scrollLeft) < innerCarrossel.offsetWidth ){
+                //calcula o tamanho total do carrossel
+                var cards = mycarroussel.querySelectorAll(".bp-carousel-inner .bp-item");
+                /**Width total com todos os cards do carrousel */
+                var cardsWidthTotal = 0;
+                for (var j = 0; j<cards.length; j++){
+                    cardsWidthTotal += cards[j].offsetWidth;
+                }
+                //então coloco o carrossel no final
+                innerCarrossel.scrollLeft = cardsWidthTotal;
+            }
+        }, 500);
+        //verifica se tem bullets e troca para o bullet que deve ficar ativo
+        var myDots = mycarroussel.querySelectorAll(".dots");
+        for(var i = myDots.length-1; i >=0 ; i--){
+            if( myDots[i].classList.contains("active") ){
+                myDots[i].classList.remove("active");
+                var prox = i-1;
+                if(prox < 0){
+                    myDots[myDots.length-1].classList.add("active");
+                }else{
+                    myDots[prox].classList.add("active");
+                }
+                return;
+            }
+        }
     }
-}
+    
+    /**
+     * Caucula a necessidade do cursor de seta no carrossel os eliminando se necessário
+     * @author Vinicius de Santana
+     */
+    setasNoCarrossel(){
+        for (var i = 0; i<this.carroussel.length; i++){
+            var cards = this.carroussel[i].querySelectorAll(".bp-carousel-inner .bp-item");
+            var cardsWidthTotal = 0;
+            for (var j = 0; j<cards.length; j++){
+                cardsWidthTotal += cards[j].offsetWidth;
+            }
+            if (cardsWidthTotal < this.carroussel[i].offsetWidth){
+                this.carroussel[i].querySelector(".arrow-right").style.display = "none";
+                this.carroussel[i].querySelector(".arrow-left").style.display = "none";
+            }else{
+                this.carroussel[i].querySelector(".arrow-right").style.display = "";
+                this.carroussel[i].querySelector(".arrow-left").style.display = "";
+            }
+        }
+    }
 
-/**
- * Inicia todos os carrosseis
- * @author Vinicius de Santana
- */
-function initCarrossel(){
-    //remove as setas do carrossel se necessário
-    setasNoCarrossel();
-    //adiciona a ação ao butoes
-    acaoNoBotaoDoCarrossel();
+    /**
+     * ação a ser adicionada ao onclick dos bullets de página do carrossel
+     * @param {Event} e 
+     */
+    scrollDots(e){
+        var myNumber = this.getAttribute('number');
+        var mycarroussel = this.parentNode;
+        var allDots = mycarroussel.querySelectorAll(".dots");
+        do{
+            mycarroussel = mycarroussel.parentNode;
+        }while( !(mycarroussel.classList.contains("bp-carousel")) );
+        var innerCarrossel = mycarroussel.querySelector(".bp-carousel-inner")
+        innerCarrossel.scrollLeft = innerCarrossel.offsetWidth * myNumber;
+        for (let i = 0; i < allDots.length; i++) {
+            allDots[i].classList.remove('active');
+        }
+        this.classList.add('active');
+    }
+
+    /**
+     * Adiciona um bullet na paginação do carroussel,
+     * caso seja o primeiro, apaga o conteúdo interno da div
+     * @param {HTMLDivElement} carroussel se é o primeiro ponto
+     * @param {number} index numero de index para o bullet
+     * @param {boolean} first se é o primeiro ponto
+     */
+    criarDotCarroussel(carroussel, index, first = false){
+        var bpIndicators = carroussel.querySelector('.bp-indicators');
+        if(first) bpIndicators.innerHTML = "";
+        var div = document.createElement('div');
+        div.classList.add('dots');
+        if( first ) div.classList.add('active');
+        div.setAttribute('number', index);
+        div.onclick = this.scrollDots;
+        bpIndicators.append(div);
+    }
+
+    /**
+     * Caucula a necessidade de bullets no carrossel os eliminando se necessário
+     * @author Vinicius de Santana
+     */
+    navsNoCarroussel(){
+        for (var i = 0; i<this.carroussel.length; i++){
+            var cards = this.carroussel[i].querySelectorAll(".bp-carousel-inner .bp-item");
+            /**Width da parte visivel do carrousel */
+            var carrousselWidth = this.carroussel[i].offsetWidth;
+            /**Width total com todos os cards do carrousel */
+            var cardsWidthTotal = 0;
+            for (var j = 0; j<cards.length; j++){
+                cardsWidthTotal += cards[j].offsetWidth;
+            }
+            var fator = cardsWidthTotal/carrousselWidth;
+            for (let k = 0; k < fator; k++) {
+                if( k == 0 ){
+                    this.criarDotCarroussel(this.carroussel[i], k, true);
+                }else{
+                    this.criarDotCarroussel(this.carroussel[i], k);
+                }
+            }
+            // coloca o carrossel na posição 0
+            var innerCarrossel = mycarroussel.querySelector(".bp-carousel-inner");
+            innerCarrossel.scrollLeft = 0;
+        }
+    }
+    
+    /**
+     * Adiciona as funções de scroll aos butoes do carrossel
+     * @author Vinicius de Santana
+     */
+    acaoNoBotaoDoCarrossel(){
+        for (var i = 0; i<this.carroussel.length; i++){
+            var buttonRight = this.carroussel[i].querySelector(".arrow-right");
+            buttonRight.onclick = this.scrollR;
+        //buttonRight.onmouseover = scrollR;
+            var buttonLeft = this.carroussel[i].querySelector(".arrow-left");
+            buttonLeft.onclick = this.scrollL;
+        //buttonLeft.onmouseover = scrollL;
+        }
+    }
+    
+    /**
+     * Inicia todos os carrosseis
+     * @author Vinicius de Santana
+     */
+    initCarrossel(){
+        //remove as setas do carrossel se necessário
+        this.setasNoCarrossel();
+        //adiciona a ação ao butoes
+        this.acaoNoBotaoDoCarrossel();
+        //adiciona a ação dos bullets
+        this.navsNoCarroussel();
+    }
+
+    /**
+     * Verifica as necessidades de butoes ao redimensionar a janela
+     * @author Vinicius de Santana
+     */
+    onResize(){
+        //remove as setas do carrossel se necessário
+        this.setasNoCarrossel();
+        //adiciona a ação dos bullets
+        this.navsNoCarroussel();
+    }
+
+    constructor(){
+        this.carroussel = document.querySelectorAll(".bp-carousel");
+        this.initCarrossel();
+    }
 }
 
 // funcão esconder menu ao dar scroll página
@@ -297,5 +437,10 @@ function addUrlToForms(){
 
 window.addEventListener('load', function(e){
     addUrlToForms();// setTimeout(addUrlToForms, 2000);    
-    initCarrossel();
+    bpCarrousel = new carousel();//initCarrossel();
+});
+
+window.addEventListener('resize', function(e){
+    console.log("resize");
+    bpCarrousel.onResize();
 });

@@ -578,6 +578,35 @@ nav.navbar {
 
   /*slider*/
 }
+ul.bp-indicators {
+  z-index: 3;
+  position: absolute;
+  display: flex;
+  bottom: 20%;
+  left: 50%;
+  list-style-type: none;
+  padding: 0;
+  transform: translateX(-50%);
+}
+@media (max-width: 575.98px) {
+  ul.bp-indicators {
+    display: none;
+  }
+}
+ul.bp-indicators .dots {
+  width: 14px;
+  height: 14px;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 50%;
+  margin: 5px;
+  cursor: pointer;
+}
+ul.bp-indicators .dots.active {
+  transition-duration: 0.5s;
+  background-color: white !important;
+}
+
 /*nossos-premios*/
 .nossos-premios {
   background-color: #414141;
@@ -752,6 +781,11 @@ nav.navbar {
   scroll-behavior: smooth;
   display: flex;
 }
+@media (max-width: 767.98px) {
+  .bp-carousel .bp-carousel-inner {
+    height: 600px;
+  }
+}
 .bp-carousel .bp-item {
   margin-left: auto;
   margin-right: auto;
@@ -759,9 +793,10 @@ nav.navbar {
 }
 .bp-carousel .arrow-left, .bp-carousel .arrow-right {
   position: relative;
-  margin-top: 10%;
+  margin-top: 6%;
   cursor: pointer;
   transition: transform 0.1s ease-in-out;
+  color: white;
 }
 .bp-carousel .arrow-right {
   right: 20px;
@@ -791,6 +826,12 @@ nav.navbar {
   width: 100%;
 }
 
+@media (min-width: 992px) {
+  .col-lg-24 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
 .projetos-recentes .active {
   background: #6a6a6a;
   color: white;
