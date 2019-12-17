@@ -99,29 +99,6 @@ $(function(){
     });  
 });
 
-/**
- * @author Pedro Mattos
- */
-var htmlHeight = document.getElementsByTagName('html')[0].offsetHeight
-var floater = document.getElementsByClassName('footer-floater')[0]
-var newh = htmlHeight - 1500
-window.onscroll = function (oEvent) {
-    if(screen.width <= 500) {
-        try {
-            if ($(this).scrollTop() < newh) { 
-                this.floater.removeAttribute('style')
-            } else { 
-                this.floater.setAttribute('style', 'bottom:63px')
-                if($(this).scrollTop() > (newh + 200)) {
-                    this.floater.setAttribute('style', 'bottom:0')
-                }
-            } 
-        } catch(e) { 
-            // exit withou errors logs
-        }
-    }
-}
-
 //funcção do filtro pega o hash do link com nome da classe correspondente
 //retira o hash para comparar com a classe do link da li com a classe no link da imagem
 // tudo que não for a hash clicada ou não for todos, chama a classe para esconder
@@ -298,4 +275,5 @@ function addUrlToForms(){
 window.addEventListener('load', function(e){
     addUrlToForms();// setTimeout(addUrlToForms, 2000);    
     initCarrossel();
+    footer_floater();
 });
