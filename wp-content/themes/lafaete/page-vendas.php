@@ -88,32 +88,48 @@
         <div class="default-service-column col-md-4">
           <div class="inner-box">
               <div class="inner-most">
-                <figure class="image-box">
-                  <?php the_post_thumbnail('medium'); ?>                  
-                </figure>
+                <a href="<?php the_permalink(); ?>">
+                  <figure class="image-box">
+                    <?php the_post_thumbnail('medium'); ?>                  
+                  </figure>
+                </a>
                 <div class="lower-part">
                     <div class="left-curve"></div>
                     <div class="right-curve"></div>                    
                     <div class="content">
                         <h3><?php the_title(); ?></h3>
                         <div class="mx-auto">
+                          <?php if(get_field('modelo') != '' || get_field('serie') != ''): ?>
                             <div class="row">
-                                <div class="col">
-                                  <p class="text-center">Modelo: <?php the_field('modelo'); ?></p>
+                                <?php if(get_field('modelo') != ''): ?>
+                                    <div class="col">
+                                      <p class="text-center">Modelo: <?php the_field('modelo'); ?></p>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if(get_field('serie') != ''): ?>
+                                    <div class="col">
+                                          <p class="text-center">Série: <?php the_field('serie'); ?></p>
+                                    </div>
+                                  <?php endif; ?>
+                              </div>   
+                                <?php endif; ?>
+                              <?php if(get_field('ano') != '' || get_field('horimetro') != ''): ?>
+                                <div class="row">
+                                  <?php if(get_field('ano') != ''): ?>
+                                    <div class="col">
+                                      <p class="text-center">Ano: <?php the_field('ano'); ?></p>
+                                    </div>
+                                  <?php endif; ?>
+                                  <?php if(get_field('horimetro') != ''): ?>
+                                    <div class="col">
+                                      <p class="text-center">Horímetro: <?php the_field('horimetro'); ?></p>
+                                    </div>
+                                  <?php endif; ?>
                                 </div>
-                                <div class="col">
-                                    <p class="text-center">Série: <?php the_field('serie'); ?></p>
-                                </div>
-                            </div>                            
-                            <div class="row">
-                              <div class="col">
-                                <p class="text-center">Ano: <?php the_field('ano'); ?></p>
-                              </div>
-                              <div class="col">
-                                <p class="text-center">Horímetro: <?php the_field('horimetro'); ?></p>
-                              </div>
-                            </div>
-                            <p class="text-center">Unidade: <?php the_field('unidade'); ?></p>
+                              <?php endif; ?>
+                              <?php if(get_field('unidade') != ''): ?>
+                                <p class="text-center">Unidade: <?php the_field('unidade'); ?></p>
+                              <?php endif; ?>
                         </div>
                         <h3>Preço: <?php the_field('preco'); ?></h3>
                         <div class="more-link"><a href="<?php the_permalink(); ?>" class="read-more">Clique aqui</a></div>
