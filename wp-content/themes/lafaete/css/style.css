@@ -166,9 +166,15 @@ iframe {
 
 /*topo-menu*/
 #menu-topo ul li svg {
-  width: 15px;
-  margin: 0 3px;
-  margin-bottom: 6px;
+  width: 18px;
+  margin: 0 7px;
+}
+@media (max-width: 767.98px) {
+  #menu-topo ul li svg {
+    width: 15px;
+    margin: 0 3px;
+    margin-bottom: 6px;
+  }
 }
 
 .topo-menu {
@@ -189,6 +195,12 @@ iframe {
 }
 .topo-menu ul li a {
   color: white;
+  margin-right: 15px;
+}
+@media (max-width: 767.98px) {
+  .topo-menu ul li a {
+    margin-right: 0;
+  }
 }
 .topo-menu ul li a:hover {
   text-decoration: none;
@@ -241,10 +253,8 @@ iframe {
 }
 
 /*topo-menu*/
-@media (max-width: 575.98px) {
-  nav.navbar {
-    padding: 0 15px;
-  }
+nav.navbar {
+  padding: 0 15px;
 }
 
 @media (max-width: 1199.98px) {
@@ -510,7 +520,12 @@ iframe {
 }
 @media (max-width: 767.98px) {
   #menu-topo li {
-    font-size: 10px;
+    font-size: 17px;
+  }
+}
+@media (max-width: 575.98px) {
+  #menu-topo li {
+    font-size: 13px;
   }
 }
 
@@ -1214,7 +1229,7 @@ iframe {
   z-index: 0;
 }
 #produtos .produto-floater .pagamento {
-  padding: 160px 0px;
+  padding: 60px 0px;
   position: relative;
   z-index: 2;
   padding-left: 70px;
@@ -1251,6 +1266,7 @@ iframe {
 
 .produto-floater button {
   background: #ff7e3b;
+  color: white;
 }
 
 .produto-floater a {
@@ -1592,6 +1608,12 @@ iframe {
 .line-Right {
   text-align: right;
   float: right !important;
+}
+
+.scroll-rtl {
+  max-height: 200px;
+  overflow: auto;
+  direction: rtl;
 }
 
 /*sobre*/
@@ -2431,9 +2453,8 @@ img {
 
 .footer .social img, .topo-menu .social img {
   margin-right: 0px;
-  margin-bottom: 20px;
   display: inline-block;
-  width: 24px;
+  width: 30px;
 }
 
 /*footer*/

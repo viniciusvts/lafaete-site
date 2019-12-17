@@ -1,8 +1,12 @@
 /*topo-menu*/
 #menu-topo ul li svg{
-    width: 15px;
-    margin: 0 3px;
-    margin-bottom: 6px;
+    width: 18px;
+    margin: 0 7px;
+    @include mediaScreenMax($tablets){
+        width: 15px;
+        margin: 0 3px;
+        margin-bottom: 6px;
+    }
 }
 .topo-menu{
     margin: 10px 0;
@@ -19,6 +23,10 @@
     margin-right: 10px; 
     a{
         color: white;
+        margin-right: 15px;
+        @include mediaScreenMax($tablets){
+            margin-right: 0;
+        }
         &:hover{
             text-decoration: none;
         }
@@ -66,9 +74,7 @@
 }
 /*topo-menu*/
 nav.navbar {
-    @include breakpoint(smartphones) {
-        padding: 0 15px;
-    }
+    padding: 0 15px;
 }
 .txtAlignCenter{
     @include mediaScreenMax($largeDesktops){

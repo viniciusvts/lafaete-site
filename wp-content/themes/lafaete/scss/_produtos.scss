@@ -249,7 +249,7 @@
     }
 
     .produto-floater .pagamento{
-        padding: 160px 0px;
+        padding: 60px 0px;//160px 0px;
         position: relative;
         z-index: 2;
         padding-left: 70px;
@@ -290,6 +290,7 @@
 
 .produto-floater button{
     background: $laranja;
+    color: white;
 }
 
 .produto-floater a {
@@ -619,4 +620,9 @@
 .line-Right {
     text-align: right;
     float: right !important;
+}
+.scroll-rtl{
+    max-height: 200px;
+    overflow: auto;
+    direction: rtl;
 }

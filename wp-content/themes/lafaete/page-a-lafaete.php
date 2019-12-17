@@ -41,9 +41,9 @@
                     <h2><?php the_sub_field('titulo'); ?></h2>
                     <?php the_sub_field('descricao'); ?>
                   </div>
-                  <div class="col-md-4">
+                  <!-- <div class="col-md-4">
                     <img src="<?php echo the_post_thumbnail_url('thumbnail'); ?>" alt="<?php the_sub_field('titulo'); ?>" class="img-fluid w-100" />                  
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -68,7 +68,7 @@
             $premios = new WP_Query(array('post_type' => 'premios'));
             while($premios->have_posts()): $premios->the_post();          
           ?>
-          <div class="col-6 col-md-3">          
+          <div class="col-6 col-md-4">          
             <?php $imagemPremio = get_field('imagem'); ?>            
             <img src="<?php echo $imagemPremio['url']; ?>" alt="<?php echo $imagemPremio['alt'] ?>" class="img-fluid w-100 rounded" /> 
             <h3><?php the_title(); ?></h3>
