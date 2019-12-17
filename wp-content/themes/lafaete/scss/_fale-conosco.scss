@@ -45,6 +45,9 @@
     padding: 30px;
     @include breakpoint(smartphones) {
         margin-top: 15px;
+        img {
+            width: 100%;
+        }
     }
 }
 .fale-conosco-right .telefone{
