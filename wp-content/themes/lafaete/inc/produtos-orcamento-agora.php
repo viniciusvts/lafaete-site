@@ -11,7 +11,7 @@
           </div>
           <p><?php if(have_posts()): the_post(); the_content(); endif; ?></p>
           <button class="btn">
-            <a href="#faca-um-orcamento" class="mx-auto">Faça um orçamento agora</a>
+            <a href="#faca-um-orcamento">Faça um orçamento agora</a>
           </button>
           
         </div>

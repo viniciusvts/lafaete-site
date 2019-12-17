@@ -1610,10 +1610,12 @@ nav.navbar {
   float: right !important;
 }
 
-.scroll-rtl {
-  max-height: 200px;
-  overflow: auto;
-  direction: rtl;
+@media (min-width: 1199.98px) {
+  .scroll-rtl {
+    max-height: 200px;
+    overflow: auto;
+    direction: rtl;
+  }
 }
 
 /*sobre*/
