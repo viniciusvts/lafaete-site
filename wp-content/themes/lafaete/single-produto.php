@@ -40,7 +40,7 @@
                   <?php wp_custom_breadcrumbs() ?>
                 </div>
                 <div class="col-md-4 formulario">
-					<?php $search = $_GET['searchkey'];?>
+					<?php $search = isset( $_GET['searchkey'] ) ? $_GET['searchkey'] : '';?>
 					<form ROLE="search" action="<?php bloginfo( 'wpurl' ); ?>/produtos" method="get">
 						<div>
 							<label class="screen-reader-text" for="s">Pesquisar por:</label>
@@ -191,21 +191,23 @@
           while($query->have_posts()): $query->the_post();
         ?>  
         <div class="default-service-column col-md-4">
-          <div class="inner-box">
-              <div class="inner-most">
-                <figure class="image-box">
-                  <?php the_post_thumbnail('medium' , array('class' => 'img-fluid w-100')); ?>                
-                </figure>
-                <div class="lower-part">
-                    <div class="left-curve"></div>
-                    <div class="right-curve"></div>                    
-                    <div class="content">
-                      <h3><?php the_title(); ?></h3>
-                      <div class="more-link"><a href="<?php the_permalink(); ?>" class="read-more">Clique aqui</a></div>
-                    </div>
+          <a href="<?php the_permalink(); ?>" class="card-text">
+            <div class="inner-box">
+                <div class="inner-most">
+                  <figure class="image-box">
+                    <?php the_post_thumbnail('medium' , array('class' => 'img-fluid w-100')); ?>                
+                  </figure>
+                  <div class="lower-part">
+                      <div class="left-curve"></div>
+                      <div class="right-curve"></div>                    
+                      <div class="content">
+                        <h3><?php the_title(); ?></h3>
+                        <div class="more-link"><a href="<?php the_permalink(); ?>" class="read-more">Clique aqui</a></div>
+                      </div>
+                  </div>
                 </div>
-              </div>
-          </div>
+            </div>
+          </a>
         </div>
         <?php endwhile; wp_reset_postdata(); ?>
       </div>  
