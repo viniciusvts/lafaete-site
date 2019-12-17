@@ -138,6 +138,9 @@
         height: 300px;
         scroll-behavior: smooth;
         display: flex;
+        @include mediaScreenMax($tablets){
+            height: 600px;
+        }
     }
     .bp-item {
         margin-left: auto;
@@ -146,9 +149,10 @@
     }
     .arrow-left, .arrow-right {
         position: relative;
-        margin-top: 10%;
+        margin-top: 6%;
         cursor: pointer;
         transition: transform 0.1s ease-in-out;
+        color: white;
     }
     .arrow-right {
         right: 20px;
@@ -182,5 +186,11 @@
 .bp-item {
     img{
         width: 100%;
+    }
+}
+@media (min-width: 992px){
+    .col-lg-24 {
+        flex: 0 0 20%;
+        max-width: 20%;
     }
 }

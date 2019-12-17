@@ -132,3 +132,29 @@
     }
     /*slider*/
 }
+ul.bp-indicators {
+    z-index: 3;
+    position: absolute;
+    display: flex;
+    bottom: 20%;
+    left: 50%;
+    list-style-type: none;
+    padding: 0;
+    transform: translateX(-50%);
+    @include mediaScreenMax($smartphones){
+      display: none;
+    }
+    .dots {
+      width: 14px;
+      height: 14px;
+      background-color: transparent;
+      border: 1px solid white;
+      border-radius: 50%;
+      margin: 5px;
+	  cursor: pointer;
+      &.active {
+        transition-duration: .5s;
+        background-color: white!important;
+      }
+    }
+  }
