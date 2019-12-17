@@ -152,9 +152,11 @@
         <div class="default-service-column col-md-4 imagemGaleria <?php  foreach($categorias as $categoria): if(get_queried_object()->term_id !== $categoria->term_id): echo $categoria->slug; endif; endforeach; ?>">
           <div class="inner-box">
             <div class="inner-most">
-              <figure class="image-box">
-                <?php the_post_thumbnail('medium'); ?>
-              </figure>
+              <a href="<?php the_permalink(); ?>">
+                <figure class="image-box">
+                  <?php the_post_thumbnail('medium'); ?>
+                </figure>
+              </a>
               <div class="lower-part">
                 <div class="left-curve">                      
                 </div>
