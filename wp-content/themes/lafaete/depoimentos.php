@@ -2,8 +2,7 @@
   <div class="container my-container">
     <div class="cabecalho">
       <h2>O que falam da Lafaete</h2>
-      <span></span> 
-      <p>Lorem ipsum dolor sit amet, sed platonem erroribus ut. Vix homero partem ut, quem doming philosophia eam no. Vis perpetua partiendo an, vim te natum intellegam. Viderer commune gloriatur mel ea, no decore corrumpit mel. Ex fastidii disputationi mel.</p>
+      <span></span>
     </div>
     <div class="row">
       <div class="col-md-12">
