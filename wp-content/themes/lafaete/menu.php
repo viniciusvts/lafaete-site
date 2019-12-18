@@ -44,7 +44,7 @@
 
 
 <nav class="navbar navbar-expand-xl navbar-dark bg-dark fixed-top menu-container" id="menu-principal">
-  <a class="navbar-brand" href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('template_url');?>/inc/img/logo-lafaete.png" width="170px"></a>
+  <a class="navbar-brand" href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('template_url');?>/inc/img/logo-1.png" width="170px"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
