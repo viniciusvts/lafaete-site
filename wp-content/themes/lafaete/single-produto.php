@@ -3,7 +3,7 @@
   <?php
   include_once('head.php');
   $tipoProduto = isset( $_GET['tipo-produto'] ) ? $_GET['tipo-produto'] : null;
-  $cidade = isset( $_GET['cidade'] ) ? $_GET['cidade'] : null;
+  $local = isset( $_GET['local'] ) ? $_GET['local'] : null;
   ?>
   <body>
     <?php include_once('menu.php'); ?>
@@ -18,9 +18,9 @@
               echo("Locação de ");
               if( isset($tipoProduto) ){
                 echo($tipoProduto);
-                if( isset($cidade) ){
+                if( isset($local) ){
                   echo(" em ");
-                  echo($cidade);
+                  echo($local);
                 }
               }
               ?></p>

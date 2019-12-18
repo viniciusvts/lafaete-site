@@ -28,7 +28,7 @@
   <!-- Produtos -->
   <div class="container produtos-container menu-imoveis">
     <?php
-      //Buscar todos os posts que estão no termo atual da taxonomia cidade 
+      //Buscar todos os posts que estão no termo atual da taxonomia 
       // $postsPerPage = get_option( 'posts_per_page' );
       // $paged = isset( $_GET['sheet'] )? $_GET['sheet'] : 1; 
       $args = array(
@@ -84,8 +84,8 @@
         while( $produtos->have_posts()){
           $produtos->the_post(); 
           $categorias = get_the_terms( $post->ID, 'produtos' );
-          $cidadeTax = get_the_terms($post->ID, $queried_object->taxonomy );
-          $hrefLink = get_the_permalink() ."?tipo-produto=" . $categorias[0]->name ."&cidade=" . $cidadeTax[0]->name ;
+          $taxTerm = get_the_terms($post->ID, $queried_object->taxonomy );
+          $hrefLink = get_the_permalink() ."?tipo-produto=" . $categorias[0]->name ."&local=" . $taxTerm[0]->name ;
       ?>
       <div class="default-service-column col-md-4 imagemGaleria <?php foreach($categorias as $categoria){ echo $categoria->slug . " "; } ?>">
         <a href="<?php echo $hrefLink; ?>" class="card-text">

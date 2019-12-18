@@ -96,31 +96,31 @@ function categoria_produto_taxonomy() {
 add_action( 'init', 'categoria_produto_taxonomy', 0 );
 
 // Register taxonomy
-function cidade_produto_taxonomy() {
+function estado_produto_taxonomy() {
 	$labels = array(
-		'name'                       => _x( 'Cidades Produto', 'Taxonomy General Name', 'dna' ),
-		'singular_name'              => _x( 'Cidade Produto', 'Taxonomy Singular Name', 'dna' ),
-		'menu_name'                  => __( 'Cidades', 'dna' ),
-		'all_items'                  => __( 'Todas as cidades', 'dna' ),
-		'parent_item'                => __( 'Cidade Mãe', 'dna' ),
-		'parent_item_colon'          => __( 'Cidade mãe:', 'dna' ),
-		'new_item_name'              => __( 'Nova cidade', 'dna' ),
-		'add_new_item'               => __( 'Adicionar cidade', 'dna' ),
-		'edit_item'                  => __( 'Editar cidade', 'dna' ),
-		'update_item'                => __( 'Atualizar cidade', 'dna' ),
-		'view_item'                  => __( 'Ver cidade', 'dna' ),
-		'separate_items_with_commas' => __( 'Separar cidades por vírgula', 'dna' ),
-		'add_or_remove_items'        => __( 'Adicionar ou remover cidade', 'dna' ),
-		'choose_from_most_used'      => __( 'Mostrar cidades mais usadas', 'dna' ),
-		'popular_items'              => __( 'Cidades populares', 'dna' ),
-		'search_items'               => __( 'Buscar cidade', 'dna' ),
+		'name'                       => _x( 'Estados Produto', 'Taxonomy General Name', 'dna' ),
+		'singular_name'              => _x( 'Estado Produto', 'Taxonomy Singular Name', 'dna' ),
+		'menu_name'                  => __( 'Estados', 'dna' ),
+		'all_items'                  => __( 'Todas as Estados', 'dna' ),
+		'parent_item'                => __( 'Estado Mãe', 'dna' ),
+		'parent_item_colon'          => __( 'Estado mãe:', 'dna' ),
+		'new_item_name'              => __( 'Nova Estado', 'dna' ),
+		'add_new_item'               => __( 'Adicionar Estado', 'dna' ),
+		'edit_item'                  => __( 'Editar Estado', 'dna' ),
+		'update_item'                => __( 'Atualizar Estado', 'dna' ),
+		'view_item'                  => __( 'Ver Estado', 'dna' ),
+		'separate_items_with_commas' => __( 'Separar Estados por vírgula', 'dna' ),
+		'add_or_remove_items'        => __( 'Adicionar ou remover Estado', 'dna' ),
+		'choose_from_most_used'      => __( 'Mostrar Estados mais usadas', 'dna' ),
+		'popular_items'              => __( 'Estados populares', 'dna' ),
+		'search_items'               => __( 'Buscar Estado', 'dna' ),
 		'not_found'                  => __( 'Nada encontrado', 'dna' ),
-		'no_terms'                   => __( 'Nenhuma cidade', 'dna' ),
-		'items_list'                 => __( 'Lista de cidades', 'dna' ),
-		'items_list_navigation'      => __( 'Navegar por cidade', 'dna' ),
+		'no_terms'                   => __( 'Nenhuma Estado', 'dna' ),
+		'items_list'                 => __( 'Lista de Estados', 'dna' ),
+		'items_list_navigation'      => __( 'Navegar por Estado', 'dna' ),
 	);
 	$rewrite = array(
-		'slug'                       => 'cidade',
+		'slug'                       => 'estado',
 		'with_front'                 => true,
 		'hierarchical'               => true,
 	);
@@ -136,7 +136,7 @@ function cidade_produto_taxonomy() {
 		'rewrite'                    => $rewrite,
 		'has_archive'                => true,
 	);
-	register_taxonomy( 'cidade', array( 'produto' ), $args );
+	register_taxonomy( 'estado', array( 'produto' ), $args );
 }
-add_action( 'init', 'cidade_produto_taxonomy', 0 );
+add_action( 'init', 'estado_produto_taxonomy', 0 );
 ?>
