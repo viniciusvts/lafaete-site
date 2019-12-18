@@ -43,28 +43,11 @@
                       <path d="M24,11c0-0.6-0.4-1-1-1H1c-0.6,0-1,0.4-1,1v2c0,0.6,0.4,1,1,1h22c0.6,0,1-0.4,1-1V11z"/>
                       <path d="M24,19c0-0.6-0.4-1-1-1H1c-0.6,0-1,0.4-1,1v2c0,0.6,0.4,1,1,1h22c0.6,0,1-0.4,1-1V19z"/>                    
                   </svg>
-                  <a href="#">
+                  <a id="nolink" href="#">
                     <p data-toggle="modal" data-target="#exampleModalLong">Ver Categorias</p> 
                   </a> 
               </div> 
-              <div class="submenu-categorias esconder">
-                  <ul>
-                    <?php
-                      $categorias = get_categories( array(
-                        'orderby' => 'name',
-                        'taxonomy' => 'vendas',
-                        'parent'  => 0
-                      ));
-                      foreach($categorias as $categoria) : 
-                    ?>
-                    <li>
-                      <a href="<?php bloginfo('url') ?>/vendas/<?php echo $categoria->slug; ?>">
-                        <?php echo $categoria->name; ?>
-                      </a>
-                    </li>
-                    <?php endforeach; ?>
-                  </ul>
-              </div>
+              <?php include('inc/submenu.php'); ?>
           </div>
         </div>  
       </div>    
