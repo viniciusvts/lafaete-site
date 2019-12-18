@@ -782,9 +782,14 @@ ul.bp-indicators .dots.active {
 .bp-carousel .bp-carousel-inner {
   overflow: hidden;
   width: 100%;
-  height: 300px;
+  height: 200px;
   scroll-behavior: smooth;
   display: flex;
+}
+@media (max-width: 991.98px) {
+  .bp-carousel .bp-carousel-inner {
+    height: 300px;
+  }
 }
 @media (max-width: 767.98px) {
   .bp-carousel .bp-carousel-inner {

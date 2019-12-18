@@ -135,9 +135,12 @@
     .bp-carousel-inner {
         overflow: hidden;
         width: 100%;
-        height: 300px;
+        height: 200px;
         scroll-behavior: smooth;
         display: flex;
+        @include mediaScreenMax($desktops){
+            height: 300px;
+        }
         @include mediaScreenMax($tablets){
             height: 600px;
         }

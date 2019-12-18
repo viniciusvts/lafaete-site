@@ -21,8 +21,10 @@ class carousel{
         //scrola para a posição nova
         innerCarrossel.scrollLeft += innerCarrossel.offsetWidth;
         //se a posição nova é igual a antiga significa que chegamos ao final do carrossel
+        var cards = mycarroussel.querySelectorAll(".bp-carousel-inner .bp-item");
+        var cardWidth = cards[0].offsetWidth;
         setTimeout(function(){//set timeout pq scroll behavior atrasa a leitura de scrollLeft
-            if( (innerCarrossel.scrollLeft - oldScroll) < innerCarrossel.offsetWidth){
+            if( (innerCarrossel.scrollLeft - oldScroll) < cardWidth){
                 //então coloco o carrossel no inicio
                 innerCarrossel.scrollLeft = 0;
             }
@@ -61,8 +63,10 @@ class carousel{
         //scrola para a posição nova
         innerCarrossel.scrollLeft -= innerCarrossel.offsetWidth;
         //se a posição nova é igual a antiga significa que chegamos ao final do carrossel
+        var cards = mycarroussel.querySelectorAll(".bp-carousel-inner .bp-item");
+        var cardWidth = cards[0].offsetWidth;
         setTimeout(function(){//set timeout pq scroll behavior atrasa a leitura de scrollLeft
-            if( (oldScroll - innerCarrossel.scrollLeft) < innerCarrossel.offsetWidth ){
+            if( (oldScroll - innerCarrossel.scrollLeft) < cardWidth ){
                 //calcula o tamanho total do carrossel
                 var cards = mycarroussel.querySelectorAll(".bp-carousel-inner .bp-item");
                 /**Width total com todos os cards do carrousel */
@@ -171,7 +175,7 @@ class carousel{
                 }
             }
             // coloca o carrossel na posição 0
-            var innerCarrossel = mycarroussel.querySelector(".bp-carousel-inner");
+            var innerCarrossel = this.carroussel[i].querySelector(".bp-carousel-inner");
             innerCarrossel.scrollLeft = 0;
         }
     }

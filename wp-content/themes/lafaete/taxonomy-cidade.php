@@ -16,7 +16,8 @@
       <div class="carousel-item active">
         <div class="carousel-caption carousel-caption-flat-height d-none d-md-block">
           <h1>
-            Locação de Equipamentos em <?php echo $queried_object->name; ?>
+            <p>Locação de Equipamentos em </p>
+            <?php echo $queried_object->name; ?>
           </h1>
         </div>
         <img class="d-block w-100" src="<?php bloginfo('template_url'); ?>/inc/img/slider-construcao.jpg" alt="First slide">
