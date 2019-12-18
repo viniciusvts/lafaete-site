@@ -117,7 +117,7 @@
 
 		<?php
 		$postsPerPage = get_option( 'posts_per_page' );
-		$paged = $_GET['sheet'];
+		$paged =  isset( $_GET['sheet'] ) ? $_GET['sheet'] : "";
 		$args = array(
             'post_type' => 'venda',
             'order' => 'ASC' ,
