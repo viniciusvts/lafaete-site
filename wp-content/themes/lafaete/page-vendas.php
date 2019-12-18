@@ -69,13 +69,12 @@
 		while($seminovos->have_posts()) : $seminovos->the_post(); 
         ?>
         <div class="default-service-column col-md-4">
-          <div class="inner-box">
+          <a href="<?php echo($hrefLink); ?>" class="card-text">
+            <div class="inner-box">
               <div class="inner-most">
-                <a href="<?php the_permalink(); ?>">
-                  <figure class="image-box">
-                    <?php the_post_thumbnail('medium'); ?>                  
-                  </figure>
-                </a>
+                <figure class="image-box">
+                  <?php the_post_thumbnail('medium'); ?>                  
+                </figure>
                 <div class="lower-part">
                     <div class="left-curve"></div>
                     <div class="right-curve"></div>                    
@@ -118,7 +117,7 @@
                               <div class="more-link"><a href="<?php the_permalink(); ?>" class="read-more">Clique aqui</a></div>
                         </div>
                     </div>
-                </div>
+              </div>
             </div>
           </a>
         </div>

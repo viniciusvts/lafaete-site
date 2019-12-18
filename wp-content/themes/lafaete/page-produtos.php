@@ -49,109 +49,34 @@
 		$postsPerPage = get_option( 'posts_per_page' );
 		$paged = isset( $_GET['sheet'] ) ? $_GET['sheet'] : 1;
 		$search = isset( $_GET['searchkey'] ) ? $_GET['searchkey'] : '';
-		if( isset( $search ) ){
-			$args = array(
-				'post_type' => 'produto',
-				'posts_per_page' => $postsPerPage,
-				'paged' => $paged,
-				's' => $search,
-			);
-		}else{
-			$args = array(
-				'post_type' => 'produto',
-				'posts_per_page' => $postsPerPage,
-				'paged' => $paged,
-			);
-		}
+		$args = array(
+			'post_type' => 'produto',
+			'posts_per_page' => $postsPerPage,
+			'paged' => $paged,
+			's' => $search,
+		);
+		
 		$produtos = new WP_Query($args);
-		if( isset( $search ) ){
-			if( $produtos->have_posts() ): 
-				while( $produtos->have_posts()) : $produtos->the_post(); 
-				$categorias = get_the_terms( $post->ID, 'produtos' );
-		?>
-		<div class="default-service-column col-md-4 imagemGaleria <?php  foreach($categorias as $categoria): if(get_queried_object()->term_id !== $categoria->term_id): echo $categoria->slug; endif; endforeach; ?>">
-			<a href="<?php the_permalink(); ?>" class="card-text">
-				<div class="inner-box">
-					<div class="inner-most">
-					<figure class="image-box">
-						<?php the_post_thumbnail('medium'); ?>
-					</figure>
-					<div class="lower-part">
-						<div class="left-curve">                      
-						</div>
-						<div class="right-curve">                      
-						</div>                    
-						<div class="content">
-						<h3><?php the_title(); ?></h3>
-						<p> <?php foreach($categorias as $categoria): if(get_queried_object()->term_id !== $categoria->term_id): echo $categoria->name; endif; endforeach; ?> </p>
-						<div class="more-link">
-							<a href="<?php the_permalink(); ?>" class="read-more">Clique aqui</a>
-						</div>
-						</div>
-					</div>
-					</div>
-				</div>
-			</a>
-		</div> 
-		<?php endwhile; endif; wp_reset_postdata();?>
-		<?php
-		//fim se isset($search)
-		}else{
-			if($produtos->have_posts()) : $produtos->the_post();        
-
-			$terms = get_terms( array(
-			'taxonomy' => 'produtos',
-			'parent' => 0,
-			'hide_empty' => false,
-			) );
-			foreach ( $terms as $term ):
-			$image = get_field('imagem', $term);          
-        ?>
-
-        <div class="default-service-column col-md-4">
-        	<a href="<?php bloginfo('url')?>/produtos/<?php echo $term->slug; ?>" class="card-text">
-				<div class="inner-box">
-				  <div class="inner-most">
-				    <figure class="image-box">
-				      <img width="100%" height="270" src="<?php echo $image['url']; ?>" class="img-responsive wp-post-image" alt="<?php echo $image['alt']; ?>">
-				    </figure>
-				    <div class="lower-part">
-				        <div class="left-curve"></div>
-				        <div class="right-curve"></div>                    
-				        <div class="content">
-				          <h3><?php echo $term->name; ?></h3>
-				          <p><?php echo $term->description;?></p>
-				          <div class="more-link"><a href="<?php bloginfo('url')?>/produtos/<?php echo $term->slug; ?>" class="read-more">Clique aqui</a></div>
-				        </div>
-				    </div>
-				  </div>
-				</div>
-      		</a>
-        </div>
-		<?php
-			endforeach; endif;
-		}//fim else isset( $search )
+		if( $produtos->have_posts() ){
+			while( $produtos->have_posts()){
+				$produtos->the_post();
+				include 'inc/card-produto.php';
+			}
+		}
+		wp_reset_postdata();
 		?>        
 	  </div>  
 	  	<div class="row">
 			<div class="paginate">
 				<div class="line-L col-6">
 					<?php
-					//links da paginação
-					if( isset( $search ) ){
-						$prev = get_prev_page_link( $produtos->max_num_pages);
-						$next = get_next_page_link( $produtos->max_num_pages);
-					}else{
-						$termsSize = count($terms);
-						$max_num_pages = $termsSize/$postsPerPage;
-						$prev = get_prev_page_link( $max_num_pages);
-						$next = get_next_page_link( $max_num_pages);
+					$prev = get_prev_page_link( $produtos->max_num_pages);
+					$next = get_next_page_link( $produtos->max_num_pages);
+					if($prev){
+						echo "<a class='page-btn' href='".$prev."'>";
+						echo "Anterior";
+						echo "</a>";
 					}
-						if($prev){
-							echo "<a class='page-btn' href='".$prev."'>";
-							echo "Anterior";
-							echo "</a>";
-						}
 					?>
 				</div>
 				<div class="line-Right col-6">

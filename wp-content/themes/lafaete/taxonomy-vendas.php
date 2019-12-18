@@ -98,56 +98,34 @@
       ?>
       <div class="row">
 
-		<?php
-		$postsPerPage = get_option( 'posts_per_page' );
-		$paged =  isset( $_GET['sheet'] ) ? $_GET['sheet'] : "";
-		$args = array(
-            'post_type' => 'venda',
-            'order' => 'ASC' ,
-			'posts_per_page' => $postsPerPage,
-			'paged' => $paged,
-            'tax_query' => array(
-              array(
-                'taxonomy' => 'vendas',
-                'field' => 'id',
-                'terms' => get_queried_object()->term_id,
-                'include_children' => false
-              )
-            )
-          );
-          $produtos = new WP_Query( $args );
+        <?php
+        $postsPerPage = get_option( 'posts_per_page' );
+        $paged =  isset( $_GET['sheet'] ) ? $_GET['sheet'] : "";
+        $args = array(
+                'post_type' => 'venda',
+                'order' => 'ASC' ,
+                'posts_per_page' => $postsPerPage,
+                'paged' => $paged,
+                'tax_query' => array(
+                  array(
+                    'taxonomy' => 'vendas',
+                    'field' => 'id',
+                    'terms' => get_queried_object()->term_id,
+                    'include_children' => false
+                  )
+                )
+        );
+        $produtos = new WP_Query( $args );
 
-          if( $produtos->have_posts() ):      
-                    
-          while( $produtos->have_posts()) : $produtos->the_post(); 
-
-           $categorias = get_the_terms( $post->ID, 'vendas' );
-   
+        if( $produtos->have_posts() ){   
+          while( $produtos->have_posts()){
+            $produtos->the_post(); 
+            $categorias = get_the_terms( $post->ID, 'vendas' );
+            include 'inc/card-produto.php';
+          }
+        }
+        wp_reset_postdata();
         ?>
-
-        <div class="default-service-column col-md-4 imagemGaleria <?php  foreach($categorias as $categoria): if(get_queried_object()->term_id !== $categoria->term_id): echo $categoria->slug; endif; endforeach; ?>">
-          <div class="inner-box">
-            <div class="inner-most">
-              <figure class="image-box">
-                <?php the_post_thumbnail('medium'); ?>
-              </figure>
-              <div class="lower-part">
-                <div class="left-curve">                      
-                </div>
-                <div class="right-curve">                      
-                </div>                    
-                <div class="content">
-                  <h3><?php the_title(); ?></h3>
-                  <p> <?php foreach($categorias as $categoria): if(get_queried_object()->term_id !== $categoria->term_id): echo $categoria->name; endif; endforeach; ?> </p>
-                  <div class="more-link">
-                    <a href="<?php the_permalink(); ?>" class="read-more">Clique aqui</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> 
-          <?php endwhile; endif; wp_reset_postdata();?>
 	  </div>  
 	  <div class="row">
 			<div class="paginate">
