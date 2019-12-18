@@ -175,12 +175,11 @@
         ?>  
         <div class="default-service-column col-md-4">
           <div class="inner-box">
+            <a href="<?php the_permalink(); ?>">
               <div class="inner-most">
-                <a href="<?php the_permalink(); ?>">
                   <figure class="image-box">
                     <?php the_post_thumbnail('medium' , array('class' => 'img-fluid w-100')); ?>                
                   </figure>
-                </a>
                 <div class="lower-part">
                     <div class="left-curve"></div>
                     <div class="right-curve"></div>                    
@@ -189,8 +188,9 @@
                       <div class="more-link"><a href="<?php the_permalink(); ?>" class="read-more">Clique aqui</a></div>
                     </div>
                 </div>
-            </div>
-          </a>
+              </div>
+            </a>
+          </div>
         </div>
         <?php endwhile; wp_reset_postdata(); ?>
       </div>  
