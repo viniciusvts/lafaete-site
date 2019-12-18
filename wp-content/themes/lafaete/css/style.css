@@ -17,7 +17,8 @@ html {
 }
 
 a {
-  color: #ff7e3b;
+  color: black;
+  font-weight: 500;
   transition: 0.5s ease all;
   -webkit-transition: 0.5s ease all;
   -ms-transition: 0.5s ease all;
@@ -26,12 +27,25 @@ a {
 }
 a:hover {
   color: #fab033;
-  text-decoration: none;
   transition: 0.5s ease all;
   -webkit-transition: 0.5s ease all;
   -ms-transition: 0.5s ease all;
   -o-transition: 0.5s ease all;
   -moz-transition: 0.5s ease all;
+  text-decoration: none;
+}
+
+h5.title-card-blog {
+  color: #fab033;
+  font-weight: 700;
+}
+
+#crumbs a {
+  color: white;
+  font-weight: 700;
+}
+#crumbs span {
+  color: white !important;
 }
 
 h1 {
@@ -275,11 +289,19 @@ nav.navbar {
   left: 0;
   right: 0;
 }
+.floater-destaque svg {
+  height: 50px;
+  width: auto;
+  fill: white;
+}
+.floater-destaque a {
+  color: white;
+}
 
 .floater-destaque .cacambas, .floater-destaque .maquina, .floater-destaque .modulos-habitacionais {
   text-align: center;
   color: white;
-  padding: 40px 20px;
+  padding: 40px;
   font-family: myFont, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
 }
 
@@ -334,6 +356,16 @@ nav.navbar {
 
 .faca-um-orcamento {
   background: url("../inc/img/faca-um-orcamento.jpg");
+}
+
+.scroll-rtl::-webkit-scrollbar {
+  width: 12px;
+}
+.scroll-rtl::-webkit-scrollbar-thumb {
+  background: white;
+}
+.scroll-rtl::-webkit-scrollbar-track-piece {
+  background-color: #fab033;
 }
 
 /*faca-um-orcamento*/
@@ -605,6 +637,10 @@ ul.bp-indicators .dots {
 ul.bp-indicators .dots.active {
   transition-duration: 0.5s;
   background-color: white !important;
+}
+
+.carousel-item .destaque-blog {
+  filter: none !important;
 }
 
 /*nossos-premios*/
@@ -1738,6 +1774,9 @@ ul.bp-indicators .dots.active {
   list-style: none;
   padding-left: 0;
 }
+.card.card-posts {
+  min-height: 430px;
+}
 
 .blog .row .col-4 .card {
   margin: 20px 0;
@@ -2260,7 +2299,8 @@ img {
 }
 /*trabalhe-conosco*/
 .trabalhe-conosco {
-  background: url("../inc/img/trabalhe-conosco.jpg");
+  background: url("../inc/img/trabalhe-conosco-02.jpg");
+  background-size: cover;
 }
 
 /*trabalhe-conosco*/
@@ -2314,6 +2354,9 @@ img {
 @media (max-width: 575.98px) {
   .fale-conosco-left {
     margin-top: 15px;
+  }
+  .fale-conosco-left img {
+    width: 100%;
   }
 }
 
@@ -2445,6 +2488,10 @@ img {
 
 /*newsletter*/
 /*footer*/
+footer {
+  background-color: #6a6a6a;
+}
+
 .footer {
   background: url("../inc/img/footer.jpg");
   background-position: center;
@@ -2563,7 +2610,7 @@ img {
 }
 @media (max-width: 1199px) and (max-width: 575.98px) {
   .newsletter .formulario {
-    padding: 20px 20px 90px 20px;
+    padding: 20px 20px 20px 20px;
   }
 }
 @media (max-width: 1199px) {
