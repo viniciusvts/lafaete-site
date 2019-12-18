@@ -10,7 +10,7 @@
         <div class="carousel-item active">
             <?php
                 if(have_posts()) : the_post();                
-                    the_post_thumbnail('full', array('class' => 'img-fluid w-100'));
+                    the_post_thumbnail('full', array('class' => 'img-fluid w-100 destaque-blog'));
                 endif;
             ?>
         </div>        
