@@ -41,12 +41,10 @@
       <div class="row">
         <div class="col-md-6 faca-um-orcamento">
           <h2>Faça um Orçamento</h2>
-          <p>Lorem ipsum dolor sit amet, sed platonem erroribus ut.</p>
           <a href="<?php bloginfo('url');?>/orcamento"><button class="btn botao-laranja">Solicitar</button></a>
         </div>
         <div class="col-md-6 trabalhe-conosco"> 
           <h2>Trabalhe Conosco</h2>
-          <p>Lorem ipsum dolor sit amet, sed platonem erroribus ut. </p>
           <a href="<?php bloginfo('url');?>/trabalhe-conosco"><button class="btn botao-laranja">Cadastrar Currículo</button></a>
         </div>
       </div>
