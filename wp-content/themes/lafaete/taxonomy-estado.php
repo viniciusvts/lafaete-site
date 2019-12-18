@@ -85,41 +85,13 @@
       if( $produtos->have_posts() ){
         while( $produtos->have_posts()){
           $produtos->the_post(); 
+          //para compor o link preciso das taxonomias produto e cidade
           $categorias = get_the_terms( $post->ID, 'produtos' );
           $taxTerm = get_the_terms($post->ID, $queried_object->taxonomy );
           $hrefLink = get_the_permalink() ."?tipo-produto=" . $categorias[0]->name ."&local=" . $taxTerm[0]->name ;
-      ?>
-      <div class="default-service-column col-md-4 imagemGaleria <?php foreach($categorias as $categoria){ echo $categoria->slug . " "; } ?>">
-        <a href="<?php echo $hrefLink; ?>" class="card-text">
-          <div class="inner-box">
-            <div class="inner-most">
-              <figure class="image-box">
-                <?php the_post_thumbnail('medium'); ?>
-              </figure>
-              <div class="lower-part">
-                <div class="left-curve"></div>
-                <div class="right-curve"></div>
-                <div class="content">
-                  <h3><?php the_title(); ?></h3>
-                  <p><?php
-                    foreach($categorias as $categoria){
-                      if($queried_object->term_id !== $categoria->term_id){
-                        echo $categoria->name.'-';
-                      }
-                    }
-                  ?></p>
-                  <div class="more-link">
-                    <a href="<?php the_permalink(); ?>" class="read-more">Clique aqui</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </a>
-      </div> 
-      <?php
-          }
+          include 'inc/card-produto.php';
         }
+      }
       wp_reset_postdata();
       ?>
 	  </div>  
