@@ -1845,7 +1845,10 @@ ul.bp-indicators .dots.active {
 }
 @media (max-width: 767.98px) {
   .blog-categorias {
+    display: block;
+    width: 133px;
     margin: 25px auto 0;
+    float: none;
   }
 }
 

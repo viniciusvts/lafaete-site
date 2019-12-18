@@ -65,7 +65,10 @@
 .blog-categorias{
     left:0; right:0; margin:0 auto; display: inline-flex; float: right;
     @include mediaScreenMax($tablets){
+        display: block;
+        width: 133px;
         margin: 25px auto 0;
+        float: none;
     }
 }
 
