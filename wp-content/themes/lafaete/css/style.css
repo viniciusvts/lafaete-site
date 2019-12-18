@@ -1371,6 +1371,7 @@ ul.bp-indicators .dots.active {
 .produtos-container ul li {
   margin: 10px 4px 10px 4px;
   border-radius: 6px;
+  border: solid 1px grey;
 }
 
 .produtos-container ul li:hover, li.nav-item.active {
