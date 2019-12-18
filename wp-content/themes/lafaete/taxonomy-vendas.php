@@ -10,8 +10,8 @@
       <div class="carousel-inner carousel-flat-height">
         <div class="carousel-item active">
           <div class="carousel-caption carousel-caption-flat-height d-none d-md-block">
-            <h2>Venda de</h2>
-            <h1> <?php echo get_queried_object()->name; ?> </h1>
+            <h1>
+              <p>Venda de </p><?php echo get_queried_object()->name; ?></h1>
           </div>
           <img class="d-block w-100" src="<?php bloginfo('template_url'); ?>/inc/img/slider-construcao.jpg" alt="First slide">
         </div>

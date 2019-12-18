@@ -10,8 +10,10 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="carousel-caption d-none d-md-block">
-            <h2>Venda de</h2>
-            <h1><?php the_title(); ?></h1>
+            <h1>
+              <p>Venda de </p>
+              <?php the_title(); ?>
+            </h1>
           </div>
           <?php the_post_thumbnail('full', array('class' => 'img-fluid w-100')); ?>
         </div>
