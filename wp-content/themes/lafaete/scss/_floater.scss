@@ -8,6 +8,9 @@
         width: auto;
         fill: white;
     }
+    a {
+        color: white;
+    }
 }
 .floater-destaque .cacambas, .floater-destaque .maquina, .floater-destaque .modulos-habitacionais{
     text-align: center;
@@ -65,6 +68,18 @@
 
 .faca-um-orcamento{
     background: url('../inc/img/faca-um-orcamento.jpg');
+}
+
+.scroll-rtl {
+    &::-webkit-scrollbar {
+        width: 12px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: white;  
+    }
+    &::-webkit-scrollbar-track-piece {
+        background-color: $laranjaClaro;
+    }
 }
 
 /*faca-um-orcamento*/

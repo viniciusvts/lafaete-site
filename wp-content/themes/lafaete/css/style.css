@@ -17,7 +17,8 @@ html {
 }
 
 a {
-  color: #ff7e3b;
+  color: black;
+  font-weight: 500;
   transition: 0.5s ease all;
   -webkit-transition: 0.5s ease all;
   -ms-transition: 0.5s ease all;
@@ -26,12 +27,25 @@ a {
 }
 a:hover {
   color: #fab033;
-  text-decoration: none;
   transition: 0.5s ease all;
   -webkit-transition: 0.5s ease all;
   -ms-transition: 0.5s ease all;
   -o-transition: 0.5s ease all;
   -moz-transition: 0.5s ease all;
+  text-decoration: none;
+}
+
+h5.title-card-blog {
+  color: #fab033;
+  font-weight: 700;
+}
+
+#crumbs a {
+  color: white;
+  font-weight: 700;
+}
+#crumbs span {
+  color: white !important;
 }
 
 h1 {
@@ -280,6 +294,9 @@ nav.navbar {
   width: auto;
   fill: white;
 }
+.floater-destaque a {
+  color: white;
+}
 
 .floater-destaque .cacambas, .floater-destaque .maquina, .floater-destaque .modulos-habitacionais {
   text-align: center;
@@ -339,6 +356,16 @@ nav.navbar {
 
 .faca-um-orcamento {
   background: url("../inc/img/faca-um-orcamento.jpg");
+}
+
+.scroll-rtl::-webkit-scrollbar {
+  width: 12px;
+}
+.scroll-rtl::-webkit-scrollbar-thumb {
+  background: white;
+}
+.scroll-rtl::-webkit-scrollbar-track-piece {
+  background-color: #fab033;
 }
 
 /*faca-um-orcamento*/
@@ -610,6 +637,10 @@ ul.bp-indicators .dots {
 ul.bp-indicators .dots.active {
   transition-duration: 0.5s;
   background-color: white !important;
+}
+
+.carousel-item .destaque-blog {
+  filter: none !important;
 }
 
 /*nossos-premios*/
@@ -1747,6 +1778,9 @@ ul.bp-indicators .dots.active {
 .card ul {
   list-style: none;
   padding-left: 0;
+}
+.card.card-posts {
+  min-height: 430px;
 }
 
 .blog .row .col-4 .card {

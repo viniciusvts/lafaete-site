@@ -6,6 +6,9 @@
         list-style: none;
         padding-left: 0;
     }
+    &.card-posts {
+        min-height: 430px;
+    }
 }
 
 .blog .row .col-4 .card{

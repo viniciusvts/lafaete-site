@@ -243,6 +243,14 @@ $(function(){
     });  
 });
 
+// Função previne que o botão da categoria (submenu) suba até o header pois é um link somente com um hash
+function nolink_category() {
+    var nolink = document.getElementById('nolink')
+    nolink.onclick = function(e) {
+        e.preventDefault();
+    }
+}
+
 //funcção do filtro pega o hash do link com nome da classe correspondente
 //retira o hash para comparar com a classe do link da li com a classe no link da imagem
 // tudo que não for a hash clicada ou não for todos, chama a classe para esconder
@@ -420,6 +428,7 @@ window.addEventListener('load', function(e){
     addUrlToForms();// setTimeout(addUrlToForms, 2000);
     // footer_floater();
     bpCarrousel = new carousel();//initCarrossel();
+    nolink_category()
 });
 
 window.addEventListener('resize', function(e){

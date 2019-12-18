@@ -79,7 +79,7 @@
                 </div>  
             </div>
             <div class="container rodape">
-                <p>Copyright 2019 | Todos os direitos reservados a <span>Lafaete Locações</span></p>
+                <p>Copyright <?php echo date('Y') ?> | Todos os direitos reservados a <span>Lafaete Locações</span></p>
             </div>
         </div>
 </footer>

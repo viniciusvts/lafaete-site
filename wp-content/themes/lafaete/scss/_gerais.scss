@@ -18,16 +18,29 @@ html {
 
 
 a{
-    color: $laranja;
+    color: black;
+    font-weight: 500;
     @include transition();
-    &:hover{
+    &:hover {
         color: $laranjaClaro;
-        text-decoration: none;
         @include transition();
+        text-decoration: none;
     }
 }
 
-
+h5.title-card-blog {
+    color: $laranjaClaro;
+    font-weight: 700;
+}
+#crumbs {
+    a {
+        color: white;
+        font-weight: 700;
+    }
+    span {
+        color: white !important;
+    }
+} 
 h1{
     font-size: 3rem;
 }

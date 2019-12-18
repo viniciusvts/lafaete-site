@@ -52,8 +52,10 @@
       foreach( $posts as $post){
         $postTaxonomies = get_the_terms($post->ID, 'produtos' );
         foreach($postTaxonomies as $postTax){
-          $terms[] = $postTax->name;
-          $termsSlug[] = $postTax->slug;
+          if($postTax->parent == 0) {
+            $terms[] = $postTax->name;
+            $termsSlug[] = $postTax->slug;
+          }
         }
       }
       //elimina duplicados
