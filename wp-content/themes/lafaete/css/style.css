@@ -275,11 +275,16 @@ nav.navbar {
   left: 0;
   right: 0;
 }
+.floater-destaque svg {
+  height: 50px;
+  width: auto;
+  fill: white;
+}
 
 .floater-destaque .cacambas, .floater-destaque .maquina, .floater-destaque .modulos-habitacionais {
   text-align: center;
   color: white;
-  padding: 40px 20px;
+  padding: 40px;
   font-family: myFont, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
 }
 
@@ -777,9 +782,14 @@ ul.bp-indicators .dots.active {
 .bp-carousel .bp-carousel-inner {
   overflow: hidden;
   width: 100%;
-  height: 300px;
+  height: 200px;
   scroll-behavior: smooth;
   display: flex;
+}
+@media (max-width: 991.98px) {
+  .bp-carousel .bp-carousel-inner {
+    height: 300px;
+  }
 }
 @media (max-width: 767.98px) {
   .bp-carousel .bp-carousel-inner {
@@ -2260,7 +2270,8 @@ img {
 }
 /*trabalhe-conosco*/
 .trabalhe-conosco {
-  background: url("../inc/img/trabalhe-conosco.jpg");
+  background: url("../inc/img/trabalhe-conosco-02.jpg");
+  background-size: cover;
 }
 
 /*trabalhe-conosco*/
@@ -2314,6 +2325,9 @@ img {
 @media (max-width: 575.98px) {
   .fale-conosco-left {
     margin-top: 15px;
+  }
+  .fale-conosco-left img {
+    width: 100%;
   }
 }
 
@@ -2445,6 +2459,10 @@ img {
 
 /*newsletter*/
 /*footer*/
+footer {
+  background-color: #6a6a6a;
+}
+
 .footer {
   background: url("../inc/img/footer.jpg");
   background-position: center;
@@ -2563,7 +2581,7 @@ img {
 }
 @media (max-width: 1199px) and (max-width: 575.98px) {
   .newsletter .formulario {
-    padding: 20px 20px 90px 20px;
+    padding: 20px 20px 20px 20px;
   }
 }
 @media (max-width: 1199px) {
