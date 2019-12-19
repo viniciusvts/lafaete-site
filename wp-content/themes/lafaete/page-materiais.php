@@ -20,15 +20,17 @@
             'post_type' => 'materiais',
           );
           $card = new WP_Query($args);
-          while($card->have_posts()) : $card->the_post(); ?>
+          while($card->have_posts()) : $card->the_post();
+          $link = get_field('link'); ?>
           <div class="col-md-4">
-              <a href="<?php the_permalink(); ?>">
+              <a href="<?php echo $link; ?>">
                   <div class="card card-posts">
                       <?php the_post_thumbnail('medium', array('class' => 'card-img-top img-fluid')); ?>
                       <div class="card-body">
                           <h5 class="card-title card-text title-card-blog"><?php echo wp_trim_words( get_the_title(), 14, '...' ); ?></h5>
                           <h6><?php the_category(); ?></h6>
                           <p class="card-text"><?php echo wp_trim_words( get_the_content(), 19, ' [...] ' ); ?></p>
+                          <a href="<?php echo $link; ?>"><button class="btn botao-laranja">Acesse o Material</button></a>
                       </div>
                   </div>
               </a>
