@@ -308,13 +308,34 @@ nav.navbar {
 .floater-destaque .cacambas {
   background: url("../inc/img/cacambas.jpg");
 }
+.floater-destaque .cacambas svg, .floater-destaque .cacambas h2, .floater-destaque .cacambas p {
+  transition: ease-in-out 0.4s all;
+}
+.floater-destaque .cacambas svg:hover, .floater-destaque .cacambas h2:hover, .floater-destaque .cacambas p:hover {
+  transform: scale(1.05);
+  border-radius: 5%;
+}
 
 .floater-destaque .maquina {
   background: url("../inc/img/maquina.jpg");
 }
+.floater-destaque .maquina svg, .floater-destaque .maquina h2, .floater-destaque .maquina p {
+  transition: ease-in-out 0.4s all;
+}
+.floater-destaque .maquina svg:hover, .floater-destaque .maquina h2:hover, .floater-destaque .maquina p:hover {
+  transform: scale(1.05);
+  border-radius: 5%;
+}
 
 .floater-destaque .modulos-habitacionais {
   background: url("../inc/img/modulos-habitacionais.jpg");
+}
+.floater-destaque .modulos-habitacionais svg, .floater-destaque .modulos-habitacionais h2, .floater-destaque .modulos-habitacionais p {
+  transition: ease-in-out 0.4s all;
+}
+.floater-destaque .modulos-habitacionais svg:hover, .floater-destaque .modulos-habitacionais h2:hover, .floater-destaque .modulos-habitacionais p:hover {
+  transform: scale(1.05);
+  border-radius: 5%;
 }
 
 .floater-destaque img {

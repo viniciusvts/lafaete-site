@@ -21,12 +21,33 @@
 
 .floater-destaque .cacambas{
     background: url('../inc/img/cacambas.jpg');
+    svg, h2, p{
+        transition: ease-in-out 0.4s all;
+        &:hover{
+            transform: scale(1.05);
+            border-radius: 5%;
+        }
+    }
 }
 .floater-destaque .maquina{
     background: url('../inc/img/maquina.jpg');
+    svg, h2, p{
+        transition: ease-in-out 0.4s all;
+        &:hover{
+            transform: scale(1.05);
+            border-radius: 5%;
+        }
+    }
 }
 .floater-destaque .modulos-habitacionais{
     background: url('../inc/img/modulos-habitacionais.jpg');
+    svg, h2, p{
+        transition: ease-in-out 0.4s all;
+        &:hover{
+            transform: scale(1.05);
+            border-radius: 5%;
+        }
+    }
 }
 
 .floater-destaque img{
