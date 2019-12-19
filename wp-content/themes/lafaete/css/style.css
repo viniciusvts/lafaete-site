@@ -2508,7 +2508,7 @@ footer {
 .footer {
   background: url("../inc/img/footer.jpg");
   background-position: center;
-  background-size: inherit;
+  background-size: cover;
   background-repeat: no-repeat;
   position: relative;
   padding-top: 40px;
