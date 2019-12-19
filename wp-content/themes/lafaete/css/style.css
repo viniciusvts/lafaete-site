@@ -1870,6 +1870,10 @@ ul.bp-indicators .dots.active {
   }
 }
 
+.paginate-container {
+  margin: 0 auto;
+}
+
 /*blog*/
 .projetos-recentes .active {
   background: #6a6a6a;
@@ -2654,6 +2658,11 @@ footer {
     padding-top: 40px;
     padding-bottom: 20px;
     width: auto;
+  }
+}
+@media (max-width: 1199px) and (max-width: 575.98px) {
+  .footer {
+    text-align: center;
   }
 }
 @media (max-width: 1199px) {
