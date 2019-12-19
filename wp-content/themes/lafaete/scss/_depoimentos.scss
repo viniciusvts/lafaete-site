@@ -11,6 +11,11 @@
         margin-top: 40px;
         color: $cinzaEscuro;
         position: relative;
+        transition: all 400ms ease;
+        -webkit-transition:all 400ms ease;
+        -ms-transition:all 400ms ease;
+        -o-transition:all 400ms ease;
+        -moz-transition:all 400ms ease;	
     }
     
     .balao::after{
@@ -25,6 +30,11 @@
         border-bottom: 0;
         margin-left: -20px;
         margin-bottom: -20px;
+        transition: all 400ms ease;
+        -webkit-transition:all 400ms ease;
+        -ms-transition:all 400ms ease;
+        -o-transition:all 400ms ease;
+        -moz-transition:all 400ms ease;	
     }    
     
     .balao-col:hover .balao{
