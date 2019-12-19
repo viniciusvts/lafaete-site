@@ -8,6 +8,10 @@
     }
     &.card-posts {
         min-height: 430px;
+        transition: ease-in-out 0.4s all;
+        &:hover{
+            transform: scale(1.05);// translateY(-10px);
+        }
     }
 }
 

@@ -1813,6 +1813,10 @@ ul.bp-indicators .dots.active {
 }
 .card.card-posts {
   min-height: 430px;
+  transition: ease-in-out 0.4s all;
+}
+.card.card-posts:hover {
+  transform: scale(1.05);
 }
 
 .blog .row .col-4 .card {
