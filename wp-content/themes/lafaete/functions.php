@@ -178,6 +178,7 @@
   include_once 'inc/custom-servicos.php';
   include_once 'inc/custom-produto.php';
   include_once 'inc/custom-clientes.php';
+  include_once 'inc/custom-materiais.php';
   include_once 'inc/custom-unidades.php';
   include_once 'inc/custom-eventos.php';
   include_once 'inc/custom-grandes-obras.php';

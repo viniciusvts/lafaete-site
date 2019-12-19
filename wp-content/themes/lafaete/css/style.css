@@ -970,6 +970,11 @@ ul.bp-indicators .dots.active {
   margin-top: 40px;
   color: #6a6a6a;
   position: relative;
+  transition: all 400ms ease;
+  -webkit-transition: all 400ms ease;
+  -ms-transition: all 400ms ease;
+  -o-transition: all 400ms ease;
+  -moz-transition: all 400ms ease;
 }
 .depoimentos .balao::after {
   content: "";
@@ -983,6 +988,11 @@ ul.bp-indicators .dots.active {
   border-bottom: 0;
   margin-left: -20px;
   margin-bottom: -20px;
+  transition: all 400ms ease;
+  -webkit-transition: all 400ms ease;
+  -ms-transition: all 400ms ease;
+  -o-transition: all 400ms ease;
+  -moz-transition: all 400ms ease;
 }
 .depoimentos .balao-col:hover .balao {
   background: #ff7e3b;
