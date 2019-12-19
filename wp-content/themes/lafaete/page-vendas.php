@@ -84,13 +84,13 @@
                           <?php if(get_field('modelo') != '' || get_field('serie') != ''): ?>
                             <div class="row">
                                 <?php if(get_field('modelo') != ''): ?>
-                                    <div class="col">
+                                    <div class="col-12">
                                       <p class="text-center">Modelo: <?php the_field('modelo'); ?></p>
                                     </div>
                                 <?php endif; ?>
                             </div>
                                 <?php if(get_field('serie') != ''): ?>
-                                    <div class="col">
+                                    <div class="col-12">
                                           <p class="text-center">Série: <?php the_field('serie'); ?></p>
                                     </div>
                                   <?php endif; ?>
@@ -99,12 +99,12 @@
                               <?php if(get_field('ano') != '' || get_field('horimetro') != ''): ?>
                                 <div class="row">
                                   <?php if(get_field('ano') != ''): ?>
-                                    <div class="col">
+                                    <div class="col-12">
                                       <p class="text-center">Ano: <?php the_field('ano'); ?></p>
                                     </div>
                                   <?php endif; ?>
                                   <?php if(get_field('horimetro') != ''): ?>
-                                    <div class="col">
+                                    <div class="col-12">
                                       <p class="text-center">Horímetro: <?php the_field('horimetro'); ?></p>
                                     </div>
                                   <?php endif; ?>
