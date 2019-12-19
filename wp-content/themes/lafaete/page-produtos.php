@@ -66,7 +66,7 @@
 		wp_reset_postdata();
 		?>        
 	  </div>  
-	  	<div class="row">
+	  	<div class="row container paginate-container">
 			<div class="paginate">
 				<div class="line-L col-6">
 					<?php
