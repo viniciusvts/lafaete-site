@@ -82,30 +82,20 @@
         <span class="fecharBotao">&times;</span>
         <div class="conteudo">
           <ul id="imagens">
-              <li class="fade">
-                <span class="numero">1 / 6</span>
-                <img src="inc/img/trator-new-holland-premio-do-ano.jpg" alt="imagem 1" class="imagem-responsiva">
-              </li>
-              <li class="fade">
-                <span class="numero">2 / 6</span>
-                <img src="inc/img/trator-new-holland-premio-do-ano.jpg" alt="imagem 2" class="imagem-responsiva">
-              </li>
-              <li class="fade">
-                <span class="numero">3 / 6</span>
-                <img src="inc/img/trator-new-holland-premio-do-ano.jpg" alt="imagem 3" class="imagem-responsiva">
-              </li>
-              <li class="fade">
-                <span class="numero">4 / 6</span>
-                <img src="inc/img/trator-new-holland-premio-do-ano.jpg" alt="imagem 4" class="imagem-responsiva">
-              </li>
-              <li class="fade">
-                <span class="numero">5 / 6</span>
-                <img src="inc/img/trator-new-holland-premio-do-ano.jpg" alt="imagem 4" class="imagem-responsiva">
-              </li>
-              <li class="fade">
-                <span class="numero">6 / 6</span>
-                <img src="inc/img/trator-new-holland-premio-do-ano.jpg" alt="imagem 4" class="imagem-responsiva">
-              </li>
+            <?php
+              $images = get_field('galeria'); 
+              $countImages = count( $images );
+              if( $images ){ 
+                foreach( $images as $key => $image ){
+            ?>
+            <li class="fade">
+              <span class="numero"><?php echo( $key . "/" . $countImages ); ?></span>
+              <img src="<?php echo( $image['url'] ); ?>" alt="<?php echo( $image['alt'] ); ?>" class="imagem-responsiva">
+            </li>
+            <?php
+                }
+              }
+            ?>
           </ul>
           <div id="botoes">
               <a href="" id="seguinte">&#10095;</a>
@@ -113,12 +103,16 @@
           </div>
         </div>
         <div id="dots">
-          <span class="dot ativo"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
+          <?php
+          if( $images ){ 
+            $first = true;
+            foreach( $images as $image ){
+          ?>
+          <span class="<?php if( $first ){ echo( "ativo"); $first = false; } ?> dot"></span>
+          <?php
+            }
+          }
+          ?>
         </div>
       </section>
 
