@@ -68,7 +68,7 @@
             $premios = new WP_Query(array('post_type' => 'premios'));
             while($premios->have_posts()): $premios->the_post();          
           ?>
-          <div class="col-6 col-md-4">          
+          <div class="col-12 col-md-4 col-sm-12">          
             <?php $imagemPremio = get_field('imagem'); ?>            
             <img src="<?php echo $imagemPremio['url']; ?>" alt="<?php echo $imagemPremio['alt'] ?>" class="img-fluid w-100 rounded" /> 
             <h3><?php the_title(); ?></h3>
