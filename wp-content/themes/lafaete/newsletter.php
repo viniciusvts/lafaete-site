@@ -8,6 +8,11 @@ if(isset($_POST["email"])){
   $message = "Email: ".$email;
   $headers = array('Content-Type: text/html; charset=UTF-8');
   $wpmail = wp_mail( $to, $subject, $message, $headers );
+?>
+<script>
+	alert("Seus dados foram enviados com sucesso");
+</script>
+<?php
 }
 ?>
 <form action="<?php echo($_SERVER['REQUEST_URI']); ?>" method="post" id="newslaterForm">
@@ -23,7 +28,7 @@ if(isset($_POST["email"])){
 					<?php } ?>
 				</div>
 				<div class="col-md-6 formulario">
-					<input type="text" value="" name="email" id="s" placeholder="Digite seu email" aria-required="true" aria-invalid="false">
+					<input type="text" value="" name="email" id="s" placeholder="Digite seu email" aria-required="true" aria-invalid="false" required>
 					<input class="btn" type="submit" id="searchsubmit" value="Assinar">
 				</div>
 			</div>
