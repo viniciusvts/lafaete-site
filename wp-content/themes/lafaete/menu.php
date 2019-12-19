@@ -111,8 +111,14 @@
           <a class="dropdown-item" href="<?php bloginfo('url'); ?>/atendimento/abertura-de-chamado">Abertura de Chamado</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php bloginfo('url'); ?>/artigos">Blog</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="<?php bloginfo('url'); ?>/atendimento" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Conteúdo
+        </a>
+        <div class="dropdown-menu txtAlignCenter" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/blog">Blog</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/materiais">Materiais</a>
+        </div>
       </li>
 
       <li class="nav-item dropdown">
