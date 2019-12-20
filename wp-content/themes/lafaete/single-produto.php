@@ -167,6 +167,7 @@
         <?php
           while($query->have_posts()){
             $query->the_post();
+            $hrefLink = get_the_permalink();
             include 'inc/card-produto.php';
           }
           wp_reset_postdata();

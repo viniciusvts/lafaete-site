@@ -60,6 +60,7 @@
 		if( $produtos->have_posts() ){
 			while( $produtos->have_posts()){
 				$produtos->the_post();
+				$hrefLink = get_the_permalink();
 				include 'inc/card-produto.php';
 			}
 		}

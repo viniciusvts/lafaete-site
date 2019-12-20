@@ -47,7 +47,7 @@
     </div>
     <div class="container">
       <div class="row">
-        <?php
+    <?php
 		$postsPerPage = get_option( 'posts_per_page' );
 		$paged = isset( $_GET['sheet'] ) ? $_GET['sheet'] : 1;
 		$search = isset( $_GET['searchkey'] ) ? $_GET['searchkey'] : '';
@@ -67,7 +67,8 @@
 		}
 		$seminovos = new WP_Query($args);
 		while($seminovos->have_posts()) : $seminovos->the_post(); 
-        ?>
+      $hrefLink = get_the_permalink();
+    ?>
         <div class="default-service-column col-md-4">
           <a href="<?php echo($hrefLink); ?>" class="card-text">
             <div class="inner-box">
