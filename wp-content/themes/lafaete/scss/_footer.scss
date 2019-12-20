@@ -234,7 +234,7 @@ footer {
         padding-top: 40px;
         padding-bottom: 20px;
         width: auto;
-        @include breakpoint(smartphones) {
+        @include mediaScreenMax( $desktops) {
             text-align: center;
         }
     }

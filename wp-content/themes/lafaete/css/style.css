@@ -2695,7 +2695,7 @@ footer {
     width: auto;
   }
 }
-@media (max-width: 1199px) and (max-width: 575.98px) {
+@media (max-width: 1199px) and (max-width: 991.98px) {
   .footer {
     text-align: center;
   }
