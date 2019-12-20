@@ -24,14 +24,23 @@
                     </a> 
                 </div> 
 
-                <div class="submenu-categorias esconder">
-                    <?php
-                        wp_nav_menu( array(
-                        'theme_location' => 'primary',
-                        'container' => '',
-                        'menu_class'=> 'list-unstyled'
-                        ));
-                    ?>
+                <div class="submenu-categorias esconder blog-cats">
+                <?php $args=array(
+                    'orderby' => 'name',
+                    'order' => 'ASC',
+                    'post_type' => 'post'
+                    );
+                    $categories=get_categories($args);
+                    foreach($categories as $category) {
+                            $linkcat = get_category_link( $category->term_id );
+                            $name = $category->name;
+                            $catid = get_cat_ID($name);
+                            $slug = $category->slug;
+                            ?>
+                            <li><a href="<?php 
+                                    echo bloginfo("url");
+                            ?>/category/<?php echo $slug ?>"><?php echo $name; ?></li></a>
+                    <?php } ?>
                 </div>
             </div>
         </div>  
