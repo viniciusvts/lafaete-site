@@ -1909,6 +1909,14 @@ ul.bp-indicators .dots.active {
   margin: 0 auto;
 }
 
+.blog-cats li {
+  list-style: none;
+  font-weight: 600;
+}
+.blog-cats li a {
+  color: white;
+}
+
 /*blog*/
 .projetos-recentes .active {
   background: #6a6a6a;

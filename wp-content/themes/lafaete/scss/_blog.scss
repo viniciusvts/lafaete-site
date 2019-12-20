@@ -94,4 +94,13 @@
 .paginate-container {
     margin: 0 auto;
 }
+.blog-cats {
+    li {
+        list-style: none;
+        font-weight: 600;
+        a {
+            color: white;
+        }
+    }
+}
 /*blog*/
