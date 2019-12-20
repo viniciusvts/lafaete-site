@@ -19,7 +19,7 @@
                         <path d="M24,11c0-0.6-0.4-1-1-1H1c-0.6,0-1,0.4-1,1v2c0,0.6,0.4,1,1,1h22c0.6,0,1-0.4,1-1V11z"/>
                         <path d="M24,19c0-0.6-0.4-1-1-1H1c-0.6,0-1,0.4-1,1v2c0,0.6,0.4,1,1,1h22c0.6,0,1-0.4,1-1V19z"/>                    
                     </svg>
-                    <a href="#">
+                    <a id="nolink" href="#">
                         <p data-toggle="modal" data-target="#exampleModalLong">Ver Categorias</p> 
                     </a> 
                 </div> 
