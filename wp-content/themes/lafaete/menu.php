@@ -116,8 +116,7 @@
           Conteúdo
         </a>
         <div class="dropdown-menu txtAlignCenter" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/blog">Blog</a>
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/materiais">Materiais</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/artigos/">Blog</a>
         </div>
       </li>
 
