@@ -245,9 +245,21 @@ $(function(){
 
 // Função previne que o botão da categoria (submenu) suba até o header pois é um link somente com um hash
 function nolink_category() {
-    var nolink = document.getElementById('nolink')
-    nolink.onclick = function(e) {
-        e.preventDefault();
+    try {
+        var nolink = document.getElementById('nolink')
+        nolink.onclick = function(e) {
+            e.preventDefault();
+        }
+    } catch(e) {
+        console.warn(e)
+    }
+}
+
+function input_hidden() {
+    var input = document.getElementById('hidden-input')
+    var url = window.location.href
+    if(input) {
+        input.value = url
     }
 }
 
@@ -429,6 +441,7 @@ window.addEventListener('load', function(e){
     // footer_floater();
     bpCarrousel = new carousel();//initCarrossel();
     nolink_category()
+    input_hidden()
 });
 
 window.addEventListener('resize', function(e){
