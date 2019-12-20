@@ -1822,6 +1822,9 @@ ul.bp-indicators .dots.active {
   min-height: 430px;
   transition: ease-in-out 0.4s all;
 }
+.card.card-posts.material {
+  min-height: 0;
+}
 .card.card-posts:hover {
   transform: scale(1.05);
 }
