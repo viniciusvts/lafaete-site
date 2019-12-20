@@ -2776,7 +2776,7 @@ footer {
 }
 @media (max-width: 1199px) {
   .carousel {
-    height: 300px;
+    height: auto;
   }
 }
 @media (max-width: 1199px) {
