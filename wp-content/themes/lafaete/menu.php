@@ -7,7 +7,7 @@
           <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
             <path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z" fill="#ffffff"/>
           </svg>
-          <a href="<?php bloginfo('url')?>/atendimento/orcamento">Faça um orçamento</a>
+          <a href="<?php bloginfo('url')?>/atendimento/orcamento/">Faça um orçamento</a>
         </li>
         <li>
           <svg enable-background="new 0 0 578.106 578.106" version="1.1" viewBox="0 0 578.106 578.106" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
@@ -30,9 +30,9 @@
     </div>
     <div class="col-lg-2 col-md-3 col-sm-3 col-12">
       <div class="social d-flex">
-          <a href="https://www.facebook.com/lafaetelocacao" target="_blank" class="mr-auto ml-auto"><img src="<?php bloginfo('template_url');?>/inc/svg/facebook-logo-button.svg" width="30px"></a>
+          <a href="https://www.facebook.com/lafaetelocacao/" target="_blank" class="mr-auto ml-auto"><img src="<?php bloginfo('template_url');?>/inc/svg/facebook-logo-button.svg" width="30px"></a>
           <a href="https://www.instagram.com/lafaetelocacao/" target="_blank" class="mr-auto ml-auto"><img src="<?php bloginfo('template_url');?>/inc/svg/instagram-logo.svg" width="30px"></a>
-          <a href="https://pt.linkedin.com/company/lafaete-loca-es-de-equipamentos" target="_blank" class="mr-auto ml-auto"><img src="<?php bloginfo('template_url');?>/inc/svg/linkedin-button.svg" width="30px"></a>
+          <a href="https://pt.linkedin.com/company/lafaete-loca-es-de-equipamentos/" target="_blank" class="mr-auto ml-auto"><img src="<?php bloginfo('template_url');?>/inc/svg/linkedin-button.svg" width="30px"></a>
       </div>
     </div>
     <!--<div class="col-md-1 col-lg-1 col-sm-6">
@@ -52,12 +52,12 @@
   <div class="collapse navbar-collapse txtAlignCenter pbNav" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto ">
       <li class="nav-item">
-        <a class="nav-link" href="<?php bloginfo('url'); ?>/a-lafaete">A Lafaete</a>
+        <a class="nav-link" href="<?php bloginfo('url'); ?>/a-lafaete/">A Lafaete</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#">Produtos<span class="sr-only">(current)</span></a>
         <div class="dropdown-menu txtAlignCenter" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/produtos">Todos os Produtos</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/produtos/">Todos os Produtos</a>
         <div class="dropdown-divider txtAlignCenter"></div>
           <?php
           $categorias = get_categories( 
@@ -79,55 +79,56 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php bloginfo('url'); ?>/vendas">Seminovos</a>
+        <a class="nav-link" href="<?php bloginfo('url'); ?>/vendas/">Seminovos</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="servicos" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="<?php bloginfo('url'); ?>/servicos/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Serviços
         </a>
         <div class="dropdown-menu txtAlignCenter" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="<?php bloginfo('url'); ?>/servicos/gestao-ambiental">Gestão Ambiental</a>
+        <a class="dropdown-item" href="<?php bloginfo('url'); ?>/servicos/gestao-ambiental/">Gestão Ambiental</a>
         <div class="dropdown-divider txtAlignCenter"></div>
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/servicos/gestao-de-residuos">Gestão de Resíduos</a>
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/servicos/transbordo-e-triagem">Transbordo e Triagem</a>
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/servicos/terraplanagem">Terraplanagem</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/servicos/gestao-de-residuos/">Gestão de Resíduos</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/servicos/transbordo-e-triagem/">Transbordo e Triagem</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/servicos/terraplanagem/">Terraplanagem</a>
           <!--<div class="dropdown-divider"></div>-->
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php bloginfo('url'); ?>/unidades">Unidades</a>
+        <a class="nav-link" href="<?php bloginfo('url'); ?>/unidades/">Unidades</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php bloginfo('url'); ?>/clientes">Clientes</a>
+        <a class="nav-link" href="<?php bloginfo('url'); ?>/clientes/">Clientes</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="<?php bloginfo('url'); ?>/atendimento" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="<?php bloginfo('url'); ?>/atendimento/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Atendimento
         </a>
         <div class="dropdown-menu txtAlignCenter" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/atendimento/orcamento">Orçamento</a>
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/atendimento/fale-conosco">Contato</a>
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/atendimento/trabalhe-conosco">Trabalhe Conosco</a>
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/atendimento/abertura-de-chamado">Abertura de Chamado</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/atendimento/orcamento/">Orçamento</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/atendimento/fale-conosco/">Contato</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/atendimento/trabalhe-conosco/">Trabalhe Conosco</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/atendimento/abertura-de-chamado/">Abertura de Chamado</a>
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="<?php bloginfo('url'); ?>/atendimento" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="<?php bloginfo('url'); ?>/atendimento/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Conteúdo
         </a>
         <div class="dropdown-menu txtAlignCenter" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="<?php bloginfo('url'); ?>/artigos/">Blog</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/materiais/">Materiais</a>
         </div>
       </li>
 
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="<?php bloginfo('url'); ?>/atendimento" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="<?php bloginfo('url'); ?>/atendimento/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Projetos
         </a>
         <div class="dropdown-menu txtAlignCenter" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/eventos">Eventos</a>
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/grandes-obras">Grandes Obras</a>
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/projetos-sociais">Projetos Sociais</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/eventos/">Eventos</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/grandes-obras/">Grandes Obras</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/projetos-sociais/">Projetos Sociais</a>
         </div>
       </li>
     </ul>
