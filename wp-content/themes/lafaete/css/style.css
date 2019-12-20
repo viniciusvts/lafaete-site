@@ -178,6 +178,13 @@ iframe {
   }
 }
 
+@media (max-width: 575.98px) {
+  #v-pills-tab {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
 /*topo-menu*/
 #menu-topo ul li svg {
   width: 18px;
@@ -1912,6 +1919,7 @@ ul.bp-indicators .dots.active {
 .blog-cats li {
   list-style: none;
   font-weight: 600;
+  margin: 5px 0;
 }
 .blog-cats li a {
   color: white;
