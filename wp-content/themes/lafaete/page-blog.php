@@ -9,6 +9,8 @@
 
     <?php include_once('flat-header.php'); ?>
 
+    <?php include_once('inc/search-floater.php'); ?>
+
     <div class="container blog">
         <div class="row">
           <?php
