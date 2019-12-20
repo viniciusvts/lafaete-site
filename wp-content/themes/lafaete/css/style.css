@@ -862,7 +862,7 @@ ul.bp-indicators .dots.active {
 }
 .bp-carousel .arrow-left, .bp-carousel .arrow-right {
   position: relative;
-  margin-top: 6%;
+  margin-top: 35px;
   cursor: pointer;
   transition: transform 0.1s ease-in-out;
   color: white;
