@@ -1732,6 +1732,12 @@ ul.bp-indicators .dots.active {
   float: right !important;
 }
 
+.scroll-rtl p {
+  direction: ltr;
+}
+.scroll-rtl button {
+  direction: ltr;
+}
 @media (min-width: 1199.98px) {
   .scroll-rtl {
     max-height: 200px;

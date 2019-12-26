@@ -623,6 +623,12 @@
     float: right !important;
 }
 .scroll-rtl{
+    p{
+        direction: ltr;
+    }
+    button{
+        direction: ltr;
+    }
     @include mediaScreenMin($largeDesktops){
         max-height: 200px;
         overflow: auto;
