@@ -45,3 +45,7 @@ $hrefLink = isset( $hrefLink ) ? $hrefLink : get_the_permalink();
         </div>
     </a>
 </div> 
+<?php
+//limpar variável para no próximo loop ela não aparecer como setada
+$hrefLink = null;
+?>
