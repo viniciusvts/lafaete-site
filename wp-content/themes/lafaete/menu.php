@@ -32,7 +32,7 @@
       <div class="social d-flex">
           <a href="https://www.facebook.com/lafaetelocacao/" target="_blank" class="mr-auto ml-auto"><img src="<?php bloginfo('template_url');?>/inc/svg/facebook-logo-button.svg" width="30px"></a>
           <a href="https://www.instagram.com/lafaetelocacao/" target="_blank" class="mr-auto ml-auto"><img src="<?php bloginfo('template_url');?>/inc/svg/instagram-logo.svg" width="30px"></a>
-          <a href="https://pt.linkedin.com/company/lafaete-loca-es-de-equipamentos/" target="_blank" class="mr-auto ml-auto"><img src="<?php bloginfo('template_url');?>/inc/svg/linkedin-button.svg" width="30px"></a>
+          <a href="https://www.linkedin.com/company/lafaetelocacao/" target="_blank" class="mr-auto ml-auto"><img src="<?php bloginfo('template_url');?>/inc/svg/linkedin-button.svg" width="30px"></a>
       </div>
     </div>
     <!--<div class="col-md-1 col-lg-1 col-sm-6">
