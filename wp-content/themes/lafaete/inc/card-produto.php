@@ -24,7 +24,7 @@ $hrefLink = isset( $hrefLink ) ? $hrefLink : get_the_permalink();
                     </div>                    
                     <div class="content">
                         <h3><?php the_title(); ?></h3>
-                        <p><?php 
+                        <!-- <p><?php 
                                 foreach($categorias as $key => $categoria){
                                     if(get_queried_object()->term_id !== $categoria->term_id){
                                         echo $categoria->name;
@@ -38,7 +38,7 @@ $hrefLink = isset( $hrefLink ) ? $hrefLink : get_the_permalink();
                             ?></p>
                         <div class="more-link">
                             <a href="<?php echo($hrefLink); ?>" class="read-more">Clique aqui</a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
