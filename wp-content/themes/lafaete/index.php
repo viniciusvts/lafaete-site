@@ -18,7 +18,7 @@
       </div>
       <div class="row">
         <?php
-          $servicos = new WP_Query(array('post_type' => 'servicos', 'order' => 'ASC'));
+          $servicos = new WP_Query(array('post_type' => 'servicos', 'orderby' => 'date'));
           while($servicos->have_posts()) : $servicos->the_post();    
         ?>
         <div class="col-md-4">
