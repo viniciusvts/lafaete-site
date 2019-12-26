@@ -35,9 +35,10 @@ a:hover {
   text-decoration: none;
 }
 
-h5.title-card-blog {
+h3.title-card-blog {
   color: #fab033;
   font-weight: bold;
+  margin-top: 0 !important;
 }
 
 #crumbs a {
@@ -1817,6 +1818,7 @@ ul.bp-indicators .dots.active {
 .card ul {
   list-style: none;
   padding-left: 0;
+  padding-top: 15px;
 }
 .card.card-posts {
   min-height: 430px;

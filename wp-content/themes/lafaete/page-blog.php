@@ -27,7 +27,7 @@
                   <div class="card card-posts">
                       <?php the_post_thumbnail('medium', array('class' => 'card-img-top img-fluid')); ?>
                       <div class="card-body">
-                          <h5 class="card-title card-text title-card-blog"><?php echo wp_trim_words( get_the_title(), 14, '...' ); ?></h5>
+                          <h3 class="card-title card-text title-card-blog"><?php echo wp_trim_words( get_the_title(), 14, '...' ); ?></h3>
                           <h6><?php the_category(); ?></h6>
                           <p class="card-text"><?php echo wp_trim_words( get_the_content(), 19, ' [...] ' ); ?></p>
                       </div>
