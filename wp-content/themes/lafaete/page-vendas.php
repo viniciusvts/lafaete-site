@@ -37,8 +37,10 @@
                     <p data-toggle="modal" data-target="#exampleModalLong">Ver Categorias</p> 
                   </a> 
               </div> 
-
-              <?php include('inc/submenu.php'); ?>
+              <?php 
+              $pageVendas = true;
+              include('inc/submenu.php');
+              ?>
           </div>
         </div>  
       </div>    
