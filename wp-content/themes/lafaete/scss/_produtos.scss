@@ -111,6 +111,14 @@
 	-ms-transition:all 400ms ease;
 	-o-transition:all 400ms ease;
 	-moz-transition:all 400ms ease;	
+    @include mediaScreenMax($desktops){
+        width: 56%;
+        top:-25px;
+    }
+    @include mediaScreenMax($tablets){
+        top:-40px;
+        width: 53.5%;
+    }
 }
 
 .default-service-column .lower-part .right-curve{
@@ -131,6 +139,14 @@
 	-ms-transition:all 400ms ease;
 	-o-transition:all 400ms ease;
 	-moz-transition:all 400ms ease;	
+    @include mediaScreenMax($desktops){
+        width: 56%;
+        top:-25px;
+    }
+    @include mediaScreenMax($tablets){
+        top:-40px;
+        width: 53.5%;
+    }
 }
 
 .default-service-column:hover .lower-part .left-curve,
@@ -428,46 +444,6 @@
         position:relative;
         padding-top:20px;
         margin-top:-20px;	
-    }
-
-    .default-service-column .lower-part .left-curve{
-        position:absolute;
-        left:-19px;
-        top:-28px;
-        width:54.1%;
-        height:90px;
-        background:#ffffff;
-        border-top:10px solid transparent;
-        -webkit-transform:rotate(18deg);
-        -ms-transform:rotate(18deg);
-        -o-transform:rotate(18deg);
-        -moz-transform:rotate(18deg);
-        transform:rotate(18deg);
-        transition:all 400ms ease;
-        -webkit-transition:all 400ms ease;
-        -ms-transition:all 400ms ease;
-        -o-transition:all 400ms ease;
-        -moz-transition:all 400ms ease;	
-    }
-
-    .default-service-column .lower-part .right-curve{
-        position:absolute;
-        right:-20px;
-        top:-28px;
-        width:54.1%;
-        height:90px;
-        background:#ffffff;
-        border-top:10px solid transparent;
-        -webkit-transform:rotate(-18deg);
-        -ms-transform:rotate(-18deg);
-        -o-transform:rotate(-18deg);
-        -moz-transform:rotate(-18deg);
-        transform:rotate(-18deg);
-        transition:all 400ms ease;
-        -webkit-transition:all 400ms ease;
-        -ms-transition:all 400ms ease;
-        -o-transition:all 400ms ease;
-        -moz-transition:all 400ms ease;	
     }
 
     .default-service-column:hover .lower-part .left-curve,
