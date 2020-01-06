@@ -8,6 +8,7 @@ $hrefLink = isset( $hrefLink ) ? $hrefLink : get_the_permalink();
                                                                 foreach($categorias as $categoria){
                                                                     if(get_queried_object()->term_id !== $categoria->term_id){
                                                                         echo $categoria->slug;
+                                                                        echo " ";
                                                                     }
                                                                 }
                                                             ?>">
