@@ -58,7 +58,7 @@
     <?php endif; ?>
 
     <div class="container-fluid nossos-premios">
-      <div class="container my-container">
+      <div class="container pt-5 pb-5">
         <div class="cabecalho-light">
           <h2>Nossas Conquistas</h2>  
           <span></span> 
@@ -68,7 +68,7 @@
             $premios = new WP_Query(array('post_type' => 'premios'));
             while($premios->have_posts()): $premios->the_post();          
           ?>
-          <div class="col-12 col-md-4 col-sm-12">          
+          <div class="col-12 col-md-3 col-sm-12 mr-auto ml-auto">          
             <?php $imagemPremio = get_field('imagem'); ?>            
             <img src="<?php echo $imagemPremio['url']; ?>" alt="<?php echo $imagemPremio['alt'] ?>" class="img-fluid w-100 rounded" /> 
             <h3><?php the_title(); ?></h3>
