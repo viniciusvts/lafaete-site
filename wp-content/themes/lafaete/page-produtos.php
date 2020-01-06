@@ -79,7 +79,7 @@
             foreach ( $terms as $term ){
               $image = get_field('imagem', $term);          
         ?>
-        <div class="default-service-column col-md-4 imagemGaleria">
+        <div class="default-service-column col-md-3 imagemGaleria">
           <a href="<?php bloginfo('url')?>/produtos/<?php echo $term->slug; ?>" class="read-more">
             <div class="inner-box">
                 <div class="inner-most">
