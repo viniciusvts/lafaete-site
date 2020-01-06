@@ -115,9 +115,13 @@
                               <?php endif; ?>
                               <?php if(get_field('unidade') != ''): ?>
                                 <p class="text-center">Unidade: <?php the_field('unidade'); ?></p>
-                              <?php endif; ?>
+                              <?php endif; 
+                              if(get_field('preco') ){
+                              ?>
                               <h3>Preço: <?php the_field('preco'); ?></h3>
-                              <div class="more-link"><a href="<?php the_permalink(); ?>" class="read-more">Clique aqui</a></div>
+                              <?php
+                              }
+                              ?>  
                         </div>
                     </div>
               </div>
