@@ -146,7 +146,7 @@
 
 .default-service-column .content h3{
 	position: relative;
-	margin-bottom: 25px;
+	margin-bottom: 0; //25px
     text-align: center;
 }
 
@@ -187,6 +187,7 @@
         padding-bottom: 20px;
         background: $laranja;
         z-index: 2;
+        color: white;
     }
 
     .produto-floater .texto h2, .produto-floater .texto p {
@@ -201,13 +202,8 @@
         margin: 10px;
     }
 
-    .produto-floater .texto span{
-        color: black;
-    }
-
     .produto-floater .texto button, .produto-floater button{
         background: $cinzaEscuro;
-        color: white;
         border: none;
         padding: 10px 20px;
         margin: 10px;
@@ -623,10 +619,7 @@
     float: right !important;
 }
 .scroll-rtl{
-    p{
-        direction: ltr;
-    }
-    button{
+    *{
         direction: ltr;
     }
     @include mediaScreenMin($largeDesktops){

@@ -1250,7 +1250,7 @@ ul.bp-indicators .dots.active {
 
 .default-service-column .content h3 {
   position: relative;
-  margin-bottom: 25px;
+  margin-bottom: 0;
   text-align: center;
 }
 
@@ -1294,6 +1294,7 @@ ul.bp-indicators .dots.active {
   padding-bottom: 20px;
   background: #ff7e3b;
   z-index: 2;
+  color: white;
 }
 #produtos .produto-floater .texto h2, #produtos .produto-floater .texto p {
   position: relative;
@@ -1305,12 +1306,8 @@ ul.bp-indicators .dots.active {
   font-size: 17px;
   margin: 10px;
 }
-#produtos .produto-floater .texto span {
-  color: black;
-}
 #produtos .produto-floater .texto button, #produtos .produto-floater button {
   background: #6a6a6a;
-  color: white;
   border: none;
   padding: 10px 20px;
   margin: 10px;
@@ -1732,10 +1729,7 @@ ul.bp-indicators .dots.active {
   float: right !important;
 }
 
-.scroll-rtl p {
-  direction: ltr;
-}
-.scroll-rtl button {
+.scroll-rtl * {
   direction: ltr;
 }
 @media (min-width: 1199.98px) {
