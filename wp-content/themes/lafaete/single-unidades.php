@@ -10,7 +10,7 @@
       <div class="carousel-inner carousel-flat-height">
         <div class="carousel-item active">
           <div class="carousel-caption carousel-caption-flat-height">
-            <h1>Unidade em: <?php the_title(); ?></h1>
+            <h1>Unidade em <?php the_title(); ?></h1>
           </div>
           <img src="<?php bloginfo('template_url'); ?>/inc/img/trabalhe-conosco.jpg">
         </div>
