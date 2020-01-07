@@ -113,7 +113,7 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="<?php bloginfo('url'); ?>/atendimento/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Conteúdo
+          Conteúdos
         </a>
         <div class="dropdown-menu txtAlignCenter" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="<?php bloginfo('url'); ?>/artigos/">Blog</a>
