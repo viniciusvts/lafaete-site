@@ -2396,10 +2396,6 @@ img {
   margin: 10px 0;
 }
 
-.fale-conosco h4 {
-  margin-top: 40px;
-}
-
 .fale-conosco-right span {
   font-size: 0.9rem;
   margin-bottom: 10px;
@@ -2481,6 +2477,14 @@ img {
 
 .fale-conosco-left input::placeholder, .fale-conosco-left textarea::placeholder {
   color: #9b9b9b;
+}
+
+.fale-conosco-left textarea[name=informacoes] {
+  height: 110px;
+}
+
+.fale-conosco-left button.botao-laranja {
+  margin-top: 0;
 }
 
 @media (min-width: 991.98px) {
