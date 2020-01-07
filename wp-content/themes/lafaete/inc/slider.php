@@ -32,25 +32,31 @@
     ?>
     <div class="carousel-item <?php if($slider == 0) : echo 'active'; endif; ?>">
       <div class="carousel-caption d-md-block">
-        <h1><?php the_title(); ?></h1>  
-        <p><?php the_field('subtitulo'); ?></p>
-        <?php if(get_field('link') != '') { ?>
-          <a href="<?php the_field('link'); ?>"><button class="btn btn-laranja">Conheça nossas opções</button></a>
-        <?php } ?>
+        <a class="whitelink" href="<?php
+                  if(get_field('link') != '') {
+                    the_field('link');
+                  }else{
+                    echo '#';
+                  }
+                ?>">
+          <h1><?php the_title(); ?></h1>  
+          <p><?php the_field('subtitulo'); ?></p>
+          <button class="btn btn-laranja">Conheça nossas opções</button>
+        </a>
       </div>
       <?php
         $image = get_field('imagem');
         if( !empty($image) ):
       ?>
-      <?php 
-      if(get_field('link') != '') {
-      ?>
-        <a href="<?php the_field('link'); ?>">
+        <a href="<?php
+                  if(get_field('link') != '') {
+                    the_field('link');
+                  }else{
+                    echo '#';
+                  }
+                ?>">
           <img src="<?php echo $image['url']; ?>" class="d-block w-100 img-fluid" alt="<?php echo $image['alt']; ?>" />
         </a>
-      <?php } else { ?>
-        <img src="<?php echo $image['url']; ?>" class="d-block w-100 img-fluid" alt="<?php echo $image['alt']; ?>" />
-      <?php } ?>
       <?php endif; ?>  
     </div>
     <?php
