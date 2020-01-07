@@ -16,7 +16,7 @@
       <div class="carousel-item active">
         <div class="carousel-caption carousel-caption-flat-height d-md-block">
           <h1>
-            <p>Locação de Equipamentos em </p>
+            <p>Locação de Equipamentos </p>
             <?php echo $queried_object->name; ?>
           </h1>
         </div>
@@ -87,8 +87,7 @@
           $produtos->the_post(); 
           //para compor o link preciso das taxonomias produto e cidade
           $categorias = get_the_terms( $post->ID, 'produtos' );
-          $taxTerm = get_the_terms($post->ID, $queried_object->taxonomy );
-          $hrefLink = get_the_permalink() ."?tipo-produto=" . $categorias[0]->name ."&local=" . $taxTerm[0]->name ;
+          $hrefLink = get_the_permalink() ."?tipo-produto=" . $categorias[0]->name ."&local=" . $queried_object->name ;
           include 'inc/card-produto.php';
         }
       }
