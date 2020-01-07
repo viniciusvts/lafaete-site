@@ -553,14 +553,17 @@ nav.navbar {
     font-size: 30px;
   }
 }
+.carousel-caption p {
+  font-size: 30px;
+}
 @media (max-width: 575.98px) {
   .carousel-caption p {
-    font-size: 15px !important;
+    font-size: 20px !important;
   }
 }
 @media (max-width: 767.98px) {
   .carousel-caption p {
-    font-size: 20px;
+    font-size: 25px;
   }
 }
 
@@ -670,6 +673,10 @@ ul.bp-indicators .dots.active {
 
 .carousel-item .destaque-blog {
   filter: none !important;
+}
+
+.whitelink {
+  color: white !important;
 }
 
 /*nossos-premios*/
@@ -1904,6 +1911,10 @@ ul.bp-indicators .dots.active {
 }
 
 .blog p {
+  color: #6a6a6a;
+}
+
+.blog li {
   color: #6a6a6a;
 }
 

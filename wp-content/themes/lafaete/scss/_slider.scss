@@ -50,11 +50,13 @@
     }
     p{
         @include mediaScreenMax($smartphones){
-            font-size: 15px!important;
+            font-size: 20px!important;
         }
         @include mediaScreenMax($tablets){
-            font-size: 20px;
+            font-size: 25px;
         } 
+        font-size: 30px;
+
     }
     // @include mediaScreenMax($tablets){
     //     margin-top: -70px;
@@ -161,4 +163,7 @@ ul.bp-indicators {
 
   .carousel-item .destaque-blog {
       filter: none !important;
+  }
+  .whitelink{
+      color: white!important;
   }
