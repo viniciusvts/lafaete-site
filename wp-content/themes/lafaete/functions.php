@@ -186,4 +186,5 @@
   include_once 'inc/custom-projetos-sociais.php';
   include_once 'inc/paginate.php';
   include_once 'inc/loadSources.php';
+  include_once 'inc/yoastSEOAdvanced.php';
 ?>
