@@ -88,9 +88,21 @@
         <div class="dropdown-menu txtAlignCenter" aria-labelledby="navbarDropdown">
         <a class="dropdown-item" href="<?php bloginfo('url'); ?>/servicos/gestao-ambiental/">Gestão Ambiental</a>
         <div class="dropdown-divider txtAlignCenter"></div>
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/servicos/gestao-de-residuos/">Gestão de Resíduos</a>
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/servicos/transbordo-e-triagem/">Transbordo e Triagem</a>
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/servicos/terraplanagem/">Terraplanagem</a>
+          <?php
+          $args = array(
+            'post_type' => 'servicos',
+            'orderby' => 'name'
+          );
+          $servicos = get_posts( $args );
+          foreach( $servicos as $service ){
+            $permalink = get_the_permalink( $service );
+            $title = $service->post_title;
+          ?>
+          <a class="dropdown-item" href="<?php echo( $permalink ); ?>"><?php echo( $title ); ?></a>
+          <?php
+          }
+          wp_reset_postdata();
+          ?>
           <!--<div class="dropdown-divider"></div>-->
         </div>
       </li>
