@@ -3,6 +3,13 @@
     <div class="row">
       <div class="col-xl-8 texto">
         <div class='scroll-rtl'>
+          <?php
+          if( is_single() ){
+          ?>
+            <h4>Informações Gerais:</h4>
+          <?php
+          }
+          ?>
           <?php if(have_posts()): the_post(); the_content(); endif; ?>
           <button class="btn">
             <a href="#faca-um-orcamento">Faça um orçamento agora</a>
