@@ -1303,15 +1303,15 @@ ul.bp-indicators .dots.active {
   z-index: 2;
   color: white;
 }
-#produtos .produto-floater .texto h2, #produtos .produto-floater .texto p {
+#produtos .produto-floater .texto p, #produtos .produto-floater .texto h2, #produtos .produto-floater .texto h3, #produtos .produto-floater .texto h4, #produtos .produto-floater .texto p, #produtos .produto-floater .texto h2, #produtos .produto-floater .texto h3, #produtos .produto-floater .texto h4 {
   position: relative;
   z-index: 2;
   color: white;
-  padding: 10px;
+  padding: 5px;
+  margin: 0 13px;
 }
 #produtos .produto-floater .texto p {
   font-size: 17px;
-  margin: 10px;
 }
 #produtos .produto-floater .texto button, #produtos .produto-floater button {
   background: #6a6a6a;
@@ -1354,7 +1354,7 @@ ul.bp-indicators .dots.active {
   z-index: 0;
 }
 #produtos .produto-floater .pagamento {
-  padding: 60px 0px;
+  padding: 100px 0px;
   position: relative;
   z-index: 2;
   padding-left: 70px;
@@ -1741,7 +1741,7 @@ ul.bp-indicators .dots.active {
 }
 @media (min-width: 1199.98px) {
   .scroll-rtl {
-    max-height: 200px;
+    max-height: 300px;
     overflow: auto;
     direction: rtl;
   }

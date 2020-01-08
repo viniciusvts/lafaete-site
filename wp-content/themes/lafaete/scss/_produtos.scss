@@ -190,16 +190,18 @@
         color: white;
     }
 
-    .produto-floater .texto h2, .produto-floater .texto p {
-        position: relative;
-        z-index: 2;
-        color: white;
-        padding: 10px;
+    .produto-floater .texto, .produto-floater .texto {
+        p, h2, h3, h4{
+            position: relative;
+            z-index: 2;
+            color: white;
+            padding: 5px;//10px;
+            margin: 0 13px;//10px
+        }
     }
 
     .produto-floater .texto p{
         font-size: 17px;
-        margin: 10px;
     }
 
     .produto-floater .texto button, .produto-floater button{
@@ -245,7 +247,7 @@
     }
 
     .produto-floater .pagamento{
-        padding: 60px 0px;//160px 0px;
+        padding: 100px 0px;//160px 0px;
         position: relative;
         z-index: 2;
         padding-left: 70px;
@@ -623,7 +625,7 @@
         direction: ltr;
     }
     @include mediaScreenMin($largeDesktops){
-        max-height: 200px;
+        max-height: 300px;
         overflow: auto;
         direction: rtl;
     }
