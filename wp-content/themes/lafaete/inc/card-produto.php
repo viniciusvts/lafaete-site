@@ -1,6 +1,8 @@
 <?php
 $categorias = isset( $catTax ) ? $catTax : get_the_terms( $post->ID, 'produtos' );
-$lastIndexOfCat = count($categorias) - 1;
+if( $categorias ){
+    $lastIndexOfCat = count($categorias) - 1;
+}
 $hrefLink = isset( $hrefLink ) ? $hrefLink : get_the_permalink();
 ?>
 <!-- inc/card-produto -->
