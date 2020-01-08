@@ -86,8 +86,6 @@
           Serviços
         </a>
         <div class="dropdown-menu txtAlignCenter" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="<?php bloginfo('url'); ?>/servicos/gestao-ambiental/">Gestão Ambiental</a>
-        <div class="dropdown-divider txtAlignCenter"></div>
           <?php
           $args = array(
             'post_type' => 'servicos',
