@@ -32,7 +32,7 @@
       // $postsPerPage = get_option( 'posts_per_page' );
       // $paged = isset( $_GET['sheet'] )? $_GET['sheet'] : 1; 
       $args = array(
-        'post_type' => 'produto',
+        'post_type' => array( 'produto', 'servicos'),
         'order' => 'ASC' ,
         'posts_per_page' => 100,//$postsPerPage,
         // 'paged' => $paged,
@@ -50,11 +50,13 @@
       $terms = array();
       $termsSlug = array();
       foreach( $posts as $post){
-        $postTaxonomies = get_the_terms($post->ID, 'produtos' );
-        foreach($postTaxonomies as $postTax){
-          if($postTax->parent == 0) {
-            $terms[] = $postTax->name;
-            $termsSlug[] = $postTax->slug;
+        if( $post->post_type == "produto"){
+          $postTaxonomies = get_the_terms($post->ID, 'produtos' );
+          foreach($postTaxonomies as $postTax){
+            if($postTax->parent == 0) {
+              $terms[] = $postTax->name;
+              $termsSlug[] = $postTax->slug;
+            }
           }
         }
       }
@@ -86,8 +88,11 @@
         while( $produtos->have_posts()){
           $produtos->the_post(); 
           //para compor o link preciso das taxonomias produto e cidade
-          $categorias = get_the_terms( $post->ID, 'produtos' );
-          $hrefLink = get_the_permalink() ."?tipo-produto=" . $categorias[0]->name ."&local=" . $queried_object->name ;
+          $hrefLink = get_the_permalink();
+          if( $post->post_type == "produto"){
+            $catTax = get_the_terms( $post->ID, 'produtos' );
+            $hrefLink = get_the_permalink() ."?tipo-produto=" . $catTax[0]->name ."&local=" . $queried_object->name ;
+          }
           include 'inc/card-produto.php';
         }
       }
