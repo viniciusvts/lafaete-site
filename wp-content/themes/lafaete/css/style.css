@@ -1747,6 +1747,30 @@ ul.bp-indicators .dots.active {
   }
 }
 
+.projetos-especiais-container {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  display: block;
+  z-index: 1;
+}
+
+.projetos-especiais-container .menu-produtos {
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.projetos-especiais-container {
+  margin-top: auto;
+  margin-bottom: 40px;
+}
+
+.projetos-especiais-container .menu-produtos {
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
 /*sobre*/
 .sobre {
   background: white;

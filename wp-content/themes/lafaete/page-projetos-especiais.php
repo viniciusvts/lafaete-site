@@ -36,7 +36,7 @@
       </div>
     </section>
 
-    <div class="container produtos-container">
+    <div class="container projetos-especiais-container">
       <div class="row">
         <?php
           $projetosEspeciais = new WP_Query(array(
