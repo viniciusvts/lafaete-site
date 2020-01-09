@@ -42,7 +42,7 @@
                     <?php the_sub_field('descricao'); ?>
                   </div>
                   <div class="col-md-4">
-                    <img src="<?php echo the_post_thumbnail_url('thumbnail'); ?>" alt="<?php the_sub_field('titulo'); ?>" class="img-fluid w-100" />                  
+                    <img src="<?php echo the_post_thumbnail_url('medium'); ?>" alt="<?php the_sub_field('titulo'); ?>" class="img-fluid w-100" />                  
                   </div>
                 </div>
               </div>
