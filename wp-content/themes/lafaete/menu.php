@@ -139,6 +139,7 @@
           <a class="dropdown-item" href="<?php bloginfo('url'); ?>/eventos/">Eventos</a>
           <a class="dropdown-item" href="<?php bloginfo('url'); ?>/grandes-obras/">Grandes Obras</a>
           <a class="dropdown-item" href="<?php bloginfo('url'); ?>/projetos-sociais/">Projetos Sociais</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/projetos-especiais/">Projetos Especiais</a>
         </div>
       </li>
     </ul>
