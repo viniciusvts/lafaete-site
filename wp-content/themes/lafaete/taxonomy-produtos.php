@@ -6,7 +6,7 @@
     <?php 
     include_once('menu.php');
     $queriedObject = get_queried_object();
-    $imagem = get_field( 'imagem' );
+    $imagem = get_field( 'imagem', $queriedObject );
     ?>
 
     <!-- SLIDER -->
