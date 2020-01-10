@@ -3,7 +3,11 @@
   <?php include_once('head.php'); ?>
 
   <body>
-    <?php include_once('menu.php'); ?>
+    <?php 
+    include_once('menu.php');
+    $queriedObject = get_queried_object();
+    $imagem = get_field( 'imagem' );
+    ?>
 
     <!-- SLIDER -->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -11,9 +15,9 @@
         <div class="carousel-item active">
           <div class="carousel-caption carousel-caption-flat-height d-none d-md-block">
             <h2>Locação de</h2>
-            <h1> <?php echo get_queried_object()->name; ?> </h1>
+            <h1> <?php echo $queriedObject->name; ?> </h1>
           </div>
-          <img class="d-block w-100" src="<?php echo( get_field('imagem' )['sizes']['large'] ); ?>" alt="First slide">
+          <img class="d-block w-100" src="<?php echo( $imagem['sizes']['large'] ); ?>" alt="First slide">
         </div>
       </div>
     </div>
@@ -21,7 +25,7 @@
         <div class="container">
             <div class="row"> 
                 <div class="col-md-4">
-                <p> Home » Vendas » <?php echo get_queried_object()->name;?> </p>
+                <p> Home » Vendas » <?php echo $queriedObject->name;?> </p>
                 </div>
                 <div class="col-md-4 formulario">
 					<?php $search = isset( $_GET['searchkey'] )? $_GET['searchkey'] : ""; ?>
@@ -55,7 +59,7 @@
         <div class="row">
           <div class="col-xl-8 texto">
             <div class='scroll-rtl'>
-              <p><?php echo get_queried_object()->description; ?></p>
+              <p><?php echo $queriedObject->description; ?></p>
               <button class="btn">
                 <a href="#faca-um-orcamento">Faça um orçamento agora</a>
               </button>
@@ -72,7 +76,7 @@
 
     <div class="container produtos-container menu-imoveis">
       <?php
-        $term_id = get_queried_object()->term_id;
+        $term_id = $queriedObject->term_id;
         $taxonomy_name = 'produtos';
         $term_children = get_term_children( $term_id, $taxonomy_name );
         if($term_children):
@@ -112,7 +116,7 @@
                     array(
                       'taxonomy' => 'produtos',
                       'field' => 'id',
-                      'terms' => get_queried_object()->term_id,
+                      'terms' => $queriedObject->term_id,
                       'include_children' => false
                     )
                   )
