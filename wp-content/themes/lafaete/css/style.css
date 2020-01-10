@@ -594,7 +594,7 @@ nav.navbar {
 }
 
 .carousel-flat-height img {
-  height: 400px;
+  height: 600px;
 }
 
 .carousel-caption-flat-height {
@@ -1311,7 +1311,7 @@ ul.bp-indicators .dots.active {
   margin: 0 13px;
 }
 #produtos .produto-floater .texto p {
-  font-size: 17px;
+  font-size: 22px;
 }
 #produtos .produto-floater .texto button, #produtos .produto-floater button {
   background: #6a6a6a;
@@ -1628,7 +1628,6 @@ ul.bp-indicators .dots.active {
   }
 
   #produtos .produto-floater .texto p {
-    font-size: 1rem;
     margin: 10px;
   }
 
@@ -1738,6 +1737,7 @@ ul.bp-indicators .dots.active {
 
 .scroll-rtl * {
   direction: ltr;
+  text-align: justify;
 }
 @media (min-width: 1199.98px) {
   .scroll-rtl {

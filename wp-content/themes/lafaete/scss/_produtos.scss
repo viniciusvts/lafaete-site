@@ -201,7 +201,7 @@
     }
 
     .produto-floater .texto p{
-        font-size: 17px;
+        font-size: 22px;
     }
 
     .produto-floater .texto button, .produto-floater button{
@@ -526,7 +526,6 @@
     }
 
     #produtos .produto-floater .texto p{
-        font-size: 1rem;
         margin: 10px;
     }
 
@@ -623,6 +622,7 @@
 .scroll-rtl{
     *{
         direction: ltr;
+        text-align: justify;
     }
     @include mediaScreenMin($largeDesktops){
         max-height: 300px;
