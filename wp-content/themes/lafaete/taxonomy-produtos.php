@@ -13,7 +13,7 @@
             <h2>Locação de</h2>
             <h1> <?php echo get_queried_object()->name; ?> </h1>
           </div>
-          <img class="d-block w-100" src="<?php bloginfo('template_url'); ?>/inc/img/slider-construcao.jpg" alt="First slide">
+          <img class="d-block w-100" src="<?php echo( get_field('imagem' )['sizes']['large'] ); ?>" alt="First slide">
         </div>
       </div>
     </div>
@@ -53,16 +53,18 @@
     <div id="produtos">
       <div class="container produto-floater">
         <div class="row">
-          <div class="col-md-8 texto">
-            <div class="bread">
+          <div class="col-xl-8 texto">
+            <div class='scroll-rtl'>
+              <p><?php echo get_queried_object()->description; ?></p>
+              <button class="btn">
+                <a href="#faca-um-orcamento">Faça um orçamento agora</a>
+              </button>
+              
             </div>
-            <p><?php echo get_queried_object()->description; ?></p>
-            <a href="#faca-um-orcamento"><button class="btn">Faça um orçamento agora</button></a>
           </div>
-          <div class="col-md-4 pagamento">
+          <div class="col-xl-4 pagamento">
             <h4>Condições de Pagamento</h4>
-            
-            <img src="<?php bloginfo('template_url'); ?>/inc/img/pagseguro.png">
+            <img src="<?php bloginfo('template_url');?>/inc/img/pagseguro.png">
           </div>
         </div>
       </div>
