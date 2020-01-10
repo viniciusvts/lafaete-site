@@ -21,7 +21,7 @@
           $servicos = new WP_Query(array('post_type' => 'servicos', 'orderby' => 'date'));
           while($servicos->have_posts()) : $servicos->the_post();    
         ?>
-        <div class="col-md-4">
+        <div class="col-md-4 mr-auto ml-auto">
           <div class="servicos-col">
             <?php the_field('icone'); ?>
             <h3 class="servicos-titulo"><?php the_title(); ?></h3>
