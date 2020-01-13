@@ -135,9 +135,199 @@
       </div>
     <?php
       endif;
+      $modelos = get_field('modelos');
+      if( $modelos ){
+        $sizeOfModelos = count($modelos);
     ?>
-
+    <div class="container-modelos">
+      <div class="container">
+        <div class="row" style="margin-bottom: 0; padding-bottom: 40px;">
+          <!--header-->
+          <div class="col-sm-12 center-align">
+            <div class="cabecalho">
+              <h2>Modelos</h2>
+            </div>
+            <ul class="tabs">
+              <?php
+              $first = true;
+              foreach( $modelos as $modelo){
+              ?>
+              <li class="tab">
+                <a href="#" objetivo="<?php 
+                                      echo( $modelo['nome'] );
+                                    ?>"
+                    class="<?php
+                              if( $first ){
+                                echo( "active" ); 
+                                $first = false;
+                              }
+                            ?>">
+                  <?php echo( $modelo['nome'] ); ?>
+                  <div></div>
+                </a>
+              </li>
+              <?php
+              }
+              ?>
+              <li class="indicator" style="right: 568px; left: 486px;"></li>
+            </ul>
+          </div>
+          <!--/header-->
+          <?php 
+          $first = true;
+            foreach( $modelos as $modelo){
+          ?>
+          <div id="<?php echo( $modelo['nome'] ); ?>" 
+              class="col-sm-12 row modeloProdutos <?php
+                                                    if( $first ){
+                                                      echo( "active" ); 
+                                                      $first = false;
+                                                    }
+                                                  ?>">
+            <div class="col-sm-12 col-md-6 content-container">
+              <p>
+                <strong>Dimensões:</strong>
+                <br>
+                <?php 
+                if ( $modelo['comprimento'] ){
+                  echo( "<br> Comprimento: " . $modelo['comprimento'] );
+                }
+                if ( $modelo['largura'] ){
+                  echo( "<br> Largura: " . $modelo['largura'] );
+                }
+                if ( $modelo['altura'] ){
+                  echo( "<br> Altura: " . $modelo['altura'] );
+                }
+                if ( $modelo['pe_direito'] ){
+                  echo( "<br> Pé direito: " . $modelo['pe_direito'] );
+                }
+                ?>
+              </p>
+							<ul class="collapsible" data-collapsible="accordion">
+                <li class="active">
+                  <div class="collapsible-header active">Especificações</div>
+                  <div class="collapsible-body" style="display: block;">
+                    <?php 
+                    if ( $modelo['pintura'] ){ 
+                    ?>
+                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/pin.png">
+                    <?php
+                    }else{
+                    ?>
+                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/pin-off.png">
+                    <?php
+                    }
+                    if ( $modelo['revestimento_interno'] ){
+                    ?>
+                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/revint.png">
+                    <?php
+                    }else{
+                    ?>
+                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/revint-off.png">
+                    <?php
+                    }
+                    if ( $modelo['revestimento_de_piso'] ){
+                    ?>
+                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/revpis.png">
+                    <?php
+                    }else{
+                    ?>
+                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/revpis-off.png">
+                    <?php
+                    }
+                    if ( $modelo['pontos_para_lampada'] ){
+                    ?>
+                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/lamp.png">
+                    <?php
+                    }else{
+                    ?>
+                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/lamp-off.png">
+                    <?php
+                    }
+                    if ( $modelo['pontos_de_tomada'] ){
+                    ?>
+                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/ptom.png">
+                    <?php
+                    }else{
+                    ?>
+                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/ptom-off.png">
+                    <?php
+                    }
+                    if ( $modelo['pontos_de_logica'] ){
+                    ?>
+                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/plog.png">
+                    <?php
+                    }else{
+                    ?>
+                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/plog-off.png">
+                    <?php
+                    }
+                    if ( $modelo['pontos_de_telefonia'] ){
+                    ?>
+                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/ptel.png">
+                    <?php
+                    }else{
+                    ?>
+                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/ptel-off.png">
+                    <?php
+                    }
+                    if ( $modelo['sanitarios'] ){
+                    ?>
+                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/san.png">
+                    <?php
+                    }else{
+                    ?>
+                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/san-off.png">
+                    <?php
+                    }
+                    ?>
+                    <p>
+                    <?php 
+                    if ( $modelo['pintura'] ){
+                      echo( "<br> Pintura: " . $modelo['pintura'] );
+                    }
+                    if ( $modelo['revestimento_interno'] ){
+                      echo( "<br> Revestimento interno: " . $modelo['revestimento_interno'] );
+                    }
+                    if ( $modelo['janela'] ){
+                      echo( "<br> Janela: " . $modelo['janela'] );
+                    }
+                    if ( $modelo['revestimento_de_piso'] ){
+                      echo( "<br> Revestimento de Piso: " . $modelo['revestimento_de_piso'] );
+                    }
+                    if ( $modelo['pontos_para_lampada'] ){
+                      echo( "<br> Pontos para lâmpada: " . $modelo['pontos_para_lampada'] );
+                    }
+                    if ( $modelo['pontos_de_tomada'] ){
+                      echo( "<br> Pontos de tomada: " . $modelo['pontos_de_tomada'] );
+                    }
+                    if ( $modelo['pontos_de_logica'] ){
+                      echo( "<br> Pontos de lógica: " . $modelo['pontos_de_logica'] );
+                    }
+                    if ( $modelo['pontos_de_telefonia'] ){
+                      echo( "<br> Pontos de telefonia: " . $modelo['pontos_de_telefonia'] );
+                    }
+                    if ( $modelo['sanitarios'] ){
+                      echo( "<br> Sanitários: " . $modelo['sanitarios'] );
+                    }
+                    ?>
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="col-sm-12 col-md-6 center-align">
+              <img src="<?php echo( $modelo['planta']['sizes']['medium_large'] ); ?>" alt="<?php echo( $modelo['planta']['alt'] ); ?>" style="width: 100%;margin-top: 50px;">
+            </div>
+          </div>
+          <?php 
+            }
+          ?>
+        </div>
+      </div>
+    </div>
     <?php
+      }
     $terms = get_the_terms( $post->ID , 'produtos', 'string');
     $term_ids = wp_list_pluck($terms,'term_id');
       $args = array(
@@ -177,9 +367,6 @@
 
     <?php
       endif;
-    ?>
-    
-    <?php
     include_once('inc/form-orcamento.php');
     include_once('newsletter.php');
     include_once('footer.php');
