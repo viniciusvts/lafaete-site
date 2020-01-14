@@ -27,7 +27,7 @@
                 <h5 class="card-title card-text title-card-blog"><?php echo wp_trim_words( get_the_title(), 14, '...' ); ?></h5>
                 <h6><?php the_category(); ?></h6>
                 <p class="card-text"><?php echo wp_trim_words( get_the_content(), 19, ' [...] ' ); ?></p>
-                <a href="<?php echo $link; ?>"><button class="btn botao-laranja">Acesse o Material</button></a>
+                <a href="<?php echo $link; ?>" target="_blank" rel="noreferrer"><button class="btn botao-laranja">Acesse o Material</button></a>
               </div>
             </div>
           </a>
