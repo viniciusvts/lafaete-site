@@ -3,8 +3,8 @@ Contributors: mohammed_kaludi, ahmedkaludi, ampforwp
 Tags: AMP, accelerated mobile pages, mobile, amp project, google amp, amp wp, google, plugin, SEO
 Donate link: https://www.paypal.me/Kaludi/25
 Requires at least: 3.0
-Tested up to: 5.3
-Stable tag: 0.9.98.18
+Tested up to: 5.3.2
+Stable tag: 1.0.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,9 +30,9 @@ Bug reports for AMP for WP are [welcomed on GitHub](https://github.com/ahmedkalu
 * NEW - Gutenberg Support
 * NEW - Divi and Elementor Support [More Info](https://ampforwp.com/amp-pagebuilder-compatibility/)
 * NEW - Improved CSS Optimization (Tree Shaking)
+* NEW - Google Fonts Support For All Designs
 * NEW - Addthis Sharing Support
-* NEW - AMP Infinity Scroll Support
-* NEW - Revolution Slider plugin Support 
+* NEW - AMP Infinite Scroll Support
 * NEW - Photo Gallery by 10Web Support 
 * NEW - MEWE social network Support 
 * NEW - GDPR Compliance
@@ -191,49 +191,25 @@ You can contact us from [here](https://ampforwp.com/contact/)
 
 == Changelog ==
 
-= 0.9.98.18 (21th November 2019) =
-* Improvement: Show the number of shares with Sassy Social Share #3588
-* Fixed: Need to improvment in table code #3664
-* Fixed: Change internal links to AMP is not working when custom permalink having the extenison.html #3811
-* Fixed: Width of the recent posts and related posts thumbnail image should be same #3639
-* Fixed: Page should be full width if the page builder is used #3756
-* Fixed: Remove broken link on source code like "<link rel="dns-prefetch" href="https://cdn.ampproject.org">." #3697
-* Fixed: leave a comment added when making pages with pagebuilder #3755
-* Fixed: Need to adding gaping for col 2 in AMP Pagebuilder #3796
-* Fixed: CSS issue. #3785
-* Fixed: Facebook comment is not changing language when we select another language #3710
-* Fixed: Verify button of Google Font API key is not working after update #3858
-* Fixed: Cache is not clearing after clicking clear cache button #3863
+= 1.0.14 (14th January 2020) =
+* Fixed: Warning in accelerated-mobile-pages/includes/options/admin-config.php on line 1250 #4027
+* Fixed: Code improvement in Detect Component and add or remove script accordingly #4067
 
-= 0.9.98.17 (19th November 2019) =
-* Fixed: Validation error of 'srcset' in 'amp-img' after Latest update of Divi Theme (From version 4.0.2) #3803
-* Fixed: Logo is not resizing when using fixed width #3696
-* Fixed: Fatal Error when "AMP FOR WP" is activated on AMP FOR WP Garage URL #3765
-* Fixed: Images and Videos with Gutenberg does not have proper spacing #3634
-* Fixed: Undefined variable: amp_url #3776
-* Fixed: amp-image-lightbox markup is loading in paginated post even the image is not present #3700
-* Fixed: Search results on/off option in amp #3786
-* Fixed: Internal links are breaking in Persian language #3777
-* Fixed: Use util function to get array component. Fixes #3778 #3842
-* Fixed: Add Hyperlink option to Gallery module images. #3850
-* Fixed: Need to remove WPBakery Page Builder Support Option #3855
+= 1.0.13 (13th January 2020) =
+* Fixed: Warring in console : [DOM] Found 2 elements with non-unique id #amp-search #3946
+* Fixed: New Relic script is getting added in AMP and causing validtion error #4018
+* Fixed: Icons are not loading when creating theme compatibility #3766
+* Fixed: Video doesn't work on AMP when inserted from Siteorigin pagebuilder (Video player widget) #3936
+* Fixed: Minor issues with amp need to fix #3931
+* Fixed: When from amp page builder adding text module then space is not coming in paragraph #3982
+* Fixed: Getting error at home page when push notification option is enabled. #4026
+* Fixed: Please Fix Errors in Google Lighthouse audit in Accessibility (using Swift, Amp Layouts) #3949
+* Fixed: Remove offers from the panel #4027
+* Fixed: Detect Component and add or remove script accordingly #4067
+* Fixed: GTM tags are not working in the updated version 1.0.9 but Google Analytics is working,Also in version 1.0.0 both are working fine #4059
+* Fixed: Matomo (Piwik) Analytics generating errors in Console. #4042
 
-= 0.9.98.16 (18th November 2019) =
-* Improvement: Need to make compatibility of Advance setting options of yoast seo into AMP #3684
-* Improvement: Add filter to modify HTML attributes #3685
-* Fixed: Jetpack causing errors after update #3849
-* Fixed: Facebook like button is not showing correctly after last update in design3 #3742
-* Fixed: [URGENT] Vuukle API KEY missing #3792
-* Fixed: Admin tool bar css is not loading #3788
-* Fixed: Hide button always showing on page #3762
-* Fixed: Meta description are not showing properly in genesis #3761
-* Fixed: Non-Responsive tables after version 0.9.98.9 #3746
-* Fixed: Wrong amphtml when static page is selected in reading settings along with ?amp endpoint #3717
-* Fixed: Homepage posts image alignment issue #3691
-* Fixed: Lightbox not working for single images #3683
-* Fixed: Notice: Undefined index: category #3829
-* Fixed: Notice: Undefined variable: category_name #3827
-* Fixed: AMP Dev mode when disabled throwing a fatal error in mobile mode for blog. #3824
-* Fixed: Warning when trying to save the option #3800
+= 1.0.12 (12th January 2020) =
+* Fixed: Detect Component and add or remove script accordingly #4067
 
 Full changelog available [ at changelog.txt](https://plugins.svn.wordpress.org/accelerated-mobile-pages/trunk/changelog.txt)

@@ -1,4 +1,8 @@
-<?php function amp_breadcrumb_output(){
+<?php 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+function amp_breadcrumb_output(){
     global $redux_builder_amp; 
     $home_non_amp = $archive_non_amp = '';
     if ( false == $redux_builder_amp['ampforwp-homepage-on-off-support'] ) {
@@ -113,18 +117,15 @@
                     // Get last category post is in
                     $last_category = array_values($category);
                     $last_category = end($last_category);
-                    $category_name = get_category($last_category);
-                    $get_cat_parents = rtrim(get_category_parents($last_category->term_id, false, '/'),'/');
+                    $get_cat_parents = rtrim(get_category_parents($last_category->term_id, false, '>'),'>');
                     if(class_exists( 'WPSEO_Options' )){
                         $primary_cateogory = get_post_meta(ampforwp_get_the_ID(), '_yoast_wpseo_primary_category', true);
                     if(isset($primary_cateogory) && $primary_cateogory!=""){
-                        $pcname = get_the_category_by_ID($primary_cateogory);
-                        $category_name = $pcname;
-                        $get_cat_parents = rtrim(get_category_parents($primary_cateogory, false, '/'),'/');
+                        $get_cat_parents = rtrim(get_category_parents($primary_cateogory, false, '>'),'>');
                        }
                    }
-                    // Get parent any categories and create array
-                    $cat_parents = explode('/',$get_cat_parents);
+                    // Get parent any categories and create array 
+                    $cat_parents = explode('>',$get_cat_parents);
                       
                     // Loop through parent categories and store in variable $cat_display
                     $cat_display = '';
