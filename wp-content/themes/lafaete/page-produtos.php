@@ -44,55 +44,6 @@
     </div>
     <div class="container produtos-container">
       <div class="row">
-<<<<<<< HEAD
-		<?php
-		$postsPerPage = get_option( 'posts_per_page' );
-		$paged = isset( $_GET['sheet'] ) ? $_GET['sheet'] : 1;
-		$search = isset( $_GET['searchkey'] ) ? $_GET['searchkey'] : '';
-		$args = array(
-			'post_type' => 'produto',
-			'posts_per_page' => $postsPerPage,
-			'paged' => $paged,
-			's' => $search,
-		);
-		
-		$produtos = new WP_Query($args);
-		if( $produtos->have_posts() ){
-			while( $produtos->have_posts()){
-				$produtos->the_post();
-				$hrefLink = get_the_permalink();
-				include 'inc/card-produto.php';
-			}
-		}
-		wp_reset_postdata();
-		?>        
-	  </div>  
-	  	<div class="row container paginate-container">
-			<div class="paginate">
-				<div class="line-L col-6">
-					<?php
-					$prev = get_prev_page_link( $produtos->max_num_pages);
-					$next = get_next_page_link( $produtos->max_num_pages);
-					if($prev){
-						echo "<a class='page-btn' href='".$prev."'>";
-						echo "Anterior";
-						echo "</a>";
-					}
-					?>
-				</div>
-				<div class="line-Right col-6">
-					<?php
-						if($next){
-							echo "<a class='page-btn' href='".$next."'>";
-							echo "Próxima";
-							echo "</a>";
-						}
-					?>
-				</div>
-			</div>
-		</div>
-		<?php include_once('inc/produtos-orcamento-agora.php'); ?>
-=======
         <?php
         $postsPerPage = get_option( 'posts_per_page' );
         $paged = isset( $_GET['sheet'] ) ? $_GET['sheet'] : 1;
@@ -182,7 +133,6 @@
       <?php 
       }
       ?>
->>>>>>> 8703e4f7436beeb6b53e13507783242d6df2f17f
     </div>  
    
     <?php
