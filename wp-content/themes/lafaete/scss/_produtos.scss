@@ -197,11 +197,15 @@
             color: white;
             padding: 5px;//10px;
             margin: 0 13px;//10px
+            font-size: 20px;
+        }
+        ul li {
+            text-transform: capitalize;
         }
     }
 
     .produto-floater .texto p{
-        font-size: 22px;
+        font-size: 19px;
     }
 
     .produto-floater .texto button, .produto-floater button{
