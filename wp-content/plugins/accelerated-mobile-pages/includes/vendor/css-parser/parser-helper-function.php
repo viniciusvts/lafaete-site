@@ -1,6 +1,8 @@
 <?php
 namespace AMPforWP\AMPVendor;
-
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 class AMPFORWP_Tree_Shaking_Transient{
 	public static function ampforwp_get_proper_transient_name($transient){
 		global $post;
@@ -118,7 +120,7 @@ class AMPFORWP_Tree_Shaking_Transient{
 			}
 		}
 
-		
+		$value = isset($value) ? $value : '';
 		return apply_filters( "transient_{$transient}", json_decode($value, true), $transient );
 	}
 }

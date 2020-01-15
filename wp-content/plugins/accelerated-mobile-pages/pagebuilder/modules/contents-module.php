@@ -37,7 +37,7 @@ function ampforwp_content_module_pagination($args, $fieldValues){
   display:grid;
   width:100%;
   grid-template-columns:1fr 1fr 1fr;
-  grid-gap:0px 30px;
+  grid-gap:30px;
 }
 {{module-class}} .cm ul li {
   list-style-type: none;
@@ -49,7 +49,7 @@ function ampforwp_content_module_pagination($args, $fieldValues){
 {{module-class}} .cm h4{border-bottom: 2px solid #eee;padding-bottom: 8px;margin-bottom: 5px;font-size:18px;color: #191919;font-weight: 600;}
 {{module-class}} .cm .cmr{display:flex;flex-direction: column;margin-top: 6px;}
 {{module-class}} .cm .cmr a{font-size: 16px;line-height: 1.3;font-weight: 500;color: #000;margin: 0px 0px 5px 0px;}
-{{module-class}} .cm .cmr p{color: {{text_color_picker}};font-size: 13px;line-height: 20px;letter-spacing: 0.10px;margin-bottom:0;}
+{{module-class}} .cm .cmr p{color: #555;font-size: 13px;line-height: 20px;letter-spacing: 0.10px;margin-bottom:0;}
 {{module-class}} .cm .cml{width:100%;}
 {{module-class}} .cmp a {
     color: black;
@@ -70,6 +70,10 @@ function ampforwp_content_module_pagination($args, $fieldValues){
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
+}
+{{module-class}} .cm .cmr p a{
+  font-size:13px;
+  color:#005be2;
 }
 @media(max-width:768px){
   {{module-class}} .cm ul{
@@ -115,7 +119,7 @@ $categoriesArray = array();
 if ( is_admin() ) {
   $post_types = get_post_types(array('public'=>true));
   $post_types = get_option('ampforwp_cpt_generated_post_types');
-  $post_types['post'] = 'post';
+  $post_types['post'] = 'Post';
  $categories = get_categories( array(   
                    'orderby' => 'name',   
                    'order'   => 'ASC',
@@ -206,6 +210,24 @@ if ( is_admin() ) {
                         ),
                 'content_type'=>'css',
               ),
+			    array(
+				    'type'		=>'text',
+				    'name'		=>"ampforwp_pb_cat_pagination_next",
+				    'label'		=>'Pagination For Next Label',
+				    'tab'     =>'advanced',
+				    'default'	=>'First',
+				    'content_type'=>'html',
+				    'required'  => array('pagination'=>'1'),
+			    ),
+			    array(
+				    'type'		=>'text',
+				    'name'		=>"ampforwp_pb_cat_pagination_last",
+				    'label'		=>'Pagination For Last Label',
+				    'tab'     =>'advanced',
+				    'default'	=>'Last',
+				    'content_type'=>'html',
+				    'required'  => array('pagination'=>'1'),
+			    ),
               array(    
               'type'  =>'select',   
               'name'  =>"post_type_selection",   
@@ -214,6 +236,19 @@ if ( is_admin() ) {
               'default' =>'post',    
               'options' => $post_types,    
               'options_details'=>$post_types ,
+              'content_type'=>'html',
+              'ajax'  => true,
+              'ajax_dep' => 'taxonomy_selection',
+              'ajax_action' => 'ampforwp_pb_taxonomy'
+            ),
+            array(    
+              'type'  =>'select',   
+              'name'  =>"taxonomy_selection",   
+              'label' => esc_html__("Select Taxonomy","accelerated-mobile-pages"),
+              'tab'     =>'customizer',
+              'default' =>'',    
+              'options' => $options,    
+              'options_details'=>$categoriesArray ,
               'content_type'=>'html',
               'ajax'  => true,
               'ajax_dep' => 'category_selection',
@@ -269,7 +304,7 @@ if ( is_admin() ) {
             'name'    =>"ampforwp_read_more",
             'label'   =>esc_html__("Read More Text","accelerated-mobile-pages"),
             'tab'     =>'customizer',
-            'default' =>'',    
+            'default' =>'Read More',    
             'content_type'=>'html',
             'required'  => array('ampforwp_show_excerpt' => 'yes'),
             ),
@@ -410,24 +445,14 @@ if ( is_admin() ) {
                       $width = $width * $resolution;
                       $height = $height * $resolution;
                     }
-                    
-                  try{
-                    if(function_exists('ampforwp_aq_resize')){
-                      $thumb_url = ampforwp_aq_resize( $image, $width, $height, true, false ); //resize & crop the image
-                     
-                      if($thumb_url!=false){
-                        $image   =  $thumb_url[0];
-                        $width   =  $thumb_url[1];
-                        $height  =  $thumb_url[2];
-                      }
-                    }
-
-                   }catch(Exception $e){
-                      error_log($e);
-                   }
+                    if(!is_numeric($width) && !is_numeric($height)){
+                      $width = '346';
+                      $height = '188';
+                    }     
               }
 
               $excerptContent = "";
+              $read_more_link = "";
               $readMore = "";
               if( $ampforwp_show_excerpt == 'yes' ) {     
                    if( has_excerpt() ) {    
@@ -437,8 +462,9 @@ if ( is_admin() ) {
                    }  
                  if(isset($fieldValues['ampforwp_read_more']) && !empty($fieldValues['ampforwp_read_more']) ){
                     $readMore = $fieldValues['ampforwp_read_more'];
+                    $read_more_link = '<a href="'.esc_url($ampforwp_post_url).'" > '.esc_html($readMore).'</a>';
                   }   
-                 $excerptContent = '<p>'.wp_trim_words( strip_tags( strip_shortcodes( $content ) ) , (int) $ampforwp_excerpt_length ).'<a href="'.esc_url($ampforwp_post_url).'" > '.esc_html($readMore).'</a></p>';
+                 $excerptContent = '<p>'.wp_trim_words( strip_tags( strip_shortcodes( $content ) ) , (int) $ampforwp_excerpt_length ).$read_more_link.'</p>';
               }
                $loopdate = "";
                $loopdate =  human_time_diff(
@@ -524,7 +550,15 @@ if ( is_admin() ) {
         if( isset($fieldValues['pagination']) && $fieldValues['pagination'] == 1){
       
         /*Pagination Sart*/
-        $total_num_pages = $the_query->max_num_pages;
+        $offset = $fieldValues['posts_offset'];
+        $per_page = $the_query->query['posts_per_page'];
+        $offset_num = ceil($offset/$per_page);
+        
+        if( $the_query->max_num_pages == $offset_num ){
+          $total_num_pages = $the_query->max_num_pages;
+        }else{
+          $total_num_pages = $the_query->max_num_pages - $offset_num;
+        }
         if(isset($_GET[$pagination_text]) && $_GET[$pagination_text]!='' ){
             $paged = intval($_GET[$pagination_text]);
         }else{
@@ -535,8 +569,9 @@ if ( is_admin() ) {
           
           $first_page = add_query_arg( array( $pagination_text => 1 ), $queryUrl );
           $prev_page = add_query_arg( array( $pagination_text => $paged - 1 ), $queryUrl );
+          $nextLabel = (isset($fieldValues['ampforwp_pb_cat_pagination_next']) && !empty($fieldValues['ampforwp_pb_cat_pagination_next'])) ? $fieldValues['ampforwp_pb_cat_pagination_next'] : "Next";
 
-          $pagination_links .= "<a class='pagi-first' href = ".esc_url($first_page)."> ".esc_html__('First','accelerated-mobile-pages')."</a>";
+          $pagination_links .= "<a class='pagi-first' href = ".esc_url($first_page)."> ".esc_html__($nextLabel,'accelerated-mobile-pages')."</a>";
           //$pagination_links .= "<a href = ".$prev_page."> Prev </a>";
         }
 
@@ -547,11 +582,13 @@ if ( is_admin() ) {
         $startPage = max( 1, $paged - $count);
         $endPage = min( $total_num_pages, $paged + $count);
         for($i = $startPage ; $i <= $endPage ; $i++){
-          if( $paged == $i){
+          if( $paged == $i && $startPage!=$endPage){
               $pagination_links .= "<a class='active' href='#/' >".esc_html__($i, 'accelerated-mobile-pages')."</a>";
           }else{
             $allPages = add_query_arg( array( $pagination_text => $i ), $queryUrl );
-            $pagination_links .= "<a href =".esc_url($allPages)." >".esc_html__($i, 'accelerated-mobile-pages')."</a>";
+            if($startPage!=$endPage){
+              $pagination_links .= "<a href =".esc_url($allPages)." >".esc_html__($i, 'accelerated-mobile-pages')."</a>";
+            }
           }
 
         }
@@ -561,8 +598,9 @@ if ( is_admin() ) {
           //$pagination_links .= "<a  href =".$next_page." '> Next </a>";
         }
         if( $total_num_pages != $paged ){
+	        $lastLabel = (isset($fieldValues['ampforwp_pb_cat_pagination_last']) && !empty($fieldValues['ampforwp_pb_cat_pagination_last'])) ? $fieldValues['ampforwp_pb_cat_pagination_last'] : "Last";
           $next_page = add_query_arg( array( $pagination_text => $total_num_pages ), $queryUrl );
-          $pagination_links .= "<a class='pagi-last' href =".esc_url($next_page)." >".esc_html__('Last', 'accelerated-mobile-pages')."</a>";
+          $pagination_links .= "<a class='pagi-last' href =".esc_url($next_page)." >".esc_html__($lastLabel, 'accelerated-mobile-pages')."</a>";
         }
         $pagination_links .= '</div>';
         

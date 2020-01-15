@@ -22,14 +22,7 @@ function amp_pagebuilder_content(){
 			$postId = pll_get_post($front_page_id);
 		}
 	}
-  	if( empty( $postId ) ) return;
-	$ampforwp_pagebuilder_enable = get_post_meta($postId,'ampforwp_page_builder_enable', true);
-	
-	if (ampforwp_empty_content(get_post($postId)->post_content) && $ampforwp_pagebuilder_enable=='yes') { 
-		$arr['ID'] = get_post($postId)->ID;
-		$arr['post_content'] = '&nbsp;';
-		wp_update_post($arr);
-	}
+
 	add_filter( 'amp_pagebuilder_content', 'ampforwp_insert_pb_content' );
 }
 
@@ -526,9 +519,17 @@ function ampforwp_pb_autoCompileLess($css)
 
     // add groups of media query at the end of CSS
     $css = $css." \n";
-    foreach ($completeCssMinifies as $id => $val)
-    {
-        $css .= "\n" . '@media' . $id . '{' . $val . '}' . "\n";
+    $medias = array();
+    foreach ($completeCssMinifies as $key => $value) {
+    	preg_match_all('!\d+!', $key, $matches);
+    	if($matches){
+			$medias[$matches[0][0]] = $value;
+		}
+    }   
+    krsort($medias);
+    foreach ($medias as $id => $val)
+    {	
+        $css .= "\n" . '@media(max-width:' . $id . 'px){' . $val . '}' . "\n";
     }
     //Remove multiple Spaces
     //padding:\s*?(\d*px)\s*(\d*px)\s*(\d*px)\s*(\d*px)\s*?;
@@ -868,12 +869,19 @@ function ampforwp_rowData($container,$col,$moduleTemplate){
 								'post_status'=> 'publish',
 								'post_type' => $fieldValues['post_type_selection']
 								);
-						if ( isset($fieldValues['category_selection']) && 'recent_option' !== $fieldValues['category_selection'] ) {
+						if ( (isset($fieldValues['taxonomy_selection']) && 'recent_option' !== $fieldValues['taxonomy_selection']) &&  (isset($fieldValues['category_selection']) && 'recent_option' !== $fieldValues['category_selection'])) {
 							$args['tax_query'] = array(
 									array(
-										'taxonomy'=>(isset($fieldValues['category_selection']))?get_term($fieldValues['category_selection'])->taxonomy: '',
+										'taxonomy'=>$fieldValues['taxonomy_selection'],
 										'field'=>'id',
-										'terms'=>$fieldValues['category_selection']));
+										'terms'=>$fieldValues['category_selection']
+									)
+								);
+							if ( isset($args['tax_query'][0]['taxonomy']  ) ){
+								if ( empty($args['tax_query'][0]['taxonomy'])) {
+									unset($args['tax_query']);
+								}
+							}
 						}
 						$args = apply_filters('ampforwp_content_module_args', $args, $fieldValues);
 						//The Query
@@ -1081,9 +1089,6 @@ function sortByIndex($contentArray){
 	}else{
 		return $contentArray;
 	}
-}
-function ampforwp_empty_content($str) {
-    return trim(str_replace('&nbsp;','',$str)) == '';
 }
 
 function ampforwp_get_attachment_id( $url , $imagetype='full') {

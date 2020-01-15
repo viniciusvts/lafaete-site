@@ -44,6 +44,7 @@
     </div>
     <div class="container produtos-container">
       <div class="row">
+<<<<<<< HEAD
 		<?php
 		$postsPerPage = get_option( 'posts_per_page' );
 		$paged = isset( $_GET['sheet'] ) ? $_GET['sheet'] : 1;
@@ -91,6 +92,97 @@
 			</div>
 		</div>
 		<?php include_once('inc/produtos-orcamento-agora.php'); ?>
+=======
+        <?php
+        $postsPerPage = get_option( 'posts_per_page' );
+        $paged = isset( $_GET['sheet'] ) ? $_GET['sheet'] : 1;
+        $search = isset( $_GET['searchkey'] ) ? $_GET['searchkey'] : null;
+        $args = array(
+          'post_type' => 'produto',
+          'posts_per_page' => $postsPerPage,
+          'paged' => $paged,
+        );
+        if( isset( $search ) ){
+          $args['s'] = $search;
+        }
+        $produtos = new WP_Query($args);
+        if( isset( $search ) ){// se teve pesquisa na search box, exibir os produtos
+          if( $produtos->have_posts() ){
+            while( $produtos->have_posts()){
+              $produtos->the_post();
+              $hrefLink = get_the_permalink();
+              include 'inc/card-produto.php';
+            }
+          }
+          wp_reset_postdata();
+        //fim se isset($search)
+        }else{ // se não teve pesquisa na search box, exibe as categorias
+          if($produtos->have_posts()){// verifico se existe post se não existe post nem preciso fazer a query
+            $produtos->the_post();    
+            $terms = get_terms( array(
+              'taxonomy' => 'produtos',
+              'parent' => 0,
+              'hide_empty' => true,
+            ));
+            foreach ( $terms as $term ){
+              $image = get_field('imagem', $term);          
+        ?>
+        <div class="default-service-column col-md-4 imagemGaleria">
+          <a href="<?php bloginfo('url')?>/produtos/<?php echo $term->slug; ?>" class="read-more">
+            <div class="inner-box">
+                <div class="inner-most">
+                  <figure class="image-box">
+                    <img width="100%" height="270" src="<?php echo $image['url']; ?>" class="img-responsive wp-post-image" alt="<?php echo $image['alt']; ?>">
+                  </figure>
+                  <div class="lower-part">
+                      <div class="left-curve"></div>
+                      <div class="right-curve"></div>                    
+                      <div class="content">
+                        <h3><?php echo $term->name; ?></h3>
+                        <p><?php echo $term->description;?></p>
+                      </div>
+                  </div>
+                </div>
+            </div>
+          </a>
+        </div>
+        <?php
+            }
+          } //fim if($produtos->have_posts()){
+        }//fim else isset( $search )
+        ?>    
+      </div>  
+      <?php 
+      if( isset( $search ) ){
+      ?>
+      <div class="row container paginate-container">
+        <div class="paginate">
+          <div class="line-L col-6">
+            <?php
+            $prev = get_prev_page_link( $produtos->max_num_pages);
+            $next = get_next_page_link( $produtos->max_num_pages);
+            if($prev){
+              echo "<a class='page-btn' href='".$prev."'>";
+              echo "Anterior";
+              echo "</a>";
+            }
+            ?>
+          </div>
+          <div class="line-Right col-6">
+            <?php
+              if($next){
+                echo "<a class='page-btn' href='".$next."'>";
+                echo "Próxima";
+                echo "</a>";
+              }
+            ?>
+          </div>
+        </div>
+      </div>
+      <?php 
+      }
+      ?>
+>>>>>>> 8703e4f7436beeb6b53e13507783242d6df2f17f
     </div>  
    
     <?php

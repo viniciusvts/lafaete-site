@@ -182,8 +182,10 @@
   include_once 'inc/custom-unidades.php';
   include_once 'inc/custom-eventos.php';
   include_once 'inc/custom-grandes-obras.php';
+  include_once 'inc/custom-projetos-especiais.php';
   include_once 'inc/custom-vendas.php';
   include_once 'inc/custom-projetos-sociais.php';
   include_once 'inc/paginate.php';
   include_once 'inc/loadSources.php';
+  include_once 'inc/yoastSEOAdvanced.php';
 ?>

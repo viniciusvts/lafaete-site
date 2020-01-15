@@ -1,5 +1,10 @@
 <?php 
- add_amp_theme_support('AMP-gdpr');
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+if(ampforwp_get_setting('amp-gdpr-compliance-switch')) {
+    add_amp_theme_support('AMP-gdpr');
+}
 // Custom AMP Content
 require AMPFORWP_PLUGIN_DIR  .'templates/custom-amp-content.php';
 // Custom AMPFORWP Sanitizers
@@ -52,6 +57,7 @@ function ampforwp_add_admin_styling($hook_suffix){
         wp_localize_script( 'ampforwp_admin_js', 'amp_option_panel_view', "$opt");
     }
     wp_localize_script( 'ampforwp_admin_js', 'amp_fields', $amp_fields );
+    $redux_data = apply_filters("ampforwp_custom_localize_data", $redux_data);
     wp_localize_script( 'ampforwp_admin_js', 'redux_data', $redux_data );
     wp_localize_script( 'ampforwp_admin_js', 'ampforwp_nonce', wp_create_nonce('ampforwp-verify-request') );
     wp_enqueue_script( 'ampforwp_admin_js' );
@@ -185,6 +191,7 @@ function ampforwp_the_content_filter_full( $content_buffer ) {
         $content_buffer = preg_replace("/about:blank/", "#", $content_buffer);
         $content_buffer = preg_replace("/<script data-cfasync[^>]*>.*?<\/script>/", "", $content_buffer);
         $content_buffer = preg_replace('/<font(.*?)>(.*?)<\/font>/', '$2', $content_buffer);
+        $content_buffer = preg_replace('/<ta([^a-z]*|\s(.*?))>(.*?)<\/ta>/', '$3', $content_buffer);
         //$content_buffer = preg_replace('/<style type=(.*?)>|\[.*?\]\s\{(.*)\}|<\/style>(?!(<\/noscript>)|(\n<\/head>)|(<noscript>))/','',$content_buffer);
 
         // xlink attribute causes Validatation Issues #1149
@@ -487,7 +494,7 @@ if(!function_exists('ampforwp_findInternalUrl')){
         $get_skip_media_path    = pathinfo($url);
         $skip_media_extensions  = array('jpg','jpeg','gif','png');
 
-        if ( isset( $get_skip_media_path['extension'] ) ){
+        if ( isset( $get_skip_media_path['extension'] ) && !empty($get_skip_media_path['extension'])){
             if (! in_array( $get_skip_media_path['extension'], $skip_media_extensions ) && !strpos(get_option( 'permalink_structure' ), $get_skip_media_path['extension'])){
                 $skip_media_extensions[] = $get_skip_media_path['extension'];
             }
@@ -1057,7 +1064,7 @@ add_action("redux/options/redux_builder_amp/saved",'ampforwp_menu_transient_on_s
 // Protocol Remover
 if ( ! function_exists('ampforwp_remove_protocol') ) {
     function ampforwp_remove_protocol($url){
-        $url = preg_replace('#^https?://#', '', $url);
+        $url = preg_replace('#^https?://#', '//', $url);
         return $url;
     }
 }

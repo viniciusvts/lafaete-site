@@ -1,5 +1,8 @@
 <?php
 use ReduxCore\ReduxFramework\Redux;
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 function ampforwp_get_default_analytics($param=""){
     $default = ''; 
     $default = ampforwp_get_setting('amp-analytics-select-option');
@@ -156,18 +159,6 @@ function ampforwp_analytics_options($opt_name){
                                 array('amp-use-gtm-option', '=' , '1')
                               ),
                         ),
-                       array(
-                           'class' => 'child_opt',
-                           'id'            =>'amp-gtm-analytics-type',
-                           'type'          => 'text',
-                           'title'         => esc_html__('Analytics Type','accelerated-mobile-pages'),
-                           'default'       => '',
-                           'desc'  => esc_html__('Eg: googleanalytics','accelerated-mobile-pages'),
-                            // 'validate' => 'not_empty',
-                             'required' => array(
-                               array('amp-use-gtm-option', '=' , '1')
-                             ),
-                       ),
                         array(
                             'class'=>'child_opt',
                             'id'            =>'amp-gtm-analytics-code',
@@ -195,7 +186,7 @@ function ampforwp_analytics_options($opt_name){
                         'id'       => 'ampforwp-gtm-field-advance',
                         'type'     => 'ace_editor',
                         'title'    => esc_html__('Analytics Code in JSON Format', 'accelerated-mobile-pages'),
-                        'tooltip-subtitle'    => sprintf( '%s<a href="%s" target="_blank">%s</a>', esc_html__( 'Tutorial: ','accelerated-mobile-pages' ), esc_url('https://ampforwp.com/tutorials/article/add-advanced-google-analytics-amp/'),  esc_html__( 'How To Add Advanced Google Analytics in AMP?','accelerated-mobile-pages' ) ),
+                        'tooltip-subtitle'    => sprintf( '%s<a href="%s" target="_blank">%s</a>', esc_html__( 'Tutorial: ','accelerated-mobile-pages' ), esc_url('https://ampforwp.com/tutorials/article/how-to-track-a-click-event-in-gtm-amp/'),  esc_html__( 'How To Add Advanced Google Tag Manager in AMP?','accelerated-mobile-pages' ) ),
                         'required' => array(
                             array('amp-use-gtm-option', '=' , '1'),
                             array('ampforwp-gtm-field-advance-switch', '=' , '1')
@@ -204,16 +195,8 @@ function ampforwp_analytics_options($opt_name){
                         'theme'    => 'monokai',
                         'desc'     => '',
                         'default'  => ('{
-                          "vars": {
-                              "account": "UA-xxxxxxx-x"
-                          },
-                          "triggers": {
-                              "trackPageview": {
-                                  "on": "visible",
-                                  "request": "pageview"
-                              }
-                          }
-                      }')
+                      "vars": { "account": "UA-XXXXXX-Y"}
+}')
                     ),
                         array(
                           'class' => 'child_opt',

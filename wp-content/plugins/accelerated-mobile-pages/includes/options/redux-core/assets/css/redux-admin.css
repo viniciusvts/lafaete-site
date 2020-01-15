@@ -60,15 +60,12 @@
     display: block;
     font-size: 16px;
     color: #333;}
-.child_opt .redux_field_th span:first-child{
-    right: 60px;
-}
 .redux_field_th span:first-child{     z-index: 100; font-weight: normal;
     position: absolute;
     display: block;
     color: #777;
     font-size: 12px;
-    right: 4%;
+    right: 2%;
     margin-top: 5px;}
 .farb-popup-wrapper{position:relative;display:block}.farb-popup{position:absolute;left:40px;top:40px;background-color:white;border:1px solid #222;padding:5px;z-index:100}#ui-datepicker-div{display:none}.mp6 .icon-themes{display:none}.mp6 .redux-container #info_bar{padding:6px 10px 6px 6px}.mp6 .redux-container #info_bar a{margin-top:2px}.redux-timer{text-align:center;font-size:10px;color:#888}.wrap{margin-top:0}@media screen and (max-width: 600px){.redux-sidebar .extraIconSubsections{display:none !important}.redux-sidebar .redux-group-menu li a,.redux-sidebar .redux-group-menu li a:hover,.redux-sidebar .redux-group-menu li.active a,.redux-sidebar .redux-group-menu li.active a:hover,.redux-sidebar .redux-group-menu li.activeChild a,.redux-sidebar .redux-group-menu li.activeChild a:hover{width:auto}.redux-sidebar .redux-group-tab-link-a{position:relative}
 
@@ -332,9 +329,9 @@ background: rgb(245, 246, 250);
 #redux_save:hover{
     background: #13a315; 
 }
-.version-5-3 #redux_save,
-.version-5-3 #redux-defaults-section,
-.version-5-3 #redux-defaults {
+body.new-wp-version #redux_save,
+body.new-wp-version #redux-defaults-section,
+body.new-wp-version #redux-defaults {
     padding: 12px 18px 12px 18px;
 }
 #redux-defaults-section,
@@ -435,10 +432,12 @@ img.ampforwp-post-builder-img{
     margin-top: 8px;
     margin-left: 15px;
     width: 265px;}
-.extension_desc h2{      margin: 0 0 12px 0px;
+.extension_desc h2{      
+    margin: 0 0 12px 0px;
     font-size: 20px;
     color: #303f9f;
-    font-weight: 500;}
+    font-weight: 500;
+    line-height: 1.2;}
 .extension_desc p{margin: 0; color: #666}
 .extension_btn{      display: inline-block;
     background: #303f9f;
@@ -512,7 +511,6 @@ background: linear-gradient(45deg, #E47B49 0%, #ea4c89 100%);
     top: 1px;
     left: 4px;
 }
-.premium_features_btn:hover{background: #fff;color:#eb3349 !important; }
 .getting_started_listing .align_left{display: none}
 .getting_started_listing li a{width: 288px}
 .extension_listing li:hover{border-color:rgba(48, 63, 159, 0.35)}
@@ -722,7 +720,7 @@ background: linear-gradient(45deg, #E47B49 0%, #ea4c89 100%);
     font-weight: 600;
 }
 .fp-cnt p{
-    margin-top: 25px;
+    margin-top: 5px;
     color: #fff;
     font-size:23px;
     padding: 0 100px;
@@ -740,7 +738,6 @@ background: linear-gradient(45deg, #E47B49 0%, #ea4c89 100%);
     background: -webkit-linear-gradient(to right, #a8e063, #56ab2f);
     background: linear-gradient(to right, #a8e063, #56ab2f);
     font-weight: 700;
-    margin-top: 4px;
     text-shadow: 1px 1px 1px #27a52c;
 }
 .pvf{
@@ -753,7 +750,7 @@ background: linear-gradient(45deg, #E47B49 0%, #ea4c89 100%);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     background: #f9f9f9;
-    padding:45px 0px 45px 50px;
+    padding:45px 0px 45px 25px;
 }
 .ex-1{
     width:250px;
@@ -851,7 +848,7 @@ background: linear-gradient(45deg, #E47B49 0%, #ea4c89 100%);
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 42px;
+    grid-gap: 25px;
     margin-top: 40px;
 }
 .fe-2{
@@ -866,7 +863,7 @@ background: linear-gradient(45deg, #E47B49 0%, #ea4c89 100%);
     margin: 0;
     display: inline-block;
     vertical-align: middle;
-    font-size: 20px;
+    font-size: 19px;
     color: #000;
     font-weight: normal;
     line-height: 1.4;
@@ -966,6 +963,27 @@ background: linear-gradient(45deg, #E47B49 0%, #ea4c89 100%);
     color: #1e8fff;
     font-weight: 500;
     margin-bottom:20px;
+    display: block;
+}
+.pri-tb .d-amt{
+    font-size: 24px;
+    color: #666;
+    font-weight: 500;
+    margin-bottom: 15px;
+    display: none;
+    text-decoration: line-through;
+}
+.d-amt sup{
+    line-height: 0;
+    position: relative;
+    top: 7px;
+}
+.pri-tb .s-amt{
+    font-size: 13px;
+    color: #4caf50;
+    font-weight: 500;
+    margin-bottom:10px;
+    display: none;
 }
 .pri-tb .amt sup{
     font-size:22px;

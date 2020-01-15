@@ -1,31 +1,29 @@
-/* Size */
-.kk-star-ratings .kksr-stars .kksr-star svg {
-    width: <?php echo $size; ?>px;
-    height: <?php echo $size; ?>px;
-}
+<?php if ($gap !== false) : ?>
+    .kk-star-ratings .kksr-stars .kksr-star {
+        margin-right: <?= $gap ?>px;
+    }
+    [dir="rtl"] .kk-star-ratings .kksr-stars .kksr-star {
+        margin-left: <?= $gap ?>px;
+        margin-right: 0;
+    }
+<?php endif; ?>
 
-/* Colors */
+<?php if ($stars['inactive']) : ?>
+    .kk-star-ratings .kksr-stars .kksr-star .kksr-icon,
+    .kk-star-ratings:not(.kksr-disabled) .kksr-stars .kksr-star:hover ~ .kksr-star .kksr-icon {
+        background-image: url("<?= $stars['inactive'] ?>");
+    }
+<?php endif; ?>
 
-.kk-star-ratings .kksr-stars .kksr-star svg,
-.kk-star-ratings:not(.kksr-disable) .kksr-stars .kksr-star:hover ~ .kksr-star svg {
-    fill: <?php echo $colors['default']['fill']; ?>;
-    stroke: <?php echo $colors['default']['stroke']; ?>;
-}
+<?php if ($stars['active']) : ?>
+    .kk-star-ratings .kksr-stars .kksr-stars-active .kksr-star .kksr-icon {
+        background-image: url("<?= $stars['active'] ?>");
+    }
+<?php endif; ?>
 
-.kk-star-ratings .kksr-stars .kksr-active-stars .kksr-star svg {
-    fill: <?php echo $colors['active']['fill']; ?>;
-    stroke: <?php echo $colors['active']['stroke']; ?>;
-}
-
-.kk-star-ratings:not(.kksr-disable) .kksr-stars:hover .kksr-star svg {
-    fill: <?php echo $colors['hover']['fill']; ?>;
-    stroke: <?php echo $colors['hover']['stroke']; ?>;
-}
-
-.kk-star-ratings .kksr-legend {
-    background-color: <?php echo $colors['active']['stroke']; ?>;
-}
-
-.kk-star-ratings .kksr-legend .kksr-legend-meta {
-    color: <?php echo $colors['active']['stroke']; ?>;
-}
+<?php if ($stars['selected']) : ?>
+    .kk-star-ratings.kksr-disabled .kksr-stars .kksr-stars-active .kksr-star .kksr-icon,
+    .kk-star-ratings:not(.kksr-disabled) .kksr-stars:hover .kksr-star .kksr-icon {
+        background-image: url("<?= $stars['selected'] ?>");
+    }
+<?php endif; ?>

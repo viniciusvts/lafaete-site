@@ -146,7 +146,7 @@
 
 .default-service-column .content h3{
 	position: relative;
-	margin-bottom: 25px;
+	margin-bottom: 0; //25px
     text-align: center;
 }
 
@@ -187,27 +187,25 @@
         padding-bottom: 20px;
         background: $laranja;
         z-index: 2;
+        color: white;
     }
 
-    .produto-floater .texto h2, .produto-floater .texto p {
-        position: relative;
-        z-index: 2;
-        color: white;
-        padding: 10px;
+    .produto-floater .texto, .produto-floater .texto {
+        p, h2, h3, h4{
+            position: relative;
+            z-index: 2;
+            color: white;
+            padding: 5px;//10px;
+            margin: 0 13px;//10px
+        }
     }
 
     .produto-floater .texto p{
-        font-size: 17px;
-        margin: 10px;
-    }
-
-    .produto-floater .texto span{
-        color: black;
+        font-size: 22px;
     }
 
     .produto-floater .texto button, .produto-floater button{
         background: $cinzaEscuro;
-        color: white;
         border: none;
         padding: 10px 20px;
         margin: 10px;
@@ -249,7 +247,7 @@
     }
 
     .produto-floater .pagamento{
-        padding: 60px 0px;//160px 0px;
+        padding: 100px 0px;//160px 0px;
         position: relative;
         z-index: 2;
         padding-left: 70px;
@@ -528,7 +526,6 @@
     }
 
     #produtos .produto-floater .texto p{
-        font-size: 1rem;
         margin: 10px;
     }
 
@@ -623,9 +620,154 @@
     float: right !important;
 }
 .scroll-rtl{
+    *{
+        direction: ltr;
+        text-align: justify;
+    }
     @include mediaScreenMin($largeDesktops){
-        max-height: 200px;
+        max-height: 300px;
         overflow: auto;
         direction: rtl;
+    }
+}
+//modelos container
+.container-modelos, .container-cli-home {
+    background: #fff;
+}
+.container-modelos .cabecalho{
+    padding-bottom: 40px;
+}
+.center, .center-align {
+    text-align: center;
+}
+.prod-name {
+    font-size: 1.6rem;
+    margin: .67em 0;
+}
+.alaranjado {
+    background: #e77829;
+}
+hr {
+    height: 1px;
+    width: 75px;
+    margin: 10px auto;
+}
+.tabs {
+    height: auto;
+    overflow: visible;
+    position: static;
+    background: none;
+    margin-bottom: 20px;
+    margin: 0 auto;
+    white-space: nowrap;
+    width: 100%;
+    .tab {
+        display: inline-block;
+        text-align: center;
+        line-height: 48px;
+        height: 48px;
+        padding: 0;
+        border: 2px solid #e77829;
+        margin: 5px 6px;
+        text-transform: uppercase;
+        a:hover, a.active {
+            background: #e77829;
+            color: #fff;
+            div {
+                display: block;
+            }
+        }
+        a {
+            position: relative;
+            color: #313538;
+            overflow: visible;
+            padding: 0 18px;
+            transition: color .28s ease;
+            font-size: 14px;
+            text-overflow: ellipsis;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        div {
+            display: none;
+            background: #e77829;
+            height: 10px;
+            position: absolute;
+            width: 10px;
+            transform: rotate(45deg);
+            margin-top: -7px;
+            margin-left: -5px;
+            left: 50%;
+        }
+    }
+}
+.content-container p {
+    margin-bottom: 16px;
+    strong {
+        font-weight: 700;
+    }
+    .collapsible {
+        border: none;
+        box-shadow: none;
+        background: #f6f6f6;
+        li {
+            list-style-type: none;
+        }
+    }
+}
+.indicator {
+    display: none;
+}
+.collapsible-header.active {
+    font-weight: 700;
+    color: #e77829;
+}
+.content-container .collapsible-body, .content-container .collapsible-header {
+    border: none;
+}
+.content-container .collapsible-header {
+    padding: 1rem 0;
+}
+.collapsible-header {
+    position: relative;
+}
+// .collapsible-header.active::after {
+//     content: "";
+//     font-family: FontAwesome;
+//     position: absolute;
+//     right: 10px;
+// }
+// .collapsible-header::after {
+//     content: "";
+//     font-family: FontAwesome;
+//     position: absolute;
+//     right: 10px;
+// }
+.content-container .collapsible-body, .content-container .collapsible-header {
+    border: none;
+}
+
+.content-container .collapsible-body {
+    padding: 0 0 2rem;
+}
+.collapsible-body {
+    background: #fff;
+}
+.item-modelo {
+    width: 40px;
+    margin: 0 2px;
+}
+.modeloProdutos{
+    display: none;
+    &.active{
+        display: inherit;
+    }
+    
+    ul {
+        padding-left: 0;
+        li {
+            list-style-type: none;
+        }
     }
 }

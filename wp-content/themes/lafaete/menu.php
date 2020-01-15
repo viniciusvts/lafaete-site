@@ -32,7 +32,7 @@
       <div class="social d-flex">
           <a href="https://www.facebook.com/lafaetelocacao/" target="_blank" class="mr-auto ml-auto"><img src="<?php bloginfo('template_url');?>/inc/svg/facebook-logo-button.svg" width="30px"></a>
           <a href="https://www.instagram.com/lafaetelocacao/" target="_blank" class="mr-auto ml-auto"><img src="<?php bloginfo('template_url');?>/inc/svg/instagram-logo.svg" width="30px"></a>
-          <a href="https://pt.linkedin.com/company/lafaete-loca-es-de-equipamentos/" target="_blank" class="mr-auto ml-auto"><img src="<?php bloginfo('template_url');?>/inc/svg/linkedin-button.svg" width="30px"></a>
+          <a href="https://www.linkedin.com/company/lafaetelocacao/" target="_blank" class="mr-auto ml-auto"><img src="<?php bloginfo('template_url');?>/inc/svg/linkedin-button.svg" width="30px"></a>
       </div>
     </div>
     <!--<div class="col-md-1 col-lg-1 col-sm-6">
@@ -86,11 +86,21 @@
           Serviços
         </a>
         <div class="dropdown-menu txtAlignCenter" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="<?php bloginfo('url'); ?>/servicos/gestao-ambiental/">Gestão Ambiental</a>
-        <div class="dropdown-divider txtAlignCenter"></div>
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/servicos/gestao-de-residuos/">Gestão de Resíduos</a>
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/servicos/transbordo-e-triagem/">Transbordo e Triagem</a>
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/servicos/terraplanagem/">Terraplanagem</a>
+          <?php
+          $args = array(
+            'post_type' => 'servicos',
+            'orderby' => 'name'
+          );
+          $servicos = get_posts( $args );
+          foreach( $servicos as $service ){
+            $permalink = get_the_permalink( $service );
+            $title = $service->post_title;
+          ?>
+          <a class="dropdown-item" href="<?php echo( $permalink ); ?>"><?php echo( $title ); ?></a>
+          <?php
+          }
+          wp_reset_postdata();
+          ?>
           <!--<div class="dropdown-divider"></div>-->
         </div>
       </li>
@@ -113,7 +123,7 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="<?php bloginfo('url'); ?>/atendimento/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Conteúdo
+          Conteúdos
         </a>
         <div class="dropdown-menu txtAlignCenter" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="<?php bloginfo('url'); ?>/artigos/">Blog</a>
@@ -129,6 +139,7 @@
           <a class="dropdown-item" href="<?php bloginfo('url'); ?>/eventos/">Eventos</a>
           <a class="dropdown-item" href="<?php bloginfo('url'); ?>/grandes-obras/">Grandes Obras</a>
           <a class="dropdown-item" href="<?php bloginfo('url'); ?>/projetos-sociais/">Projetos Sociais</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/projetos-especiais/">Projetos Especiais</a>
         </div>
       </li>
     </ul>

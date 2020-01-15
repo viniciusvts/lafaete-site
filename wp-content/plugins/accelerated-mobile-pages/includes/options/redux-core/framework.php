@@ -333,11 +333,6 @@
                     // Grab database values
                     $this->get_options();
 
-                    // Tracking
-                    if ( isset( $this->args['allow_tracking'] ) && $this->args['allow_tracking'] && Redux_Helpers::isTheme( __FILE__ ) ) {
-                        $this->_tracking();
-                    }
-
                     // Options page
                     add_action( 'admin_menu', array( $this, '_options_page' ) );
 
@@ -652,15 +647,6 @@
 
             // get_instance()
 
-            private function _tracking() {
-                if ( file_exists( dirname( __FILE__ ) . '/inc/tracking.php' ) ) {
-                    require_once dirname( __FILE__ ) . '/inc/tracking.php';
-                    $tracking = Redux_Tracking::get_instance();
-                    $tracking->load( $this );
-                }
-            }
-            // _tracking()
-
             /**
              * ->_get_default(); This is used to return the default value if default_show is set
              *
@@ -910,16 +896,7 @@
                         $data = array();
                         $args = wp_parse_args( $args, array() );
 
-                        if ( $type == "categories" || $type == "category" ) {
-                            $args['number'] = apply_filters('ampforwp_number_of_categories', 500);
-                            $cats = get_categories( $args );
-                            if ( ! empty ( $cats ) ) {
-                                foreach ( $cats as $cat ) {
-                                    $data[ $cat->term_id ] = $cat->name;
-                                }
-                                //foreach
-                            } // If
-                        } else if ( $type == "menus" || $type == "menu" ) {
+                        if ( $type == "menus" || $type == "menu" ) {
                             $menus = wp_get_nav_menus( $args );
                             if ( ! empty ( $menus ) ) {
                                 foreach ( $menus as $item ) {
@@ -988,16 +965,7 @@
                                     $data[ $name ] = ucfirst( $name );
                                 }
                             }
-                        } else if ( $type == "tags" || $type == "tag" ) { 
-                            $args['number'] = apply_filters('ampforwp_number_of_tags', 500);
-                            $tags = get_tags( $args );
-                            if ( ! empty ( $tags ) ) {
-                                foreach ( $tags as $tag ) {
-                                    $data[ $tag->term_id ] = $tag->name;
-                                }
-                                //foreach
-                            }
-                            //if
+                        
                         } else if ( $type == "menu_location" || $type == "menu_locations" ) {
                             global $_wp_registered_nav_menus;
 
@@ -1778,15 +1746,18 @@
                     }
 
                     // Make URL
-                    $url = '<a class="redux_hint_status" href="?dismiss=' . $dismiss . '&amp;id=hints&amp;page=' . $curPage . '&amp;tab=' . $curTab . '">' . $s . ' hints</a>';
-
+                    $hrefUrl = add_query_arg( 'dismiss', esc_attr($dismiss), '' );
+                    $hrefUrl = add_query_arg( 'id', 'hints', $hrefUrl );
+                    $hrefUrl = add_query_arg( 'page', esc_attr($curPage), $hrefUrl );
+                    $hrefUrl = add_query_arg( 'tab', esc_attr($curTab), $hrefUrl );
+                    $url = '<a class="redux_hint_status" href="'.esc_url_raw($hrefUrl).'">' . esc_html($s) . ' hints</a>';
                     $event = __( 'moving the mouse over', 'accelerated-mobile-pages' );
                     if ( 'click' == $this->args['hints']['tip_effect']['show']['event'] ) {
                         $event = __( 'clicking', 'accelerated-mobile-pages' );
                     }
 
                     // Construct message
-                    $msg = sprintf( __( 'Hints are tooltips that popup when %d the hint icon, offering addition information about the field in which they appear.  They can be %d d by using the link below.', 'accelerated-mobile-pages' ), $event, strtolower( $s ) ) . '<br/><br/>' . $url;
+                    $msg = sprintf( __( 'Hints are tooltips that popup when %d the hint icon, offering addition information about the field in which they appear.  They can be %d d by using the link below.', 'accelerated-mobile-pages' ), $event, strtolower( $s ) ) . '<br/><br/>' . $url;// url escaped above
 
                     // Construct hint tab
                     $tab = array(

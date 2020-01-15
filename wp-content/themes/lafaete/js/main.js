@@ -225,6 +225,55 @@ class carousel{
     }
 }
 
+/**
+ * navegação do modelo de produto
+ */
+class modeloDeProduto{
+    /**
+     * a ação de clicar no link
+     */
+    cliqueNoLink(e){
+        e.preventDefault();
+        var todosOsLinks = document.querySelectorAll("ul.tabs li.tab a");
+        var todasAsPaginas = document.querySelectorAll(".modeloProdutos ");
+        for (let i = 0; i < todosOsLinks.length; i++) {
+            todosOsLinks[i].classList.remove('active');
+        }
+        this.classList.add('active');
+        var objetivo = this.getAttribute('objetivo');
+        for (let i = 0; i < todasAsPaginas.length; i++) {
+            todasAsPaginas[i].classList.remove('active');
+            if(todasAsPaginas[i].id == objetivo ){
+                todasAsPaginas[i].classList.add('active');
+            }
+        }
+    }
+    
+    /**
+     * Adiciona as funções de clique
+     * @author Vinicius de Santana
+     */
+    acaoNosLinks(){
+        for (var i = 0; i<this.modelosLinks.length; i++){
+            this.modelosLinks[i].onclick = this.cliqueNoLink;
+        }
+    }
+    
+    /**
+     * Inicia
+     * @author Vinicius de Santana
+     */
+    initCarrossel(){
+        //adiciona a ação ao butoes
+        this.acaoNosLinks();
+    }
+
+    constructor(){
+        this.modelosLinks = document.querySelectorAll("ul.tabs li.tab a");
+        this.initCarrossel();
+    }
+}
+
 // funcão esconder menu ao dar scroll página
 $(function(){   
     var nav = $('#menu-principal'); 
@@ -440,6 +489,7 @@ window.addEventListener('load', function(e){
     addUrlToForms();// setTimeout(addUrlToForms, 2000);
     // footer_floater();
     bpCarrousel = new carousel();//initCarrossel();
+    bpModeloDeProduto = new modeloDeProduto();
     nolink_category()
     input_hidden()
 });

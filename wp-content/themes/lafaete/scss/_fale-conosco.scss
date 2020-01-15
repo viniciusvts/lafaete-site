@@ -11,9 +11,9 @@
     margin: 10px 0;
 }
 
-.fale-conosco h4{
-    margin-top: 40px;
-}
+// .fale-conosco h4{
+//     margin-top: 40px;
+// }
 
 .fale-conosco-right span{
     font-size: 0.9rem;
@@ -91,6 +91,15 @@
 .fale-conosco-left input::placeholder, .fale-conosco-left textarea::placeholder{
     color: $cinzaMedio;
 }
+
+.fale-conosco-left textarea[name=informacoes]{
+    height: 110px;
+}
+
+.fale-conosco-left button.botao-laranja{
+    margin-top: 0;
+}
+
 .btn-fo{
     @include mediaScreenMin($desktops){
         margin-top: 4%;

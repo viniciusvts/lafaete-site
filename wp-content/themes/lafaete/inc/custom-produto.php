@@ -91,7 +91,7 @@ function categoria_produto_taxonomy() {
 		'show_tagcloud'              => true,
 		'rewrite'                    => $rewrite,
 	);
-	register_taxonomy( 'produtos', array( 'produto' ), $args );
+	register_taxonomy( 'produtos', array( 'produto', 'servicos' ), $args );
 }
 add_action( 'init', 'categoria_produto_taxonomy', 0 );
 
@@ -136,7 +136,7 @@ function estado_produto_taxonomy() {
 		'rewrite'                    => $rewrite,
 		'has_archive'                => true,
 	);
-	register_taxonomy( 'estado', array( 'produto' ), $args );
+	register_taxonomy( 'estado', array( 'produto', 'servicos' ), $args );
 }
 add_action( 'init', 'estado_produto_taxonomy', 0 );
 ?>

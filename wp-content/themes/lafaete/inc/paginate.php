@@ -118,3 +118,66 @@ function get_prev_page_link($maxNumberPages=null) {
     $uri = str_replace($paramURL.$paged, $paramURL.($paged-1), $URI_ATUAL);
     return $HOST_ATUAL.$uri;
 }
+
+/**
+ * Retrieves the next posts page link.
+ * Modificação da função original do wordpress
+ *
+ * @global int      $paged
+ * @global WP_Query $wp_query
+ *
+ * @param int    $max_page Optional. Max pages. Default 0.
+ * @return string|void HTML-formatted next posts page link.
+ */
+function get_next_page_link_wp( $max_page = 0 ) {
+	global $paged, $wp_query;
+
+	if ( ! $max_page ) {
+		$max_page = $wp_query->max_num_pages;
+	}
+
+	if ( ! $paged ) {
+		$paged = 1;
+	}
+
+	$nextpage = intval( $paged ) + 1;
+
+	if ( ! is_single() && ( $nextpage <= $max_page ) ) {
+		/**
+		 * Filters the anchor tag attributes for the next posts page link.
+		 *
+		 * @since 2.7.0
+		 *
+		 * @param string $attributes Attributes for the anchor tag.
+		 */
+		$attr = apply_filters( 'next_posts_link_attributes', '' );
+
+		return next_posts( $max_page, false ) .  $attr ;
+	}
+}
+
+/**
+ * Retrieves the previous posts page link.
+ * Modificação da função original do wordpress
+ *
+ * @since 2.7.0
+ *
+ * @global int $paged
+ *
+ * @return string|void HTML-formatted previous page link.
+ */
+function get_prev_page_link_wp( ) {
+	global $paged;
+
+	if ( ! is_single() && $paged > 1 ) {
+		/**
+		 * Filters the anchor tag attributes for the previous posts page link.
+		 *
+		 * @since 2.7.0
+		 *
+		 * @param string $attributes Attributes for the anchor tag.
+		 */
+		$attr = apply_filters( 'previous_posts_link_attributes', '' );
+		return previous_posts( false ) . $attr ;
+	}
+}

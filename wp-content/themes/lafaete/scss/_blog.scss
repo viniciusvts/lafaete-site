@@ -5,6 +5,7 @@
     ul{
         list-style: none;
         padding-left: 0;
+        padding-top: 15px;
     }
     &.card-posts {
         min-height: 430px;
@@ -83,6 +84,9 @@
     text-decoration: none;
 }
 .blog p{
+    color: $cinzaEscuro;
+}
+.blog li{
     color: $cinzaEscuro;
 }
 .blog .texto{
