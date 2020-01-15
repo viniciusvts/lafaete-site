@@ -67,7 +67,6 @@
         </div>    
       </div>      
     </div>
-    <?php include_once('inc/produtos-orcamento-agora.php'); ?>
     <?php
       if(get_field('galeria')):
     ?> 
@@ -172,7 +171,8 @@
           }
           wp_reset_postdata();
         ?>
-      </div>  
+      </div> 
+      <?php include_once('inc/produtos-orcamento-agora.php'); ?> 
     </div>  
 
     <?php

@@ -58,24 +58,6 @@
             
     </div>
 
-    <div id="produtos">
-      <div class="container produto-floater">
-        <div class="row">
-          <div class="col-md-8 texto">
-            <div class="container">
-              <p><?php the_field('descricao'); ?></p>
-              <p>Valor de Venda: <?php the_field('preco'); ?></p>
-              <a href="#faca-um-orcamento"><button class="btn">Faça um orçamento agora</button></a>
-            </div>
-          </div>
-          <div class="col-md-4 pagamento">
-            <h4>Condições de Pagamento</h4>
-            <img src="<?php bloginfo('template_url'); ?>/inc/img/pagseguro.png">
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="container-fluid especificacoes-produtos">
       <div class="container">
         <div class="row">
@@ -165,7 +147,24 @@
           </div>
         <?php endforeach; ?>
       </div>
-    </div>    
+    </div> 
+    <div id="produtos">
+      <div class="container produto-floater">
+        <div class="row">
+          <div class="col-md-8 texto">
+            <div class="container">
+              <p><?php the_field('descricao'); ?></p>
+              <p>Valor de Venda: <?php the_field('preco'); ?></p>
+              <a href="#faca-um-orcamento"><button class="btn">Faça um orçamento agora</button></a>
+            </div>
+          </div>
+          <div class="col-md-4 pagamento">
+            <h4>Condições de Pagamento</h4>
+            <img src="<?php bloginfo('template_url'); ?>/inc/img/pagseguro.png">
+          </div>
+        </div>
+      </div>
+    </div>   
 
     <?php
       $related = get_posts( 
@@ -210,7 +209,7 @@
           </div>
         </div>
         <?php endforeach; wp_reset_postdata(); ?>
-      </div>  
+      </div>
     </div> 
 
     <?php endif; ?>

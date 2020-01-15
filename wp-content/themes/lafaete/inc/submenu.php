@@ -4,8 +4,11 @@
         $categorias = get_categories( array(
         'orderby' => 'name',
         'taxonomy' => 'vendas',
-        'parent'  => 0
+        'parent'  => 0,
+        'hide_empty' => true,
         ));
+        $names = wp_get_object_terms($post->ID, 'vendas');
+        var_dump($names);
         foreach($categorias as $categoria) : 
     ?>
     <li>
