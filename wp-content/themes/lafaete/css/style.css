@@ -868,6 +868,11 @@ ul.bp-indicators .dots.active {
     height: 600px;
   }
 }
+@media (max-width: 575.98px) {
+  .bp-carousel .bp-carousel-inner {
+    height: 340px;
+  }
+}
 .bp-carousel .bp-item {
   margin-left: auto;
   margin-right: auto;

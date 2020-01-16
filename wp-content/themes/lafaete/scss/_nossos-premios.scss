@@ -152,6 +152,9 @@
         @include mediaScreenMax($tablets){
             height: 600px;
         }
+        @include mediaScreenMax($smartphones){
+            height: 340px;
+        }
     }
     .bp-item {
         margin-left: auto;
