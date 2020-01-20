@@ -167,6 +167,12 @@ iframe {
   color: white;
 }
 
+@media (max-width: 575.98px) {
+  #social-icons {
+    display: none;
+  }
+}
+
 .botao-laranja button, .botao-laranja {
   background: #ff7e3b;
   padding: 10px 50px 10px 50px;

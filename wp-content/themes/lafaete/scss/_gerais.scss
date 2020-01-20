@@ -157,7 +157,7 @@ iframe{
 }
 
 #social-icons {
-    @include breakpoint($smartphones) {
+    @include breakpoint(smartphones) {
         display: none;
     }
 }
