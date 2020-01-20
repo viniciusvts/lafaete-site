@@ -39,7 +39,15 @@
                     echo '#';
                   }
                 ?>">
-          <h1><?php the_title(); ?></h1>  
+          <?php
+            if($slider > 0) { ?>
+            <h2><?php the_title(); ?></h2> 
+            <?php
+            } else { ?>
+            <h1><?php the_title(); ?></h1> 
+            <?php
+            }
+          ?> 
           <p><?php the_field('subtitulo'); ?></p>
           <button class="btn btn-laranja">Conheça nossas opções</button>
         </a>
