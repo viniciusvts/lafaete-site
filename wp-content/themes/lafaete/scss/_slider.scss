@@ -46,10 +46,12 @@
 
 .carousel-caption{
     top: 40%;
+    @include mediaScreenMax($smartphones) {
+        top: 75px;
+    }
     h1, .h2-home-slider{
         @include mediaScreenMax($smartphones){
             font-size: 25px!important;
-            top: 75px;
         } 
         @include mediaScreenMax($tablets){
             font-size: 30px;
