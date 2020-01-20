@@ -567,7 +567,7 @@ nav.navbar {
 }
 @media (max-width: 575.98px) {
   .carousel-caption h1, .carousel-caption .h2-home-slider {
-    font-size: 25px !important;
+    font-size: 30px !important;
   }
 }
 @media (max-width: 767.98px) {
@@ -580,7 +580,7 @@ nav.navbar {
 }
 @media (max-width: 575.98px) {
   .carousel-caption p {
-    font-size: 30px !important;
+    font-size: 20px !important;
   }
 }
 @media (max-width: 767.98px) {
