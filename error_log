@@ -1427,3 +1427,8 @@
 [20-Jan-2020 13:53:05 UTC] PHP Parse error:  syntax error, unexpected '<<' (T_SL) in /home/lafaetelocacao/public_html/novo/wp-content/plugins/accelerated-mobile-pages/accelerated-moblie-pages.php on line 27
 [20-Jan-2020 13:53:33 UTC] PHP Parse error:  syntax error, unexpected '<<' (T_SL) in /home/lafaetelocacao/public_html/novo/wp-content/plugins/accelerated-mobile-pages/accelerated-moblie-pages.php on line 27
 [20-Jan-2020 13:55:20 UTC] PHP Parse error:  syntax error, unexpected '<<' (T_SL) in /home/lafaetelocacao/public_html/novo/wp-content/plugins/accelerated-mobile-pages/accelerated-moblie-pages.php on line 27
+[20-Jan-2020 14:00:26 UTC] PHP Parse error:  syntax error, unexpected '<<' (T_SL) in /home/lafaetelocacao/public_html/novo/wp-content/plugins/accelerated-mobile-pages/accelerated-moblie-pages.php on line 27
+[20-Jan-2020 14:00:30 UTC] PHP Parse error:  syntax error, unexpected '<<' (T_SL) in /home/lafaetelocacao/public_html/novo/wp-content/plugins/accelerated-mobile-pages/accelerated-moblie-pages.php on line 27
+[20-Jan-2020 14:00:38 UTC] PHP Parse error:  syntax error, unexpected '<<' (T_SL) in /home/lafaetelocacao/public_html/novo/wp-content/plugins/accelerated-mobile-pages/accelerated-moblie-pages.php on line 27
+[20-Jan-2020 14:00:42 UTC] PHP Parse error:  syntax error, unexpected '<<' (T_SL) in /home/lafaetelocacao/public_html/novo/wp-content/plugins/accelerated-mobile-pages/accelerated-moblie-pages.php on line 27
+[20-Jan-2020 14:04:44 UTC] PHP Parse error:  syntax error, unexpected '===' (T_IS_IDENTICAL) in /home/lafaetelocacao/public_html/novo/wp-content/plugins/wp-mail-smtp/wp_mail_smtp.php on line 169
