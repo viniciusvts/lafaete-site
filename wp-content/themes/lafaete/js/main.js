@@ -492,6 +492,16 @@ window.addEventListener('load', function(e){
     bpModeloDeProduto = new modeloDeProduto();
     nolink_category()
     input_hidden()
+    let img = document.getElementsByTagName('img')
+    try {
+        for (let i in img) {
+            if(img[i].getAttribute('alt') == '') {
+                img[i].setAttribute('alt', 'img - Lafaete');
+            }
+        }
+    }catch(e) {
+        // do nothing
+    }
 });
 
 window.addEventListener('resize', function(e){
