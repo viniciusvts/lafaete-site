@@ -74,7 +74,7 @@
               array_push($arrayslug, $estado->slug);
             }
           } ?>
-        <ul id="estados" class="nav justify-content-center">
+        <ul id="estados" style="margin:auto" class="nav justify-content-center">
           <?php
           $estados_unique = array_unique($array);
           $slugs = array_unique($arrayslug);
