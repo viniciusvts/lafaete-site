@@ -49,7 +49,7 @@
             }
           ?> 
           <p><?php the_field('subtitulo'); ?></p>
-          <button class="btn btn-laranja">Conheça nossas opções</button>
+          <button class="slide-btn btn btn-laranja">Conheça nossas opções</button>
         </a>
       </div>
       <?php
