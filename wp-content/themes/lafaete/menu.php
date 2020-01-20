@@ -1,6 +1,6 @@
 <div class="container-fluid fixed-top topo-menu fixed-top" id="menu-topo">
   <div class="row">
-    <div id="social-icons" class="col-lg-10 col-md-9 col-sm-9 col-12">
+    <div class="col-lg-10 col-md-9 col-sm-9 col-12">
       <ul>
         <li class="d-none d-sm-none ">Canais de Atendimento: </li>
         <li>
@@ -28,7 +28,7 @@
         </li>
       </ul>
     </div>
-    <div class="col-lg-2 col-md-3 col-sm-3 col-12">
+    <div id="social-icons" class="col-lg-2 col-md-3 col-sm-3 col-12">
       <div class="social d-flex">
           <a href="https://www.facebook.com/lafaetelocacao/" target="_blank" class="mr-auto ml-auto"><img src="<?php bloginfo('template_url');?>/inc/svg/facebook-logo-button.svg" width="30px"></a>
           <a href="https://www.instagram.com/lafaetelocacao/" target="_blank" class="mr-auto ml-auto"><img src="<?php bloginfo('template_url');?>/inc/svg/instagram-logo.svg" width="30px"></a>
