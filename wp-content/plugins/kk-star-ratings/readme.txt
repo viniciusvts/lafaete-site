@@ -3,9 +3,9 @@ Contributors: bhittani
 Donate link: https://github.com/kamalkhan/kk-star-ratings
 Tags: star ratings, votings, rate posts, ajax ratings, infinite stars, unlimited stars, google rich snippets, structured data, SEO, SERP
 Requires at least: 4.5
-Requires PHP: 5.5.9
-Tested up to: 5.2.2
-Stable tag: 3.1.2
+Requires PHP: 5.6
+Tested up to: 5.2.4
+Stable tag: 4.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 kk Star Ratings allows blog visitors to involve and interact more effectively with your website by rating posts.
 
-This plugin has been renewed from the ground up as of v3 covered by unit tests.
+This plugin has been renewed from the ground up as of v4.
 
 
 
@@ -92,76 +92,25 @@ The source of this plugin is located at [Github](https://github.com/kamalkhan/kk
 
 == Changelog ==
 
-= 3.1.1 =
+= 4.x =
 
-**Fixed **
-- GitHub PR #84: Voting is now disabled on the current page when unique IP is enforced.
+- [View Changelog](https://github.com/kamalkhan/kk-star-ratings/blob/master/CHANGELOG.md)
 
-**Changed**
-- GitHub PR #83: Trim extra spacing in the legend.
-
-= 3.1.0 =
-
-**Added**
-- Bottom margin added when bottom position in effect.
-- Ability to reset ratings for individual posts/pages.
-- Enable/disable star ratings for individual posts/pages.
-- Take manual control of the auto embedded markup to avoid duplication when using in a template.
-
-**Fixed**
-- Markup is now hidden under AMP.
-- Assets are now enqueued when manually/forcefully loading the markup via template function.
-
-**Changed**
-- Default colors have been updated.
-- Default size is now 22px instead of 24px.
-- Structured data now uses ratingCount instead of reviewCount.
-
-**Removed**
-- Nothing
-
-**Deprecated**
-- Nothing
-
-**Security**
-- Nothing
-
-= 3.0.0 =
-
-**Added**
-- Optionally allow guests to vote.
-- Ratings can also be included in publicly accessible custom posts.
-
-**Fixed**
-- Google rich snippets.
-- AJAX call on every load causing high CPU usage.
-
-**Changed**
-- Stars are now based on svg.
-- Appearance has been simplified.
-- Html based structured data has been replaced by json based structured data.
-- kk_star_ratings_get function no longer includes the post_title key.
-
-**Removed**
-- Labels have been removed.
-- Top posts widget has been removed in favor of a future addon.
-- Admin table colum has been removed in favor of a future addon.
-
-**Deprecated**
-- Nothing
-
-**Security**
-- Nothing
+= 3.x =
+[Archived](https://github.com/kamalkhan/kk-star-ratings/blob/master/.github/CHANGELOG-v3.md)
 
 = 2.x =
-[Archived](.github/CHANGELOG-v2.md)
+[Archived](https://github.com/kamalkhan/kk-star-ratings/blob/master/.github/CHANGELOG-v2.md)
 
 = 1.x =
-[Archived](.github/CHANGELOG-v1.md)
+[Archived](https://github.com/kamalkhan/kk-star-ratings/blob/master/.github/CHANGELOG-v1.md)
 
 == Upgrade Notice ==
 
-= 3.0.0 =
+= 4.x =
+It is seamless to upgrade from v3 to v4.
+
+= 3.x =
 All previous ratings and options will be preserved. However, since v3 has been renewed from scratch, we do not support downgrading to v2 after moving from v2 to v3.
 
 

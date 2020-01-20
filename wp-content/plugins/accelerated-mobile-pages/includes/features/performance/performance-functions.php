@@ -1,8 +1,24 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 // 86. minify the content of pages
 add_filter('ampforwp_the_content_last_filter','ampforwp_minify_html_output');
 function ampforwp_minify_html_output($content_buffer){
     $content_buffer = str_replace('srcset=""', '', $content_buffer);
+    //Removed trbidi attribute #3687
+    $content_buffer = str_replace('trbidi="on"', '', $content_buffer);
+    $content_buffer = str_replace("trbidi='on'", '', $content_buffer);
+    if(class_exists('SiteOrigin_Widgets_Bundle')){
+        $content_buffer = preg_replace('/<amp-video id="sow-player(.*?)" class="(.*?)"(.*?)<\/amp-video>/', '<amp-video id="sow-player$1" class="$2" autoplay $3</amp-video>', $content_buffer);
+    }
+    if(preg_match('/<script type="text\/javascript">.*?NREUM.*?;<\/script>/s', $content_buffer)!=0){
+        $content_buffer = preg_replace('/<script type="text\/javascript">.*?NREUM.*?;<\/script>/s', '', $content_buffer);
+    }
+
+	if (defined('W3TC') && strpos($content_buffer, 'frameborder') !== false) {
+		add_filter("w3tc_minify_html_enable",'__return_false');
+	}
     global $redux_builder_amp;
     if(!$redux_builder_amp['ampforwp_cache_minimize_mode']){
            return $content_buffer;       
@@ -182,11 +198,24 @@ function ampforwp_code_to_add_in_htaccess(){
     return $htaccess_cntn;
 }
 
+function ampforwp_white_list_selectors($completeContent){
+    $white_list = array();
+    $white_list = (array)apply_filters('ampforwp_tree_shaking_white_list_selector',$white_list);
+    $w_l_str = '';
+    for($i=0;$i<count($white_list);$i++){
+        $f = $white_list[$i];
+        preg_match_all('/'.$f.'{(.*?)}/s', $completeContent, $matches);
+        if(isset($matches[0][0])){
+            $w_l_str .= $matches[0][0];
+        }
+    }
+    return $w_l_str;
+}
 // Tree shaking feature #2949 --- starts here --- 
 if( !function_exists("ampforwp_tree_shaking_purify_amphtml") ){
     function ampforwp_tree_shaking_purify_amphtml($completeContent){
-          
-        if( function_exists('amp_pagebuilder_compatibility_init') ){
+        $white_lists = ampforwp_white_list_selectors($completeContent);
+        if( function_exists('ampforwp_purify_amphtmls') ){
             // compatibility with AMP Pagebuilder Compatibility
             return $completeContent;
         }
@@ -228,18 +257,22 @@ if( !function_exists("ampforwp_tree_shaking_purify_amphtml") ){
                     $sheet .= $styles;
                 }
                 $sheet.=$font_css;
+                $sheet.=$white_lists;
                 $sheet = stripcslashes($sheet);
                 if(strpos($sheet, '-keyframes')!==false){
                     $sheet = preg_replace("/@(-o-|-moz-|-webkit-|-ms-)*keyframes\s(.*?){([0-9%a-zA-Z,\s.]*{(.*?)})*[\s\n]*}/s", "", $sheet);
                 }
-                $completeContent = preg_replace("/<style\samp-custom>(.*?)<\/style>/s", "".$comment."<style amp-custom>".$sheet."</style>", $completeContent);
-                $completeContent = apply_filters("ampforwp_tree_shaking_add_css", $completeContent);
+                if(preg_match('/<style\samp-custom>(.*?)<\/style>/s', $completeContent,$matches)){
+                    $completeContent = preg_replace("/<style\samp-custom>(.*?)<\/style>/s", "".$comment."<style amp-custom>".$sheet."</style>", $completeContent);
+                }else if(preg_match('/<style\samp-custom>(.*)<\/style>/s', $completeContent,$matches)){
+                    $completeContent = preg_replace("/<style\samp-custom>(.*)<\/style>/s", "".$comment."<style amp-custom>".$sheet."</style>", $completeContent);
+                }else if(preg_match('/<style\samp-custom>.*<\/style>/s', $completeContent,$matches)){
+                     $completeContent = preg_replace("/<style\samp-custom>.*<\/style>/s", "".$comment."<style amp-custom>".$sheet."</style>", $completeContent);
+                }
             }
-
         }
         //for fonts
         $completeContent = str_replace(array('":backSlash:', "':backSlash:"), array('"\\', "'\\"), $completeContent);
-            
         return $completeContent;
     }
 }
@@ -253,7 +286,10 @@ if( !function_exists("ampforwp_clear_tree_shaking") ) {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
-		$nonceCheck = wp_verify_nonce( $_GET['nonce'], 'ampforwp_clear_tree_shaking' );
+        $nonceCheck = false;
+        if(isset($_GET['nonce'])){
+            $nonceCheck = wp_verify_nonce( $_GET['nonce'], 'ampforwp_clear_tree_shaking' );
+        }	
 		if ( is_admin() && ( ( $nonceCheck && ampforwp_get_setting( 'ampforwp_css_tree_shaking' ) && $options == '' ) || ( count( $changed_values ) != 0 && (ampforwp_get_setting( 'ampforwp_css_tree_shaking' ) || isset($changed_values['ampforwp_css_tree_shaking'])) ) ) ) {
 			$upload_dir   = wp_upload_dir();
 			$user_dirname = $upload_dir['basedir'] . '/' . 'ampforwp-tree-shaking';
@@ -275,6 +311,30 @@ if( !function_exists("ampforwp_clear_tree_shaking") ) {
 		}
 	}
 }
+if ( is_admin() && ampforwp_get_setting( 'ampforwp_css_tree_shaking' ) ){
+    register_activation_hook( 'amp-newspaper-theme/ampforwp-custom-theme.php', 'ampforwp_clear_tree_shaking_on_activity' );
+    register_deactivation_hook( 'amp-newspaper-theme/ampforwp-custom-theme.php', 'ampforwp_clear_tree_shaking_on_activity' );
+    register_activation_hook( 'amp-layouts/amp-layouts.php', 'ampforwp_clear_tree_shaking_on_activity' );
+    register_deactivation_hook( 'amp-layouts/amp-layouts.php', 'ampforwp_clear_tree_shaking_on_activity' );
+}
+function ampforwp_clear_tree_shaking_on_activity(){
+    if ( is_admin() && ampforwp_get_setting( 'ampforwp_css_tree_shaking' ) ){
+        $upload_dir   = wp_upload_dir();
+        $user_dirname = $upload_dir['basedir'] . '/' . 'ampforwp-tree-shaking';
+        if ( file_exists( $user_dirname ) ) {
+            $files = glob( $user_dirname . '/*' );
+            //Loop through the file list.
+            foreach ( $files as $file ) {
+                //Make sure that this is a file and not a directory.
+                if ( is_file( $file ) && strpos( $file, '_transient' ) !== false ) {
+                    //Use the unlink function to delete the file.
+                    unlink( $file );
+                }
+            }
+        }
+    }
+}
+
 add_action( 'save_post', 'ampforwp_clear_tree_shaking_post');
 if( !function_exists("ampforwp_clear_tree_shaking_post") ) {
 	function ampforwp_clear_tree_shaking_post() {

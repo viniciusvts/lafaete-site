@@ -3,7 +3,9 @@
 namespace Sabberworm\CSS\Property;
 
 use Sabberworm\CSS\Parsing\UnexpectedTokenException;
-
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 /**
  * Class representing a single CSS selector. Selectors have to be split by the comma prior to being passed into this class.
  */
@@ -51,7 +53,7 @@ class Selector {
 	private $iSpecificity;
 
 	public static function isValid($sSelector) {
-		return preg_match(self::SELECTOR_VALIDATION_RX, $sSelector);
+		return preg_match(static::SELECTOR_VALIDATION_RX, $sSelector);
 	}
 
 	public function __construct($sSelector, $bCalculateSpecificity = false) {

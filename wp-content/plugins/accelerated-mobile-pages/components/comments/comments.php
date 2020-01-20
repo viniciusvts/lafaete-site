@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 function ampforwp_framework_get_comments(){
 	global $redux_builder_amp;
 	$display_comments_on = "";
@@ -114,8 +117,6 @@ function ampforwp_framework_get_comments(){
 						<div class="amp-comment-button">
 							<?php if ( comments_open($postID) ) { ?>
 						    	<a href="<?php echo ampforwp_comment_button_url(); ?>" title="<?php echo ampforwp_get_setting('amp-translator-leave-a-comment-text')?>" rel="nofollow"><?php echo esc_html(ampforwp_translation( $redux_builder_amp['amp-translator-leave-a-comment-text'], 'Leave a Comment' ) ); ?></a> <?php
-							} else {
-								echo "<p class='nocomments'>". esc_html( ampforwp_translation( $redux_builder_amp['amp-translator-comments-closed'], 'Comments are closed'  ) )." </p>";
 							}?>
 						</div> <?php 
 					}?>
@@ -227,7 +228,7 @@ function ampforwp_framework_get_vuukle_comments(){
 
  	$vuukle_html = '<amp-iframe width="600" height="350" layout="responsive" sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms" resizable frameborder="0" src="'.esc_url($srcUrl).'">
 
-		<div overflow tabindex="0" role="button" aria-label="Show comments">'.esc_html__('Show comments','accelerated-mobile-pages').'</div>';
+		<div overflow tabindex="0" role="button" aria-label="Show comments">'.esc_html__('Show comments','accelerated-mobile-pages').'</div></amp-iframe>';
 	echo $vuukle_html; // escaped above
 }
 

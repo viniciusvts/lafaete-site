@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 /**
  * 
  */
@@ -182,7 +185,7 @@ class AMPforWP_Fields
 		echo '<div class="ux-field-container amp-ux-heading"><h2>'.esc_html($this->title).'</h2></div>';
 	}
 	public function ampforwp_field_loader($fields = array()){
-			echo '<div class="amp-ux-loader"><div class="amp-ux-loading"></div><div id="amp-ux-loading-saved" class="hide">Saved</div><span class="hide amp-ux-check"></span></div>';
+			echo '<div class="amp-ux-loader"><div class="amp-ux-loading"></div><div id="amp-ux-loading-saved" class="hide"></div><span class="hide amp-ux-check"></span></div>';
 	}
 
 	// Main Section
@@ -286,7 +289,7 @@ class AMPforWP_Fields
 		}
 
 		$output .= '</div>';
-		echo $output;
+		echo $output; /* $output XSS escaped */
 	}
 	public function ampforwp_field_checkbox($fields){
 		$required = $hide = $checked = '';
@@ -301,10 +304,10 @@ class AMPforWP_Fields
 		$lbl_cls = '';
 		if(isset($fields['label-class'])){
 			$lbl_cls = 'class="'.esc_attr($fields['label-class']).'"';
-		}
+		} /* $lbl_cls XSS escaped */
 
-		$output = '<div class="ux-field-container amp-ux-checkbox-container '.esc_attr($hide).' '.esc_attr($required).'"><label><input type="checkbox" class="'.esc_attr($this->class).'" id="'.esc_attr($this->id).'" ' . esc_attr($checked).'>'.esc_html__($this->title).'</label></div>';
-		echo $output;
+		$output = '<div class="ux-field-container amp-ux-checkbox-container '.esc_attr($hide).' '.esc_attr($this->parent_class).' " '.esc_attr($required).'><label '.$lbl_cls.'><input type="checkbox" class="'.esc_attr($this->class).'" id="'.esc_attr($this->id).'" ' . esc_attr($checked).'>'.esc_html__($this->title).'</label></div>';   /* $lbl_cls XSS escaped */
+		echo $output;  /* $output XSS escaped */
 	}
 	public function ampforwp_field_switch($fields){
 
@@ -350,7 +353,7 @@ class AMPforWP_Fields
         	$output .= '<p class="amp-ux-switch-text">'.esc_html($this->desc).'</p>';
         }
         $output .= '</div>';
-		echo $output;
+		echo $output; /* $output XSS escaped */
 	}
 
 	public function ampforwp_field_media(){
@@ -392,7 +395,7 @@ class AMPforWP_Fields
 					<span class="amp-ux-img-re-txt">(Recommended Size: 120 x 90)</span>				
 				</div>';
 			$output .= '</div></div>';
-        echo $output;
+        echo $output; /* $output XSS escaped */
 	}
 
 	public function ampforwp_field_color(){
@@ -404,7 +407,7 @@ class AMPforWP_Fields
 		$this->selected = $this->default ? 'value='.esc_attr($this->default) : "";
 		$output .= '<input type="text" id="'.esc_attr($this->id).'" class="'.esc_attr($this->class).'" '.esc_attr($this->selected).'>';
 		$output .= '</div>';
-		echo $output;
+		echo $output; /* $output XSS escaped */
 	}
 	public function ampforwp_field_text($fields){
 		$required = '';
@@ -418,12 +421,12 @@ class AMPforWP_Fields
 			$output .= '<h2 class="'.esc_attr($this->element_class).'">'.esc_html($this->title).'</h2>';
 		}
 		$output .= '<input type="text" id="'.esc_attr($this->id).'" class="'.esc_attr($this->class).'" '.esc_attr($this->data_text).' value="'.esc_attr($this->default).'"></div>';
-		echo $output;
+		echo $output; /* $output XSS escaped */
 	}
 
 	public function loading(){
 		$output = '<span class="hide amp-ux-check"></span><div class="hide amp-ux-loading"></div><br>';
-		echo $output;
+		echo $output; /* $output XSS escaped */
 	}
 	public function ampforwp_field_notification($fields){
 		$required = $hide = $hrf_id = '';
