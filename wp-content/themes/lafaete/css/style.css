@@ -49,7 +49,7 @@ h3.title-card-blog {
   color: white !important;
 }
 
-h1 {
+h1, .h2-home-slider {
   font-size: 3rem;
 }
 
@@ -549,12 +549,12 @@ nav.navbar {
   top: 40%;
 }
 @media (max-width: 575.98px) {
-  .carousel-caption h1 {
+  .carousel-caption h1, .carousel-caption .h2-home-slider {
     font-size: 20px !important;
   }
 }
 @media (max-width: 767.98px) {
-  .carousel-caption h1 {
+  .carousel-caption h1, .carousel-caption .h2-home-slider {
     font-size: 30px;
   }
 }
