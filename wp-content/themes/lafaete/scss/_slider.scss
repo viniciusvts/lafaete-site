@@ -170,6 +170,12 @@ ul.bp-indicators {
     }
   }
 
+.carousel-indicators {
+    @include mediaScreenMax($smartphones) {
+        display: none;
+    }
+}
+
   .carousel-item .destaque-blog {
       filter: none !important;
   }

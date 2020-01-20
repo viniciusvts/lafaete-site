@@ -693,6 +693,12 @@ ul.bp-indicators .dots.active {
   background-color: white !important;
 }
 
+@media (max-width: 575.98px) {
+  .carousel-indicators {
+    display: none;
+  }
+}
+
 .carousel-item .destaque-blog {
   filter: none !important;
 }
