@@ -49,6 +49,7 @@ switch ($server_addr) {
         $dbuser_default = 'lafaetel_user';
         $dbpassword_default = 'DNA#Site$Lafa';
         $devMode = true;
+        $wpDebugDisplay = true ;
         $wpHome = 'https://www.lafaetelocacao.com.br/novo';
         $wpSiteUrl = 'https://www.lafaetelocacao.com.br/novo';
 	break;
