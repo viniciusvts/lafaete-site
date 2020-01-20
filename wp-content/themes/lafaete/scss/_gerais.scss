@@ -156,6 +156,12 @@ iframe{
     }
 }
 
+#social-icons {
+    @include breakpoint($smartphones) {
+        display: none;
+    }
+}
+
 .botao-laranja button, .botao-laranja {
     background: $laranja;
     padding: 10px 50px 10px 50px;
