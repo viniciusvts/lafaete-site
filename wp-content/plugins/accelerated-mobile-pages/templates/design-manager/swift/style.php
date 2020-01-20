@@ -2278,6 +2278,7 @@ if(ampforwp_get_setting('ampforwp-gallery-design-type')==3){?>
 .amp-carousel-containerd3 figcaption {
     max-width: 150px;
 }
+<<<<<<< HEAD
 .ampforwp-blocks-gallery-caption{
 	float: left;
     width: 100%;
@@ -2292,6 +2293,8 @@ if(ampforwp_get_setting('ampforwp-gallery-design-type')==3){?>
 .ampforwp-blocks-gallery-caption{
     font-size: 16px;
 }
+=======
+>>>>>>> dc79793c708f4beeed7be8ea15ca642ae1399665
 <?php } ?>
 .m-s-i li a.s_telegram{
 	background: #d0d0d0;

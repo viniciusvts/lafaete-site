@@ -282,7 +282,11 @@ class AMP_Gallery_Block_Sanitizer extends AMP_Base_Sanitizer {
 			if ( 3 != ampforwp_get_setting('ampforwp-gallery-design-type') ) {
 				$image_div = AMP_DOM_Utils::create_node( $this->dom, 'div', array('class'=>'ampforwp-gallery-item amp-carousel-container') );
 				$image_div->appendChild($amp_image_node);
+<<<<<<< HEAD
 				if ( isset($image['caption'])  && is_object($image['caption'])) {
+=======
+				if ( isset($image['caption']) ) {
+>>>>>>> dc79793c708f4beeed7be8ea15ca642ae1399665
 					$figure_node = AMP_DOM_Utils::create_node($this->dom, 'figure', array());
 					$fig_caption = AMP_DOM_Utils::create_node($this->dom, 'figcaption', array('on'=>"tap:AMP.setState({expanded: !expanded})",'tabindex'=>0,'role'=>'button'));
 					$captionlength = $image['caption']->length;
@@ -338,7 +342,10 @@ class AMP_Gallery_Block_Sanitizer extends AMP_Base_Sanitizer {
 			foreach ($amp_images as $amp_image) {
 				$amp_carousel->appendChild( $amp_image );
 			}
+<<<<<<< HEAD
 			$this->ampforwp_set_block_gallery_caption($node,$node->parentNode);
+=======
+>>>>>>> dc79793c708f4beeed7be8ea15ca642ae1399665
 		}
 		if ( 2 == ampforwp_get_setting('ampforwp-gallery-design-type') ) {
 			$button_nodes = array();
@@ -386,7 +393,10 @@ class AMP_Gallery_Block_Sanitizer extends AMP_Base_Sanitizer {
 				$gal_div->appendChild( $figure_node );
 				$i++;
 			}
+<<<<<<< HEAD
 			$this->ampforwp_set_block_gallery_caption($node,$gal_div);
+=======
+>>>>>>> dc79793c708f4beeed7be8ea15ca642ae1399665
 			$amp_carousel = $gal_div;
 			add_action('amp_post_template_css', 'AMPforWP\\AMPVendor\\ampforwp_gal_des_3');
 		}
@@ -400,6 +410,7 @@ class AMP_Gallery_Block_Sanitizer extends AMP_Base_Sanitizer {
 		add_action('amp_post_template_css', 'ampforwp_additional_style_carousel_caption');
 		return $amp_carousel;
 	}
+<<<<<<< HEAD
 	protected function ampforwp_set_block_gallery_caption($node,$append){
 		$domData = $this->dom->saveHTML();
 		if(preg_match_all('/<figcaption class="blocks-gallery-caption">(.*?)<\/figcaption>/', $domData, $fc)!==false){
@@ -410,6 +421,8 @@ class AMP_Gallery_Block_Sanitizer extends AMP_Base_Sanitizer {
 			}
 		}
 	}
+=======
+>>>>>>> dc79793c708f4beeed7be8ea15ca642ae1399665
 	/**
 	 * Get carousel height by containing images.
 	 *

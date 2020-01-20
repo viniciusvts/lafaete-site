@@ -1,5 +1,6 @@
 == Changelog ==
 
+<<<<<<< HEAD
 = 1.0.15 (17th January 2020) =
 * Fixed: Sticky Social icons's css not loading correctly on some pages #3980
 * Fixed: Need to add option to hide "AMP version" in view source page(generator). #4000
@@ -13,6 +14,8 @@
 * Fixed: when row Wrapper is set to 100%,static css of max width 90% is getting applied from tablet view mode to below #3999
 * Fixed: Code improvement in Detect Component and add or remove script accordingly #4067
 
+=======
+>>>>>>> dc79793c708f4beeed7be8ea15ca642ae1399665
 = 1.0.14 (14th January 2020) =
 * Fixed: Warning in accelerated-mobile-pages/includes/options/admin-config.php on line 1250
 * Fixed: Code improvement in Detect Component and add or remove script accordingly #4067

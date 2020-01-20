@@ -63,7 +63,7 @@
           $categorias = get_categories( 
             array(
               'orderby' => 'name',
-              'taxonomy' => 'estado',
+              'taxonomy' => 'produtos',
               'parent'  => 0,
               'hide_empty' => true,
             )

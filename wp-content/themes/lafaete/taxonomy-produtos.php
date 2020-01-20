@@ -54,25 +54,6 @@
         </div>    
       </div>      
     </div>
-    <div id="produtos">
-      <div class="container produto-floater">
-        <div class="row">
-          <div class="col-xl-8 texto">
-            <div class='scroll-rtl'>
-              <p><?php echo $queriedObject->description; ?></p>
-              <button class="btn">
-                <a href="#faca-um-orcamento">Faça um orçamento agora</a>
-              </button>
-              
-            </div>
-          </div>
-          <div class="col-xl-4 pagamento">
-            <h4>Condições de Pagamento</h4>
-            <img src="<?php bloginfo('template_url');?>/inc/img/pagseguro.png">
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="container produtos-container menu-imoveis">
       <?php
@@ -100,32 +81,124 @@
         ?> 
       </ul>
       <?php
-        endif;
-      ?>
-      <div class="row">
-
-        <?php         
-          $postsPerPage = get_option( 'posts_per_page' );
-          $paged = isset( $_GET['sheet'] )? $_GET['sheet'] : 1;
-          $args = array(
-                  'post_type' => 'produto',
-                  'order' => 'ASC' ,
-            'posts_per_page' => $postsPerPage,
-            'paged' => $paged,
-                  'tax_query' => array(
-                    array(
-                      'taxonomy' => 'produtos',
-                      'field' => 'id',
-                      'terms' => $queriedObject->term_id,
-                      'include_children' => false
-                    )
+        endif;       
+        $postsPerPage = get_option( 'posts_per_page' );
+        $paged = isset( $_GET['sheet'] )? $_GET['sheet'] : 1;
+        $args = array(
+                'post_type' => 'produto',
+                'order' => 'ASC' ,
+          'posts_per_page' => $postsPerPage,
+          'paged' => $paged,
+                'tax_query' => array(
+                  array(
+                    'taxonomy' => 'produtos',
+                    'field' => 'id',
+                    'terms' => $queriedObject->term_id,
+                    'include_children' => false
                   )
-          );
-          $produtos = new WP_Query( $args );
+                )
+        );
+        $produtos = new WP_Query( $args );
+        $posts = $produtos->posts;
+        if( $produtos->have_posts() ){
+          $array = [];
+          $arrayslug = [];
+          while($produtos->have_posts()) {
+            $produtos->the_post();
+            $examplePost = get_post();
+            // $ids = $examplePost->ID;
+            // $p[$i] = $ids;
+            // var_dump($examplePost);
+            $estados = wp_get_object_terms($examplePost->ID, 'estado');
+            foreach($estados as $estado) {
+              array_push($array, $estado->name);
+              array_push($arrayslug, $estado->slug);
+            }
+          } ?>
+          <hr>
+        <ul id="estados" class="nav justify-content-center">
+            <li class="nav-item active">
+              <a class="nav-link" href="#todos">Todos os Estados</a>
+            </li>
+          <?php
+          $estados_unique = array_unique($array);
+          $slugs = array_unique($arrayslug);
+          $count = count($arrayslug);
+          for($i = 0; $i < $count; $i++) {
+            if($slugs[$i] != null && $estados_unique[$i] != null) {
+              echo "
+              <li class='nav-item'>
+                <a class='nav-link' href='#".$slugs[$i]."'>".$estados_unique[$i]."</a>
+              </li>";
+            }
+          }
+        }
+      ?>
+      </ul>
+      <div class="row">
+<?php
+          $posts = $produtos->posts;
           if( $produtos->have_posts() ):
+            foreach($posts as $post) {
+              $estados = wp_get_object_terms($post->ID, 'estado');
+              $categorias = isset( $catTax ) ? $catTax : get_the_terms( $post->ID, 'produtos' );
+              if( $categorias ){
+                $lastIndexOfCat = count($categorias) - 1;
+              }
+              $hrefLink = isset( $hrefLink ) ? $hrefLink : get_the_permalink();
+              ?>
+              <!-- inc/card-produto -->
+<div class="default-service-column col-md-4 imagemGaleria 
+    <?php
+        foreach($estados as $estado) {
+          echo $estado->slug.' ';
+        }
+        foreach($categorias as $categoria){
+          if(get_queried_object()->term_id !== $categoria->term_id){
+              echo $categoria->slug;
+              echo " ";
+          }
+      }
+  ?>">
+    <a href="<?php echo($hrefLink); ?>" class="card-text">
+        <div class="inner-box">
+            <div class="inner-most">
+                <figure class="image-box">
+                    <?php the_post_thumbnail('large'); ?>
+                </figure>
+                <div class="lower-part">
+                    <div class="left-curve">                      
+                    </div>
+                    <div class="right-curve">                      
+                    </div>                    
+                    <div class="content">
+                        <h3><?php the_title(); ?></h3>
+                        <!-- <p><?php 
+                                foreach($categorias as $key => $categoria){
+                                    if(get_queried_object()->term_id !== $categoria->term_id){
+                                        echo $categoria->name;
+                                        if($key != $lastIndexOfCat){
+                                            echo ", ";
+                                        }else{
+                                            echo ".";
+                                        }
+                                    }
+                                }
+                            ?></p>
+                        <div class="more-link">
+                            <a href="<?php echo($hrefLink); ?>" class="read-more">Clique aqui</a>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div> 
+              <?php
             while( $produtos->have_posts()) : $produtos->the_post(); 
-              include 'inc/card-produto.php';
+              
             endwhile;
+          }
           endif;
           wp_reset_postdata();
         ?>
@@ -156,6 +229,25 @@
 			</div>
 		</div>
     </div>  
+    <div id="produtos">
+      <div class="container produto-floater">
+        <div class="row">
+          <div class="col-xl-8 texto">
+            <div class='scroll-rtl'>
+              <p><?php echo $queriedObject->description; ?></p>
+              <button class="btn">
+                <a href="#faca-um-orcamento">Faça um orçamento agora</a>
+              </button>
+              
+            </div>
+          </div>
+          <div class="col-xl-4 pagamento">
+            <h4>Condições de Pagamento</h4>
+            <img src="<?php bloginfo('template_url');?>/inc/img/pagseguro.png">
+          </div>
+        </div>
+      </div>
+    </div>
    
     <?php
       include_once('inc/form-orcamento.php');

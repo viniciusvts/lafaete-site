@@ -41,9 +41,11 @@
                     <h2><?php the_sub_field('titulo'); ?></h2>
                     <?php the_sub_field('descricao'); ?>
                   </div>
+                  <?php if(get_sub_field('imagem')): ?>
                   <div class="col-md-4">
-                    <img src="<?php echo the_post_thumbnail_url('medium'); ?>" alt="<?php the_sub_field('titulo'); ?>" class="img-fluid w-100" />                  
+                    <img src="<?php $imagem = get_sub_field('imagem'); echo $imagem['url']; ?>" alt="<?php the_sub_field('titulo'); ?>" class="img-fluid w-100 rounded" />                  
                   </div>
+                  <?php endif; ?>
                 </div>
               </div>
             </div>
@@ -68,7 +70,7 @@
             $premios = new WP_Query(array('post_type' => 'premios'));
             while($premios->have_posts()): $premios->the_post();          
           ?>
-          <div class="col-12 col-md-3 col-sm-12 mr-auto ml-auto">          
+          <div class="col-12 col-md-4 col-sm-12 mr-auto ml-auto">          
             <?php $imagemPremio = get_field('imagem'); ?>            
             <img src="<?php echo $imagemPremio['url']; ?>" alt="<?php echo $imagemPremio['alt'] ?>" class="img-fluid w-100 rounded" /> 
             <h3><?php the_title(); ?></h3>

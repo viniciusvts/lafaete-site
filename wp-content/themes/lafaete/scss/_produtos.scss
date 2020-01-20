@@ -197,11 +197,15 @@
             color: white;
             padding: 5px;//10px;
             margin: 0 13px;//10px
+            font-size: 20px;
+        }
+        ul li {
+            text-transform: capitalize;
         }
     }
 
     .produto-floater .texto p{
-        font-size: 22px;
+        font-size: 19px;
     }
 
     .produto-floater .texto button, .produto-floater button{
@@ -317,6 +321,10 @@
 .produtos-container ul li:hover, li.nav-item.active{
     border: 1px solid $laranja;
     background: $laranja;
+}
+#estados li.nav-item.active {
+    border: 1px solid #B34E17;
+    background: #B34E17;
 }
 
 .produtos-container ul li a:hover, li.nav-item.active a{

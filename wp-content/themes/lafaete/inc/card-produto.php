@@ -18,7 +18,7 @@ $hrefLink = isset( $hrefLink ) ? $hrefLink : get_the_permalink();
         <div class="inner-box">
             <div class="inner-most">
                 <figure class="image-box">
-                    <?php the_post_thumbnail('medium'); ?>
+                    <?php the_post_thumbnail('large'); ?>
                 </figure>
                 <div class="lower-part">
                     <div class="left-curve">                      

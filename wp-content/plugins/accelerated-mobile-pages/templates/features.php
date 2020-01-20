@@ -4485,6 +4485,7 @@ function ampforwp_get_featured_image_from_content( $featured_image = "", $size="
 		}
 		if($output==0){
 			if(preg_match('/<figure\sclass="(.*?)">(<img\ssrc="(.*?)"(.*?)>)<\/figure>/', $post->post_content, $fm)){
+<<<<<<< HEAD
 				if(isset( $fm[2])){
 					$dom = new DOMDocument();
 					preg_match('/<img\ssrc="(.*?)"(.*?)>/', $fm[2],$fmatch);
@@ -4507,6 +4508,28 @@ function ampforwp_get_featured_image_from_content( $featured_image = "", $size="
 							}
 					    }
 					}
+=======
+				preg_match('/<figure\sclass="(.*?)">(<img\ssrc="(.*?)"(.*?)>)<\/figure>/', $post->post_content, $fb);
+				if(isset( $fb[2])){
+					$dom = new DOMDocument();
+					$image_html = $fb[2];
+				    $dom->loadHTML($image_html);
+				    $x = new DOMXPath($dom);
+				    foreach($x->query("//img") as $node){   
+				        $node->setAttribute("width","1366");
+				        $node->setAttribute("height","600");
+				    }
+				    $image_html = $dom->saveHtml();
+				    preg_match_all('/<img\ssrc="(.*?)">/', $image_html, $fimg);
+				    if(isset($fimg[0][0])){
+				       $image_html ='<figure class="'.esc_attr($fb[1]).'">'.$fimg[0][0].'</figure>';
+					   if(isset($fb[3])){
+						    $image_url 		= $fb[3];
+							$image_width 	= 1366;
+							$image_height 	= 600;
+						}
+				    }
+>>>>>>> dc79793c708f4beeed7be8ea15ca642ae1399665
 				}
 			}
 		}
@@ -7649,7 +7672,13 @@ if(!function_exists('ampforwp_transposh_plugin_rtl_css')){
 
 add_filter('ampforwp_the_content_last_filter','ampforwp_include_required_scripts',12);
 function ampforwp_include_required_scripts($content){
+<<<<<<< HEAD
 	$comp_to_remove_arr = array();
+=======
+	
+	$comp_to_remove_arr = array();
+
+>>>>>>> dc79793c708f4beeed7be8ea15ca642ae1399665
 	preg_match_all('/<\/amp-(.*?)>/', $content, $matches);
 	if(isset($matches[1][0])){
 		$amp_comp = $matches[1];
@@ -7696,7 +7725,11 @@ function ampforwp_include_required_scripts($content){
 				}
 				$comp_to_include_arr = apply_filters('ampforwp_amp_custom_element_to_include',$comp_to_include_arr);
 				if(in_array($comp, $comp_to_include_arr)){
+<<<<<<< HEAD
 					if(!preg_match('/<script(\s|\sasync\s)custom-element="amp-'.esc_attr($comp).'"(.*?)>(.*?)<\/script>/s', $content, $matches)){
+=======
+					if(!preg_match('/<script\scustom-element=\"amp-'.esc_attr($comp).'\"(.*?)><\/script>/', $content, $matches)){
+>>>>>>> dc79793c708f4beeed7be8ea15ca642ae1399665
 						$script_tag = '<head><script custom-element="amp-'.esc_attr($comp).'" src="'.esc_url($comp_url).'" async></script>';
 						$content =  str_replace('<head>', $script_tag, $content);
 					}
@@ -7705,17 +7738,29 @@ function ampforwp_include_required_scripts($content){
 		}
 	}
 
+<<<<<<< HEAD
 	preg_match_all('/<script(\s|\sasync\s)custom-element="(.*?)"(.*?)>(.*?)<\/script>/s', $content, $matches);
 	if(isset($matches[0])){
 		if(isset($matches[2])){
+=======
+	preg_match_all('/<script\scustom-element="(.*?)"(.*?)><\/script>/', $content, $matches);
+	if(isset($matches[0])){
+		if(isset($matches[1])){
+>>>>>>> dc79793c708f4beeed7be8ea15ca642ae1399665
 			$excl_arr = array('amp-form','amp-bind','amp-access','amp-analytics','amp-access-laterpay','amp-access-poool','amp-dynamic-css-classes','amp-fx-collection','amp-inputmask','amp-lightbox-gallery','amp-inputmask','amp-mustache','amp-subscriptions-google','amp-subscriptions','amp-video-docking','amp-story');
 			$inc_elem_arr = array();
 			for($r=0;$r<count($comp_to_remove_arr);$r++){
 				$inc_elem_arr[] = 'amp-'.$comp_to_remove_arr[$r];
 			}
+<<<<<<< HEAD
 			for($i=0;$i<count($matches[2]);$i++){
 				if(isset($matches[2][$i])){
 					$component = $matches[2][$i];
+=======
+			for($i=0;$i<count($matches[1]);$i++){
+				if(isset($matches[1][$i])){
+					$component = $matches[1][$i];
+>>>>>>> dc79793c708f4beeed7be8ea15ca642ae1399665
 					if(!in_array($component,$excl_arr)){
 						if(!preg_match("/<\/$component>/",  $content) && !$is_script){
 							$remove_comp = $matches[0][$i];
@@ -7723,7 +7768,11 @@ function ampforwp_include_required_scripts($content){
 						}else if(in_array($component, $inc_elem_arr )){
 							for($rc=0;$rc<count($inc_elem_arr);$rc++){
 								$rcomp = $inc_elem_arr[$rc];
+<<<<<<< HEAD
 								if(preg_match('/<script(\s|\sasync\s)custom-element="'.esc_attr($rcomp).'"(.*?)>(.*?)<\/script>/s', $content,$rmc)){
+=======
+								if(preg_match('/<script\scustom-element="'.$rcomp.'"(.*?)<\/script>/', $content,$rmc)){
+>>>>>>> dc79793c708f4beeed7be8ea15ca642ae1399665
 									if(isset($rmc[0])){
 										$remove_comp = $rmc[0];
 										$content = str_replace($remove_comp, '', $content);
@@ -7732,16 +7781,20 @@ function ampforwp_include_required_scripts($content){
 							}
 						}
 					}
+<<<<<<< HEAD
 					// REMOVING DUPLICATE SCRIPT.
 					$count_elem = array_count_values($matches[2])[$component];
 					if($count_elem>1){
 						$content = preg_replace('/<script(\s|\sasync\s)custom-element="'.esc_attr($component).'"(.*?)>(.*?)<\/script>/s','',$content,1,$matches[2][$i]);
 					}
+=======
+>>>>>>> dc79793c708f4beeed7be8ea15ca642ae1399665
 				}
 			}
 		}
 	}
 	return $content;
+<<<<<<< HEAD
 }	
 if(!function_exists('ampforwp_get_retina_image_settings')){
 	function ampforwp_get_retina_image_settings($width,$height){
@@ -7760,3 +7813,6 @@ if(!function_exists('ampforwp_get_retina_image_settings')){
 		return $data;
 	}
 }
+=======
+}	
+>>>>>>> dc79793c708f4beeed7be8ea15ca642ae1399665

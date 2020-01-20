@@ -150,6 +150,11 @@ iframe {
   -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+@media (max-width: 575.98px) {
+  .submenu-categorias {
+    transform: translate(-33px, 25px);
+  }
+}
 .submenu-categorias ul {
   list-style: none;
   padding: 0;
@@ -721,6 +726,11 @@ ul.bp-indicators .dots.active {
   -o-transition: 0.4s ease all;
   -moz-transition: 0.4s ease all;
 }
+.nossos-premios .rounded {
+  background-color: white;
+  padding: 50px;
+  margin-top: 40px;
+}
 
 #slider_container {
   width: 1200px;
@@ -861,6 +871,11 @@ ul.bp-indicators .dots.active {
 @media (max-width: 767.98px) {
   .bp-carousel .bp-carousel-inner {
     height: 600px;
+  }
+}
+@media (max-width: 575.98px) {
+  .bp-carousel .bp-carousel-inner {
+    height: 340px;
   }
 }
 .bp-carousel .bp-item {
@@ -1309,9 +1324,13 @@ ul.bp-indicators .dots.active {
   color: white;
   padding: 5px;
   margin: 0 13px;
+  font-size: 20px;
+}
+#produtos .produto-floater .texto ul li, #produtos .produto-floater .texto ul li {
+  text-transform: capitalize;
 }
 #produtos .produto-floater .texto p {
-  font-size: 22px;
+  font-size: 19px;
 }
 #produtos .produto-floater .texto button, #produtos .produto-floater button {
   background: #6a6a6a;
@@ -1420,6 +1439,11 @@ ul.bp-indicators .dots.active {
 .produtos-container ul li:hover, li.nav-item.active {
   border: 1px solid #ff7e3b;
   background: #ff7e3b;
+}
+
+#estados li.nav-item.active {
+  border: 1px solid #B34E17;
+  background: #B34E17;
 }
 
 .produtos-container ul li a:hover, li.nav-item.active a {
