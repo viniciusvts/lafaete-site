@@ -1441,6 +1441,11 @@ ul.bp-indicators .dots.active {
   background: #ff7e3b;
 }
 
+#estados li.nav-item.active {
+  border: 1px solid #B34E17;
+  background: #B34E17;
+}
+
 .produtos-container ul li a:hover, li.nav-item.active a {
   color: white;
 }

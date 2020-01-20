@@ -322,6 +322,10 @@
     border: 1px solid $laranja;
     background: $laranja;
 }
+#estados li.nav-item.active {
+    border: 1px solid #B34E17;
+    background: #B34E17;
+}
 
 .produtos-container ul li a:hover, li.nav-item.active a{
     color: white;
