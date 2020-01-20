@@ -41,7 +41,7 @@
                 ?>">
           <?php
             if($slider > 0) { ?>
-            <h2 style="font-size:3rem"><?php the_title(); ?></h2> 
+            <h2 class="h2-home-slider"><?php the_title(); ?></h2> 
             <?php
             } else { ?>
             <h1><?php the_title(); ?></h1> 
