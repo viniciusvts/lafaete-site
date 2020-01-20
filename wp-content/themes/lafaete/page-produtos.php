@@ -74,7 +74,6 @@
               array_push($arrayslug, $estado->slug);
             }
           } ?>
-          <hr>
         <ul id="estados" class="nav justify-content-center">
           <?php
           $estados_unique = array_unique($array);
