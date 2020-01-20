@@ -57,6 +57,41 @@
           $args['s'] = $search;
         }
         $produtos = new WP_Query($args);
+        $posts = $produtos->posts;
+        if( $produtos->have_posts() ){
+          $array = [];
+          $arrayslug = [];
+          $link = get_bloginfo('url');
+          while($produtos->have_posts()) {
+            $produtos->the_post();
+            $examplePost = get_post();
+            // $ids = $examplePost->ID;
+            // $p[$i] = $ids;
+            // var_dump($examplePost);
+            $estados = wp_get_object_terms($examplePost->ID, 'estado');
+            foreach($estados as $estado) {
+              array_push($array, $estado->name);
+              array_push($arrayslug, $estado->slug);
+            }
+          } ?>
+          <hr>
+        <ul id="estados" class="nav justify-content-center">
+          <?php
+          $estados_unique = array_unique($array);
+          $slugs = array_unique($arrayslug);
+          $count = count($arrayslug);
+          for($i = 0; $i < $count; $i++) {
+            if($slugs[$i] != null && $estados_unique[$i] != null) {
+              echo "
+              <li class='nav-item'>
+                <a class='nav-link' href='".$link."/estado/".$slugs[$i]."'>".$estados_unique[$i]."</a>
+              </li>";
+            }
+          }
+        }
+      ?>
+      </ul>
+      <?php
         if( isset( $search ) ){// se teve pesquisa na search box, exibir os produtos
           if( $produtos->have_posts() ){
             while( $produtos->have_posts()){
