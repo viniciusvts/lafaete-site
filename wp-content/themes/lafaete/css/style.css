@@ -1679,10 +1679,6 @@ ul.bp-indicators .dots.active {
     margin: 10px;
   }
 
-  #produtos .produto-floater .texto span {
-    color: black;
-  }
-
   #produtos .produto-floater .texto button {
     background: #6a6a6a;
     color: white;
@@ -2606,6 +2602,7 @@ img {
   color: #6a6a6a;
   padding-bottom: 50px;
   padding-top: 50px;
+  margin-top: 50px;
 }
 
 .fale-conosco h3 {
