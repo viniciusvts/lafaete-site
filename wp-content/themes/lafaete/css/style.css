@@ -557,13 +557,14 @@ nav.navbar {
   }
 }
 
-.carousel-caption {
-  top: 40%;
-}
 @media (max-width: 575.98px) {
-  .carousel-caption {
+  .crousel-home {
     top: 75px;
   }
+}
+
+.carousel-caption {
+  top: 40%;
 }
 @media (max-width: 575.98px) {
   .carousel-caption h1, .carousel-caption .h2-home-slider {

@@ -44,11 +44,14 @@
     }
 }
 
-.carousel-caption{
-    top: 40%;
+.crousel-home {
     @include mediaScreenMax($smartphones) {
         top: 75px;
     }
+}
+
+.carousel-caption{
+    top: 40%;
     h1, .h2-home-slider{
         @include mediaScreenMax($smartphones){
             font-size: 30px!important;
