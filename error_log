@@ -1585,3 +1585,5 @@
 [20-Jan-2020 19:42:19 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lafaetelocacao/public_html/novo/wp-content/themes/lafaete/inc/card-produto.php on line 31
 [21-Jan-2020 13:24:23 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lafaetelocacao/public_html/novo/wp-content/themes/lafaete/inc/card-produto.php on line 10
 [21-Jan-2020 13:24:23 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lafaetelocacao/public_html/novo/wp-content/themes/lafaete/inc/card-produto.php on line 31
+[21-Jan-2020 14:24:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lafaetelocacao/public_html/novo/wp-content/themes/lafaete/inc/card-produto.php on line 10
+[21-Jan-2020 14:24:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lafaetelocacao/public_html/novo/wp-content/themes/lafaete/inc/card-produto.php on line 31

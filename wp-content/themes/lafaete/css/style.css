@@ -180,6 +180,7 @@ iframe {
   border: none;
   color: white;
   margin-top: 44px;
+  margin-bottom: 20px;
 }
 @media (max-width: 575.98px) {
   .botao-laranja button, .botao-laranja {
@@ -924,6 +925,7 @@ ul.bp-indicators .dots.active {
   font-size: 60px;
   position: relative;
   margin-left: 40px;
+  top: 50px;
 }
 .bp-carousel .arrow-left:before {
   content: "‹";
@@ -932,6 +934,7 @@ ul.bp-indicators .dots.active {
   margin-right: 30px;
   font-size: 60px;
   position: relative;
+  top: 50px;
 }
 
 .bp-one {
@@ -1136,6 +1139,11 @@ ul.bp-indicators .dots.active {
 
 .faca-um-orcamento, .trabalhe-conosco {
   padding: 120px;
+}
+@media (max-width: 575.98px) {
+  .faca-um-orcamento, .trabalhe-conosco {
+    padding: 60px;
+  }
 }
 
 /*produtos*/
