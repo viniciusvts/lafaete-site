@@ -278,7 +278,9 @@ class modeloDeProduto{
 $(function(){   
     var nav = $('#menu-principal'); 
     var navTop = $('#menu-topo');  
-    
+    navTop.css('display','block'); 
+    nav.addClass('bg-light');
+    nav.removeClass('bg-dark');
     $(window).scroll(function () { 
         if ($(this).scrollTop() > 90) { 
             navTop.css('display','none');
@@ -495,6 +497,6 @@ window.addEventListener('load', function(e){
 });
 
 window.addEventListener('resize', function(e){
-    console.log("resize");
+    // console.log("resize");
     bpCarrousel.onResize();
 });
