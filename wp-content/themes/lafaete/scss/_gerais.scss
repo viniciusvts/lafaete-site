@@ -169,6 +169,7 @@ iframe{
     border: none;
     color: white;
     margin-top: 44px;
+    margin-bottom: 20px;
     @include breakpoint(smartphones) {
         margin-left: auto;
         margin-right: auto;
