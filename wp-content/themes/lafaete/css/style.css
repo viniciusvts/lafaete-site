@@ -546,6 +546,7 @@ nav.navbar {
   height: -webkit-fill-available;
   /* Mozilla-based browsers will ignore this. */
   height: fill-available;
+  height: auto;
 }
 
 .carousel-caption-expand-height {
