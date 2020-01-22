@@ -1590,3 +1590,6 @@
 [21-Jan-2020 14:27:07 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lafaetelocacao/public_html/novo/wp-includes/class-wp-list-util.php on line 151
 [21-Jan-2020 14:30:08 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lafaetelocacao/public_html/novo/wp-includes/class-wp-list-util.php on line 151
 [21-Jan-2020 14:37:24 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lafaetelocacao/public_html/novo/wp-includes/class-wp-list-util.php on line 151
+[21-Jan-2020 18:08:07 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lafaetelocacao/public_html/novo/wp-includes/class-wp-list-util.php on line 151
+[21-Jan-2020 19:20:08 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lafaetelocacao/public_html/novo/wp-includes/class-wp-list-util.php on line 151
+[21-Jan-2020 19:37:16 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/lafaetelocacao/public_html/novo/wp-includes/class-wp-list-util.php on line 151
