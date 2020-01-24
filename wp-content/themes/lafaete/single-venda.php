@@ -6,7 +6,7 @@
     <?php include_once('menu.php'); ?> 
 
     <!-- SLIDER -->
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide carousel-flat-height" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="carousel-caption d-none d-md-block">
