@@ -89,7 +89,9 @@
           <?php
           $args = array(
             'post_type' => 'servicos',
-            'orderby' => 'name'
+            'orderby' => 'name',
+            'order' => 'ASC',
+            'posts_per_page' => -1
           );
           $servicos = get_posts( $args );
           foreach( $servicos as $service ){
