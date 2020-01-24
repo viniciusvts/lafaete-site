@@ -114,4 +114,7 @@
 
 .faca-um-orcamento, .trabalhe-conosco{
     padding: 120px;
+    @include breakpoint(smartphones) {
+        padding: 60px;
+    }
 }

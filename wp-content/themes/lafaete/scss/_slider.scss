@@ -32,17 +32,30 @@
     height: -moz-available;          /* WebKit-based browsers will ignore this. */
     height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
     height: fill-available;
+    height: auto;
 }
 
 .carousel-caption-expand-height{
     height: 758px;
 }
 
+.slide-btn {
+    @include mediaScreenMax($smartphones) {
+        display: none;
+    }
+}
+
+.crousel-home {
+    @include mediaScreenMax($smartphones) {
+        top: 75px;
+    }
+}
+
 .carousel-caption{
     top: 40%;
-    h1{
+    h1, .h2-home-slider{
         @include mediaScreenMax($smartphones){
-            font-size: 20px!important;
+            font-size: 30px!important;
         } 
         @include mediaScreenMax($tablets){
             font-size: 30px;
@@ -160,6 +173,12 @@ ul.bp-indicators {
       }
     }
   }
+
+.carousel-indicators {
+    @include mediaScreenMax($smartphones) {
+        display: none;
+    }
+}
 
   .carousel-item .destaque-blog {
       filter: none !important;

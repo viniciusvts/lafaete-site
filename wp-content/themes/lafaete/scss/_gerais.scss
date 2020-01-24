@@ -42,7 +42,7 @@ h3.title-card-blog {
         color: white !important;
     }
 } 
-h1{
+h1, .h2-home-slider{
     font-size: 3rem;
 }
 
@@ -139,6 +139,10 @@ iframe{
 
     @include box-shadow(0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19));
 
+    @include mediaScreenMax($smartphones) {
+        transform: translate(-33px, 25px);
+    }
+
     ul{
         list-style: none;
         padding: 0;
@@ -152,6 +156,12 @@ iframe{
     }
 }
 
+#social-icons {
+    @include breakpoint(smartphones) {
+        display: none;
+    }
+}
+
 .botao-laranja button, .botao-laranja {
     background: $laranja;
     padding: 10px 50px 10px 50px;
@@ -159,6 +169,7 @@ iframe{
     border: none;
     color: white;
     margin-top: 44px;
+    margin-bottom: 20px;
     @include breakpoint(smartphones) {
         margin-left: auto;
         margin-right: auto;
@@ -171,4 +182,14 @@ iframe{
         text-align: center;
         margin-bottom: 20px;
     }
+}
+
+.single-tt {
+    color: black !important;
+}
+.left-b, .mid-b {
+    border-right: rgba(0, 0, 0, 0.541) solid 1px;
+}
+#single-title-box {
+    margin-bottom: 10px !important;
 }

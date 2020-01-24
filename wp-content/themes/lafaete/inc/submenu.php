@@ -10,12 +10,21 @@
             'hide_empty' => true
         );
     }else{
-        $args = array(
-            'orderby' => 'name',
-            'taxonomy' => 'produtos',
-            'parent'  => 0,
-            'hide_empty' => true
-        );
+        if(is_single() == true) {
+            $args = array(
+                'orderby' => 'name',
+                'taxonomy' => 'vendas',
+                'parent'  => 0,
+                'hide_empty' => true
+            );
+        } else {
+            $args = array(
+                'orderby' => 'name',
+                'taxonomy' => 'produtos',
+                'parent'  => 0,
+                'hide_empty' => true
+            );
+        }
     }
         $categorias = get_categories( $args );
         foreach($categorias as $categoria) : 

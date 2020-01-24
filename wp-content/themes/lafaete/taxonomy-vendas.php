@@ -52,21 +52,6 @@
         </div>  
       </div>    
     </div> 
-    <div id="produtos">
-      <div class="container produto-floater">
-        <div class="row">
-          <div class="col-md-8 texto">
-            <p><?php echo get_queried_object()->description; ?></p>
-            <a href="#faca-um-orcamento"><button class="btn">Faça um orçamento agora</button></a>
-          </div>
-          <div class="col-md-4 pagamento">
-            <h4>Condições de Pagamento</h4>
-            
-            <img src="<?php bloginfo('template_url'); ?>/inc/img/pagseguro.png">
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="container produtos-container menu-imoveis">
       <?php
@@ -152,7 +137,22 @@
 				</div>
 			</div>
 		</div>
-    </div>  
+    </div> 
+    <div id="produtos">
+      <div class="container produto-floater">
+        <div class="row">
+          <div class="col-md-8 texto">
+            <p><?php echo get_queried_object()->description; ?></p>
+            <a href="#faca-um-orcamento"><button class="btn">Faça um orçamento agora</button></a>
+          </div>
+          <div class="col-md-4 pagamento">
+            <h4>Condições de Pagamento</h4>
+            
+            <img src="<?php bloginfo('template_url'); ?>/inc/img/pagseguro.png">
+          </div>
+        </div>
+      </div>
+    </div> 
    
     <?php
       include_once('inc/form-orcamento.php');

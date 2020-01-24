@@ -58,80 +58,6 @@
             
     </div>
 
-    <div id="produtos">
-      <div class="container produto-floater">
-        <div class="row">
-          <div class="col-md-8 texto">
-            <div class="container">
-              <p><?php the_field('descricao'); ?></p>
-              <p>Valor de Venda: <?php the_field('preco'); ?></p>
-              <a href="#faca-um-orcamento"><button class="btn">Faça um orçamento agora</button></a>
-            </div>
-          </div>
-          <div class="col-md-4 pagamento">
-            <h4>Condições de Pagamento</h4>
-            <img src="<?php bloginfo('template_url'); ?>/inc/img/pagseguro.png">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container-fluid especificacoes-produtos">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <div class="cabecalho">
-              <h2>Especificações Técnicas</h2>
-              <span></span> 
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <?php if(! get_field('marca') == null) : ?>
-          <div class="col col-especificacoes">         
-            <div class="circulo"><p class="text-center"><?php the_field('marca'); ?></p></div>
-            <h5 class="text-center">Marca</h5>
-          </div>
-          <?php endif; ?>
-
-          <?php if(! get_field('modelo') == null) : ?>
-          <div class="col col-especificacoes">         
-            <div class="circulo"><p class="text-center"><?php the_field('modelo'); ?></p></div>
-            <h5 class="text-center">Modelo</h5>
-          </div>
-          <?php endif; ?>
-
-          <?php if(! get_field('ano') == null) : ?>
-          <div class="col col-especificacoes">         
-            <div class="circulo"><p class="text-center"><?php the_field('ano'); ?></p></div>
-            <h5 class="text-center">Ano</h5>
-          </div>
-          <?php endif; ?>
-
-          <?php if(! get_field('serie') == null) : ?>
-          <div class="col col-especificacoes">         
-            <div class="circulo"><p class="text-center"><?php the_field('serie'); ?></p></div>
-            <h5 class="text-center">Série</h5>
-          </div>
-          <?php endif; ?>
-
-          <?php if(! get_field('unidade') == null) : ?>
-          <div class="col col-especificacoes">         
-            <div class="circulo"><p class="text-center"><?php the_field('unidade'); ?></p></div>
-            <h5 class="text-center">Unidade</h5>
-          </div>
-          <?php endif; ?>
-
-          <?php if(! get_field('horimetro') == null) : ?>
-          <div class="col col-especificacoes">         
-            <div class="circulo"><p class="text-center"><?php the_field('horimetro'); ?></p></div>
-            <h5 class="text-center">Horímetro</h5>
-          </div>
-          <?php endif; ?>
-        </div>
-      </div>
-    </div>
-
     <?php $imagens = get_field('galeria'); $indicador = 1; if(! get_field('galeria') == null) :  ?>
     <section id="galeria">
       <span class="fecharBotao">&times;</span>
@@ -165,7 +91,44 @@
           </div>
         <?php endforeach; ?>
       </div>
-    </div>    
+    </div> 
+    <div id="produtos">
+      <div class="container produto-floater">
+        <div class="row">
+          <div class="col-md-8 texto">
+            <div class="container">
+              <p><?php the_field('descricao'); ?></p>
+              <h2 id="single-title-box"><?php the_title(); ?></h2>
+              <div class="row">
+                <div class="col-md-4 left-b">
+                  <p>Modelo</p>
+                  <p class="single-tt"><?php the_field('modelo'); ?></p>
+                  <p>Horímetro</p>
+                  <p class="single-tt"><?php the_field('horimetro'); ?></p>
+                </div>
+                <div class="col-md-4 mid-b">
+                  <p>Série</p>
+                  <p class="single-tt"><?php the_field('serie'); ?></p>
+                  <p>Unidade</p>
+                  <p class="single-tt"><?php the_field('unidade'); ?></p>
+                </div>
+                <div class="col-md-4">
+                  <p>Ano</p>
+                  <p class="single-tt"><?php the_field('ano'); ?></p>
+                  <p>Valor de venda</p>
+                  <p class="single-tt"><?php the_field('preco'); ?></p>
+                </div>
+              </div>
+              <a href="#faca-um-orcamento"><button class="btn">Faça um orçamento agora</button></a>
+            </div>
+          </div>
+          <div class="col-md-4 pagamento">
+            <h4>Condições de Pagamento</h4>
+            <img src="<?php bloginfo('template_url'); ?>/inc/img/pagseguro.png">
+          </div>
+        </div>
+      </div>
+    </div>   
 
     <?php
       $related = get_posts( 
@@ -210,7 +173,7 @@
           </div>
         </div>
         <?php endforeach; wp_reset_postdata(); ?>
-      </div>  
+      </div>
     </div> 
 
     <?php endif; ?>

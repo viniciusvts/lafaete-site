@@ -28,7 +28,7 @@
         </li>
       </ul>
     </div>
-    <div class="col-lg-2 col-md-3 col-sm-3 col-12">
+    <div id="social-icons" class="col-lg-2 col-md-3 col-sm-3 col-12">
       <div class="social d-flex">
           <a href="https://www.facebook.com/lafaetelocacao/" target="_blank" class="mr-auto ml-auto"><img src="<?php bloginfo('template_url');?>/inc/svg/facebook-logo-button.svg" width="30px"></a>
           <a href="https://www.instagram.com/lafaetelocacao/" target="_blank" class="mr-auto ml-auto"><img src="<?php bloginfo('template_url');?>/inc/svg/instagram-logo.svg" width="30px"></a>
@@ -63,7 +63,7 @@
           $categorias = get_categories( 
             array(
               'orderby' => 'name',
-              'taxonomy' => 'estado',
+              'taxonomy' => 'produtos',
               'parent'  => 0,
               'hide_empty' => true,
             )

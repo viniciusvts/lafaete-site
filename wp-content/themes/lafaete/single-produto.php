@@ -67,7 +67,6 @@
         </div>    
       </div>      
     </div>
-    <?php include_once('inc/produtos-orcamento-agora.php'); ?>
     <?php
       if(get_field('galeria')):
     ?> 
@@ -210,74 +209,74 @@
                     <?php 
                     if ( $modelo['pintura'] ){ 
                     ?>
-                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/pin.png">
+                    <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/pin.png">
                     <?php
                     }else{
                     ?>
-                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/pin-off.png">
+                    <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/pin-off.png">
                     <?php
                     }
                     if ( $modelo['revestimento_interno'] ){
                     ?>
-                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/revint.png">
+                    <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/revint.png">
                     <?php
                     }else{
                     ?>
-                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/revint-off.png">
+                    <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/revint-off.png">
                     <?php
                     }
                     if ( $modelo['revestimento_de_piso'] ){
                     ?>
-                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/revpis.png">
+                    <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/revpis.png">
                     <?php
                     }else{
                     ?>
-                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/revpis-off.png">
+                    <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/revpis-off.png">
                     <?php
                     }
                     if ( $modelo['pontos_para_lampada'] ){
                     ?>
-                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/lamp.png">
+                    <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/lamp.png">
                     <?php
                     }else{
                     ?>
-                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/lamp-off.png">
+                    <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/lamp-off.png">
                     <?php
                     }
                     if ( $modelo['pontos_de_tomada'] ){
                     ?>
-                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/ptom.png">
+                    <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/ptom.png">
                     <?php
                     }else{
                     ?>
-                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/ptom-off.png">
+                    <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/ptom-off.png">
                     <?php
                     }
                     if ( $modelo['pontos_de_logica'] ){
                     ?>
-                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/plog.png">
+                    <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/plog.png">
                     <?php
                     }else{
                     ?>
-                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/plog-off.png">
+                    <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/plog-off.png">
                     <?php
                     }
                     if ( $modelo['pontos_de_telefonia'] ){
                     ?>
-                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/ptel.png">
+                    <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/ptel.png">
                     <?php
                     }else{
                     ?>
-                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/ptel-off.png">
+                    <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/ptel-off.png">
                     <?php
                     }
                     if ( $modelo['sanitarios'] ){
                     ?>
-                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/san.png">
+                    <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/san.png">
                     <?php
                     }else{
                     ?>
-                    <img class="item-modelo" src="/lafaete/wp-content/themes/lafaete/inc/img/icos/san-off.png">
+                    <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/san-off.png">
                     <?php
                     }
                     ?>
@@ -362,7 +361,8 @@
           }
           wp_reset_postdata();
         ?>
-      </div>  
+      </div> 
+      <?php include_once('inc/produtos-orcamento-agora.php'); ?> 
     </div>  
 
     <?php

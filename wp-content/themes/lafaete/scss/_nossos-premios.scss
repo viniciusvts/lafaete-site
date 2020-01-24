@@ -152,6 +152,9 @@
         @include mediaScreenMax($tablets){
             height: 600px;
         }
+        @include mediaScreenMax($smartphones){
+            height: 340px;
+        }
     }
     .bp-item {
         margin-left: auto;
@@ -175,6 +178,7 @@
             font-size: 60px;
             position: relative;
             margin-left: 40px;
+            top: 50px;
         }
     }
     .arrow-left:before {
@@ -185,6 +189,7 @@
         font-size: 60px;
         position: relative;
         //margin-left: 20px;
+        top: 50px;
     }
 }
 //fim bp-caroussel
