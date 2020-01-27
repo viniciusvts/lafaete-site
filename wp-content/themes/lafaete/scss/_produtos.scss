@@ -191,6 +191,7 @@
 }
 #produtos{
     margin-top: 50px;
+    margin-bottom: 50px;
     @include mediaScreenMax($tablets){
         margin-top: 0;
     }
