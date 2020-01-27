@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="//www.lafaetelocacao.com.br/novo/main-sitemap.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>https://www.lafaetelocacao.com.br/novo/category/cacambas/</loc>
+		<lastmod>2019-07-31T11:51:06-03:00</lastmod>
+	</url>
+	<url>
+		<loc>https://www.lafaetelocacao.com.br/novo/category/caminhoes/</loc>
+		<lastmod>2019-11-11T09:00:58-03:00</lastmod>
+	</url>
+	<url>
+		<loc>https://www.lafaetelocacao.com.br/novo/category/container-modulos-habitacionais-projetos-especiais/</loc>
+		<lastmod>2019-12-19T17:22:33-03:00</lastmod>
+	</url>
+	<url>
+		<loc>https://www.lafaetelocacao.com.br/novo/category/estruturas-metalicas/</loc>
+		<lastmod>2019-10-07T16:57:24-03:00</lastmod>
+	</url>
+	<url>
+		<loc>https://www.lafaetelocacao.com.br/novo/category/eventos/</loc>
+		<lastmod>2019-08-23T09:55:26-03:00</lastmod>
+	</url>
+	<url>
+		<loc>https://www.lafaetelocacao.com.br/novo/category/obras/</loc>
+		<lastmod>2019-12-19T17:22:33-03:00</lastmod>
+	</url>
+	<url>
+		<loc>https://www.lafaetelocacao.com.br/novo/category/sem-categoria/</loc>
+		<lastmod>2019-10-21T10:56:19-03:00</lastmod>
+	</url>
+	<url>
+		<loc>https://www.lafaetelocacao.com.br/novo/category/sombreadores/</loc>
+		<lastmod>2019-09-05T09:00:04-03:00</lastmod>
+	</url>
+	<url>
+		<loc>https://www.lafaetelocacao.com.br/novo/category/torres-de-iluminacao/</loc>
+		<lastmod>2018-10-22T17:31:18-03:00</lastmod>
+	</url>
+	<url>
+		<loc>https://www.lafaetelocacao.com.br/novo/category/veiculos/</loc>
+		<lastmod>2019-04-15T13:15:55-03:00</lastmod>
+	</url>
+</urlset>

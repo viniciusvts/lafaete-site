@@ -5378,10 +5378,13 @@ if (true) {
 } else {}
 }).call(this);
 
+<<<<<<< HEAD
 
 
 /***/ }),
 
+=======
+>>>>>>> dc79793c708f4beeed7be8ea15ca642ae1399665
 /***/ 23:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5452,6 +5455,66 @@ function _slicedToArray(arr, i) {
 function _iterableToArray(iter) {
   if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
 }
+<<<<<<< HEAD
+
+/***/ }),
+
+/***/ 347:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var selectors_namespaceObject = {};
+__webpack_require__.r(selectors_namespaceObject);
+__webpack_require__.d(selectors_namespaceObject, "getBlockTypes", function() { return getBlockTypes; });
+__webpack_require__.d(selectors_namespaceObject, "getBlockType", function() { return getBlockType; });
+__webpack_require__.d(selectors_namespaceObject, "getBlockStyles", function() { return getBlockStyles; });
+__webpack_require__.d(selectors_namespaceObject, "getCategories", function() { return getCategories; });
+__webpack_require__.d(selectors_namespaceObject, "getDefaultBlockName", function() { return getDefaultBlockName; });
+__webpack_require__.d(selectors_namespaceObject, "getFreeformFallbackBlockName", function() { return getFreeformFallbackBlockName; });
+__webpack_require__.d(selectors_namespaceObject, "getUnregisteredFallbackBlockName", function() { return getUnregisteredFallbackBlockName; });
+__webpack_require__.d(selectors_namespaceObject, "getGroupingBlockName", function() { return getGroupingBlockName; });
+__webpack_require__.d(selectors_namespaceObject, "getChildBlockNames", function() { return selectors_getChildBlockNames; });
+__webpack_require__.d(selectors_namespaceObject, "getBlockSupport", function() { return selectors_getBlockSupport; });
+__webpack_require__.d(selectors_namespaceObject, "hasBlockSupport", function() { return hasBlockSupport; });
+__webpack_require__.d(selectors_namespaceObject, "isMatchingSearchTerm", function() { return isMatchingSearchTerm; });
+__webpack_require__.d(selectors_namespaceObject, "hasChildBlocks", function() { return selectors_hasChildBlocks; });
+__webpack_require__.d(selectors_namespaceObject, "hasChildBlocksWithInserterSupport", function() { return selectors_hasChildBlocksWithInserterSupport; });
+var actions_namespaceObject = {};
+__webpack_require__.r(actions_namespaceObject);
+__webpack_require__.d(actions_namespaceObject, "addBlockTypes", function() { return addBlockTypes; });
+__webpack_require__.d(actions_namespaceObject, "removeBlockTypes", function() { return removeBlockTypes; });
+__webpack_require__.d(actions_namespaceObject, "addBlockStyles", function() { return addBlockStyles; });
+__webpack_require__.d(actions_namespaceObject, "removeBlockStyles", function() { return removeBlockStyles; });
+__webpack_require__.d(actions_namespaceObject, "setDefaultBlockName", function() { return setDefaultBlockName; });
+__webpack_require__.d(actions_namespaceObject, "setFreeformFallbackBlockName", function() { return setFreeformFallbackBlockName; });
+__webpack_require__.d(actions_namespaceObject, "setUnregisteredFallbackBlockName", function() { return setUnregisteredFallbackBlockName; });
+__webpack_require__.d(actions_namespaceObject, "setGroupingBlockName", function() { return setGroupingBlockName; });
+__webpack_require__.d(actions_namespaceObject, "setCategories", function() { return setCategories; });
+__webpack_require__.d(actions_namespaceObject, "updateCategory", function() { return updateCategory; });
+
+// EXTERNAL MODULE: external {"this":["wp","data"]}
+var external_this_wp_data_ = __webpack_require__(4);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/defineProperty.js
+var defineProperty = __webpack_require__(10);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js + 2 modules
+var toConsumableArray = __webpack_require__(17);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectSpread.js
+var objectSpread = __webpack_require__(7);
+
+// EXTERNAL MODULE: external "lodash"
+var external_lodash_ = __webpack_require__(2);
+
+// EXTERNAL MODULE: external {"this":["wp","i18n"]}
+var external_this_wp_i18n_ = __webpack_require__(1);
+
+// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/store/reducer.js
+
+=======
+>>>>>>> dc79793c708f4beeed7be8ea15ca642ae1399665
 
 /***/ }),
 
@@ -5510,13 +5573,49 @@ var external_this_wp_i18n_ = __webpack_require__(1);
 // CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/store/reducer.js
 
 
-
-
+<<<<<<< HEAD
 /**
  * External dependencies
  */
 
 /**
+ * WordPress dependencies
+ */
+
+
+
+/**
+ * Module Constants
+=======
+
+
+/**
+ * External dependencies
+>>>>>>> dc79793c708f4beeed7be8ea15ca642ae1399665
+ */
+
+var DEFAULT_CATEGORIES = [{
+  slug: 'common',
+  title: Object(external_this_wp_i18n_["__"])('Common Blocks')
+}, {
+  slug: 'formatting',
+  title: Object(external_this_wp_i18n_["__"])('Formatting')
+}, {
+  slug: 'layout',
+  title: Object(external_this_wp_i18n_["__"])('Layout Elements')
+}, {
+  slug: 'widgets',
+  title: Object(external_this_wp_i18n_["__"])('Widgets')
+}, {
+  slug: 'embed',
+  title: Object(external_this_wp_i18n_["__"])('Embeds')
+}, {
+  slug: 'reusable',
+  title: Object(external_this_wp_i18n_["__"])('Reusable Blocks')
+}];
+/**
+<<<<<<< HEAD
+=======
  * WordPress dependencies
  */
 
@@ -5546,6 +5645,7 @@ var DEFAULT_CATEGORIES = [{
   title: Object(external_this_wp_i18n_["__"])('Reusable Blocks')
 }];
 /**
+>>>>>>> dc79793c708f4beeed7be8ea15ca642ae1399665
  * Reducer managing the block types
  *
  * @param {Object} state  Current state.
