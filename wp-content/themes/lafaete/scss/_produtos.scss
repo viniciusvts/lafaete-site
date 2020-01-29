@@ -780,3 +780,11 @@ hr {
         }
     }
 }
+///corrige itens dos cards que estavam cortados
+
+    figure.image-box{
+        z-index: -2;
+    }
+    .left-curve, .right-curve{
+        z-index: -1;
+    }
