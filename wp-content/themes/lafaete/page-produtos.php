@@ -42,9 +42,7 @@
         </div>    
       </div>      
     </div>
-    <div class="container produtos-container">
-      <div class="row">
-        <?php
+    <?php
         $postsPerPage = get_option( 'posts_per_page' );
         $paged = isset( $_GET['sheet'] ) ? $_GET['sheet'] : 1;
         $search = isset( $_GET['searchkey'] ) ? $_GET['searchkey'] : null;
@@ -73,23 +71,26 @@
               array_push($array, $estado->name);
               array_push($arrayslug, $estado->slug);
             }
-          } ?>
+          }
+    ?>
+    <div class="container produtos-container">
         <ul id="estados" style="margin:auto" class="nav justify-content-center">
           <?php
           $estados_unique = array_unique($array);
           $slugs = array_unique($arrayslug);
           $count = count($arrayslug);
-          for($i = 0; $i < $count; $i++) {
-            if($slugs[$i] != null && $estados_unique[$i] != null) {
+          foreach($estados_unique as $key => $estado) {
+            if($slugs[$key] != null && $estados_unique[$key] != null) {
               echo "
               <li class='nav-item'>
-                <a class='nav-link' href='".$link."/estado/".$slugs[$i]."'>".$estados_unique[$i]."</a>
+                <a class='nav-link' href='".$link."/estado/".$slugs[$key]."'>".$estados_unique[$key]."</a>
               </li>";
             }
           }
         }
       ?>
       </ul>
+      <div class="row">
       <?php
         if( isset( $search ) ){// se teve pesquisa na search box, exibir os produtos
           if( $produtos->have_posts() ){
