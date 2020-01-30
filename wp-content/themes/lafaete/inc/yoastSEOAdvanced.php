@@ -22,14 +22,30 @@ function mySeoTitle() {
       $seoTitle .= ", ";
     }
   }
-    $seoTitle .= get_the_title();
-    $seoTitle .= " - Lafaete Locação";
-    return $seoTitle;
+  $seoTitle .= get_the_title();
+  $seoTitle .= " - Lafaete Locação";
+  return $seoTitle;
 }
-// define the action for register yoast_variable replacments
-function register_custom_yoast_variables() {
-  wpseo_register_var_replacement( '%%produtoSeoTitle%%', 'mySeoTitle', 'advanced', 'Variável para setar o Seo title correto' );
-}
-// Add action
-add_action('wpseo_register_extra_replacements', 'register_custom_yoast_variables');
-//fim define variavel para o SEO title
+$myProductSeoTitle = mySeoTitle();
+/**
+ * Action: 'rank_math/vars/register_extra_replacements' - Allows adding extra variables.
+ */
+add_action( 'rank_math/vars/register_extra_replacements', function(){
+  rank_math_register_var_replacement(
+    'produtoSeoTitle',
+    [
+      'name'        => esc_html__( 'Custom variable name.', 'product seo title' ),
+      'description' => esc_html__( 'Custom variable description.', 'Variável para setar o Seo title do produto correto' ),
+      'variable'    => 'produtoSeoTitle',
+      'example'     => 'Locação de Módulo Termoacústico - Lafaete',
+    ],
+    'mySeoTitle'
+  );
+});
+// // define the action for register yoast_variable replacments
+// function register_custom_yoast_variables() {
+//   wpseo_register_var_replacement( '%%produtoSeoTitle%%', 'mySeoTitle', 'advanced', 'Variável para setar o Seo title correto' );
+// }
+// // Add action
+// add_action('wpseo_register_extra_replacements', 'register_custom_yoast_variables');
+// //fim define variavel para o SEO title

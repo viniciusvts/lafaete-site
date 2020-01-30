@@ -95,9 +95,17 @@ iframe{
     border-radius: 0;
 }
 
+.default-service-column{
+    transform: scale(1);
+    opacity: 1;
+    transition-duration: .8s;
+}
+
 .esconder{
-    @include transition();
-    display: none;
+    transition: 0.5s ease opacity;
+    transition: 0.5s step-end position;
+    opacity: 0;
+    position: absolute;
 }
 
 .my-container{

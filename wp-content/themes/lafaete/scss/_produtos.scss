@@ -53,7 +53,6 @@
 }
 
 .default-service-column{
-    position:relative;
     margin: 40px 0;
 
     .col-6, .col{
@@ -794,3 +793,11 @@ hr {
         }
     }
 }
+///corrige itens dos cards que estavam cortados
+
+    figure.image-box{
+        z-index: -2;
+    }
+    .left-curve, .right-curve{
+        z-index: -1;
+    }
