@@ -6,7 +6,7 @@
     <?php include_once('menu.php'); ?> 
 
     <!-- SLIDER -->
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide carousel-flat-height" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="carousel-caption d-none d-md-block">
@@ -101,23 +101,44 @@
               <h2 id="single-title-box"><?php the_title(); ?></h2>
               <div class="row">
                 <div class="col-md-4 left-b">
-                  <p>Modelo</p>
-                  <p class="single-tt"><?php the_field('modelo'); ?></p>
-                  <p>Horímetro</p>
-                  <p class="single-tt"><?php the_field('horimetro'); ?></p>
+
+                  <?php if(get_field('modelo')): ?>
+                    <p>Modelo</p>
+                    <p class="single-tt"><?php the_field('modelo'); ?></p>
+                  <?php endif ?>
+
+                  <?php if(get_field('ano')): ?>
+                    <p>Ano</p>
+                    <p class="single-tt"><?php the_field('ano'); ?></p>
+                  <?php endif ?>
+
                 </div>
+
                 <div class="col-md-4 mid-b">
-                  <p>Série</p>
-                  <p class="single-tt"><?php the_field('serie'); ?></p>
-                  <p>Unidade</p>
-                  <p class="single-tt"><?php the_field('unidade'); ?></p>
+                  <?php if(get_field('serie')): ?>
+                    <p>Série</p>
+                    <p class="single-tt"><?php the_field('serie'); ?></p>
+                  <?php endif ?>
+
+                  <?php if(get_field('unidade')): ?>
+                    <p>Unidade</p>
+                    <p class="single-tt"><?php the_field('unidade'); ?></p>
+                  <?php endif ?>
                 </div>
+
                 <div class="col-md-4">
-                  <p>Ano</p>
-                  <p class="single-tt"><?php the_field('ano'); ?></p>
-                  <p>Valor de venda</p>
-                  <p class="single-tt"><?php the_field('preco'); ?></p>
+            
+                  <?php if(get_field('horimetro')): ?>
+                    <p>Horímetro</p>
+                    <p class="single-tt"><?php the_field('horimetro'); ?></p>
+                  <?php endif; ?>
+
+                  <?php if(get_field('preco')): ?>
+                    <p>Valor de venda</p>
+                    <p class="single-tt"><?php the_field('preco'); ?></p>
+                  <?php endif; ?>
                 </div>
+
               </div>
               <a href="#faca-um-orcamento"><button class="btn">Faça um orçamento agora</button></a>
             </div>
