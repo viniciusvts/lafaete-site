@@ -114,6 +114,7 @@ iframe {
   opacity: 0;
   position: absolute;
   z-index: -1;
+  left: 0;
 }
 
 .my-container {
