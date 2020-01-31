@@ -108,8 +108,74 @@
         if( $produtos->have_posts() ){   
           while( $produtos->have_posts()){
             $produtos->the_post(); 
-            $categorias = get_the_terms( $post->ID, 'vendas' );
-            include 'inc/card-produto.php';
+        ?>
+            
+        <div class="default-service-column col-md-4">
+          <a href="<?php the_permalink(); ?>" class="card-text">
+            <div class="inner-box">
+              <div class="inner-most">
+                <figure class="image-box">
+                  <?php the_post_thumbnail('medium'); ?>                  
+                </figure>
+                <div class="lower-part">
+                  <div class="left-curve"></div>
+                  <div class="right-curve"></div>
+
+                  <div class="content">
+                    <h3><?php the_title(); ?></h3>
+                    <div class="mx-auto">
+                      <div class="row">
+
+                        <?php if(get_field('ano') != ''): ?>
+                          <div class="col-6">
+                            <p class="text-center"><b>Ano</b>: </br> <?php the_field('ano'); ?></p>
+                            <hr>
+                          </div>
+                        <?php endif; ?>
+
+                        <?php if(get_field('serie') != ''): ?>
+                          <div class="col-6">
+                            <p class="text-center"><b>Série</b>: </br> <?php the_field('serie'); ?></p>
+                            <hr>
+                          </div>
+                        <?php endif; ?>
+
+                        <?php if(get_field('modelo') != ''): ?>
+                          <div class="col-6">
+                            <p class="text-center"><b>Modelo</b>: </br> <?php the_field('modelo'); ?></p>
+                            <hr>
+                          </div>
+                        <?php endif; ?>
+
+                        <?php if(get_field('horimetro') != ''): ?>
+                          <div class="col">
+                            <p class="text-center"><b>Horímetro</b>: </br> <?php the_field('horimetro'); ?></p>
+                            <hr>
+                          </div>                             
+                        <?php endif; ?>
+
+                        <?php if(get_field('unidade') != ''): ?>
+                          <div class="col">
+                            <p class="text-center"><b>Unidade</b>: </br> <?php the_field('unidade'); ?></p>
+                            <hr>
+                          </div>
+                        <?php endif;  ?>
+
+                        <?php if(get_field('preco') ): ?>
+                          <div class="col-12">
+                            <h3>Preço: <?php the_field('preco'); ?></h3>
+                          </div>
+                        <?php endif ?>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <?php
           }
         }
         wp_reset_postdata();
