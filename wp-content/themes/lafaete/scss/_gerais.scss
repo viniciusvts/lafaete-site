@@ -102,12 +102,11 @@ iframe{
 }
 
 .esconder{
-    transition: 0.5s ease opacity;
-    transition: 0.5s step-end position;
+    transition: 0.5s ease opacity, 0.5s step-end position;
     opacity: 0;
-    position: absolute;
-    z-index: -1;
-    left: 0;
+    position: absolute!important;//estava conflitando com uma regra de media screen
+    z-index: -1!important;//comflitando com .submenu-categorias
+    right: 100vw!important;
 }
 
 .my-container{
