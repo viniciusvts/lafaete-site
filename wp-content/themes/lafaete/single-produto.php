@@ -4,6 +4,17 @@
 include_once('head.php');
 $tipoProduto = isset($_GET['tipo-produto']) ? $_GET['tipo-produto'] : null;
 $local = isset($_GET['local']) ? $_GET['local'] : null;
+
+// Para cliente que quer que especificamente essas duas categorias não tenham "Locação de'
+//estruturas metalicas 52 || sombredores 83
+$queriedObject = get_queried_object();
+$catgrs = wp_get_post_terms($queriedObject->ID, 'produtos');
+$flagThePostIsMetalicaOuSombreador = false;
+foreach ($catgrs as $catgr) {
+  if($catgr->term_id == 52 || $catgr->term_id == 83){
+    $flagThePostIsMetalicaOuSombreador = true;
+  }
+}
 ?>
 
 <body>
@@ -16,7 +27,11 @@ $local = isset($_GET['local']) ? $_GET['local'] : null;
         <div class="carousel-caption">
           <h1>
             <p><?php
-                echo ("Locação de ");
+                if($flagThePostIsMetalicaOuSombreador){
+                  //notthing
+                }else{
+                  echo ("Locação de ");
+                }
                 if (isset($tipoProduto)) {
                   echo ($tipoProduto);
                   if (isset($local)) {

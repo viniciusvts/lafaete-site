@@ -14,7 +14,17 @@
       <div class="carousel-inner carousel-flat-height">
         <div class="carousel-item active">
           <div class="carousel-caption carousel-caption-flat-height d-none d-md-block">
+            <?php
+            // Para cliente que quer que especificamente essas duas categorias não tenham "Locação de'
+            //estruturas metalicas 52 || sombredores 83
+            if($queriedObject->term_id != 52 || $queriedObject->term_id != 83){
+              //nothing
+            }else{
+            ?>
             <h2>Locação de</h2>
+            <?php
+            }
+            ?>
             <h1> <?php echo $queriedObject->name; ?> </h1>
           </div>
           <img class="d-block w-100" src="<?php echo( $imagem['sizes']['large'] ); ?>" alt="First slide">
