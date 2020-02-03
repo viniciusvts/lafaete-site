@@ -110,32 +110,7 @@
           endif;
           wp_reset_postdata();
         ?>
-	  </div>  
-	  	<div class="row">
-			<div class="paginate">
-				<div class="line-L col-6">
-					<?php
-					//links da paginação
-					$prev = get_prev_page_link( $produtos->max_num_pages);
-					$next = get_next_page_link( $produtos->max_num_pages);
-						if($prev){
-							echo "<a class='page-btn' href='".$prev."'>";
-							echo "Anterior";
-							echo "</a>";
-						}
-					?>
-				</div>
-				<div class="line-Right col-6">
-					<?php
-						if($next){
-							echo "<a class='page-btn' href='".$next."'>";
-							echo "Próxima";
-							echo "</a>";
-						}
-					?>
-				</div>
-			</div>
-		</div>
+	  </div>
     </div>  
     <div id="produtos">
       <div class="container produto-floater">
