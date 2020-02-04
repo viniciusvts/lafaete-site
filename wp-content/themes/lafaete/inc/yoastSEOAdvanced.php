@@ -13,7 +13,13 @@
 function mySeoTitle() {
   $tipoProduto = isset( $_GET['tipo-produto'] ) ? $_GET['tipo-produto'] : null;
   $local = isset( $_GET['local'] ) ? $_GET['local'] : null;
-  $seoTitle = "Locação de ";
+  $queriedObject = get_queried_object();
+  $seoTitle = "";
+  if($queriedObject->term_id == 52 || $queriedObject->term_id == 83){
+    //nothing
+  }else{
+    $seoTitle = "Locação de ";
+  }
   if( $tipoProduto ){
     $seoTitle .= $tipoProduto;
     if( isset($local) ){
@@ -26,7 +32,6 @@ function mySeoTitle() {
   $seoTitle .= " - Lafaete Locação";
   return $seoTitle;
 }
-$myProductSeoTitle = mySeoTitle();
 /**
  * Action: 'rank_math/vars/register_extra_replacements' - Allows adding extra variables.
  */

@@ -16,8 +16,8 @@
           <div class="carousel-caption carousel-caption-flat-height d-none d-md-block">
             <?php
             // Para cliente que quer que especificamente essas duas categorias não tenham "Locação de'
-            //estruturas metalicas 52 || sombredores 83
-            if($queriedObject->term_id != 52 || $queriedObject->term_id != 83){
+            //estruturas metalicas 52 || sombreadores 83
+            if($queriedObject->term_id == 52 || $queriedObject->term_id == 83){
               //nothing
             }else{
             ?>
