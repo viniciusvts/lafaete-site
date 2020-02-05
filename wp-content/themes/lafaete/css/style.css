@@ -1387,9 +1387,6 @@ ul.bp-indicators .dots.active {
   margin: 15px;
   font-size: 20px;
 }
-#produtos .produto-floater .texto ul li, #produtos .produto-floater .texto ul li {
-  text-transform: capitalize;
-}
 #produtos .produto-floater .texto p {
   font-size: 19px;
 }
