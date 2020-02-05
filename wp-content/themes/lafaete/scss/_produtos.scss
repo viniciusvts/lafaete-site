@@ -309,8 +309,13 @@
     color: white;
 }
 
-.produto-floater a {
-    color: white;
+.produto-floater {
+    button a {
+        color: white!important;
+    }
+    .scroll-rtl a {
+        color: #6a6a6a;
+    }
 }
 
 
