@@ -146,6 +146,16 @@ foreach ($catgrs as $catgr) {
         <?php
           endforeach;
         endif;
+        $video = get_field('embed_youtube');
+        if($video){
+        ?>
+          <div class="col-md-4 imagem">
+          <?php
+            echo($video);
+          ?>
+          </div>
+        <?php
+        }
         ?>
       </div>
     </div>
