@@ -13,7 +13,7 @@
             <h1>
               <p>Venda de </p><?php echo get_queried_object()->name; ?></h1>
           </div>
-          <img class="d-block w-100" src="<?php bloginfo('template_url'); ?>/inc/img/slider-construcao.jpg" alt="First slide">
+          <img class="d-block w-100" src="<?php bloginfo('template_url'); ?>/inc/img/lafaete-basculante.jpg" alt="First slide">
         </div>
       </div>
     </div>
