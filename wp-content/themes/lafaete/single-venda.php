@@ -29,7 +29,7 @@
                     <?php wp_custom_breadcrumbs(); ?>
                 </div>
                 <div class="col-md-4 formulario">
-					<?php $search = $_GET['searchkey'];?>
+					<?php $search = isset( $_GET['searchkey'] ) ? $_GET['searchkey'] : '' ;?>
 					<form ROLE="search" action="<?php bloginfo( 'wpurl' ) ?>/vendas" method="get">
 						<div>
 							<label class="screen-reader-text" for="s">Pesquisar por:</label>
@@ -81,7 +81,9 @@
         <?php $bullet++; endforeach; ?>
       </div>
     </section>
-    <?php endif; ?>
+    <?php endif;
+    include_once('inc/produtos-orcamento-agora.php');
+    ?>
 
     <div class="container">
       <div class="row">
@@ -92,65 +94,6 @@
         <?php endforeach; ?>
       </div>
     </div> 
-    <div id="produtos">
-      <div class="container produto-floater">
-        <div class="row">
-          <div class="col-md-8 texto">
-            <div class="container">
-              <p><?php the_field('descricao'); ?></p>
-              <h2 id="single-title-box"><?php the_title(); ?></h2>
-              <div class="row">
-                <div class="col-md-4 left-b">
-
-                  <?php if(get_field('modelo')): ?>
-                    <p>Modelo</p>
-                    <p class="single-tt"><?php the_field('modelo'); ?></p>
-                  <?php endif ?>
-
-                  <?php if(get_field('ano')): ?>
-                    <p>Ano</p>
-                    <p class="single-tt"><?php the_field('ano'); ?></p>
-                  <?php endif ?>
-
-                </div>
-
-                <div class="col-md-4 mid-b">
-                  <?php if(get_field('serie')): ?>
-                    <p>Série</p>
-                    <p class="single-tt"><?php the_field('serie'); ?></p>
-                  <?php endif ?>
-
-                  <?php if(get_field('unidade')): ?>
-                    <p>Unidade</p>
-                    <p class="single-tt"><?php the_field('unidade'); ?></p>
-                  <?php endif ?>
-                </div>
-
-                <div class="col-md-4">
-            
-                  <?php if(get_field('horimetro')): ?>
-                    <p>Horímetro</p>
-                    <p class="single-tt"><?php the_field('horimetro'); ?></p>
-                  <?php endif; ?>
-
-                  <?php if(get_field('preco')): ?>
-                    <p>Valor de venda</p>
-                    <p class="single-tt"><?php the_field('preco'); ?></p>
-                  <?php endif; ?>
-                </div>
-
-              </div>
-              <a href="#faca-um-orcamento"><button class="btn">Faça um orçamento agora</button></a>
-            </div>
-          </div>
-          <div class="col-md-4 pagamento">
-            <h4>Condições de Pagamento</h4>
-            <img src="<?php bloginfo('template_url'); ?>/inc/img/pagseguro.png">
-          </div>
-        </div>
-      </div>
-    </div>   
-
     <?php
       $related = get_posts( 
         array( 

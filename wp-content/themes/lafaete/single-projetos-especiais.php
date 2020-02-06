@@ -59,6 +59,7 @@
       </div>      
     </div>
     <?php
+      include_once('inc/produtos-orcamento-agora.php');
       if(get_field('galeria')):
     ?> 
       <div class="container">
@@ -122,7 +123,6 @@
               endif; 
             ?>
         </div>
-        <?php include_once('inc/produtos-orcamento-agora.php'); ?>
       </div>
     <?php
       endif;

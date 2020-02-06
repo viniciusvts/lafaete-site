@@ -85,6 +85,7 @@ foreach ($catgrs as $catgr) {
     </div>
   </div>
   <?php
+  include_once('inc/produtos-orcamento-agora.php');
   if (get_field('galeria')) :
   ?>
     <div class="container">
@@ -371,8 +372,6 @@ foreach ($catgrs as $catgr) {
   $query = new WP_Query($args);
   if ($query->have_posts()) :
   ?>
-    <?php include_once('inc/produtos-orcamento-agora.php'); ?>
-
     <div class="container">
       <div class="cabecalho">
         <h2>Veja outros produtos</h2>

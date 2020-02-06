@@ -207,6 +207,10 @@ iframe {
   color: black !important;
 }
 
+.bold-text {
+  font-weight: bold;
+}
+
 .left-b, .mid-b {
   border-right: rgba(0, 0, 0, 0.541) solid 1px;
 }
@@ -1363,7 +1367,6 @@ ul.bp-indicators .dots.active {
 }
 
 #produtos {
-  margin-top: 50px;
   margin-bottom: 50px;
 }
 @media (max-width: 767.98px) {
@@ -1375,7 +1378,7 @@ ul.bp-indicators .dots.active {
   position: relative;
   padding-top: 20px;
   padding-bottom: 20px;
-  background: #ff7e3b;
+  background: #6a6a6a;
   z-index: 2;
   color: white;
 }
@@ -1391,32 +1394,10 @@ ul.bp-indicators .dots.active {
   font-size: 19px;
 }
 #produtos .produto-floater .texto button, #produtos .produto-floater button {
-  background: #6a6a6a;
+  background: #ff7e3b;
   border: none;
   padding: 10px 20px;
   margin: 10px;
-}
-#produtos .produto-floater .texto::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0px;
-  bottom: 0;
-  right: -60px;
-  width: 200px;
-  height: 100%;
-  background-color: #ff7e3b;
-  -webkit-transform: skew(-20deg);
-  -moz-transform: skew(-20deg);
-  -o-transform: skew(-20deg);
-  -ms-transform: skew(-20deg);
-  transform: skew(-10deg);
-  z-index: 1;
-}
-@media (max-width: 1199.98px) {
-  #produtos .produto-floater .texto::after {
-    display: none;
-  }
 }
 #produtos .produto-floater {
   background: white;
@@ -1430,11 +1411,15 @@ ul.bp-indicators .dots.active {
   bottom: 0px;
   z-index: 0;
 }
+#produtos .produto-floater .texto, #produtos .produto-floater .pagamento {
+  flex: 0 0 100% !important;
+  max-width: 100% !important;
+  margin-top: 1px;
+}
 #produtos .produto-floater .pagamento {
-  padding: 100px 0px;
+  padding: 25px 0px;
   position: relative;
   z-index: 2;
-  padding-left: 70px;
 }
 @media (max-width: 1199.98px) {
   #produtos .produto-floater .pagamento {
@@ -1445,7 +1430,6 @@ ul.bp-indicators .dots.active {
   text-align: center;
 }
 #produtos .produto-floater .pagamento img {
-  width: 270px;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -1471,11 +1455,11 @@ ul.bp-indicators .dots.active {
   color: white;
 }
 
+.produto-floater .scroll-rtl a {
+  color: #ff7e3b;
+}
 .produto-floater button a {
   color: white !important;
-}
-.produto-floater .scroll-rtl a {
-  color: #6a6a6a;
 }
 
 .produtos-container {
@@ -1749,7 +1733,7 @@ ul.bp-indicators .dots.active {
 }
 @media (max-width: 1199px) {
   #produtos .produto-floater .pagamento img {
-    width: 220px;
+    width: 100%;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -1822,8 +1806,6 @@ ul.bp-indicators .dots.active {
 }
 @media (min-width: 1199.98px) {
   .scroll-rtl {
-    max-height: 300px;
-    overflow: auto;
     direction: rtl;
   }
 }
