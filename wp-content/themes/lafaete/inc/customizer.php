@@ -10,6 +10,8 @@ add_action('customize_register','dnaTheme_customize_register');
 function dnaTheme_customize_register( $wp_customize ) {
   //Opção de personalizar a logo do menu
   $dnaTheme_logo_setting = array( 
+    'default' => bloginfo('template_url') . "/inc/img/logo-1.png",
+    'transport' => 'refresh', // or postMessage
   );
   $dnaTheme_logo_control = array(
     'label' => 'Logo a ser exibido',
