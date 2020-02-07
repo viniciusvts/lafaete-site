@@ -3,7 +3,7 @@
  * Adiciona  opções de personalização para o usuário no menu Aparencia >> personalização
  *
  * @package DNA
- * @subpackage loadSources
+ * @subpackage Lafaete tema
  * @author Vinicius de Santana
  */
 add_action('customize_register','dnaTheme_customize_register');
