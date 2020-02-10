@@ -20,7 +20,7 @@
         while($card->have_posts()) : $card->the_post();
         $link = get_field('link'); ?>
         <div class="col-md-4">
-          <a href="<?php echo $link; ?>">
+          <a href="<?php echo $link; ?>" target="_blank">
             <div class="card card-posts material">
               <?php the_post_thumbnail('medium', array('class' => 'card-img-top img-fluid')); ?>
               <div class="card-body">
