@@ -7,7 +7,7 @@
                         <a href="index.php" class="d-none d-sm-block">
                             <img src="<?php echo( get_theme_mod( 'dnaTheme_logo') ); ?>" width="200px">
                         </a>
-                        <p id="text-footer">A Lafaete é uma empresa do segmento de locação de equipamentos para construção civil, infraestrutura e mineração, destacando-se no mercado de Contêineres e Tendas Piramidais com design e fabricação própria. Atuante no setor de locação de máquinas pesadas e leves, caçambas, caminhões, geradores, torres de iluminação e veículos leves.</p>
+                        <p id="text-footer">A Lafaete é uma empresa do segmento de locação de equipamentos para construção civil, infraestrutura, eventos e mineração. Destaca-se no mercado com locação de containers, máquinas, caminhões e caçambas. Além disso, atua no setor com a fabricação de estruturas metálicas e prestação de serviços como gestão ambiental e terraplanagem.</p>
                         <div class="social">
                             <a href="https://www.facebook.com/lafaetelocacao" target="_blank"><img src="<?php bloginfo('template_url')?>/inc/svg/facebook-logo-button.svg" width="30px"></a>
                             <a href="https://www.instagram.com/lafaetelocacao/" target="_blank"><img src="<?php bloginfo('template_url')?>/inc/svg/instagram-logo.svg" width="30px"></a>
