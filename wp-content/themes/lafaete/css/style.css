@@ -3,10 +3,12 @@
 @font-face {
   font-family: myFont;
   src: local("Oswald-Regular.ttf"), url("../inc/tipografia/Oswald-Regular.ttf");
+  font-display: swap;
 }
 @font-face {
   font-family: myFontLight;
   src: local("Oswald-Light.ttf"), url("../inc/tipografia/Oswald-Light.ttf");
+  font-display: swap;
 }
 * {
   font-family: myFontLight, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
