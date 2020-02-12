@@ -16,7 +16,7 @@
       <div class="carousel-item active">
         <div class="carousel-caption carousel-caption-flat-height d-md-block">
           <h1>
-            <p>Locação de Equipamentos </p>
+            <p>Produtos em </p>
             <?php echo $queried_object->name; ?>
           </h1>
         </div>

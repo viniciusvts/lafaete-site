@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap');
 
 
 /*cores*/
@@ -22,12 +22,14 @@ $laranjaClaro: #fab033 !default;
 
 @font-face {
     font-family: myFont;
-    src: local('Oswald-Regular.ttf'), url('../../../inc/tipografia/Oswald-Regular.ttf');    
+    src: local('Oswald-Regular.ttf'), url('../../../inc/tipografia/Oswald-Regular.ttf');   
+    font-display: swap;    
 }
 
 @font-face {
     font-family: myFontLight;
     src: local('Oswald-Light.ttf'), url('../../../inc/tipografia/Oswald-Light.ttf');
+    font-display: swap;   
 }
 
 *{

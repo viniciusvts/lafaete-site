@@ -14,7 +14,17 @@
       <div class="carousel-inner carousel-flat-height">
         <div class="carousel-item active">
           <div class="carousel-caption carousel-caption-flat-height d-none d-md-block">
+            <?php
+            // Para cliente que quer que especificamente essas duas categorias não tenham "Locação de'
+            //estruturas metalicas 52 || sombreadores 83
+            if($queriedObject->term_id == 52 || $queriedObject->term_id == 83){
+              //nothing
+            }else{
+            ?>
             <h2>Locação de</h2>
+            <?php
+            }
+            ?>
             <h1> <?php echo $queriedObject->name; ?> </h1>
           </div>
           <img class="d-block w-100" src="<?php echo( $imagem['sizes']['large'] ); ?>" alt="First slide">
@@ -54,7 +64,9 @@
         </div>    
       </div>      
     </div>
-
+    <?php
+    include_once('inc/produtos-orcamento-agora.php');
+    ?>
     <div class="container produtos-container menu-imoveis">
       <?php
         $term_id = $queriedObject->term_id;
@@ -110,52 +122,8 @@
           endif;
           wp_reset_postdata();
         ?>
-	  </div>  
-	  	<div class="row">
-			<div class="paginate">
-				<div class="line-L col-6">
-					<?php
-					//links da paginação
-					$prev = get_prev_page_link( $produtos->max_num_pages);
-					$next = get_next_page_link( $produtos->max_num_pages);
-						if($prev){
-							echo "<a class='page-btn' href='".$prev."'>";
-							echo "Anterior";
-							echo "</a>";
-						}
-					?>
-				</div>
-				<div class="line-Right col-6">
-					<?php
-						if($next){
-							echo "<a class='page-btn' href='".$next."'>";
-							echo "Próxima";
-							echo "</a>";
-						}
-					?>
-				</div>
-			</div>
-		</div>
+	  </div>
     </div>  
-    <div id="produtos">
-      <div class="container produto-floater">
-        <div class="row">
-          <div class="col-xl-8 texto">
-            <div class='scroll-rtl'>
-              <p><?php echo $queriedObject->description; ?></p>
-              <button class="btn">
-                <a href="#faca-um-orcamento">Faça um orçamento agora</a>
-              </button>
-              
-            </div>
-          </div>
-          <div class="col-xl-4 pagamento">
-            <h4>Condições de Pagamento</h4>
-            <img src="<?php bloginfo('template_url');?>/inc/img/pagseguro.png">
-          </div>
-        </div>
-      </div>
-    </div>
    
     <?php
       include_once('inc/form-orcamento.php');

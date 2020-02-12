@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Favicons -->
-    <link rel="icon" href="<?php bloginfo('template_url');?>/inc/img/favicon.png" sizes="80x80" type="image/png">
+    <link rel="icon" href="<?php echo( get_site_icon_url('80') ); ?>" sizes="80x80" type="image/png">
 
     <title>Lafaete Locação de Equipamentos</title> 
 

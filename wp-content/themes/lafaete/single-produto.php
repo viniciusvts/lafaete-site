@@ -4,6 +4,17 @@
 include_once('head.php');
 $tipoProduto = isset($_GET['tipo-produto']) ? $_GET['tipo-produto'] : null;
 $local = isset($_GET['local']) ? $_GET['local'] : null;
+
+// Para cliente que quer que especificamente essas duas categorias não tenham "Locação de'
+//estruturas metalicas 52 || sombredores 83
+$queriedObject = get_queried_object();
+$catgrs = wp_get_post_terms($queriedObject->ID, 'produtos');
+$flagThePostIsMetalicaOuSombreador = false;
+foreach ($catgrs as $catgr) {
+  if($catgr->term_id == 52 || $catgr->term_id == 83){
+    $flagThePostIsMetalicaOuSombreador = true;
+  }
+}
 ?>
 
 <body>
@@ -16,7 +27,11 @@ $local = isset($_GET['local']) ? $_GET['local'] : null;
         <div class="carousel-caption">
           <h1>
             <p><?php
-                echo ("Locação de ");
+                if($flagThePostIsMetalicaOuSombreador){
+                  //notthing
+                }else{
+                  echo ("Locação de ");
+                }
                 if (isset($tipoProduto)) {
                   echo ($tipoProduto);
                   if (isset($local)) {
@@ -70,6 +85,7 @@ $local = isset($_GET['local']) ? $_GET['local'] : null;
     </div>
   </div>
   <?php
+  include_once('inc/produtos-orcamento-agora.php');
   if (get_field('galeria')) :
   ?>
     <div class="container">
@@ -131,6 +147,16 @@ $local = isset($_GET['local']) ? $_GET['local'] : null;
         <?php
           endforeach;
         endif;
+        $video = get_field('embed_youtube');
+        if($video){
+        ?>
+          <div class="col-md-4 imagem">
+          <?php
+            echo($video);
+          ?>
+          </div>
+        <?php
+        }
         ?>
       </div>
     </div>
@@ -346,8 +372,6 @@ $local = isset($_GET['local']) ? $_GET['local'] : null;
   $query = new WP_Query($args);
   if ($query->have_posts()) :
   ?>
-    <?php include_once('inc/produtos-orcamento-agora.php'); ?>
-
     <div class="container">
       <div class="cabecalho">
         <h2>Veja outros produtos</h2>

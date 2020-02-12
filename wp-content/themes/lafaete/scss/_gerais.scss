@@ -1,11 +1,13 @@
 @font-face {
     font-family: myFont;
-    src: local('Oswald-Regular.ttf'), url('../inc/tipografia/Oswald-Regular.ttf');    
+    src: local('Oswald-Regular.ttf'), url('../inc/tipografia/Oswald-Regular.ttf');
+    font-display: swap;   
 }
 
 @font-face {
     font-family: myFontLight;
     src: local('Oswald-Light.ttf'), url('../inc/tipografia/Oswald-Light.ttf');
+    font-display: swap;   
 }
 
 * {
@@ -102,10 +104,11 @@ iframe{
 }
 
 .esconder{
-    transition: 0.5s ease opacity;
-    transition: 0.5s step-end position;
+    transition: 0.5s ease opacity, 0.5s step-end position;
     opacity: 0;
-    position: absolute;
+    position: absolute!important;//estava conflitando com uma regra de media screen
+    z-index: -1!important;//comflitando com .submenu-categorias
+    right: 100vw!important;
 }
 
 .my-container{
@@ -194,6 +197,9 @@ iframe{
 
 .single-tt {
     color: black !important;
+}
+.bold-text {
+    font-weight: bold;
 }
 .left-b, .mid-b {
     border-right: rgba(0, 0, 0, 0.541) solid 1px;
