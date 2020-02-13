@@ -17,7 +17,21 @@
                     <div class="fale-conosco-right">
                         <p>Caso queira informações sobre valores de venda ou locação de equipamentos, solicite um orçamento ou entre em contato pelos telefones</p>
                         <h4>Central de Atendimento Lafaete(CAL)</h4>
-                        <h3 class="telefone">4007-2448</h3>
+                        <a id="btn_phonetrack" rel="no-referrer" target="_blank" href="tel:+55 0800 941-4461" 
+                        onclick="ga('send', {
+                            hitType: 'event',
+                            eventCategory: 'phone',
+                            eventAction: 'click_phonetrack',
+                            eventLabel: 'btn_phonetrack'
+                        });" class="telefone">0800 941-4461</a>
+                        <h4>Transporte de Cargas</h4>
+                        <a id="btn_phonetrack" rel="no-referrer" target="_blank" href="tel:+55 (11) 4750-2387" 
+                        onclick="ga('send', {
+                            hitType: 'event',
+                            eventCategory: 'phone',
+                            eventAction: 'click_phonetrack',
+                            eventLabel: 'btn_phonetrack'
+                        });" class="telefone">(11) 4750-2387</a>
                         <span>(Atendimento Nacional)</span>
 
                         <h4>Caçambas</h4>
