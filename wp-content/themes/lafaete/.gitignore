@@ -15,4 +15,3 @@ wp-content/wp-cache-config.php
 wp-content/w3tc-config/
 !wp-content/plugins/themeone-*
 site_antigo/*
-wp-content/plugins/
