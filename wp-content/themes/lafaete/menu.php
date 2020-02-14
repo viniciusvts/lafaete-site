@@ -116,13 +116,13 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="<?php bloginfo('url'); ?>/atendimento/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Atendimento
+          Projetos
         </a>
         <div class="dropdown-menu txtAlignCenter" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/atendimento/orcamento/">Orçamento</a>
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/atendimento/fale-conosco/">Contato</a>
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/atendimento/trabalhe-conosco/">Trabalhe Conosco</a>
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/atendimento/abertura-de-chamado/">Abertura de Chamado</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/eventos/">Eventos</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/grandes-obras/">Grandes Obras</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/projetos-sociais/">Projetos Sociais</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/projetos-especiais/">Projetos Especiais</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -134,16 +134,15 @@
           <a class="dropdown-item" href="<?php bloginfo('url'); ?>/materiais/">Materiais</a>
         </div>
       </li>
-
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="<?php bloginfo('url'); ?>/atendimento/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Projetos
+          Atendimento
         </a>
         <div class="dropdown-menu txtAlignCenter" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/eventos/">Eventos</a>
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/grandes-obras/">Grandes Obras</a>
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/projetos-sociais/">Projetos Sociais</a>
-          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/projetos-especiais/">Projetos Especiais</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/atendimento/orcamento/">Orçamento</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/atendimento/fale-conosco/">Contato</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/atendimento/trabalhe-conosco/">Trabalhe Conosco</a>
+          <a class="dropdown-item" href="<?php bloginfo('url'); ?>/atendimento/abertura-de-chamado/">Abertura de Chamado</a>
         </div>
       </li>
     </ul>
