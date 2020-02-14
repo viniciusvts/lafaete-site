@@ -488,12 +488,12 @@ function addUrlToForms(){
 }
 
 window.addEventListener('load', function(e){
-    addUrlToForms();// setTimeout(addUrlToForms, 2000);
     // footer_floater();
     bpCarrousel = new carousel();//initCarrossel();
     bpModeloDeProduto = new modeloDeProduto();
     nolink_category()
     input_hidden()
+    addUrlToForms();// setTimeout(addUrlToForms, 2000);
 });
 
 window.addEventListener('resize', function(e){
