@@ -4,6 +4,6 @@
         <h2>Faça um orçamento</h2>
         <span></span> 
     </div>
-    <?php echo do_shortcode('[contact-form-7 id="182" title="Orçamento"]'); ?>
+    <?php echo do_shortcode('[contact-form-7 id="182" html_id="facaUmOrcamento" title="Orçamento"]'); ?>
     </div>
 </div>

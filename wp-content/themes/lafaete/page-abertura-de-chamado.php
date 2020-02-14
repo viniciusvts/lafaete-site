@@ -11,7 +11,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col">
-                    <?php echo do_shortcode('[contact-form-7 id="177" title="Abertura de chamado"]'); ?>
+                    <?php echo do_shortcode('[contact-form-7 id="177" html_id="AberturaDeChamado" title="Abertura de chamado"]'); ?>
                 </div>
             </div>
         </div>
