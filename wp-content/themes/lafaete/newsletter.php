@@ -1,6 +1,6 @@
 <?php
 /* vem de dna/page-simulador.php */
-if(isset($_POST["email"])){
+if( isset($_POST["email"]) && ( !isset( $_POST['nome'] ) || !isset( $_POST['solicitante'] ) )){
   $email = $_POST["email"];
   //send email
   $to = get_option( 'admin_email' );
@@ -8,13 +8,11 @@ if(isset($_POST["email"])){
   $message = "Email: ".$email;
   $headers = array('Content-Type: text/html; charset=UTF-8');
   $wpmail = wp_mail( $to, $subject, $message, $headers );
-  if( !isset( $_POST['nome'] ) || !isset( $_POST['solicitante'] ) ){// para não ser confundido com outros forms
 ?>
 <script>
 	alert("Seus dados foram enviados com sucesso");
 </script>
 <?php
-  }
 }
 ?>
 <form action="<?php echo($_SERVER['REQUEST_URI']); ?>" method="post" id="newslaterForm">
