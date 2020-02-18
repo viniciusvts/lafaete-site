@@ -13,7 +13,6 @@ ga('send', 'pageview');
 </script>
 <!-- End Google Analytics -->
     <meta charset="UTF-8">
-    <meta name="description" content="Lafaete Locação">
     <meta name="keywords" content="Locação de máquinas, caçambas, Caminhões, Estruturas Metálicas, Eventos, Geradores, Maquina, Módulos Habitacionais, Sombreadores, Torres de Iluminação, Veículos">
     <meta name="author" content="Dna de Vendas for Marketing">
 
