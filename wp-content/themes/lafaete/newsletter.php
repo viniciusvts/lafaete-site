@@ -3,7 +3,7 @@
 if( isset($_POST["email"]) && ( !isset( $_POST['nome'] ) || !isset( $_POST['solicitante'] ) )){
   $email = $_POST["email"];
   //send email
-  $to = get_option( 'admin_email' );
+  $to = "contato.lafaetelocacao@gmail.com";//get_option( 'admin_email' );
   $subject = 'Newslater do site';
   $message = "Email: ".$email;
   $headers = array('Content-Type: text/html; charset=UTF-8');
