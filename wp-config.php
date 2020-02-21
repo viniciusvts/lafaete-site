@@ -26,9 +26,8 @@ switch ($server_addr) {
         $dbname = 'lafaete_bd';
         $dbuser_default = 'root';
         $dbpassword_default = 'root';
-        $devMode = true;
-        $wpDebug = true;
-        $wpDebugDisplay = true ;
+        $debug = true;
+        $wpDebugDisplay = false ;
         $wpHome = 'http://localhost/lafaete/';
         $wpSiteUrl = 'http://localhost/lafaete/';
 	break;
@@ -38,7 +37,8 @@ switch ($server_addr) {
         $dbname = 'lafaete_bd';
         $dbuser_default = 'root';
         $dbpassword_default = 'fZBy8NhelGwQNS';
-        $devMode = false;
+        $debug = false;
+        $wpDebugDisplay = false ;
         $wpHome = 'https://dnaformarketing.com.br/lafaete/';
         $wpSiteUrl = 'https://dnaformarketing.com.br/lafaete/';
 	break;
@@ -48,7 +48,8 @@ switch ($server_addr) {
         $dbname = 'lafaetel_site_bd';
         $dbuser_default = 'lafaetel_user';
         $dbpassword_default = 'DNA#Site$Lafa';
-        $devMode = false;
+        $debug = true;
+        $wpDebugDisplay = false ;
         $wpHome = 'https://www.lafaetelocacao.com.br/';
         $wpSiteUrl = 'https://www.lafaetelocacao.com.br/';
 	break;
@@ -75,6 +76,7 @@ define( 'DB_CHARSET', 'utf8mb4' );
 define('DB_COLLATE', '');
 
 define('WP_DEBUG_DISPLAY', $wpDebugDisplay );
+define( 'WP_DEBUG_LOG', 'wp-errors.log' );
 define('WP_HOME', $wpHome);
 define('WP_SITEURL', $wpSiteUrl);
 
@@ -123,7 +125,7 @@ $table_prefix = 'wp_';
  *
  * @link https://codex.wordpress.org/pt-br:Depura%C3%A7%C3%A3o_no_WordPress
  */
-define('WP_DEBUG', $devMode);
+define('WP_DEBUG', $debug);
 
 /* Isto é tudo, pode parar de editar! :) */
 
