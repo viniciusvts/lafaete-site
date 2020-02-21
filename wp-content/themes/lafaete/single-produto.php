@@ -90,7 +90,7 @@ foreach ($catgrs as $catgr) {
   ?>
     <div class="container">
       <div class="cabecalho">
-        <h2>Galeria de Fotos</h2>
+        <h2>Galeria</h2>
         <span></span>
       </div>
     </div>
@@ -136,6 +136,16 @@ foreach ($catgrs as $catgr) {
     <div class="container">
       <div class="row">
         <?php
+        $video = get_field('embed_youtube');
+        if($video){
+        ?>
+          <div class="col-md-4 imagem">
+          <?php
+            echo($video);
+          ?>
+          </div>
+        <?php
+        }
         $images = get_field('galeria');
         $size = 'medium'; // (thumbnail, medium, large, full or custom size)
         if ($images) :
@@ -147,16 +157,6 @@ foreach ($catgrs as $catgr) {
         <?php
           endforeach;
         endif;
-        $video = get_field('embed_youtube');
-        if($video){
-        ?>
-          <div class="col-md-4 imagem">
-          <?php
-            echo($video);
-          ?>
-          </div>
-        <?php
-        }
         ?>
       </div>
     </div>
