@@ -54,3 +54,21 @@ add_action( 'rank_math/vars/register_extra_replacements', function(){
 // // Add action
 // add_action('wpseo_register_extra_replacements', 'register_custom_yoast_variables');
 // //fim define variavel para o SEO title
+
+/**
+ * remove a tag canonica gerada pelo rank math
+ * o objetivo é fazer o google ler os parametros e indexar as páginas geolocalizadas
+ * só é removida das páginas single do post type produtos
+ * @param string $canonical The canonical URL.
+ */
+add_filter( 'rank_math/frontend/canonical', function( $canonical ) {
+  //target a page using its page id
+  /**
+   * se é a página single do post type produto retorna vazio
+   * se não é a página single do post type produto retorna normalmente
+   */
+  if(is_singular('produto')){
+    return false;
+  }
+  return $canonical;
+});
