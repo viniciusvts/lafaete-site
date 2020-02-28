@@ -14,7 +14,7 @@ if( !defined('ABSPATH') ) exit;
   <div class="container produto-floater">
     <div class="row">
       <div class="col-xl-8 texto">
-        <div class='scroll-rtl'>
+        <div>
           <?php
           $queriedObject = get_queried_object(); 
           switch ($queriedObject->post_type) {
