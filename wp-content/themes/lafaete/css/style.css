@@ -2182,6 +2182,12 @@ figure.image-box {
   color: white;
 }
 
+@media (min-width: 991.98px) {
+  .mw-50vw {
+    max-width: 55vw;
+  }
+}
+
 /*blog*/
 .projetos-recentes .active {
   background: #6a6a6a;

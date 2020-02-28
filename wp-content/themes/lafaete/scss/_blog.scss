@@ -111,4 +111,9 @@
         }
     }
 }
+.mw-50vw{
+    @include mediaScreenMin($desktops){
+        max-width: 55vw;
+    }
+}
 /*blog*/

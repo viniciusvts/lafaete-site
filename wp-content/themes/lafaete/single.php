@@ -22,7 +22,7 @@
     <!-- SLIDER -->
 
     <div class="container blog">
-        <div class="texto">
+        <div class="texto mw-50vw ml-auto mr-auto">
             <h1><?php the_title(); ?></h1>
             <div class="post-content wow fadeInUp animated" style="visibility: visible;">
                 <?php the_content(); ?>
