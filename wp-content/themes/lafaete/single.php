@@ -49,7 +49,7 @@
                     setup_postdata($post); 
             ?>
             <div class="col-md-4">
-                <a href="">
+                <a href="<?php the_permalink(); ?>">
                     <div class="card">
                         <?php the_post_thumbnail('medium', array('class' => 'img-fluid w-100'));  ?>
                         <div class="card-body">
