@@ -125,7 +125,11 @@
                       <div class="right-curve"></div>                    
                       <div class="content">
                         <h3><?php echo $term->name; ?></h3>
-                        <p><?php echo $term->description;?></p>
+                        <p><?php 
+                          $maxLength = 500;
+                          echo substr($term->description, 0, $maxLength);
+                          if( strlen($term->description) >= $maxLength) echo("[...]");
+                        ?></p>
                       </div>
                   </div>
                 </div>
