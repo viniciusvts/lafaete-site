@@ -73,13 +73,14 @@ h4 {
   font-size: 1.1rem;
 }
 
-p, ul li {
-  font-size: 19px;
-}
 @media (min-width: 1199.98px) {
-  p, ul li {
+  .blog .post-content p, .blog .post-content ul li {
     font-size: 25px;
   }
+}
+
+p, ul li {
+  font-size: 19px;
 }
 
 ul li {
