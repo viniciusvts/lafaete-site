@@ -76,6 +76,11 @@ h4 {
 p, ul li {
   font-size: 19px;
 }
+@media (min-width: 1199.98px) {
+  p, ul li {
+    font-size: 25px;
+  }
+}
 
 ul li {
   font-family: myFontLight, "Montserrat", "Trebuchet MS", "Arial", sans-serif;

@@ -68,6 +68,9 @@ h4{
 
 p, ul li{
     font-size: 19px;
+    @include mediaScreenMin($largeDesktops){
+        font-size: 25px;
+    }
 }
 
 ul li{
