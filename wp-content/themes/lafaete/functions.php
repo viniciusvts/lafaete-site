@@ -81,6 +81,10 @@
           $cat = get_the_category(); $cat = $cat[0];
           $cats = get_category_parents($cat, TRUE, ' ' . $delimiter . ' ');
           if ($showCurrent == 0) $cats = preg_replace("#^(.+)\s$delimiter\s$#", "$1", $cats);
+          //adiciona "blog" ao breadcrumb da single do blog
+          $siteUrl = get_site_url();
+          echo('<a href="'.$siteUrl.'/artigos/">Blog</a> '.$delimiter." ");
+          //FIM adiciona "blog" ao breadcrumb da single do blog
           echo $cats;
           if ($showCurrent == 1) echo $before . get_the_title() . $after;
         }
