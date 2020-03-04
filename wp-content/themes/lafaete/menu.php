@@ -1,4 +1,4 @@
-<div class="container-fluid fixed-top topo-menu fixed-top" id="menu-topo">
+<div class="container-fluid fixed-top topo-menu fixed-top" id="menu-topo" <?php if ( get_post_type() == 'post' ) echo('style="display: none;"'); ?>>
   <div class="row">
     <div class="col-lg-10 col-md-9 col-sm-9 col-12">
       <ul>

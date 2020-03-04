@@ -7,7 +7,11 @@
     <!-- SLIDER -->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
-        <div class="carousel-item active">
+        <div class="carousel-item active <?php 
+                                            if ( get_post_type() == 'post' ) {
+                                                echo("container p-0");
+                                            }
+                                        ?>">
             <?php
                 if(have_posts()) : the_post();                
                     the_post_thumbnail('full', array('class' => 'img-fluid w-100 destaque-blog'));

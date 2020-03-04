@@ -68,7 +68,7 @@ h4{
 
 .blog .post-content{
     p, ul li{
-        @include mediaScreenMin($largeDesktops){
+        @include mediaScreenMin($fullHdDesktops){
             font-size: 25px;
         }
     }
