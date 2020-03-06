@@ -63,10 +63,21 @@
 .blog{
     position: relative;
     z-index: 0;
-
+    a{
+        text-decoration: none;
+    }
+    p, li{
+        color: $cinzaEscuro;
+    }
     h1, h2, h3, h4{
         margin-top: 60px;
         margin-bottom: 20px;
+    }
+    .texto{
+        padding: 20px;
+    }
+    p, li, a, ul, ol, figcaption{
+        font-family: "Trebuchet MS", "Arial", sans-serif;
     }
 }
 
@@ -78,19 +89,6 @@
         margin: 25px auto 0;
         float: none;
     }
-}
-
-.blog a{
-    text-decoration: none;
-}
-.blog p{
-    color: $cinzaEscuro;
-}
-.blog li{
-    color: $cinzaEscuro;
-}
-.blog .texto{
-    padding: 20px;
 }
 .d-sm-flex{
     @include mediaScreenMax($smartphones){
