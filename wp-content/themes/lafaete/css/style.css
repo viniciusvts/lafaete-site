@@ -2153,7 +2153,7 @@ figure.image-box {
 .blog .texto {
   padding: 20px;
 }
-.blog p, .blog li, .blog a, .blog ul, .blog ol, .blog figcaption, .blog em, .blog i {
+.blog p, .blog p *, .blog li, .blog li *, .blog figcaption, .blog td {
   font-family: "Trebuchet MS", "Arial", sans-serif;
 }
 

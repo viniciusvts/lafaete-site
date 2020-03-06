@@ -76,7 +76,7 @@
     .texto{
         padding: 20px;
     }
-    p, li, a, ul, ol, figcaption, em, i{
+    p, p *, li, li *, figcaption, td{
         font-family: "Trebuchet MS", "Arial", sans-serif;
     }
 }
