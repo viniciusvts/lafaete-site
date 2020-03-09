@@ -78,6 +78,10 @@
     }
     p, p *, li, li *, figcaption, td{
         font-family: "Trebuchet MS", "Arial", sans-serif;
+        font-size: 15px;
+        @include mediaScreenMin($fullHdDesktops){
+            font-size: 19px;
+        }
     }
 }
 
