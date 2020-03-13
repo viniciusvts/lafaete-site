@@ -31,7 +31,7 @@
         while( $material->have_posts() ) : $material->the_post();                  
     ?>
     <div class="carousel-item <?php if($slider == 0) : echo 'active'; endif; ?>">
-      <div class="carousel-caption d-md-block crousel-home">
+      <div class="carousel-caption d-md-block crousel-home <?php if(is_home() ){echo "home";} ?>">
         <a class="whitelink" href="<?php
                   if(get_field('link') != '') {
                     the_field('link');

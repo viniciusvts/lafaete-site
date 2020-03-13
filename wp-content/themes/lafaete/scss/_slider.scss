@@ -53,6 +53,14 @@
 
 .carousel-caption{
     top: 40%;
+    &.home{
+        @include mediaScreenMax($smartFranklin) {
+            top:5%;
+        }
+    }
+    &.blog{
+        top:50px;
+    }
     h1, .h2-home-slider{
         @include mediaScreenMax($smartphones){
             font-size: 30px!important;

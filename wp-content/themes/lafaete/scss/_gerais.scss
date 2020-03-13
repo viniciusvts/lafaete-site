@@ -52,6 +52,9 @@ h3.title-card-blog {
 } 
 h1, .h2-home-slider{
     font-size: 3rem;
+    @include mediaScreenMax($smartphones){
+        font-size: 2rem;
+    }
 }
 
 h1, h2, h3, h4{
