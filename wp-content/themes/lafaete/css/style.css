@@ -606,7 +606,7 @@ nav.navbar {
 }
 @media (max-width: 320.98px) {
   .carousel-caption.home {
-    top: 5%;
+    top: 10%;
   }
 }
 .carousel-caption.blog {

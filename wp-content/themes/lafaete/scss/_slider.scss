@@ -55,7 +55,7 @@
     top: 40%;
     &.home{
         @include mediaScreenMax($smartFranklin) {
-            top:5%;
+            top:10%;
         }
     }
     &.blog{
