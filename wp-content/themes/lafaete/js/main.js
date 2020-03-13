@@ -275,27 +275,33 @@ class modeloDeProduto{
 }
 
 // funcão esconder menu ao dar scroll página
+//não realizar ess função em telas muito pequenas
 //não realizar essa função no blog
-var regex = /\/artigos\/+([A-Za-z0-9])/g;
-if( !regex.test( window.location.href ) ){
-    $(function(){   
-        var nav = $('#menu-principal'); 
-        var navTop = $('#menu-topo');  
-        navTop.css('display','block'); 
-        nav.addClass('bg-light');
-        nav.removeClass('bg-dark');
-        $(window).scroll(function () { 
-            if ($(this).scrollTop() > 90) { 
-                navTop.css('display','none');
-                nav.removeClass('bg-light');
-                nav.addClass('bg-dark');
-            } else { 
-                navTop.css('display','block'); 
-                nav.addClass('bg-light');
-                nav.removeClass('bg-dark');
-            } 
-        });  
-    });
+if(window.outerWidth <= 320){ 
+    var navTop = $('#menu-topo'); 
+    navTop.css('display','none');
+}else{
+    var regex = /\/artigos\/+([A-Za-z0-9])/g;//regex da url do blog
+    if( !regex.test( window.location.href ) ){
+        $(function(){   
+            var nav = $('#menu-principal'); 
+            var navTop = $('#menu-topo');  
+            navTop.css('display','block'); 
+            nav.addClass('bg-light');
+            nav.removeClass('bg-dark');
+            $(window).scroll(function () { 
+                if ($(this).scrollTop() > 90) { 
+                    navTop.css('display','none');
+                    nav.removeClass('bg-light');
+                    nav.addClass('bg-dark');
+                } else { 
+                    navTop.css('display','block'); 
+                    nav.addClass('bg-light');
+                    nav.removeClass('bg-dark');
+                } 
+            });  
+        });
+    }
 }
 
 // Função previne que o botão da categoria (submenu) suba até o header pois é um link somente com um hash
