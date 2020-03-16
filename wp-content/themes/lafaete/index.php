@@ -3,10 +3,10 @@
   <?php include_once('head.php'); ?>
 
   <body>
-    <?php include_once('menu.php'); ?>    
-
     <?php 
+      include_once('menu.php'); 
       include_once("inc/slider.php");
+      include_once("inc/floater-destaque.php");
     ?>
 
 
