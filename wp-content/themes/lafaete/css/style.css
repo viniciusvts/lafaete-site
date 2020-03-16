@@ -1,17 +1,8 @@
 @charset "UTF-8";
 /*cores*/
-@font-face {
-  font-family: myFont;
-  src: local("Oswald-Regular.ttf"), url("../inc/tipografia/Oswald-Regular.ttf");
-  font-display: swap;
-}
-@font-face {
-  font-family: myFontLight;
-  src: local("Oswald-Light.ttf"), url("../inc/tipografia/Oswald-Light.ttf");
-  font-display: swap;
-}
+@import url("https://fonts.googleapis.com/css?family=Oswald:200&display=swap");
 * {
-  font-family: myFontLight, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 html {
@@ -28,7 +19,7 @@ a.nav-link {
 
 a {
   color: #ff7e3b;
-  font-weight: 500;
+  font-weight: 300;
   transition: 0.5s ease all;
   -webkit-transition: 0.5s ease all;
   -ms-transition: 0.5s ease all;
@@ -69,7 +60,7 @@ h1, .h2-home-slider {
 }
 
 h1, h2, h3, h4 {
-  font-family: myFont;
+  font-family: "Oswald";
   text-transform: uppercase;
   font-weight: 700;
 }
@@ -91,13 +82,22 @@ p, ul li {
 }
 
 ul li {
-  font-family: myFontLight, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
+  font-family: "Oswald", "Montserrat", "Trebuchet MS", "Arial", sans-serif;
 }
 
 p {
-  font-family: myFontLight, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
+  font-family: "Oswald", "Montserrat", "Trebuchet MS", "Arial", sans-serif;
   letter-spacing: normal;
   line-height: inherit;
+  font-weight: 300;
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+span {
+  font-weight: 300 !important;
 }
 
 iframe {
@@ -358,7 +358,7 @@ nav.navbar {
   text-align: center;
   color: white;
   padding: 40px;
-  font-family: myFont, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
+  font-family: "Oswald", "Montserrat", "Trebuchet MS", "Arial", sans-serif;
 }
 
 .floater-destaque .cacambas {
@@ -1168,7 +1168,7 @@ ul.bp-indicators .dots.active {
   color: #6a6a6a;
 }
 .depoimentos .nome {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 /*depoimentos*/
@@ -1470,7 +1470,7 @@ ul.bp-indicators .dots.active {
 #produtos .produto-floater .texto .bread p, #produtos .sobre .texto .bread p {
   margin: 0;
   padding: 0;
-  font-family: myFont, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
+  font-family: "Oswald", "Montserrat", "Trebuchet MS", "Arial", sans-serif;
 }
 
 .produto-floater button {
@@ -1780,7 +1780,7 @@ ul.bp-indicators .dots.active {
   #produtos .produto-floater .texto .bread p, .sobre .texto .bread p {
     margin: 0;
     padding: 0;
-    font-family: myFontLight, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
+    font-family: "Oswald", "Montserrat", "Trebuchet MS", "Arial", sans-serif;
   }
 }
 @media (max-width: 1199px) {
@@ -2129,7 +2129,7 @@ figure.image-box {
 
 .blog-floater p, #crumbs {
   padding-top: 2px;
-  font-family: myFontLight, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
+  font-family: "Oswald", "Montserrat", "Trebuchet MS", "Arial", sans-serif;
   color: white;
 }
 @media (max-width: 767.98px) {
@@ -2934,7 +2934,7 @@ footer {
     z-index: 2;
     color: white;
     text-transform: uppercase;
-    font-family: myFontLight, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
+    font-family: "Oswald", "Montserrat", "Trebuchet MS", "Arial", sans-serif;
     text-align: center;
   }
 

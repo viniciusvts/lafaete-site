@@ -76,7 +76,7 @@ function add_css_and_js() {
   wp_enqueue_style( $archive, $urlPath, array('style.css'), $fileVersion, $media );
   
   $archive = 'fontOsvald';
-  $urlPath = "https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700";
+  $urlPath = "https://fonts.googleapis.com/css?family=Oswald:300,400";
   // no have => $internalPath = $cssInternalPath . $archive;
   $fileVersion = 1;// no have => filemtime($internalPath);
   wp_enqueue_style( $archive, $urlPath, array("bootstrap.css", "style.css"), $fileVersion, $media );

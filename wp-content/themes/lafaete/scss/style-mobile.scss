@@ -1,7 +1,3 @@
-
-@import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap');
-
-
 /*cores*/
 $cinzaLight: #f4f5f9 !default;
 $cinzaClaro: #e7e7e7 !default;
@@ -20,33 +16,17 @@ $laranjaClaro: #fab033 !default;
     color: $laranjaClaro;
 }
 
-@font-face {
-    font-family: myFont;
-    src: local('Oswald-Regular.ttf'), url('../../../inc/tipografia/Oswald-Regular.ttf');   
-    font-display: swap;    
-}
-
-@font-face {
-    font-family: myFontLight;
-    src: local('Oswald-Light.ttf'), url('../../../inc/tipografia/Oswald-Light.ttf');
-    font-display: swap;   
-}
-
-*{
-    font-family: myFontLight, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
-}
-
 p, ul li{
     font-size: 1.2rem
 }
 
 ul li{
-    font-family: myFontLight, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
+    font-family: "Oswald", "Montserrat", "Trebuchet MS", "Arial", sans-serif;
     display: inline-flex;
 }
 
 p{
-    font-family: myFontLight, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
+    font-family: "Oswald", "Montserrat", "Trebuchet MS", "Arial", sans-serif;
     letter-spacing: normal;
     line-height: normal;
 }
@@ -192,7 +172,7 @@ h4{
     text-align: center;
     color: white;
     padding: 20px;
-    font-family: myFontLight, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
+    font-family: "Oswald", "Montserrat", "Trebuchet MS", "Arial", sans-serif;
 }
 
 .floater-destaque .cacambas{
@@ -363,7 +343,7 @@ background: white;
     display: inline-block;
     margin: 10px 20px;    
     text-transform: uppercase;
-    font-family: myFontLight, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
+    font-family: "Oswald", "Montserrat", "Trebuchet MS", "Arial", sans-serif;
 }
 
 .projetos-recentes ul li.active{
@@ -678,7 +658,7 @@ max-width: 65em;
 
     .blog-floater p{
         padding-top: 2px;
-        font-family: myFontLight, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
+        font-family: "Oswald", "Montserrat", "Trebuchet MS", "Arial", sans-serif;
     }
 
     .blog{
@@ -754,7 +734,7 @@ max-width: 65em;
 .fale-conosco-right .telefone{
     color: $laranja;
     font-size: 2.5rem;
-    font-family: myFontLight, "Montserrat", "Trebuchet MS", "Arial", sans-serif;
+    font-family: "Oswald", "Montserrat", "Trebuchet MS", "Arial", sans-serif;
     margin: 0px;
     font-weight: 500;
     line-height: auto;
