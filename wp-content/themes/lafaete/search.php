@@ -12,7 +12,7 @@
           <div class="carousel-caption carousel-caption-flat-height">
             <h1>Busca</h1>
           </div>
-          <img src="<?php bloginfo('template_url'); ?>/inc/img/slider-construcao.jpg" class="img-fluid w-100">
+          <img src="<?php echo( get_theme_mod( 'dnaTheme_searchHeader') ); ?>" class="img-fluid w-100">
         </div>
       </div>
       <div class="container floater-destaque">

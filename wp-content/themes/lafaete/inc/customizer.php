@@ -27,3 +27,20 @@ function dnaTheme_customize_register( $wp_customize ) {
   $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'dnaTheme_logo', $dnaTheme_logo_control) );
   //FIM opção de personalizar a logo
 }
+
+add_action('customize_register','dnaTheme_customize_searchHeader');
+function dnaTheme_customize_searchHeader( $wp_customize ) {
+  //Opção de personalizar a logo do menu
+  $dnaTheme_setting = array( 
+    'default' => get_bloginfo('template_url') . "/inc/img/slider-construcao.jpg",
+    'transport' => 'refresh', // or postMessage
+  );
+  $dnaTheme_control = array(
+    'label' => 'Imagem a ser exibida',
+    'section' => 'dnaOptionsSection_menu',
+    'settings' => 'dnaTheme_searchHeader',
+  );
+  $wp_customize->add_setting('dnaTheme_searchHeader', $dnaTheme_setting);  
+  $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'dnaTheme_searchHeader', $dnaTheme_control) );
+  //FIM opção de personalizar a logo
+}
