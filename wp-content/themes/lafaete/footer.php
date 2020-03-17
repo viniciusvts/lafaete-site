@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <a href="index.php" class="d-none d-sm-block">
-                            <img src="<?php echo( get_theme_mod( 'dnaTheme_logo') ); ?>" width="200px">
+                            <img src="<?php echo( get_theme_mod( 'dnaTheme_setting_logo') ); ?>" width="200px">
                         </a>
                         <p id="text-footer">A Lafaete é uma empresa do segmento de locação de equipamentos para construção civil, infraestrutura, eventos e mineração. Destaca-se no mercado com locação de containers, máquinas, caminhões e caçambas. Além disso, atua no setor com a fabricação de estruturas metálicas e prestação de serviços como gestão ambiental e terraplanagem.</p>
                         <div class="social">
