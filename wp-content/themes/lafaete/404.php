@@ -5,15 +5,23 @@
   <body>
     <?php 
       include_once('menu.php'); 
-      include_once("inc/slider.php");
     ?>
-
+    <!-- SLIDER -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner carousel-flat-height">
+        <div class="carousel-item active">
+          <div class="carousel-caption carousel-caption-flat-height">
+            <h1>Página não encontrada!</h1>
+          </div>
+          <img src="<?php echo( get_theme_mod( 'dnaTheme_setting_404Header') ); ?>" class="img-fluid w-100">
+        </div>
+      </div>
+    </div>
+    <?php include_once('inc/search-floater.php'); ?>
+    <!-- SLIDER -->
     <div class="container">
       <div class="row">
         <div class="col-12" style="text-align: center;">
-          <div>
-            <h1 style="margin-top: 20px;">Página não encontrada!</h1>
-          </div>
           <div>
             <hr>
             <p><strong>Talvez não seja possível exibir a página solicitada devido à um dos seguintes motivos:</strong></p>
