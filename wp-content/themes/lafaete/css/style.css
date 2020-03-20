@@ -2212,6 +2212,20 @@ figure.image-box {
   }
 }
 
+.img-w100 img {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.video-center iframe {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.video-w100 iframe {
+  width: 100% !important;
+}
+
 /*blog*/
 .projetos-recentes .active {
   background: #6a6a6a;
