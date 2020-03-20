@@ -217,8 +217,9 @@
         // }
     }
 
-    .produto-floater .texto p{
+    .produto-floater .texto *{
         font-size: 19px;
+        font-family: "Trebuchet MS", "Arial", sans-serif!important;
     }
 
     .produto-floater .texto button, .produto-floater button{

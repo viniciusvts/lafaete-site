@@ -1413,8 +1413,9 @@ ul.bp-indicators .dots.active {
   margin: 15px;
   font-size: 20px;
 }
-#produtos .produto-floater .texto p {
+#produtos .produto-floater .texto * {
   font-size: 19px;
+  font-family: "Trebuchet MS", "Arial", sans-serif !important;
 }
 #produtos .produto-floater .texto button, #produtos .produto-floater button {
   background: #ff7e3b;
