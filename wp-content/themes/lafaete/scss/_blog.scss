@@ -129,7 +129,11 @@
    margin-left: auto;
    margin-right: auto;
 }
-.video-w100 iframe{
+.blog .wp-block-embed__wrapper iframe{
    width: 100%!important;
+}
+.blog .wp-block-image img{
+    width: 100%!important;
+    height: auto!important;
 }
 /*blog*/
