@@ -45,6 +45,7 @@ function custom_produto() {
 		'has_archive'           => false,		
 		'exclude_from_search'   => true,
 		'publicly_queryable'    => true,
+		'show_in_rest'          => true,
 		'capability_type'       => 'page',
 	);
 	register_post_type( 'produto', $args );
