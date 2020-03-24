@@ -24,7 +24,7 @@ class carousel{
         var cards = mycarroussel.querySelectorAll(".bp-carousel-inner .bp-item");
         var cardWidth = cards[0].offsetWidth;
         setTimeout(function(){//set timeout pq scroll behavior atrasa a leitura de scrollLeft
-            if( (innerCarrossel.scrollLeft - oldScroll) < cardWidth){
+            if(innerCarrossel.scrollLeft == oldScroll){
                 //então coloco o carrossel no inicio
                 innerCarrossel.scrollLeft = 0;
             }
@@ -66,7 +66,7 @@ class carousel{
         var cards = mycarroussel.querySelectorAll(".bp-carousel-inner .bp-item");
         var cardWidth = cards[0].offsetWidth;
         setTimeout(function(){//set timeout pq scroll behavior atrasa a leitura de scrollLeft
-            if( (oldScroll - innerCarrossel.scrollLeft) < cardWidth ){
+            if(innerCarrossel.scrollLeft == oldScroll){
                 //calcula o tamanho total do carrossel
                 var cards = mycarroussel.querySelectorAll(".bp-carousel-inner .bp-item");
                 /**Width total com todos os cards do carrousel */
