@@ -70,7 +70,7 @@ h1 b, h2 b, h3 b, h4 b {
 }
 
 h3 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 h4 {
@@ -1411,10 +1411,18 @@ ul.bp-indicators .dots.active {
   color: white;
   padding: 5px;
   margin: 15px;
+}
+#produtos .produto-floater .texto h2, #produtos .produto-floater .texto h2 {
+  font-size: 25px;
+}
+#produtos .produto-floater .texto h3, #produtos .produto-floater .texto h3 {
   font-size: 20px;
 }
+#produtos .produto-floater .texto h4, #produtos .produto-floater .texto h4 {
+  font-size: 15px;
+}
 #produtos .produto-floater .texto * {
-  font-size: 19px;
+  font-size: 15px;
   font-family: "Trebuchet MS", "Arial", sans-serif !important;
 }
 #produtos .produto-floater .texto button, #produtos .produto-floater button {
@@ -1709,7 +1717,6 @@ ul.bp-indicators .dots.active {
     position: relative;
     padding-top: 20px;
     padding-bottom: 20px;
-    background: #ff7e3b;
     z-index: 2;
   }
 

@@ -210,7 +210,18 @@
             color: white;
             padding: 5px;
             margin: 15px;
+        }
+        h2{
+
+            font-size: 25px;
+        }
+        h3{
+
             font-size: 20px;
+        }
+        h4{
+
+            font-size: 15px;
         }
         // ul li {
         //     text-transform: capitalize;
@@ -218,7 +229,7 @@
     }
 
     .produto-floater .texto *{
-        font-size: 19px;
+        font-size: 15px;
         font-family: "Trebuchet MS", "Arial", sans-serif!important;
     }
 
@@ -545,7 +556,6 @@
         position: relative;    
         padding-top: 20px;
         padding-bottom: 20px;
-        background: $laranja;
         z-index: 2;
     }
 
