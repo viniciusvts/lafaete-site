@@ -2380,6 +2380,8 @@ figure.image-box {
   right: 25px;
   font-size: 35px;
   font-weight: bold;
+  padding: 0 25px;
+  z-index: 2;
 }
 
 .fecharBotao:hover,
