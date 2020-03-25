@@ -14,7 +14,7 @@ if( !defined('ABSPATH') ) exit;
   <div class="container produto-floater">
     <div class="row">
       <div class="col-xl-8 texto">
-        <div>
+        <div class="text-center text-md-left">
           <?php
           $queriedObject = get_queried_object(); 
           switch ($queriedObject->post_type) {
@@ -23,7 +23,7 @@ if( !defined('ABSPATH') ) exit;
               <p><?php the_field('descricao'); ?></p>
               <h2 id="single-title-box"><?php the_title(); ?></h2>
               <div class="row">
-                <div class="col-md-4 left-b">
+                <div class="col-6 col-md-4 left-b">
                   <?php if(get_field('modelo')): ?>
                     <p class="bold-text">Modelo</p>
                     <p><?php the_field('modelo'); ?></p>
@@ -35,7 +35,7 @@ if( !defined('ABSPATH') ) exit;
                     <p><?php the_field('ano'); ?></p>
                   <?php endif ?>
                 </div>
-                <div class="col-md-4 mid-b">
+                <div class="col-6 col-md-4 mid-b">
                   <?php if(get_field('serie')): ?>
                     <p class="bold-text">Série</p>
                     <p><?php the_field('serie'); ?></p>
@@ -47,7 +47,7 @@ if( !defined('ABSPATH') ) exit;
                     <p><?php the_field('unidade'); ?></p>
                   <?php endif ?>
                 </div>
-                <div class="col-md-4">
+                <div class="col col-md-4">
                   <?php if(get_field('horimetro')): ?>
                     <p class="bold-text">Horímetro</p>
                     <p><?php the_field('horimetro'); ?></p>
