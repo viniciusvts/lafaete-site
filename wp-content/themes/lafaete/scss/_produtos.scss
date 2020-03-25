@@ -65,7 +65,11 @@
     }
 
     p{
-        font-size: 16px;
+        // aumenta a fonte no mobile
+        // solicitação de filipe 25/03/2020
+        @include mediaScreenMin($smartphones){
+            font-size: 16px;
+        }
     }
 }
 
@@ -229,7 +233,11 @@
     }
 
     .produto-floater .texto *{
-        font-size: 15px;
+        // aumenta a fonte no mobile
+        // solicitação de filipe 25/03/2020
+        @include mediaScreenMin($smartphones){
+            font-size: 16px;
+        }
         font-family: "Trebuchet MS", "Arial", sans-serif!important;
     }
 

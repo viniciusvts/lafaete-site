@@ -227,7 +227,7 @@ iframe {
 }
 
 .left-b, .mid-b {
-  border-right: rgba(0, 0, 0, 0.541) solid 1px;
+  border-right: #5f5f5f solid 1px;
 }
 
 #single-title-box {
@@ -1255,8 +1255,10 @@ ul.bp-indicators .dots.active {
 .default-service-column .col-6 {
   border-right: 1px solid #e8e8e8;
 }
-.default-service-column p {
-  font-size: 16px;
+@media (min-width: 575.98px) {
+  .default-service-column p {
+    font-size: 16px;
+  }
 }
 
 .default-service-column .inner-box {
@@ -1422,8 +1424,12 @@ ul.bp-indicators .dots.active {
   font-size: 15px;
 }
 #produtos .produto-floater .texto * {
-  font-size: 15px;
   font-family: "Trebuchet MS", "Arial", sans-serif !important;
+}
+@media (min-width: 575.98px) {
+  #produtos .produto-floater .texto * {
+    font-size: 16px;
+  }
 }
 #produtos .produto-floater .texto button, #produtos .produto-floater button {
   background: #ff7e3b;
@@ -2170,7 +2176,11 @@ figure.image-box {
 }
 .blog p, .blog p *, .blog li, .blog li *, .blog figcaption, .blog td {
   font-family: "Trebuchet MS", "Arial", sans-serif;
-  font-size: 15px;
+}
+@media (min-width: 575.98px) {
+  .blog p, .blog p *, .blog li, .blog li *, .blog figcaption, .blog td {
+    font-size: 16px;
+  }
 }
 @media (min-width: 1919.98px) {
   .blog p, .blog p *, .blog li, .blog li *, .blog figcaption, .blog td {
@@ -2727,9 +2737,16 @@ img {
 .fale-conosco-left {
   padding: 30px;
 }
+.fale-conosco-left span.wpcf7-list-item {
+  padding-right: 10px;
+  padding-bottom: 15px;
+}
 @media (max-width: 575.98px) {
   .fale-conosco-left {
-    margin-top: 15px;
+    margin-top: 0px;
+    margin-bottom: -20px;
+    padding-top: 10px;
+    padding-bottom: 0px;
   }
   .fale-conosco-left img {
     width: 100%;
