@@ -174,12 +174,12 @@ foreach ($catgrs as $catgr) {
             <div class="cabecalho">
               <h2>Modelos</h2>
             </div>
-            <ul class="tabs">
+            <ul class="tabs row">
               <?php
               $first = true;
               foreach ($modelos as $modelo) {
               ?>
-                <li class="tab">
+                <li class="tab col">
                   <a href="#" objetivo="<?php
                                         echo ($modelo['nome']);
                                         ?>" class="<?php
