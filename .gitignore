@@ -8,6 +8,7 @@ wp-content/plugins/integracao-rd-station/
 wp-content/plugins/super-socializer/
 wp-content/plugins/wp-mail-smtp/
 cgi-bin/
+.phpintel/
 .htaccess
 .ftpquota
 .idea/
