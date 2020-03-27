@@ -27,14 +27,14 @@
 .blog-floater{
     position: relative;
     bottom: 0px;
-    width: 100%;        
+    width: 100%;
     z-index: 1;
     label{
         display: none;
     }
-}       
+}
 
-.blog-floater .container{        
+.blog-floater .container{
     background: $cinzaEscuro;
     padding: 20px;
 }
@@ -77,15 +77,16 @@
         padding: 20px;
     }
     p, p *, li, li *, figcaption, td{
-        font-family: "Trebuchet MS", "Arial", sans-serif;
-        // aumenta a fonte no mobile
-        // solicitação de filipe 25/03/2020
-        @include mediaScreenMin($smartphones){
-            font-size: 16px;
+        // regra redundante
+        font-size: 19px;
+        font-family: "Open Sans";
+        line-height: 30px;
+        @include mediaScreenMax($smartphones){
+          margin-bottom: 5px;
         }
-        @include mediaScreenMin($fullHdDesktops){
-            font-size: 19px;
-        }
+    }
+    li::first-letter{
+      text-transform: capitalize;
     }
 }
 

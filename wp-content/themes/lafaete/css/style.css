@@ -1424,12 +1424,20 @@ ul.bp-indicators .dots.active {
   font-size: 15px;
 }
 #produtos .produto-floater .texto * {
-  font-family: "Trebuchet MS", "Arial", sans-serif !important;
+  font-size: 19px;
+  font-family: "Open Sans";
+  line-height: 30px;
 }
-@media (min-width: 575.98px) {
+@media (max-width: 575.98px) {
   #produtos .produto-floater .texto * {
-    font-size: 16px;
+    margin-bottom: 5px;
   }
+}
+#produtos .produto-floater .texto li::first-letter {
+  text-transform: capitalize;
+}
+#produtos .produto-floater .texto li {
+  text-align: left;
 }
 #produtos .produto-floater .texto button, #produtos .produto-floater button {
   background: #ff7e3b;
@@ -2175,17 +2183,17 @@ figure.image-box {
   padding: 20px;
 }
 .blog p, .blog p *, .blog li, .blog li *, .blog figcaption, .blog td {
-  font-family: "Trebuchet MS", "Arial", sans-serif;
+  font-size: 19px;
+  font-family: "Open Sans";
+  line-height: 30px;
 }
-@media (min-width: 575.98px) {
+@media (max-width: 575.98px) {
   .blog p, .blog p *, .blog li, .blog li *, .blog figcaption, .blog td {
-    font-size: 16px;
+    margin-bottom: 5px;
   }
 }
-@media (min-width: 1919.98px) {
-  .blog p, .blog p *, .blog li, .blog li *, .blog figcaption, .blog td {
-    font-size: 19px;
-  }
+.blog li::first-letter {
+  text-transform: capitalize;
 }
 
 .blog-categorias {

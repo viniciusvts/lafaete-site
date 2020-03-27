@@ -49,7 +49,7 @@
 .services-style-one .default-service-column{
 	position:relative;
 	margin-bottom:30px;
-	text-align:center;	
+	text-align:center;
 }
 
 .default-service-column{
@@ -79,34 +79,34 @@
 	max-width:420px;
     margin:0 auto;
     height:100%;
-	@include transition(0.8s ease all);	    
+	@include transition(0.8s ease all);
 }
 
 .default-service-column .inner-box:hover{
-    @include transition(0.8s ease all);	
+    @include transition(0.8s ease all);
 	@include box-shadow(0px 0px 7px 5px rgba(0,0,0,0.05));
 }
 
 .default-service-column .inner-most{
 	position:relative;
-	overflow:hidden;	
+	overflow:hidden;
 }
 
 .default-service-column .image-box{
-	position:relative;	
+	position:relative;
 }
 
 .default-service-column .image-box img{
 	display:block;
-    width:100%;	
-    object-fit: cover;    
+    width:100%;
+    object-fit: cover;
     height: 250px;
 }
 
 .default-service-column .lower-part{
 	position:relative;
 	padding-top:20px;
-	margin-top:-20px;	
+	margin-top:-20px;
 }
 
 .default-service-column .lower-part .left-curve{
@@ -126,7 +126,7 @@
 	-webkit-transition:all 400ms ease;
 	-ms-transition:all 400ms ease;
 	-o-transition:all 400ms ease;
-	-moz-transition:all 400ms ease;	
+	-moz-transition:all 400ms ease;
 }
 
 .default-service-column .lower-part .right-curve{
@@ -146,18 +146,18 @@
 	-webkit-transition:all 400ms ease;
 	-ms-transition:all 400ms ease;
 	-o-transition:all 400ms ease;
-	-moz-transition:all 400ms ease;	
+	-moz-transition:all 400ms ease;
 }
 
 .default-service-column:hover .lower-part .left-curve,
 .default-service-column:hover .lower-part .right-curve{
-	border-top-color:#fdc236;	
+	border-top-color:#fdc236;
 }
 
 .default-service-column .content{
 	position: relative;
 	padding: 10px 10px 20px 10px;
-	z-index: 1;	
+	z-index: 1;
 }
 
 .default-service-column .content h3{
@@ -185,12 +185,12 @@
 	-webkit-transition:all 400ms ease;
 	-ms-transition:all 400ms ease;
 	-o-transition:all 400ms ease;
-	-moz-transition:all 400ms ease;	
+	-moz-transition:all 400ms ease;
 }
 
 .default-service-column .content .read-more:hover,
 .default-service-column:hover .content .read-more{
-	border-color:#ff7e3b;	
+	border-color:#ff7e3b;
 }
 #produtos{
     margin-bottom: 50px;
@@ -199,7 +199,7 @@
     }
 
     .produto-floater .texto{
-        position: relative;    
+        position: relative;
         padding-top: 20px;
         padding-bottom: 20px;
         background: $cinzaEscuro;
@@ -233,12 +233,21 @@
     }
 
     .produto-floater .texto *{
-        // aumenta a fonte no mobile
-        // solicitação de filipe 25/03/2020
-        @include mediaScreenMin($smartphones){
-            font-size: 16px;
+        // regra redundante
+        font-size: 19px;
+        font-family: "Open Sans";
+        line-height: 30px;
+        @include mediaScreenMax($smartphones){
+          margin-bottom: 5px;
         }
-        font-family: "Trebuchet MS", "Arial", sans-serif!important;
+    }
+
+    .produto-floater .texto li::first-letter{
+      text-transform: capitalize;
+    }
+
+    .produto-floater .texto li{
+      text-align: left;
     }
 
     .produto-floater .texto button, .produto-floater button{
@@ -297,29 +306,29 @@
             padding: 20px;
         }
     }
-    
+
     .produto-floater .pagamento h4{
         text-align: center;
     }
-    
+
     .produto-floater .pagamento img{
         left: 0;
         right: 0;
         margin: 0 auto;
         display: block;
     }
-    
+
     .produto-floater .texto .bread svg, .sobre .bread svg, .bread svg{
         fill: white;
         width: 25px;
         float: left;
         margin: 0 10px 0 0;
     }
-    
+
     .sobre .bread svg, .bread svg{
         fill: $cinzaEscuro;
     }
-    
+
     .produto-floater .texto .bread p, .sobre .texto .bread p{
         margin: 0;
         padding: 0;
@@ -374,7 +383,7 @@
 }
 
 /*produtos*/
-    
+
 
 @media (max-width: 1199px) {
     /*produtos*/
@@ -429,7 +438,7 @@
         position:relative;
         margin-bottom:30px;
         text-align:center;
-        transform: scale(1);	
+        transform: scale(1);
     }
 
     .default-service-column{
@@ -446,7 +455,7 @@
         -webkit-transition:all 400ms ease;
         -ms-transition:all 400ms ease;
         -o-transition:all 400ms ease;
-        -moz-transition:all 400ms ease;		
+        -moz-transition:all 400ms ease;
     }
 
     .default-service-column .inner-box:hover{
@@ -459,23 +468,23 @@
 
     .default-service-column .inner-most{
         position:relative;
-        overflow:hidden;	
+        overflow:hidden;
     }
 
     .default-service-column .image-box{
-        position:relative;	
+        position:relative;
     }
 
     .default-service-column .image-box img{
         display:block;
-        width:100%;	
+        width:100%;
         object-fit: cover;
     }
 
     .default-service-column .lower-part{
         position:relative;
         padding-top:20px;
-        margin-top:-20px;	
+        margin-top:-20px;
     }
 
     .default-service-column .lower-part .left-curve{
@@ -495,7 +504,7 @@
         -webkit-transition:all 400ms ease;
         -ms-transition:all 400ms ease;
         -o-transition:all 400ms ease;
-        -moz-transition:all 400ms ease;	
+        -moz-transition:all 400ms ease;
     }
 
     .default-service-column .lower-part .right-curve{
@@ -515,18 +524,18 @@
         -webkit-transition:all 400ms ease;
         -ms-transition:all 400ms ease;
         -o-transition:all 400ms ease;
-        -moz-transition:all 400ms ease;	
+        -moz-transition:all 400ms ease;
     }
 
     .default-service-column:hover .lower-part .left-curve,
     .default-service-column:hover .lower-part .right-curve{
-        border-top-color:#fdc236;	
+        border-top-color:#fdc236;
     }
 
     .default-service-column .content{
         position: relative;
         padding: 10px 10px 20px 10px;
-        z-index: 0;	
+        z-index: 0;
     }
 
     .default-service-column .content h3{
@@ -553,15 +562,15 @@
         -webkit-transition:all 400ms ease;
         -ms-transition:all 400ms ease;
         -o-transition:all 400ms ease;
-        -moz-transition:all 400ms ease;	
+        -moz-transition:all 400ms ease;
     }
 
     .default-service-column .content .read-more:hover,
     .default-service-column:hover .content .read-more{
-        border-color:#ff7e3b;	
+        border-color:#ff7e3b;
     }
     #produtos .produto-floater .texto{
-        position: relative;    
+        position: relative;
         padding-top: 20px;
         padding-bottom: 20px;
         z-index: 2;
@@ -657,7 +666,7 @@
 		padding: 5px 15px
 	}
 	.page-btn:hover{
-		color:#ff7e3b;	
+		color:#ff7e3b;
 	}
 }
 .line-L {
@@ -812,7 +821,7 @@ hr {
     &.active{
         display: inherit;
     }
-    
+
     ul {
         padding-left: 0;
         li {
