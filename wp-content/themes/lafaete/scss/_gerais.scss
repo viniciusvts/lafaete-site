@@ -3,13 +3,13 @@
 // @font-face {
 //     font-family: myFont;
 //     src: local('Oswald-Regular.ttf'), url('../inc/tipografia/Oswald-Regular.ttf');
-//     font-display: swap;   
+//     font-display: swap;
 // }
 
 // @font-face {
 //     font-family: myFontLight;
 //     src: local('Oswald-Light.ttf'), url('../inc/tipografia/Oswald-Light.ttf');
-//     font-display: swap;   
+//     font-display: swap;
 // }
 
 * {
@@ -51,7 +51,7 @@ h3.title-card-blog {
     span {
         color: white !important;
     }
-} 
+}
 h1, .h2-home-slider{
     font-size: 3rem;
     @include mediaScreenMax($smartphones){
@@ -89,7 +89,7 @@ p{
     font-family: "Oswald", "Montserrat", "Trebuchet MS", "Arial", sans-serif;
     letter-spacing: normal;
     line-height: inherit;
-    font-weight: 300;
+    font-weight: 400;
 }
 b, strong{
     font-weight: bold;
@@ -151,7 +151,7 @@ iframe{
     list-style: none;
 }
 
-.modal-body ul{    
+.modal-body ul{
     padding: 0;
 }
 
