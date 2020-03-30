@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/*!start dna css theme*/
 /*cores*/
 @import url("https://fonts.googleapis.com/css?family=Oswald:300,400");
 * {
@@ -1418,10 +1419,10 @@ ul.bp-indicators .dots.active {
   font-size: 25px;
 }
 #produtos .produto-floater .texto h3, #produtos .produto-floater .texto h3 {
-  font-size: 20px;
+  font-size: 22px;
 }
 #produtos .produto-floater .texto h4, #produtos .produto-floater .texto h4 {
-  font-size: 15px;
+  font-size: 19px;
 }
 #produtos .produto-floater .texto * {
   font-size: 19px;
@@ -3161,5 +3162,7 @@ footer {
 .has-small-font-size {
   font-size: 13px !important;
 }
+
+/*!end dna css theme*/
 
 /*# sourceMappingURL=style.css.map */
