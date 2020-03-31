@@ -1413,7 +1413,7 @@ ul.bp-indicators .dots.active {
   z-index: 2;
   color: white;
   padding: 5px;
-  margin: 15px;
+  margin: 0px 10px;
 }
 #produtos .produto-floater .texto h2 {
   font-size: 25px;
@@ -1427,7 +1427,6 @@ ul.bp-indicators .dots.active {
 #produtos .produto-floater .texto * {
   font-size: 16px;
   font-family: "Open Sans", sans-serif;
-  line-height: 30px;
 }
 @media (max-width: 575.98px) {
   #produtos .produto-floater .texto * {
@@ -1740,10 +1739,6 @@ ul.bp-indicators .dots.active {
     z-index: 2;
     color: white;
     padding: 10px;
-  }
-
-  #produtos .produto-floater .texto p {
-    margin: 10px;
   }
 
   #produtos .produto-floater .texto button {
@@ -2186,7 +2181,6 @@ figure.image-box {
 .blog p, .blog p *, .blog li, .blog li *, .blog figcaption, .blog td {
   font-size: 16px;
   font-family: "Open Sans", sans-serif;
-  line-height: 30px;
 }
 @media (max-width: 575.98px) {
   .blog p, .blog p *, .blog li, .blog li *, .blog figcaption, .blog td {
