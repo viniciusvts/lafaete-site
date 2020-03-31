@@ -79,7 +79,7 @@ h4 {
 }
 
 p, ul li {
-  font-size: 19px;
+  font-size: 18px;
 }
 
 ul li {
@@ -2184,7 +2184,7 @@ figure.image-box {
   padding: 20px;
 }
 .blog p, .blog p *, .blog li, .blog li *, .blog figcaption, .blog td {
-  font-size: 19px;
+  font-size: 18px;
   font-family: "Open Sans", sans-serif;
   line-height: 30px;
 }
