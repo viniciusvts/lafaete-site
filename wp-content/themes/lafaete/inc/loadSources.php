@@ -79,13 +79,20 @@ function add_css_and_js() {
   $urlPath = "https://fonts.googleapis.com/css?family=Oswald:300,400";
   // no have => $internalPath = $cssInternalPath . $archive;
   $fileVersion = 1;// no have => filemtime($internalPath);
-  wp_enqueue_style( $archive, $urlPath, array("bootstrap.css", "style.css"), $fileVersion, $media );
+  wp_enqueue_style( $archive, $urlPath, array(), $fileVersion, $media );
 
   $archive = 'fontMontserrat';
   $urlPath = "https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,700,900";
   // no have => $internalPath = $cssInternalPath . $archive;
   $fileVersion = 1;// no have => filemtime($internalPath);
-  wp_enqueue_style( $archive, $urlPath, array("bootstrap.css", "style.css"), $fileVersion, $media );
+  wp_enqueue_style( $archive, $urlPath, array(), $fileVersion, $media );
+
+  $archive = 'fontOpenSans';
+  $urlPath = "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600";
+  // no have => $internalPath = $cssInternalPath . $archive;
+  $fileVersion = 1;// no have => filemtime($internalPath);
+  wp_enqueue_style( $archive, $urlPath, array(), $fileVersion, $media );
+  
 }
 //do it
 add_action( 'wp_enqueue_scripts', 'add_css_and_js' );
