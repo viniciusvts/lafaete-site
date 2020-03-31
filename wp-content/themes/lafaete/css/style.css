@@ -1426,7 +1426,7 @@ ul.bp-indicators .dots.active {
 }
 #produtos .produto-floater .texto * {
   font-size: 19px;
-  font-family: "Open Sans";
+  font-family: "Open Sans", sans-serif;
   line-height: 30px;
 }
 @media (max-width: 575.98px) {
@@ -2185,7 +2185,7 @@ figure.image-box {
 }
 .blog p, .blog p *, .blog li, .blog li *, .blog figcaption, .blog td {
   font-size: 19px;
-  font-family: "Open Sans";
+  font-family: "Open Sans", sans-serif;
   line-height: 30px;
 }
 @media (max-width: 575.98px) {

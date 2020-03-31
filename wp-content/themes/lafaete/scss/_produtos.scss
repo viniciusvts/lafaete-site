@@ -235,7 +235,7 @@
     .produto-floater .texto *{
         // regra redundante
         font-size: 19px;
-        font-family: "Open Sans";
+        font-family: "Open Sans", sans-serif;
         line-height: 30px;
         @include mediaScreenMax($smartphones){
           margin-bottom: 5px;
