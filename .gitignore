@@ -1,19 +1,28 @@
+# Pastas do WP que não queremos subir
 wp-admin/error_log
 wp-content/cache/
 wp-content/wflogs/
 wp-content/uploads/
-#plugins que não funcionam ou não interessam localmente
+## plugins que não funcionam ou não interessam localmente
 wp-content/plugins/autoptimize/
 wp-content/plugins/integracao-rd-station/
 wp-content/plugins/super-socializer/
 wp-content/plugins/wp-mail-smtp/
+
+# Pastas geradas pelo servidor
 cgi-bin/
 .phpintel/
-.htaccess
 .ftpquota
-.idea/
-#eclipse IDE
-.buildpath
-.project
+
+# Alguns arquivos
+.htaccess
 google04b9ffa6deebd546.html
 wp-errors.log
+
+# Gerados por ide's
+.idea/
+## eclipse IDE
+.buildpath
+.project
+## VsCode
+.vscode/
