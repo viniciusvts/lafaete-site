@@ -207,7 +207,7 @@
         color: white;
     }
 
-    .produto-floater .texto, .produto-floater .texto {
+    .produto-floater .texto {
         p, h2, h3, h4{
             position: relative;
             z-index: 2;
@@ -225,7 +225,7 @@
         }
         h4{
 
-            font-size: 19px;
+            font-size: 18px;
         }
         // ul li {
         //     text-transform: capitalize;
@@ -234,7 +234,7 @@
 
     .produto-floater .texto *{
         // regra redundante
-        font-size: 18px;
+        font-size: 16px;
         font-family: "Open Sans", sans-serif;
         line-height: 30px;
         @include mediaScreenMax($smartphones){
