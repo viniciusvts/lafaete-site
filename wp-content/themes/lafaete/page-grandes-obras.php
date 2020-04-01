@@ -7,35 +7,6 @@
 
     <?php include_once('flat-header.php'); ?>
 
-    <section id="galeria" class="projetos-sociais">
-      <span class="fecharBotao">&times;</span>
-      <div class="conteudo">
-        <ul id="imagens">
-            <li class="fade">
-              <span class="numero">1 / 3</span>
-              <img src="inc/img/programa-gestao-residuos-construcao-civil.jpg" alt="imagem 1" class="imagem-responsiva">
-            </li>
-            <li class="fade">
-              <span class="numero">2 / 3</span>
-              <img src="inc/img/programa-gestao-residuos-construcao-civil.jpg" alt="imagem 2" class="imagem-responsiva">
-            </li>
-            <li class="fade">
-              <span class="numero">3 / 3</span>
-              <img src="inc/img/programa-gestao-residuos-construcao-civil.jpg" alt="imagem 3" class="imagem-responsiva">
-            </li>
-        </ul>
-        <div id="botoes">
-            <a href="" id="seguinte">&#10095;</a>
-            <a href="" id="anterior">&#10094;</a>
-        </div>
-      </div>
-      <div id="dots">
-        <span class="dot ativo"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-      </div>
-    </section>
-
     <div class="container produtos-container">
       <div class="row">
         <?php
