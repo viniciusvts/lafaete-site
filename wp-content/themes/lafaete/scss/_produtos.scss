@@ -213,7 +213,11 @@
             z-index: 2;
             color: white;
             padding: 5px;
-            margin: 0px 10px;
+            margin: 5px;
+        }
+        h3, h4{
+            margin-bottom: 10px;
+            margin-top: 20px;
         }
         h2{
 
@@ -227,9 +231,10 @@
 
             font-size: 18px;
         }
-        // ul li {
-        //     text-transform: capitalize;
-        // }
+        ul li {
+            margin-bottom: 10px;
+            line-height: 26px;
+        }
     }
 
     .produto-floater .texto *{
@@ -253,7 +258,7 @@
         background: $laranja;
         border: none;
         padding: 10px 20px;
-        margin: 10px;
+        margin: 20px 10px 20px 10px;
     }
 
     // .produto-floater .texto::after{
