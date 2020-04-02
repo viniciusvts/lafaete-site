@@ -27,7 +27,7 @@
                         if( !empty($image) ){
                 ?>
                 <div class="bp-item col-12 col-md-4 col-lg-24">
-                    <img src="<?php echo $image['url']; ?>" class="rounded" alt="<?php echo $image['alt']; ?>" />
+                    <img src="<?php echo $image['sizes']['medium']; ?>" class="rounded" alt="<?php echo $image['alt']; ?>" />
                 </div>
                 <?php
                         }

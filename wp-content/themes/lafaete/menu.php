@@ -36,8 +36,8 @@
       </div>
     </div>
     <!--<div class="col-md-1 col-lg-1 col-sm-6">
-      <img src="<?php bloginfo('template_url');?>/inc/img/br.png" class="idioma idioma-on img-fluid">
-      <img src="<?php bloginfo('template_url');?>/inc/img/en.png" class="idioma idioma-off img-fluid">
+      <img src="<?php //bloginfo('template_url');?>/inc/img/br.png" class="idioma idioma-on img-fluid">
+      <img src="<?php //bloginfo('template_url');?>/inc/img/en.png" class="idioma idioma-off img-fluid">
     </div>-->
   </div>
 </div>

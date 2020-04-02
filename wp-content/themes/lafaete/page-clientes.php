@@ -14,7 +14,7 @@
                     $clientes = new WP_Query(array('post_type' => 'clientes', 'posts_per_page' => '-1'));
                     while( $clientes->have_posts()) :  $clientes->the_post(); ?>
                 <div class="col-md-3 col-6">        
-                    <?php the_post_thumbnail('full', array('class' => 'd-block w-100 img-fluid rounded')); ?> 
+                    <?php the_post_thumbnail('medium', array('class' => 'd-block w-100 img-fluid rounded')); ?> 
                 </div>
                 <?php endwhile; ?>
             </div>

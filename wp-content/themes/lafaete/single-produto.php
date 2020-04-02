@@ -43,7 +43,7 @@ foreach ($catgrs as $catgr) {
             <?php the_title(); ?>
           </h1>
         </div>
-        <?php the_post_thumbnail('full', array('class' => 'd-block img-fluid')); ?>
+        <?php the_post_thumbnail('large', array('class' => 'd-block img-fluid')); ?>
       </div>
     </div>
 
@@ -95,6 +95,34 @@ foreach ($catgrs as $catgr) {
       </div>
     </div>
 
+    <div class="container">
+      <div class="row">
+        <?php
+        $video = get_field('embed_youtube');
+        if($video){
+        ?>
+          <div class="col-md-4 imagem">
+          <?php
+            echo($video);
+          ?>
+          </div>
+        <?php
+        }
+        $images = get_field('galeria');
+        $size = 'medium'; // (thumbnail, medium, large, full or custom size)
+        if ($images) :
+          foreach ($images as $image) :
+        ?>
+          <div class="col-md-4 imagem">
+            <img src="<?php echo $image['sizes'][$size] ?>" alt="<?php $image['alt'] ?>">
+          </div>
+        <?php
+          endforeach;
+        endif;
+        ?>
+      </div>
+    </div>
+
     <section id="galeria">
       <span class="fecharBotao">&times;</span>
       <div class="conteudo">
@@ -132,34 +160,6 @@ foreach ($catgrs as $catgr) {
         ?>
       </div>
     </section>
-
-    <div class="container">
-      <div class="row">
-        <?php
-        $video = get_field('embed_youtube');
-        if($video){
-        ?>
-          <div class="col-md-4 imagem">
-          <?php
-            echo($video);
-          ?>
-          </div>
-        <?php
-        }
-        $images = get_field('galeria');
-        $size = 'medium'; // (thumbnail, medium, large, full or custom size)
-        if ($images) :
-          foreach ($images as $image) :
-        ?>
-            <div class="col-md-4 imagem">
-              <?php echo wp_get_attachment_image($image['ID'], $size); ?>
-            </div>
-        <?php
-          endforeach;
-        endif;
-        ?>
-      </div>
-    </div>
   <?php
   endif;
   $modelos = get_field('modelos');
@@ -203,12 +203,13 @@ foreach ($catgrs as $catgr) {
           $first = true;
           foreach ($modelos as $modelo) {
           ?>
-            <div id="<?php echo ($modelo['nome']); ?>" class="col-sm-12 row modeloProdutos <?php
-                                                                                            if ($first) {
-                                                                                              echo ("active");
-                                                                                              $first = false;
-                                                                                            }
-                                                                                            ?>">
+            <div id="<?php echo ($modelo['nome']); ?>" 
+            class="col-sm-12 row modeloProdutos <?php
+                                                if ($first) {
+                                                  echo ("active");
+                                                  $first = false;
+                                                }
+                                                ?>">
               <div class="col-sm-12 col-md-6 content-container">
                 <p>
                   <strong>Dimensões:</strong>

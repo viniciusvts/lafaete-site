@@ -118,7 +118,7 @@
             <div class="inner-box">
                 <div class="inner-most">
                   <figure class="image-box">
-                    <img width="100%" height="270" src="<?php echo $image['url']; ?>" class="img-responsive wp-post-image" alt="<?php echo $image['alt']; ?>">
+                    <img width="100%" height="270" src="<?php echo $image['sizes']['medium']; ?>" class="img-responsive wp-post-image" alt="<?php echo $image['alt']; ?>">
                   </figure>
                   <div class="lower-part">
                       <div class="left-curve"></div>

@@ -14,7 +14,7 @@
           <div class="carousel-caption carousel-caption-flat-height d-md-block">
             <h1><?php the_title(); ?></h1>
           </div>
-            <?php the_post_thumbnail('full'); ?>
+            <?php the_post_thumbnail('large'); ?>
         </div>
       </div>
       <div class="container floater-destaque">
@@ -41,7 +41,7 @@
                       if(!empty($image) ) :                                
                     ?>
                     <div class="col-md-6">                    
-                        <img src="<?php echo $image['url']; ?>" class="d-block w-100 img-fluid rounded" alt="<?php echo $image['alt']; ?>" />                    
+                        <img src="<?php echo $image['sizes']['large']; ?>" class="d-block w-100 img-fluid rounded" alt="<?php echo $image['alt']; ?>" />                    
                     </div>
                   <?php endif; ?>
                 <?php

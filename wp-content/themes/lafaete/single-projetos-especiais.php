@@ -17,7 +17,7 @@
               <p>Projeto Especial </p>
               <?php the_title(); ?></h1>
           </div>
-          <?php the_post_thumbnail('full', array('class' => 'd-block img-fluid')); ?> 
+          <?php the_post_thumbnail('large', array('class' => 'd-block img-fluid')); ?> 
         </div>
       </div>
 
@@ -69,6 +69,23 @@
         </div>
       </div> 
 
+      <div class="container">
+        <div class="row">
+          <?php
+            $images = get_field('galeria'); 
+            $size = 'medium'; // (thumbnail, medium, large, full or custom size)
+            if( $images ): 
+              foreach( $images as $image ):
+          ?>
+          <div class="col-md-4 imagem">
+          <img src="<?php echo $image['sizes']['medium'] ?>" alt="<?php echo $image['alt'] ?>" >
+          </div>  
+            <?php
+              endforeach;
+              endif; 
+            ?>
+        </div>
+      </div>
       <section id="galeria">
         <span class="fecharBotao">&times;</span>
         <div class="conteudo">
@@ -107,23 +124,6 @@
         </div>
       </section>
 
-      <div class="container">
-        <div class="row">
-          <?php
-            $images = get_field('galeria'); 
-            $size = 'medium'; // (thumbnail, medium, large, full or custom size)
-            if( $images ): 
-              foreach( $images as $image ):
-          ?>
-          <div class="col-md-4 imagem">
-            <?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
-          </div>  
-            <?php
-              endforeach;
-              endif; 
-            ?>
-        </div>
-      </div>
     <?php
       endif;
     ?>

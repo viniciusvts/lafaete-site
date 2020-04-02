@@ -41,9 +41,11 @@
                     <h2><?php the_sub_field('titulo'); ?></h2>
                     <?php the_sub_field('descricao'); ?>
                   </div>
-                  <?php if(get_sub_field('imagem')): ?>
+                  <?php
+                  $imgField = get_sub_field('imagem');
+                  if($imgField): ?>
                   <div class="col-md-4">
-                    <img src="<?php $imagem = get_sub_field('imagem'); echo $imagem['url']; ?>" alt="<?php the_sub_field('titulo'); ?>" class="img-fluid w-100 rounded" />                  
+                    <img src="<?php echo $imgField['sizes']['medium']; ?>" alt="<?php the_sub_field('titulo'); ?>" class="img-fluid w-100 rounded" />                  
                   </div>
                   <?php endif; ?>
                 </div>
@@ -72,7 +74,7 @@
           ?>
           <div class="col-12 col-md-4 col-sm-12 mr-auto ml-auto">          
             <?php $imagemPremio = get_field('imagem'); ?>            
-            <img src="<?php echo $imagemPremio['url']; ?>" alt="<?php echo $imagemPremio['alt'] ?>" class="img-fluid w-100 rounded" /> 
+            <img src="<?php echo $imagemPremio['sizes']['medium']; ?>" alt="<?php echo $imagemPremio['alt'] ?>" class="img-fluid w-100 rounded" /> 
             <h3><?php the_title(); ?></h3>
             <p><?php the_field('descricao'); ?></p>
           </div>

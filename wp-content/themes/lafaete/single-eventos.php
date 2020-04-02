@@ -12,7 +12,7 @@
           <div class="carousel-caption carousel-caption-flat-height">
             <h1><?php the_title(); ?></h1>
           </div>
-          <?php the_post_thumbnail('full', array('class' => 'img-fluid w-100')); ?>
+          <?php the_post_thumbnail('large', array('class' => 'img-fluid w-100')); ?>
         </div>
       </div>     
     </div>

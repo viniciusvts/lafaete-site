@@ -103,8 +103,8 @@
           $args = array(
                   'post_type' => 'produto',
                   'order' => 'ASC' ,
-            'posts_per_page' => $postsPerPage,
-            'paged' => $paged,
+                  'posts_per_page' => $postsPerPage,
+                  'paged' => $paged,
                   'tax_query' => array(
                     array(
                       'taxonomy' => 'produtos',
