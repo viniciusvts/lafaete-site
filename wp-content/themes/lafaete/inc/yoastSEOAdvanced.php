@@ -65,7 +65,7 @@ add_action( 'rank_math/vars/register_extra_replacements', function(){
       'name'        => esc_html__( 'Custom variable name.', 'venda seo title' ),
       'description' => esc_html__( 'Custom variable description.', 'Variável para setar o Seo title do produto em venda correto' ),
       'variable'    => 'vendaSeoTitle',
-      'example'     => 'Venda de Caminhão - Lafaete Locação',
+      'example'     => 'Venda de Caminhão seminovo - Lafaete Locação',
     ],
     'SeoTitleVendas'
   );
