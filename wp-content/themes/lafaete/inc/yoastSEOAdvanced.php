@@ -9,8 +9,8 @@
  * However, the source code of your site will show the output of the variable 'My name is Moses'.
  * Modified by Vinicius de Santana
  */
-//define variavel para o SEO title do yoast
-function mySeoTitle() {
+//define variavel para o SEO title do produto no rank math
+function SeoTitleProdutos() {
   $tipoProduto = isset( $_GET['tipo-produto'] ) ? $_GET['tipo-produto'] : null;
   $local = isset( $_GET['local'] ) ? $_GET['local'] : null;
   $queriedObject = get_queried_object();
@@ -42,11 +42,35 @@ add_action( 'rank_math/vars/register_extra_replacements', function(){
       'name'        => esc_html__( 'Custom variable name.', 'product seo title' ),
       'description' => esc_html__( 'Custom variable description.', 'Variável para setar o Seo title do produto correto' ),
       'variable'    => 'produtoSeoTitle',
-      'example'     => 'Locação de Módulo Termoacústico - Lafaete',
+      'example'     => 'Locação de Módulo Termoacústico em Minas Gerais - Lafaete',
     ],
-    'mySeoTitle'
+    'SeoTitleProdutos'
   );
 });
+
+//define variavel para o SEO title do rank math
+function SeoTitleVendas() {
+  $seoTitle = "Venda de ";
+  $seoTitle .= get_the_title();
+  $seoTitle .= " seminovo - Lafaete Locação";
+  return $seoTitle;
+}
+/**
+ * Action: 'rank_math/vars/register_extra_replacements' - Allows adding extra variables.
+ */
+add_action( 'rank_math/vars/register_extra_replacements', function(){
+  rank_math_register_var_replacement(
+    'vendaSeoTitle',
+    [
+      'name'        => esc_html__( 'Custom variable name.', 'venda seo title' ),
+      'description' => esc_html__( 'Custom variable description.', 'Variável para setar o Seo title do produto em venda correto' ),
+      'variable'    => 'vendaSeoTitle',
+      'example'     => 'Venda de Caminhão - Lafaete Locação',
+    ],
+    'SeoTitleVendas'
+  );
+});
+
 // // define the action for register yoast_variable replacments
 // function register_custom_yoast_variables() {
 //   wpseo_register_var_replacement( '%%produtoSeoTitle%%', 'mySeoTitle', 'advanced', 'Variável para setar o Seo title correto' );
