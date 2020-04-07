@@ -497,6 +497,25 @@ function addUrlToForms(){
     }
 }
 
+/**
+ *Máscaras ER 
+ * http://wbruno.com.br/expressao-regular/mascara-campo-de-telefone-em-javascript-com-regex-nono-digito-telefones-sao-paulo/
+*/
+function mtel(v){
+    v=v.replace(/\D/g,"");             //Remove tudo o que não é dígito
+    v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+    v=v.replace(/(\d)(\d{4})$/,"$1-$2");    //Coloca hífen entre o quarto e o quinto dígitos
+    return v;
+}
+  
+/** 
+ * Recebe o input que receberá a mascara
+ * @example document.getElementById("telInput").onkeyup = execMascara;
+ */
+function execMascara(){
+    this.value = mtel(this.value);
+}
+
 window.addEventListener('load', function(e){
     // footer_floater();
     bpCarrousel = new carousel();//initCarrossel();
@@ -504,6 +523,10 @@ window.addEventListener('load', function(e){
     nolink_category()
     input_hidden()
     addUrlToForms();// setTimeout(addUrlToForms, 2000);
+    var telInput = document.querySelectorAll("#telInput");
+    for (var i = 0; i < telInput.length; i++) {
+      telInput[i].onkeyup = execMascara;
+    }
 });
 
 window.addEventListener('resize', function(e){
