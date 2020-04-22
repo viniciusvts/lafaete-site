@@ -14,7 +14,7 @@
                                         ?>">
             <?php
                 if(have_posts()) : the_post();                
-                    the_post_thumbnail('large', array('class' => 'img-fluid w-100 destaque-blog h-auto'));
+                    the_post_thumbnail('full', array('class' => 'img-fluid w-100 destaque-blog h-auto'));
                 endif;
             ?>
         </div>        
