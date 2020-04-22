@@ -52,7 +52,7 @@
 }
 
 .carousel-caption{
-    top: 40%;
+    top: 30%;
     &.home{
         @include mediaScreenMax($smartFranklin) {
             top:10%;

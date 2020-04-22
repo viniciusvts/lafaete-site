@@ -603,7 +603,7 @@ nav.navbar {
 }
 
 .carousel-caption {
-  top: 40%;
+  top: 30%;
 }
 @media (max-width: 320.98px) {
   .carousel-caption.home {
