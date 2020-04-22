@@ -25,7 +25,7 @@
           <div class="col-md-4">
               <a href="<?php the_permalink(); ?>">
                   <div class="card card-posts">
-                      <?php the_post_thumbnail('medium', array('class' => 'card-img-top img-fluid')); ?>
+                      <?php the_post_thumbnail('large', array('class' => 'card-img-top img-fluid')); ?>
                       <div class="card-body">
                           <h3 class="card-title card-text title-card-blog"><?php echo wp_trim_words( get_the_title(), 14, '...' ); ?></h3>
                           <h6><?php the_category(); ?></h6>
