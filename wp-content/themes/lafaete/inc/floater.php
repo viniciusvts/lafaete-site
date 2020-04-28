@@ -8,7 +8,32 @@
                 <p>Condições de Pagamento:</p>
             </div>
             <div class="col-md-5">
-                <img src="<?php bloginfo('template_url')?>/inc/img/metodos-pagamento-horizontal.png" height="60px" class="w-100">
+                <?php
+                    $queriedObject = get_queried_object();
+                    // #11175 - Exibir bandeira BNDS em certas páginas
+                    // em outras só exibir a do pagseguro
+                    $showBNDS = false;
+                    // página da taxonomia
+                    if($queriedObject->slug == 'modulos-habitacionais' || $queriedObject->slug == 'estruturas-metalicas'){
+                        $showBNDS = true;
+                    }
+                    // página de produto
+                    $taxs = get_the_terms($queriedObject->ID, 'produtos');
+                    foreach ($taxs as $tax) {
+                        if($tax->slug == 'modulos-habitacionais' || $tax->slug == 'estruturas-metalicas'){
+                            $showBNDS = true;
+                        }
+                    }
+                    if($showBNDS) {
+                        echo "<img src='";
+                        bloginfo('template_url');
+                        echo "/inc/img/metodos-pagamento-horizontal.png'>";
+                    } else {
+                        echo "<img src='";
+                        bloginfo('template_url');
+                        echo "/inc/img/metodos-pagamento-horizontal-pagseguro.png'>";
+                    }
+                ?>
             </div>
         </div>
     </div>

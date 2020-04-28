@@ -85,7 +85,31 @@ if( !defined('ABSPATH') ) exit;
       </div>
       <div class="col-xl-4 pagamento">
         <h4>Condições de Pagamento</h4>
-        <img src="<?php bloginfo('template_url');?>/inc/img/metodos-pagamento-horizontal.png">
+        <?php
+        // #11175 - Exibir bandeira BNDS em certas páginas
+        // em outras só exibir a do pagseguro
+        $showBNDS = false;
+        // página da taxonomia
+        if($queriedObject->slug == 'modulos-habitacionais' || $queriedObject->slug == 'estruturas-metalicas'){
+          $showBNDS = true;
+        }
+        // página de produto
+        $taxs = get_the_terms($queriedObject->ID, 'produtos');
+        foreach ($taxs as $tax) {
+          if($tax->slug == 'modulos-habitacionais' || $tax->slug == 'estruturas-metalicas'){
+            $showBNDS = true;
+          }
+        }
+        if($showBNDS) {
+          echo "<img src='";
+          bloginfo('template_url');
+          echo "/inc/img/metodos-pagamento-horizontal.png'>";
+        } else {
+          echo "<img src='";
+          bloginfo('template_url');
+          echo "/inc/img/metodos-pagamento-horizontal-pagseguro.png'>";
+        }
+        ?>
       </div>
     </div>
   </div>
