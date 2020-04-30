@@ -2249,11 +2249,6 @@ figure.image-box {
   width: 100% !important;
 }
 
-.blog .wp-block-image img {
-  width: 100% !important;
-  height: auto !important;
-}
-
 /*blog*/
 .projetos-recentes .active {
   background: #6a6a6a;
