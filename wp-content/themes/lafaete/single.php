@@ -5,7 +5,7 @@
   <body>
     <?php include_once('menu.php'); ?>    
     <!-- SLIDER -->
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide mt-60" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active <?php 
                                             if ( get_post_type() == 'post' ) {
