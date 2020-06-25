@@ -43,7 +43,7 @@ foreach ($catgrs as $catgr) {
             <?php the_title(); ?>
           </h1>
         </div>
-        <?php the_post_thumbnail('large', array('class' => 'd-block img-fluid')); ?>
+        <?php the_post_thumbnail('full', array('class' => 'd-block img-fluid')); ?>
       </div>
     </div>
 
@@ -109,12 +109,12 @@ foreach ($catgrs as $catgr) {
         <?php
         }
         $images = get_field('galeria');
-        $size = 'medium'; // (thumbnail, medium, large, full or custom size)
+        // $size = 'large'; // (thumbnail, medium, large, full or custom size)
         if ($images) :
           foreach ($images as $image) :
         ?>
           <div class="col-md-4 imagem">
-            <img src="<?php echo $image['sizes'][$size] ?>" alt="<?php $image['alt'] ?>">
+            <img src="<?php echo $image['url'] ?>" alt="<?php $image['alt'] ?>">
           </div>
         <?php
           endforeach;

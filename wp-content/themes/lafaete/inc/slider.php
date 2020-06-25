@@ -63,7 +63,7 @@
                     echo '#';
                   }
                 ?>">
-          <img src="<?php echo $image['sizes']['1536x1536']; ?>" class="d-block w-100 img-fluid" alt="<?php echo $image['alt']; ?>" />
+          <img src="<?php echo $image['url']; ?>" class="d-block w-100 img-fluid" alt="<?php echo $image['alt']; ?>" />
         </a>
       <?php endif; ?>  
     </div>
