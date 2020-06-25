@@ -50,6 +50,9 @@
 
 .carousel-caption{
     top: 30%;
+    @media (min-width: $fullHdDesktops) {
+        top:40%;
+    }
     &.home{
         @include mediaScreenMax($smartFranklin) {
             top:10%;
