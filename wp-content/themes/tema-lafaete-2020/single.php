@@ -74,6 +74,7 @@
     <?php endif; ?>   
    
     <?php
+    include_once('inc/form-orcamento.php');
     include_once('newsletter.php');
     include_once('footer.php');
     ?>
