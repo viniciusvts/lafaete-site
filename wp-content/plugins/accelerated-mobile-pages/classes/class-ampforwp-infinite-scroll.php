@@ -49,7 +49,7 @@ if( ! class_exists('AMPforWP_Infinite_Scroll') ) {
 		}
 		public function is_loop() {
 			$script = true;
-			if ( (ampforwp_is_home() || is_archive()) && true == ampforwp_get_setting('ampforwp-infinite-scroll-home') ) {
+			if ( (ampforwp_is_home() || is_archive()) && (true == ampforwp_get_setting('ampforwp-infinite-scroll-home') || true == ampforwp_get_setting('ampforwp-wcp-infinite-scroll') ) ) {
 				if( function_exists('is_product_category') && is_product_category() || function_exists('is_product_tag') && is_product_tag() || function_exists('is_shop') && is_shop()){
 					$script = false;
 				}
@@ -103,8 +103,8 @@ if( ! class_exists('AMPforWP_Infinite_Scroll') ) {
 			<amp-next-page>
 			  	<script type="application/json">
 			    {
-			      	"pages": <?=json_encode($pages)?>,
-				    "hideSelectors": <?=$classes?>
+			      	"pages": <?php echo json_encode($pages)?>,
+				    "hideSelectors": <?php echo $classes?>
 		    	}
 			  	</script>
 			</amp-next-page>
@@ -125,6 +125,7 @@ if( ! class_exists('AMPforWP_Infinite_Scroll') ) {
 				'posts_per_page' => 2,
 				'no_found_rows'	=> true
 			  );
+			$query_args = apply_filters('ampforwp_infinite_scroll_query_args', $query_args);
 			$query = new WP_Query( $query_args );
 			while ($query->have_posts()) {
 				$query->the_post();

@@ -13,6 +13,8 @@
 namespace RankMath\Admin;
 
 use RankMath\Helper;
+use RankMath\Data_Encryption;
+use RankMath\Helpers\Security;
 use MyThemeShop\Helpers\Param;
 use MyThemeShop\Helpers\WordPress;
 
@@ -29,6 +31,9 @@ class Admin_Helper {
 	 * @return array
 	 */
 	public static function get_htaccess_data() {
+		if ( ! function_exists( 'get_home_path' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/file.php';
+		}
 		$wp_filesystem = WordPress::get_filesystem();
 		$htaccess_file = get_home_path() . '.htaccess';
 
@@ -57,7 +62,15 @@ class Admin_Helper {
 	 * @return string Complete path to view
 	 */
 	public static function get_view( $view ) {
-		return rank_math()->admin_dir() . "views/{$view}.php";
+		$view = sanitize_key( $view );
+		$view = rank_math()->admin_dir() . "views/{$view}.php";
+
+		if ( ! file_exists( $view ) ) {
+			wp_redirect( Helper::get_admin_url() );
+			exit;
+		}
+
+		return $view;
 	}
 
 	/**
@@ -84,22 +97,43 @@ class Admin_Helper {
 	 * @return array
 	 */
 	public static function get_registration_data( $data = null ) {
-		$key = 'rank_math_connect_data';
+		$row  = 'rank_math_connect_data';
+		$keys = [
+			'username',
+			'email',
+			'api_key',
+		];
 
 		// Setter.
 		if ( ! is_null( $data ) ) {
 			if ( false === $data ) {
 				update_option( 'rank_math_registration_skip', 1 );
-				return delete_option( $key );
+				return delete_option( $row );
+			}
+
+			foreach ( $keys as $key ) {
+				if ( isset( $data[ $key ] ) ) {
+					$data[ $key ] = Data_Encryption::encrypt( $data[ $key ] );
+				}
 			}
 
 			update_option( 'rank_math_registration_skip', 1 );
-			return update_option( $key, $data );
+			return update_option( $row, $data );
 		}
 
 		// Getter.
-		$options = Helper::is_plugin_active_for_network() ? get_blog_option( get_main_site_id(), $key, false ) : get_option( $key, false );
-		return empty( $options ) ? false : $options;
+		$options = Helper::is_plugin_active_for_network() ? get_blog_option( get_main_site_id(), $row, false ) : get_option( $row, false );
+		if ( empty( $options ) ) {
+			return false;
+		}
+
+		foreach ( $keys as $key ) {
+			if ( isset( $options[ $key ] ) ) {
+				$options[ $key ] = Data_Encryption::decrypt( $options[ $key ] );
+			}
+		}
+
+		return $options;
 	}
 
 	/**
@@ -111,15 +145,18 @@ class Admin_Helper {
 	 * @return bool
 	 */
 	private static function authenticate_user( $username, $password ) {
-		$response = wp_remote_post( 'https://rankmath.com/wp-json/rankmath/v1/token', [
-			'timeout'    => 10,
-			'user-agent' => 'RankMath/' . md5( esc_url( home_url( '/' ) ) ),
-			'body'       => [
-				'username' => $username,
-				'password' => $password,
-				'site_url' => esc_url( site_url() ),
-			],
-		]);
+		$response = wp_remote_post(
+			'https://rankmath.com/wp-json/rankmath/v1/token',
+			[
+				'timeout'    => 10,
+				'user-agent' => 'RankMath/' . md5( esc_url( home_url( '/' ) ) ),
+				'body'       => [
+					'username' => $username,
+					'password' => $password,
+					'site_url' => esc_url( site_url() ),
+				],
+			]
+		);
 
 		$body = wp_remote_retrieve_body( $response );
 		$body = json_decode( $body, true );
@@ -138,41 +175,27 @@ class Admin_Helper {
 	}
 
 	/**
-	 * Change tracking status.
+	 * Remove registration data and disconnect from RankMath.com.
 	 */
-	public static function allow_tracking() {
-		$settings                   = get_option( 'rank-math-options-general' );
-		$settings['usage_tracking'] = Param::post( 'rank-math-usage-tracking', false, FILTER_VALIDATE_BOOLEAN ) ? 'on' : 'off';
-
-		update_option( 'rank-math-options-general', $settings );
-	}
-
-	/**
-	 * Compare values.
-	 *
-	 * @param integer $value1     Old value.
-	 * @param integer $value2     New Value.
-	 * @param bool    $percentage Treat as percentage.
-	 *
-	 * @return float
-	 */
-	public static function compare_values( $value1, $value2, $percentage = false ) {
-		$diff = round( ( $value2 - $value1 ), 2 );
-
-		if ( ! $percentage ) {
-			return (float) $diff;
+	public static function deregister_user() {
+		$registered = self::get_registration_data();
+		if ( $registered && isset( $registered['username'] ) && isset( $registered['api_key'] ) ) {
+			wp_remote_post(
+				'https://rankmath.com/wp-json/rankmath/v1/deactivateSite',
+				[
+					'timeout'    => defined( 'DOING_CRON' ) && DOING_CRON ? 30 : 10,
+					'user-agent' => 'RankMath/' . md5( esc_url( home_url( '/' ) ) ),
+					'blocking'   => false,
+					'body'       => [
+						'username' => $registered['username'],
+						'api_key'  => $registered['api_key'],
+						'site_url' => esc_url( site_url() ),
+					],
+				]
+			);
+			self::get_registration_data( false );
 		}
-
-		if ( $value1 ) {
-			$diff = round( ( ( $diff / $value1 ) * 100 ), 2 );
-			if ( ! $value2 ) {
-				$diff = -100;
-			}
-		} elseif ( $value2 ) {
-			$diff = 100;
-		}
-
-		return (float) $diff;
+		return;
 	}
 
 	/**
@@ -252,31 +275,37 @@ class Admin_Helper {
 		}
 
 		$tw_link = 'https://s.rankmath.com/twitter';
-		$fb_link = urlencode( 'https://s.rankmath.com/suite-free' );
+		$fb_link = rawurlencode( 'https://s.rankmath.com/suite-free' );
 		/* translators: sitename */
-		$tw_message = urlencode( sprintf( esc_html__( 'I just installed @RankMathSEO #WordPress Plugin. It looks great! %s', 'rank-math' ), $tw_link ) );
+		$tw_message = rawurlencode( sprintf( esc_html__( 'I just installed @RankMathSEO #WordPress Plugin. It looks great! %s', 'rank-math' ), $tw_link ) );
 		/* translators: sitename */
-		$fb_message = urlencode( esc_html__( 'I just installed Rank Math SEO WordPress Plugin. It looks promising!', 'rank-math' ) );
+		$fb_message = rawurlencode( esc_html__( 'I just installed Rank Math SEO WordPress Plugin. It looks promising!', 'rank-math' ) );
 
-		$tweet_url = add_query_arg([
-			'text'     => $tw_message,
-			'hashtags' => 'SEO',
-		], 'https://twitter.com/intent/tweet' );
+		$tweet_url = Security::add_query_arg(
+			[
+				'text'     => $tw_message,
+				'hashtags' => 'SEO',
+			],
+			'https://twitter.com/intent/tweet'
+		);
 
-		$fb_share_url = add_query_arg([
-			'u'       => $fb_link,
-			'quote'   => $fb_message,
-			'caption' => esc_html__( 'SEO by Rank Math', 'rank-math' ),
-		], 'https://www.facebook.com/sharer/sharer.php' );
+		$fb_share_url = Security::add_query_arg(
+			[
+				'u'       => $fb_link,
+				'quote'   => $fb_message,
+				'caption' => esc_html__( 'SEO by Rank Math', 'rank-math' ),
+			],
+			'https://www.facebook.com/sharer/sharer.php'
+		);
 		?>
-		<div class="wizard-share">
+		<span class="wizard-share">
 			<a href="#" onclick="window.open('<?php echo $tweet_url; ?>', 'sharewindow', 'resizable,width=600,height=300'); return false;" class="share-twitter">
 				<span class="dashicons dashicons-twitter"></span> <?php esc_html_e( 'Tweet', 'rank-math' ); ?>
 			</a>
 			<a href="#" onclick="window.open('<?php echo $fb_share_url; ?>', 'sharewindow', 'resizable,width=600,height=300'); return false;" class="share-facebook">
 				<span class="dashicons dashicons-facebook-alt"></span> <?php esc_html_e( 'Share', 'rank-math' ); ?>
 			</a>
-		</div>
+		</span>
 		<?php
 	}
 
@@ -289,22 +318,67 @@ class Admin_Helper {
 	 */
 	public static function get_activate_url( $redirect_to = null ) {
 		if ( empty( $redirect_to ) ) {
-			$redirect_to = add_query_arg(
+			$redirect_to = Security::add_query_arg_raw(
 				[
-					'page' => 'rank-math',
-					'view' => 'help',
+					'page'  => 'rank-math',
+					'view'  => 'help',
+					'nonce' => wp_create_nonce( 'rank_math_register_product' ),
 				],
 				admin_url( 'admin.php' )
 			);
+		} else {
+			$redirect_to = Security::add_query_arg_raw(
+				[
+					'nonce' => wp_create_nonce( 'rank_math_register_product' ),
+				],
+				$redirect_to
+			);
 		}
 
-		$activate_args = [
-			'site' => urlencode( home_url() ),
-			'r'    => urlencode( $redirect_to ),
+		$args = [
+			'site' => rawurlencode( home_url() ),
+			'r'    => rawurlencode( $redirect_to ),
 		];
-		$activate_url  = add_query_arg( $activate_args, 'https://rankmath.com/auth/' );
-		$activate_url  = apply_filters( 'rank_math/license/activate_url', $activate_url, $activate_args );
 
-		return $activate_url;
+		return apply_filters(
+			'rank_math/license/activate_url',
+			Security::add_query_arg_raw( $args, 'https://rankmath.com/auth/' ),
+			$args
+		);
+	}
+
+	/**
+	 * Check if page is set as Homepage.
+	 *
+	 * @since 1.0.42
+	 *
+	 * @return boolean
+	 */
+	public static function is_home_page() {
+		$front_page = (int) get_option( 'page_on_front' );
+
+		return $front_page && self::is_post_edit() && (int) Param::get( 'post' ) === $front_page;
+	}
+
+	/**
+	 * Check if page is set as Posts Page.
+	 *
+	 * @since 1.0.43
+	 *
+	 * @return boolean
+	 */
+	public static function is_posts_page() {
+		$posts_page = (int) get_option( 'page_for_posts' );
+
+		return $posts_page && self::is_post_edit() && (int) Param::get( 'post' ) === $posts_page;
+	}
+
+	/**
+	 * Get Trends icon <svg> element.
+	 *
+	 * @return string
+	 */
+	public static function get_trends_icon_svg() {
+		return '<svg viewBox="0 0 610 610"><path d="M18.85,446,174.32,290.48l58.08,58.08L76.93,504a14.54,14.54,0,0,1-20.55,0L18.83,466.48a14.54,14.54,0,0,1,0-20.55Z" style="fill:#4285f4"/><path d="M242.65,242.66,377.59,377.6l-47.75,47.75a14.54,14.54,0,0,1-20.55,0L174.37,290.43l47.75-47.75A14.52,14.52,0,0,1,242.65,242.66Z" style="fill:#ea4335"/><polygon points="319.53 319.53 479.26 159.8 537.34 217.88 377.61 377.62 319.53 319.53" style="fill:#fabb05"/><path d="M594.26,262.73V118.61h0a16.94,16.94,0,0,0-16.94-16.94H433.2a16.94,16.94,0,0,0-12,28.92L565.34,274.71h0a16.94,16.94,0,0,0,28.92-12Z" style="fill:#34a853"/><rect width="610" height="610" style="fill:none"/></svg>';
 	}
 }

@@ -28,14 +28,12 @@ class Role_Manager extends Base {
 	public function __construct() {
 
 		$directory = dirname( __FILE__ );
-		$this->config([
-			'id'        => 'role-manager',
-			'directory' => $directory,
-			'help'      => [
-				'title' => esc_html__( 'Role Manager', 'rank-math' ),
-				'view'  => $directory . '/views/help.php',
-			],
-		]);
+		$this->config(
+			[
+				'id'        => 'role-manager',
+				'directory' => $directory,
+			]
+		);
 		parent::__construct();
 
 		$this->action( 'cmb2_admin_init', 'register_form' );
@@ -43,17 +41,17 @@ class Role_Manager extends Base {
 		$this->action( 'admin_post_rank_math_save_capabilities', 'save_capabilities' );
 
 		if ( $this->page->is_current_page() ) {
-			add_action( 'admin_enqueue_scripts', [ 'CMB2_hookup', 'enqueue_cmb_css' ], 25 );
+			add_action( 'admin_enqueue_scripts', [ 'CMB2_Hookup', 'enqueue_cmb_css' ], 25 );
 		}
 
 		// Members plugin integration.
 		if ( \function_exists( 'members_plugin' ) ) {
-			new Members;
+			new Members();
 		}
 
 		// User Role Editor plugin integration.
 		if ( defined( 'URE_PLUGIN_URL' ) ) {
-			new User_Role_Editor;
+			new User_Role_Editor();
 		}
 	}
 
@@ -63,20 +61,24 @@ class Role_Manager extends Base {
 	public function register_admin_page() {
 		$uri = untrailingslashit( plugin_dir_url( __FILE__ ) );
 
-		$this->page = new Page( 'rank-math-role-manager', esc_html__( 'Role Manager', 'rank-math' ), [
-			'position'   => 11,
-			'parent'     => 'rank-math',
-			'capability' => 'rank_math_role_manager',
-			'render'     => $this->directory . '/views/main.php',
-			'classes'    => [ 'rank-math-page' ],
-			'assets'     => [
-				'styles' => [
-					'rank-math-common'       => '',
-					'rank-math-cmb2'         => '',
-					'rank-math-role-manager' => $uri . '/assets/role-manager.css',
+		$this->page = new Page(
+			'rank-math-role-manager',
+			esc_html__( 'Role Manager', 'rank-math' ),
+			[
+				'position'   => 20,
+				'parent'     => 'rank-math',
+				'capability' => 'rank_math_role_manager',
+				'render'     => $this->directory . '/views/main.php',
+				'classes'    => [ 'rank-math-page' ],
+				'assets'     => [
+					'styles' => [
+						'rank-math-common'       => '',
+						'rank-math-cmb2'         => '',
+						'rank-math-role-manager' => $uri . '/assets/css/role-manager.css',
+					],
 				],
-			],
-		]);
+			]
+		);
 	}
 
 	/**
@@ -84,25 +86,29 @@ class Role_Manager extends Base {
 	 */
 	public function register_form() {
 
-		$cmb = new_cmb2_box( [
-			'id'           => 'rank-math-role-manager',
-			'object_types' => [ 'options-page' ],
-			'option_key'   => 'rank-math-role-manager',
-			'hookup'       => false,
-			'save_fields'  => false,
-		]);
+		$cmb = new_cmb2_box(
+			[
+				'id'           => 'rank-math-role-manager',
+				'object_types' => [ 'options-page' ],
+				'option_key'   => 'rank-math-role-manager',
+				'hookup'       => false,
+				'save_fields'  => false,
+			]
+		);
 
 		$caps = Capability_Manager::get()->get_capabilities();
 
 		foreach ( WordPress::get_roles() as $role => $label ) {
-			$cmb->add_field([
-				'id'                => esc_attr( $role ),
-				'type'              => 'multicheck_inline',
-				'name'              => translate_user_role( $label ),
-				'options'           => $caps,
-				'select_all_button' => false,
-				'classes'           => 'cmb-big-labels',
-			]);
+			$cmb->add_field(
+				[
+					'id'                => esc_attr( $role ),
+					'type'              => 'multicheck_inline',
+					'name'              => translate_user_role( $label ),
+					'options'           => $caps,
+					'select_all_button' => false,
+					'classes'           => 'cmb-big-labels',
+				]
+			);
 		}
 	}
 

@@ -6,6 +6,8 @@
  * @package    RankMath
  * @subpackage RankMath\Sitemap
  * @author     Rank Math <support@rankmath.com>
+ *
+ * Some functionality adapted from Yoast (https://github.com/Yoast/wordpress-seo/)
  */
 
 namespace RankMath\Sitemap;
@@ -39,7 +41,7 @@ class Stylesheet extends XML {
 			 * Fires for the output of XSL for XML sitemaps, other than type "main".
 			 */
 			$this->do_action( "sitemap/xsl_{$type}", $title );
-			return;
+			die;
 		}
 
 		require_once 'sitemap-xsl.php';

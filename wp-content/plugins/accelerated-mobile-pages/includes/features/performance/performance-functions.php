@@ -2,6 +2,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
+use AMPforWP\AMPVendor\AMP_DOM_Utils;
 // 86. minify the content of pages
 add_filter('ampforwp_the_content_last_filter','ampforwp_minify_html_output');
 function ampforwp_minify_html_output($content_buffer){
@@ -9,16 +10,29 @@ function ampforwp_minify_html_output($content_buffer){
     //Removed trbidi attribute #3687
     $content_buffer = str_replace('trbidi="on"', '', $content_buffer);
     $content_buffer = str_replace("trbidi='on'", '', $content_buffer);
+    //Picture-tag is not working in AMP #4051
+    if(preg_match('/<picture(.*?)<amp-img(.*?)><\/amp-img>(.*?)<\/picture>/s', $content_buffer)){
+        $content_buffer = preg_replace('/<picture(.*?)<amp-img(.*?)><\/amp-img>(.*?)<\/picture>/s', '<noscript><picture$1</picture></noscript><amp-img$2></amp-img>$3', $content_buffer);
+    }
     if(class_exists('SiteOrigin_Widgets_Bundle')){
         $content_buffer = preg_replace('/<amp-video id="sow-player(.*?)" class="(.*?)"(.*?)<\/amp-video>/', '<amp-video id="sow-player$1" class="$2" autoplay $3</amp-video>', $content_buffer);
     }
     if(preg_match('/<script type="text\/javascript">.*?NREUM.*?;<\/script>/s', $content_buffer)!=0){
         $content_buffer = preg_replace('/<script type="text\/javascript">.*?NREUM.*?;<\/script>/s', '', $content_buffer);
     }
-
+    $content_buffer = preg_replace('/<div(.*?)class="playbuzz"(.*?)data-id="(.*?)"(.*?)><\/div>/', '<amp-playbuzz data-item="$3" height="1000"></amp-playbuzz>', $content_buffer);
 	if (defined('W3TC') && strpos($content_buffer, 'frameborder') !== false) {
 		add_filter("w3tc_minify_html_enable",'__return_false');
 	}
+    if(class_exists('Cli_Optimizer') && preg_match('/<style type="text\/css">@font-face(.*?)<\/style>/s', $content_buffer)!=0){
+        $content_buffer = preg_replace('/<style type="text\/css">@font-face(.*?)<\/style>/s', '', $content_buffer);
+    }
+    if(preg_match('/<script(.*?)type="text\/javascript"(.*?)>[\s\S]*?<\/script>/', $content_buffer)){
+        $content_buffer = preg_replace('/<script(.*?)type="text\/javascript"(.*?)>[\s\S]*?<\/script>/', '', $content_buffer);
+    }
+    if(preg_match('/<amp-story-player(.*?)<\/amp-story-player>/s', $content_buffer)){
+        $content_buffer = preg_replace('/<amp-story-player(.*?)<\/amp-story-player>/s', '<amp-story-player width="360" height="600" $1</amp-story-player>', $content_buffer);
+    }
     global $redux_builder_amp;
     if(!$redux_builder_amp['ampforwp_cache_minimize_mode']){
            return $content_buffer;       
@@ -69,7 +83,24 @@ function ampforwp_minify_html_output($content_buffer){
             $asis = '';
         } 
 
-        $process = preg_replace(array ('/\>[^\S ]+' . $mod, '/[^\S ]+\<' . $mod, '/\s+/' ), array('> ', ' <', ' '), $process);
+        if(function_exists('tec_amp_compatibility_orgs_venues_support')){
+            global $wp;
+            $current_url = home_url(add_query_arg(array($_GET), $wp->request));
+            if(preg_match('/months/', $current_url)){
+                $process = preg_replace(array ('/\>[^\S ]+' . $mod, '/[^\S ]+\<' . $mod, '/\s+/' ), array('> ', ' <', '  '), $process);
+            }else{
+                $process = preg_replace(array ('/\>[^\S ]+' . $mod, '/[^\S ]+\<' . $mod, '/\s+/' ), array('> ', ' <', ' '), $process);
+            }
+        }else{
+            if( is_user_logged_in() && class_exists('QM_Plugin') && ampforwp_get_setting('ampforwp-query-monitor')){
+                $pref = get_user_option( "show_admin_bar_front", get_current_user_id() );
+                if($pref==="true"){
+                    $process = preg_replace('/\>[^\S ]+' . $mod, '> ', $process);
+                }
+            }else{
+                $process = preg_replace(array ('/\>[^\S ]+' . $mod, '/[^\S ]+\<' . $mod, '/\s+/' ), array('> ', ' <', ' '), $process);
+            }
+        }
 
         if ( $minify_html_comments != 'no' )
             $process = preg_replace('/<!--(?!\s*(?:\[if [^\]]+]|<!|>))(?:(?!-->).)*-->' . $mod, '', $process);
@@ -153,7 +184,7 @@ function ampforwp_leverage_browser_caching(){
 
 function ampforwp_no_htaccess_access_notice(){
     $message = '<div class="error"><p>';
-    $message .= esc_html__( 'Accelerated Mobile Pages: htaccess file is not readable or writable for Leverage Browser Caching. Please change permission of htaccess file.', 'accelerated-mobile-pages' );
+    $message .= sprintf( 'Accelerated Mobile Pages: htaccess file is not readable or writable for Leverage Browser Caching. Please change permission of htaccess file and for more info <a href="https://ampforwp.com/tutorials/article/how-to-fix-leverage-browser-caching-error/" target="_blank">%s</a>',esc_html__('Click Here','accelerated-mobile-pages' ));
     $message .= '</p></div>';
     echo wp_kses_post( $message );
 }
@@ -203,6 +234,9 @@ function ampforwp_white_list_selectors($completeContent){
     if(ampforwp_get_setting('ampforwp_css_tree_shaking')==1 && ampforwp_get_setting('content-sneak-peek')==1 ){
         $white_list[] = '.hide';
     }
+    if(ampforwp_get_setting('ampforwp_css_tree_shaking')==1){
+       $white_list[] = '.amp-carousel-img img';
+    }
     $white_list = (array)apply_filters('ampforwp_tree_shaking_white_list_selector',$white_list);
     $w_l_str = '';
     for($i=0;$i<count($white_list);$i++){
@@ -226,7 +260,7 @@ if( !function_exists("ampforwp_tree_shaking_purify_amphtml") ){
         $completeContent = str_replace(array('"\\', "'\\"), array('":backSlash:',"':backSlash:"), $completeContent);   
         /***Replacements***/
         if(!empty($completeContent)){
-            $tmpDoc = new DOMDocument();
+            $tmpDoc = AMP_DOM_Utils::get_dom_from_content($completeContent); 
             libxml_use_internal_errors(true);
             $tmpDoc->loadHTML($completeContent);
             $font_css = '';
@@ -318,14 +352,12 @@ if( !function_exists("ampforwp_clear_tree_shaking") ) {
 		}
 	}
 }
-if ( is_admin() && ampforwp_get_setting( 'ampforwp_css_tree_shaking' ) ){
-    register_activation_hook( 'amp-newspaper-theme/ampforwp-custom-theme.php', 'ampforwp_clear_tree_shaking_on_activity' );
-    register_deactivation_hook( 'amp-newspaper-theme/ampforwp-custom-theme.php', 'ampforwp_clear_tree_shaking_on_activity' );
-    register_activation_hook( 'amp-layouts/amp-layouts.php', 'ampforwp_clear_tree_shaking_on_activity' );
-    register_deactivation_hook( 'amp-layouts/amp-layouts.php', 'ampforwp_clear_tree_shaking_on_activity' );
+if((current_user_can('activate_plugins') || current_user_can('deactivate_plugins')) && ampforwp_get_setting( 'ampforwp_css_tree_shaking' ) ){
+    add_action('activate_plugin','ampforwp_clear_tree_shaking_on_activity');
+    add_action('deactivate_plugin','ampforwp_clear_tree_shaking_on_activity');
 }
-function ampforwp_clear_tree_shaking_on_activity(){
-    if ( is_admin() && ampforwp_get_setting( 'ampforwp_css_tree_shaking' ) ){
+function ampforwp_clear_tree_shaking_on_activity($plugin='', $network=''){
+    if ( (current_user_can('activate_plugins') || current_user_can('deactivate_plugins')) && ampforwp_get_setting( 'ampforwp_css_tree_shaking' ) ){
         $upload_dir   = wp_upload_dir();
         $user_dirname = $upload_dir['basedir'] . '/' . 'ampforwp-tree-shaking';
         if ( file_exists( $user_dirname ) ) {
@@ -345,6 +377,8 @@ function ampforwp_clear_tree_shaking_on_activity(){
 add_action( 'save_post', 'ampforwp_clear_tree_shaking_post');
 if( !function_exists("ampforwp_clear_tree_shaking_post") ) {
 	function ampforwp_clear_tree_shaking_post() {
+        global $post;
+        $transient_filename = '';
 		if ( current_user_can( 'edit_posts' ) && is_user_logged_in() ){
 			if(ampforwp_get_setting('ampforwp_css_tree_shaking')){
 				if(ampforwp_is_home()){
@@ -353,18 +387,27 @@ if( !function_exists("ampforwp_clear_tree_shaking_post") ) {
 					$transient_filename = "blog";
 				}elseif(ampforwp_is_front_page()){
 					$transient_filename = "post-".ampforwp_get_frontpage_id();
-				}else{
-					$transient_filename = "post-".ampforwp_get_the_ID();
-				}
-				$upload_dir = wp_upload_dir();
-				$ts_file = $upload_dir['basedir'] . '/' . 'ampforwp-tree-shaking/_transient_'.esc_attr($transient_filename).".css";
-				if(file_exists($ts_file) && is_file($ts_file)){
-					unlink($ts_file);
-				}
+				}elseif(is_singular()){
+                    $transient_filename = "post-".ampforwp_get_the_ID();
+                }elseif(is_archive()){
+                    $page_id = get_queried_object_id();
+                    $transient_filename = "archive-".intval($page_id);
+                }elseif(is_object($post)){
+                    $transient_filename = "post-".$post->ID;
+                }               
+                if( is_user_logged_in() ){
+                    $transient_filename = $transient_filename.'-admin';
+                }
+                if($transient_filename != ''){
+    				$upload_dir = wp_upload_dir();
+    				$ts_file = $upload_dir['basedir'] . '/' . 'ampforwp-tree-shaking/_transient_'.esc_attr($transient_filename).".css";
+    				if(file_exists($ts_file) && is_file($ts_file)){
+    					unlink($ts_file);
+    				}
+                }
 			}
 		}
 	}
-
 }
 
 if(!function_exists('ampforwp_clear_css_on_transposh_rtl')){

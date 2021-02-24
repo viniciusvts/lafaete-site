@@ -6,9 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Rollbar\\' => array($vendorDir . '/rollbar/rollbar/src'),
+    'donatj\\UserAgent\\' => array($vendorDir . '/donatj/phpuseragentparser/src/UserAgent'),
     'RankMath\\' => array($baseDir . '/includes'),
-    'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'MyThemeShop\\Helpers\\' => array($vendorDir . '/mythemeshop/wordpress-helpers/src'),
-    'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
 );

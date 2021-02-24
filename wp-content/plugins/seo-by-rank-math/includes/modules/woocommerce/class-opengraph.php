@@ -40,7 +40,7 @@ class Opengraph extends Sitemap {
 	 */
 	public function og_product_namespace( $input ) {
 		if ( is_singular( 'product' ) ) {
-			$input = preg_replace( '/prefix="([^"]+)"/', 'prefix="$1 product: http://ogp.me/ns/product#"', $input );
+			$input = preg_replace( '/prefix="([^"]+)"/', 'prefix="$1 product: https://ogp.me/ns/product#"', $input );
 		}
 
 		return $input;
@@ -86,7 +86,7 @@ class Opengraph extends Sitemap {
 		 *
 		 * @param bool unsigned Defaults to true.
 		 */
-		if ( $this->do_filter( 'woocommerce/og_price', true ) ) {
+		if ( $this->do_filter( 'woocommerce/og_price', ! $product->is_type( 'variable' ) ) ) {
 			$opengraph->tag( 'product:price:amount', $product->get_price() );
 			$opengraph->tag( 'product:price:currency', get_woocommerce_currency() );
 		}

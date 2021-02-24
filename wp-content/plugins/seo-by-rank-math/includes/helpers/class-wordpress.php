@@ -15,6 +15,7 @@ use RankMath\Term;
 use RankMath\User;
 use RankMath\Helper;
 use MyThemeShop\Helpers\Str;
+use RankMath\Helpers\Security;
 use MyThemeShop\Helpers\WordPress as WP_Helper;
 use RankMath\Role_Manager\Capability_Manager;
 
@@ -59,10 +60,11 @@ trait WordPress {
 	 *
 	 * @param  string  $key     Internal key of the value to get (without prefix).
 	 * @param  integer $post_id Post ID of the post to get the value for.
+	 * @param  string  $default  Default value to use.
 	 * @return mixed
 	 */
-	public static function get_post_meta( $key, $post_id = 0 ) {
-		return Post::get_meta( $key, $post_id );
+	public static function get_post_meta( $key, $post_id = 0, $default = '' ) {
+		return Post::get_meta( $key, $post_id, $default );
 	}
 
 	/**
@@ -71,7 +73,7 @@ trait WordPress {
 	 * @codeCoverageIgnore
 	 *
 	 * @param  string $key      Internal key of the value to get (without prefix).
-	 * @param  mixed  $term     Term to get the meta value for either (string) term name, (int) term id or (object) term.
+	 * @param  mixed  $term     Term to get the meta value for either (string) term name, (int) term ID or (object) term.
 	 * @param  string $taxonomy Name of the taxonomy to which the term is attached.
 	 * @return mixed
 	 */
@@ -85,7 +87,7 @@ trait WordPress {
 	 * @codeCoverageIgnore
 	 *
 	 * @param  string $key  Internal key of the value to get (without prefix).
-	 * @param  mixed  $user User to get the meta value for either (int) user id or (object) user.
+	 * @param  mixed  $user User to get the meta value for either (int) user ID or (object) user.
 	 * @return mixed
 	 */
 	public static function get_user_meta( $key, $user = 0 ) {
@@ -103,7 +105,7 @@ trait WordPress {
 		$page = $page ? 'rank-math-' . $page : 'rank-math';
 		$args = wp_parse_args( $args, [ 'page' => $page ] );
 
-		return add_query_arg( $args, admin_url( 'admin.php' ) );
+		return Security::add_query_arg_raw( $args, admin_url( 'admin.php' ) );
 	}
 
 	/**
@@ -118,7 +120,7 @@ trait WordPress {
 			'view' => 'help',
 		];
 		if ( ! is_multisite() ) {
-			return add_query_arg( $args, admin_url( 'admin.php' ) );
+			return Security::add_query_arg_raw( $args, admin_url( 'admin.php' ) );
 		}
 
 		// Makes sure the plugin functions are defined before trying to use them.
@@ -126,7 +128,9 @@ trait WordPress {
 			require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
 		}
 
-		return is_plugin_active_for_network( plugin_basename( RANK_MATH_FILE ) ) ? add_query_arg( $args, network_admin_url( 'admin.php' ) ) : add_query_arg( $args, admin_url( 'admin.php' ) );
+		return is_plugin_active_for_network( plugin_basename( RANK_MATH_FILE ) ) ?
+			Security::add_query_arg_raw( $args, network_admin_url( 'admin.php' ) ) :
+			Security::add_query_arg_raw( $args, admin_url( 'admin.php' ) );
 	}
 
 	/**
@@ -342,16 +346,17 @@ trait WordPress {
 	/**
 	 * Convert timestamp and ISO to date.
 	 *
-	 * @param string $value Value to convert.
+	 * @param string  $value            Value to convert.
+	 * @param boolean $include_timezone Whether to include timezone.
 	 *
 	 * @return string
 	 */
-	public static function convert_date( $value ) {
+	public static function convert_date( $value, $include_timezone = false ) {
 		if ( Str::contains( 'T', $value ) ) {
 			$value = \strtotime( $value );
 		}
 
-		return date_i18n( 'Y-m-d H:i', $value );
+		return $include_timezone ? date_i18n( 'Y-m-d H:i-T', $value ) : date_i18n( 'Y-m-d H:i', $value );
 	}
 
 	/**

@@ -43,6 +43,10 @@ class Admin implements Runner {
 		$this->ajax( 'is_keyword_new', 'is_keyword_new' );
 		$this->ajax( 'save_checklist_layout', 'save_checklist_layout' );
 		$this->ajax( 'deactivate_plugins', 'deactivate_plugins' );
+
+		// POST.
+		$this->action( 'admin_init', 'process_oauth' );
+		$this->action( 'admin_init', 'reconnect_google' );
 	}
 
 	/**
@@ -56,10 +60,52 @@ class Admin implements Runner {
 	}
 
 	/**
+	 * Reconnect Google.
+	 */
+	public function reconnect_google() {
+		if ( ! isset( $_GET['reconnect'] ) || 'google' !== $_GET['reconnect'] ) {
+			return;
+		}
+
+		if ( ! wp_verify_nonce( $_GET['_wpnonce'], 'rank_math_reconnect_google' ) ) {
+			wp_nonce_ays( 'rank_math_reconnect_google' );
+			die();
+		}
+
+		if ( ! Helper::has_cap( 'analytics' ) ) {
+			return;
+		}
+
+		\RankMath\Google\Api::get()->revoke_token();
+		\RankMath\Analytics\Data_Fetcher::get()->kill_process();
+
+		wp_redirect( \RankMath\Google\Authentication::get_auth_url() );
+		die();
+	}
+
+	/**
+	 * OAuth reply back
+	 */
+	public function process_oauth() {
+		if ( ! isset( $_GET['process_oauth'] ) ) {
+			return;
+		}
+
+		if ( ! wp_verify_nonce( $_GET['security'], 'rank_math_oauth_token' ) ) {
+			wp_nonce_ays( 'rank_math_oauth_token' );
+			die();
+		}
+
+		\RankMath\Google\Authentication::get_tokens_from_server();
+	}
+
+	/**
 	 * Add Facebook and Twitter as user contact methods.
 	 *
 	 * @param array $contactmethods Current contact methods.
 	 * @return array New contact methods with extra items.
+	 *
+	 * Adapted from Yoast (https://github.com/Yoast/wordpress-seo/)
 	 */
 	public function update_user_contactmethods( $contactmethods ) {
 		$contactmethods['twitter']  = esc_html__( 'Twitter username (without @)', 'rank-math' );
@@ -92,27 +138,33 @@ class Admin implements Runner {
 	}
 
 	/**
+	 * Display admin header.
+	 */
+	public function display_admin_header() {
+		$nav_tabs = new Admin_Header();
+		$nav_tabs->display();
+	}
+
+	/**
+	 * Display admin breadcrumbs.
+	 */
+	public function display_admin_breadcrumbs() {
+		$nav_tabs = new Admin_Breadcrumbs();
+		$nav_tabs->display();
+	}
+
+	/**
 	 * Display dashabord tabs.
 	 */
 	public function display_dashboard_nav() {
-		?>
-		<h2 class="nav-tab-wrapper">
-			<?php
-			foreach ( $this->get_nav_links() as $id => $link ) :
-				if ( isset( $link['cap'] ) && ! current_user_can( $link['cap'] ) ) {
-					continue;
-				}
-				?>
-			<a class="nav-tab<?php echo Param::get( 'view', 'modules' ) === sanitize_html_class( $id ) ? ' nav-tab-active' : ''; ?>" href="<?php echo esc_url( Helper::get_admin_url( $link['url'], $link['args'] ) ); ?>" title="<?php echo esc_attr( $link['title'] ); ?>"><?php echo esc_html( $link['title'] ); ?></a>
-			<?php endforeach; ?>
-		</h2>
-		<?php
+		$nav_tabs = new Admin_Dashboard_Nav();
+		$nav_tabs->display();
 	}
 
 	/**
 	 * Show notice when canonical URL is not a valid URL.
 	 *
-	 * @param int $post_id The post id.
+	 * @param int $post_id The post ID.
 	 */
 	public function canonical_check_notice( $post_id ) {
 		$post_type  = get_post_type( $post_id );
@@ -134,6 +186,7 @@ class Admin implements Runner {
 	public function save_checklist_layout() {
 
 		check_ajax_referer( 'rank-math-ajax-nonce', 'security' );
+		$this->has_cap_ajax( 'onpage_general' );
 
 		if ( empty( $_POST['layout'] ) || ! is_array( $_POST['layout'] ) ) {
 			return;
@@ -159,6 +212,7 @@ class Admin implements Runner {
 		global $wpdb;
 
 		check_ajax_referer( 'rank-math-ajax-nonce', 'security' );
+		$this->has_cap_ajax( 'onpage_general' );
 
 		$result = [ 'isNew' => true ];
 		if ( empty( $_GET['keyword'] ) ) {
@@ -324,6 +378,7 @@ class Admin implements Runner {
 		if ( 0 !== strpos( $cmb_id, 'rank_math' ) && 0 !== strpos( $cmb_id, 'rank-math' ) ) {
 			return;
 		}
+
 		Helper::is_configured( true );
 	}
 
@@ -332,6 +387,9 @@ class Admin implements Runner {
 	 */
 	public function deactivate_plugins() {
 		check_ajax_referer( 'rank-math-ajax-nonce', 'security' );
+		if ( ! current_user_can( 'activate_plugins' ) ) {
+			$this->error( esc_html__( 'You are not authorized to perform this action.', 'rank-math' ) );
+		}
 		$plugin = Param::post( 'plugin' );
 		if ( 'all' !== $plugin ) {
 			deactivate_plugins( $plugin );
@@ -340,45 +398,5 @@ class Admin implements Runner {
 
 		Importers\Detector::deactivate_all();
 		die( '1' );
-	}
-
-	/**
-	 * Get dashbaord navigation links
-	 *
-	 * @return array
-	 */
-	private function get_nav_links() {
-		$links = [
-			'modules'       => [
-				'url'   => '',
-				'args'  => 'view=modules',
-				'cap'   => 'manage_options',
-				'title' => esc_html__( 'Modules', 'rank-math' ),
-			],
-			'help'          => [
-				'url'   => '',
-				'args'  => 'view=help',
-				'cap'   => 'manage_options',
-				'title' => esc_html__( 'Help', 'rank-math' ),
-			],
-			'wizard'        => [
-				'url'   => 'wizard',
-				'args'  => '',
-				'cap'   => 'manage_options',
-				'title' => esc_html__( 'Setup Wizard', 'rank-math' ),
-			],
-			'import-export' => [
-				'url'   => 'import-export',
-				'args'  => '',
-				'cap'   => 'manage_options',
-				'title' => esc_html__( 'Import &amp; Export', 'rank-math' ),
-			],
-		];
-
-		if ( Helper::is_plugin_active_for_network() ) {
-			unset( $links['help'] );
-		}
-
-		return $links;
 	}
 }

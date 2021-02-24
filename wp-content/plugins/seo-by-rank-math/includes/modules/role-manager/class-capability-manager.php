@@ -43,7 +43,7 @@ class Capability_Manager {
 		static $instance;
 
 		if ( is_null( $instance ) && ! ( $instance instanceof Capability_Manager ) ) {
-			$instance = new Capability_Manager;
+			$instance = new Capability_Manager();
 			$instance->set_capabilities();
 		}
 
@@ -63,12 +63,12 @@ class Capability_Manager {
 		$this->register( 'rank_math_link_builder', esc_html__( 'Link Builder', 'rank-math' ) );
 		$this->register( 'rank_math_redirections', esc_html__( 'Redirections', 'rank-math' ) );
 		$this->register( 'rank_math_role_manager', esc_html__( 'Role Manager', 'rank-math' ) );
-		$this->register( 'rank_math_search_console', esc_html__( 'Search Console', 'rank-math' ) );
+		$this->register( 'rank_math_analytics', esc_html__( 'Analytics', 'rank-math' ) );
 		$this->register( 'rank_math_site_analysis', esc_html__( 'Site-Wide Analysis', 'rank-math' ) );
 		$this->register( 'rank_math_onpage_analysis', esc_html__( 'On-Page Analysis', 'rank-math' ) );
 		$this->register( 'rank_math_onpage_general', esc_html__( 'On-Page General Settings', 'rank-math' ) );
 		$this->register( 'rank_math_onpage_advanced', esc_html__( 'On-Page Advanced Settings', 'rank-math' ) );
-		$this->register( 'rank_math_onpage_snippet', esc_html__( 'On-Page Rich Snippet Settings', 'rank-math' ) );
+		$this->register( 'rank_math_onpage_snippet', esc_html__( 'On-Page Schema Settings', 'rank-math' ) );
 		$this->register( 'rank_math_onpage_social', esc_html__( 'On-Page Social Settings', 'rank-math' ) );
 		$this->register( 'rank_math_admin_bar', esc_html__( 'Top Admin Bar', 'rank-math' ) );
 	}

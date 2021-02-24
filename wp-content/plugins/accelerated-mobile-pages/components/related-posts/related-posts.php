@@ -18,9 +18,10 @@ function ampforwp_framework_get_related_posts($argsdata=array()){
 				<ul class="clearfix">
 					<?php ampforwp_related_post(); ?>
 					<?php
+					
 				    while( $my_query->have_posts() ) {
 					    $my_query->the_post();
-					    
+					   
 					?>
 						<li class="<?php if ( has_post_thumbnail() ) { echo'has_thumbnail'; } else { echo 'no_thumbnail'; } ?>">
 				            <?php
@@ -56,19 +57,21 @@ function ampforwp_related_post_loop_query(){
 			$orderby = 'rand';
 		}
 	$args=array(
-	'post_type'	   => get_post_type($post),
-    'post__not_in' => array($post->ID),
-    'posts_per_page'=> $int_number_of_related_posts,
-    'orderby' => $orderby,
-    'ignore_sticky_posts'=>1,
-	'has_password' => false ,
-	'post_status'=> 'publish',
-	'no_found_rows'	=> true,
-	'meta_query' => array(
-		array(
-			'key'        => 'ampforwp-amp-on-off',
-			'value'      => 'default',
-		))
+		'fields' => 'ids',
+		'post_type'	   => get_post_type($post),
+	    'posts_per_page'=> $int_number_of_related_posts,
+	    'post__not_in' => array($post->ID),
+	    'orderby' => $orderby,
+	    'ignore_sticky_posts'=>1,
+		'has_password' => false ,
+		'post_status'=> 'publish',
+		'no_found_rows'	=> true,
+		'meta_query' => array(
+			array(
+					'key'        => 'ampforwp-amp-on-off',
+					'value'      => 'default',
+				)
+		)
 	);
 	if($redux_builder_amp['ampforwp-single-select-type-of-related']==2 && 'post' == $post->post_type ){
 	    $categories = get_the_category($post->ID);
@@ -131,6 +134,7 @@ function ampforwp_get_relatedpost_image( $imagetype ='thumbnail', $data=array() 
 	    	$thumb_url = ampforwp_get_post_thumbnail('url', $imagetype);
 			$thumb_width = ampforwp_get_post_thumbnail('width', $imagetype);
 			$thumb_height = ampforwp_get_post_thumbnail('height', $imagetype);
+			$thumb_alt = '';
 	        if(isset($data['image_crop']) && $data['image_crop'] != ""){
 				$width 	= $data['image_crop_width'];
 				if(empty($width)){
@@ -158,10 +162,11 @@ function ampforwp_get_relatedpost_image( $imagetype ='thumbnail', $data=array() 
 				$thumb_url = $thumb_url_array[0];
 				$thumb_width = $thumb_url_array[1];
 				$thumb_height = $thumb_url_array[2];
+				$thumb_alt = get_post_meta ( get_post_thumbnail_id(), '_wp_attachment_image_alt', true );
 			}
 	    
 	     if ( $thumb_url && $show_image ) { 
-	    	$img_content = '<amp-img src="'.esc_url( $thumb_url ).'" width="'.esc_attr($thumb_width).'" height="'.esc_attr($thumb_height).'" layout="responsive"></amp-img>';
+	    	$img_content = '<amp-img src="'.esc_url( $thumb_url ).'" alt="'.esc_attr($thumb_alt).'" width="'.esc_attr($thumb_width).'" height="'.esc_attr($thumb_height).'" layout="responsive"></amp-img>';
 	    	if(function_exists('ampforwp_add_fallback_element')){
                 $img_content = ampforwp_add_fallback_element($img_content,'amp-img');
             }

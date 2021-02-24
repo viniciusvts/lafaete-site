@@ -14,11 +14,14 @@ use RankMath\Helper;
 use RankMath\Traits\Hooker;
 use MyThemeShop\Helpers\HTML;
 use MyThemeShop\Helpers\Str;
+use RankMath\Helpers\Security;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
  * Comments class.
+ *
+ * Forked from Yoast (https://github.com/Yoast/wordpress-seo/)
  */
 class Comments {
 
@@ -32,7 +35,7 @@ class Comments {
 	}
 
 	/**
-	 * Add ugc attribute and remove ?replytocom parameters.
+	 * Add UGC attribute and remove ?replytocom parameters.
 	 */
 	public function add_attributes() {
 		/**
@@ -75,7 +78,7 @@ class Comments {
 
 		if ( isset( $_GET['replytocom'] ) && is_singular() ) {
 			$url          = get_permalink( $GLOBALS['post']->ID );
-			$query_string = remove_query_arg( 'replytocom', sanitize_text_field( $_SERVER['QUERY_STRING'] ) );
+			$query_string = Security::remove_query_arg_raw( 'replytocom', sanitize_text_field( $_SERVER['QUERY_STRING'] ) );
 			if ( ! empty( $query_string ) ) {
 				$url .= '?' . $query_string;
 			}

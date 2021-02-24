@@ -128,24 +128,20 @@ function ampforwp_gdpr_css(){
 		#footer .gdpr_fmi a{
 			color: <?php echo ampforwp_sanitize_color( ampforwp_get_setting('swift-color-scheme','color') ); ?>;
 		}
-		amp-consent.amp-active {
-		  top: 0;
-		  bottom: 0;
-		  left: 0;
-		  right: 0;
-		  position: fixed;
-		} 
+	
 		@media(max-width:768px){
 			.gdpr_w{width: 85%;margin:0 auto;padding:1.5rem;}
 		}
 		@media(max-width:700px){
-		    .gdpr_w{margin:0 auto; width: 95%;}
+		    .gdpr_w{margin:0 auto; width: 85%;}
 		    
 		}<?php 
 	} // GDPR Type 1 End
 	// GDPR Notice bar
-	if($redux_builder_amp['gdpr-type'] == '2'){?>
-		.gdpr{position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index:99999;}
+	if($redux_builder_amp['gdpr-type'] == '2'){
+		$position = ampforwp_get_setting('amp-gdpr-type2-position');
+		?>
+		.gdpr{position: fixed; <?php if($position==1){?>top: 0;<?php }else{?> bottom: 0;<?php }?> left: 0; right: 0; z-index:99999;}
 		.gdpr_w{padding:20px 40px;background: #383B75;width: 95%;position: relative;margin: 0% auto;display: inline-flex;}
 		.gdpr_t h3, .gdpr_fmi{    
 		  font-size: 16px;
@@ -182,7 +178,7 @@ function ampforwp_gdpr_css(){
 		.gdpr_yn form{display: inline;}
 		.gdpr_yn button{background: #FFFC26;border: none;color: #333;padding: 8px 40px;font-size: 15px;margin: 0 3px;font-weight: 600;cursor: pointer;}
 		.gdpr_yn .gdpr_n{background: transparent;}
-		amp-consent{margin-left: 10px;top: 2px;width: auto;background: transparent;margin:0;width:100%;}
+		amp-consent{position: relative;margin-left: 10px;width: auto;background: transparent;margin:0;left:40%;}
 		.gdpr_fmi span, .gdpr_fmi a:before{
 		  display:none;
 		}
@@ -249,10 +245,23 @@ function ampforwp_gdpr_css(){
 		}
 		<?php 
 	} ?>
-	amp-consent.amp-active{
-	    z-index:0;
+	footer amp-consent.amp-active {
+	    z-index:9999;
+	    display: initial;
 	    position: inherit;
+	    height:20px;
+	    width:100%;
 	}	
+	body[class*="amp-iso-country-"] .amp-active{
+    	display: contents;
+	}
+	#post-consent-ui {
+		position: fixed;
+		z-index: 9999;
+		left: 45%;
+		margin-top: 10px;
+		top: 0;
+	}
 <?php }
 
 function amp_consent_submission(){

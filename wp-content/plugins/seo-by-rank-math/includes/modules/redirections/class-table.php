@@ -23,11 +23,13 @@ class Table extends List_Table {
 	 * The Constructor.
 	 */
 	public function __construct() {
-		parent::__construct([
-			'singular' => 'redirection',
-			'plural'   => 'redirections',
-			'no_items' => $this->is_trashed_page() ? esc_html__( 'No redirections found in Trash.', 'rank-math' ) : wp_kses_post( __( 'No redirections added yet. <a href="#" class="rank-math-add-new-redirection">Add New Redirection</a>', 'rank-math' ) ),
-		]);
+		parent::__construct(
+			[
+				'singular' => 'redirection',
+				'plural'   => 'redirections',
+				'no_items' => $this->is_trashed_page() ? esc_html__( 'No redirections found in Trash.', 'rank-math' ) : wp_kses_post( __( 'No redirections added yet. <a href="#" class="rank-math-add-new-redirection">Add New Redirection</a>', 'rank-math' ) ),
+			]
+		);
 	}
 
 	/**
@@ -38,21 +40,25 @@ class Table extends List_Table {
 
 		$per_page = $this->get_items_per_page( 'rank_math_redirections_per_page', 100 );
 
-		$data = DB::get_redirections([
-			'limit'   => $per_page,
-			'order'   => $this->get_order(),
-			'orderby' => $this->get_orderby( 'id' ),
-			'paged'   => $this->get_pagenum(),
-			'search'  => $this->get_search(),
-			'status'  => Param::request( 'status', 'any' ),
-		]);
+		$data = DB::get_redirections(
+			[
+				'limit'   => $per_page,
+				'order'   => $this->get_order(),
+				'orderby' => $this->get_orderby( 'id' ),
+				'paged'   => $this->get_pagenum(),
+				'search'  => $this->get_search(),
+				'status'  => Param::request( 'status', 'any' ),
+			]
+		);
 
 		$this->items = $data['redirections'];
 
-		$this->set_pagination_args([
-			'total_items' => $data['count'],
-			'per_page'    => $per_page,
-		]);
+		$this->set_pagination_args(
+			[
+				'total_items' => $data['count'],
+				'per_page'    => $per_page,
+			]
+		);
 	}
 
 	/**
@@ -63,9 +69,7 @@ class Table extends List_Table {
 	 * @param object $item The current item.
 	 */
 	public function column_cb( $item ) {
-		return sprintf(
-			'<input type="checkbox" name="redirection[]" value="%s" />', $item['id']
-		);
+		return sprintf( '<input type="checkbox" name="redirection[]" value="%s" />', $item['id'] );
 	}
 
 	/**
@@ -97,11 +101,16 @@ class Table extends List_Table {
 	 * @param string $column_name The current column name.
 	 */
 	public function column_default( $item, $column_name ) {
-		if ( in_array( $column_name, [ 'hits', 'header_code', 'url_to' ], true ) ) {
-			return $item[ $column_name ];
+		$default = apply_filters( "rank_math/redirection/admin_column_{$column_name}", false, $item );
+		if ( ! empty( $default ) ) {
+			return $default;
 		}
 
-		return print_r( $item, true );
+		if ( in_array( $column_name, [ 'hits', 'header_code', 'url_to' ], true ) ) {
+			return esc_html( $item[ $column_name ] );
+		}
+
+		return esc_html( print_r( $item, true ) );
 	}
 
 	/**
@@ -170,24 +179,33 @@ class Table extends List_Table {
 	 * @param object $item The current item.
 	 */
 	public function column_actions( $item ) {
-		$url = esc_url( Helper::get_admin_url( 'redirections', [
-			'redirection' => $item['id'],
-			'security'    => wp_create_nonce( 'redirection_list_action' ),
-		] ) );
+		$url = esc_url(
+			Helper::get_admin_url(
+				'redirections',
+				[
+					'redirection' => $item['id'],
+					'security'    => wp_create_nonce( 'redirection_list_action' ),
+				]
+			)
+		);
 
 		if ( $this->is_trashed_page() ) {
-			return $this->row_actions([
-				'restore' => '<a href="' . $url . '" data-action="restore" class="rank-math-redirection-action">' . esc_html__( 'Restore', 'rank-math' ) . '</a>',
-				'delete'  => '<a href="' . $url . '" data-action="delete" class="rank-math-redirection-action">' . esc_html__( 'Delete Permanently', 'rank-math' ) . '</a>',
-			]);
+			return $this->row_actions(
+				[
+					'restore' => '<a href="' . $url . '" data-action="restore" class="rank-math-redirection-action">' . esc_html__( 'Restore', 'rank-math' ) . '</a>',
+					'delete'  => '<a href="' . $url . '" data-action="delete" class="rank-math-redirection-action">' . esc_html__( 'Delete Permanently', 'rank-math' ) . '</a>',
+				]
+			);
 		}
 
-		return $this->row_actions([
-			'edit'       => '<a href="' . $url . '&action=edit" class="rank-math-redirection-edit">' . esc_html__( 'Edit', 'rank-math' ) . '</a>',
-			'deactivate' => '<a href="' . $url . '" data-action="deactivate" class="rank-math-redirection-action">' . esc_html__( 'Deactivate', 'rank-math' ) . '</a>',
-			'activate'   => '<a href="' . $url . '" data-action="activate" class="rank-math-redirection-action">' . esc_html__( 'Activate', 'rank-math' ) . '</a>',
-			'trash'      => '<a href="' . $url . '" data-action="trash" class="rank-math-redirection-action">' . esc_html__( 'Trash', 'rank-math' ) . '</a>',
-		]);
+		return $this->row_actions(
+			[
+				'edit'       => '<a href="' . $url . '&action=edit" class="rank-math-redirection-edit">' . esc_html__( 'Edit', 'rank-math' ) . '</a>',
+				'deactivate' => '<a href="' . $url . '" data-action="deactivate" class="rank-math-redirection-action">' . esc_html__( 'Deactivate', 'rank-math' ) . '</a>',
+				'activate'   => '<a href="' . $url . '" data-action="activate" class="rank-math-redirection-action">' . esc_html__( 'Activate', 'rank-math' ) . '</a>',
+				'trash'      => '<a href="' . $url . '" data-action="trash" class="rank-math-redirection-action">' . esc_html__( 'Trash', 'rank-math' ) . '</a>',
+			]
+		);
 	}
 
 	/**
@@ -196,14 +214,17 @@ class Table extends List_Table {
 	 * @return array
 	 */
 	public function get_columns() {
-		return [
-			'cb'            => '<input type="checkbox" />',
-			'sources'       => esc_html__( 'From', 'rank-math' ),
-			'url_to'        => esc_html__( 'To', 'rank-math' ),
-			'header_code'   => esc_html__( 'Type', 'rank-math' ),
-			'hits'          => esc_html__( 'Hits', 'rank-math' ),
-			'last_accessed' => esc_html__( 'Last Accessed', 'rank-math' ),
-		];
+		return apply_filters(
+			'rank_math/redirection/admin_columns',
+			[
+				'cb'            => '<input type="checkbox" />',
+				'sources'       => esc_html__( 'From', 'rank-math' ),
+				'url_to'        => esc_html__( 'To', 'rank-math' ),
+				'header_code'   => esc_html__( 'Type', 'rank-math' ),
+				'hits'          => esc_html__( 'Hits', 'rank-math' ),
+				'last_accessed' => esc_html__( 'Last Accessed', 'rank-math' ),
+			] 
+		);
 	}
 
 	/**
@@ -230,17 +251,19 @@ class Table extends List_Table {
 	 */
 	public function get_bulk_actions() {
 		if ( $this->is_trashed_page() ) {
-			return [
+			$actions = [
 				'restore' => esc_html__( 'Restore', 'rank-math' ),
 				'delete'  => esc_html__( 'Delete Permanently', 'rank-math' ),
 			];
+		} else {
+			$actions = [
+				'activate'   => esc_html__( 'Activate', 'rank-math' ),
+				'deactivate' => esc_html__( 'Deactivate', 'rank-math' ),
+				'trash'      => esc_html__( 'Move to Trash', 'rank-math' ),
+			];
 		}
 
-		return [
-			'activate'   => esc_html__( 'Activate', 'rank-math' ),
-			'deactivate' => esc_html__( 'Deactivate', 'rank-math' ),
-			'trash'      => esc_html__( 'Move to Trash', 'rank-math' ),
-		];
+		return apply_filters( 'rank_math/redirection/bulk_actions', $actions );
 	}
 
 	/**
@@ -294,6 +317,9 @@ class Table extends List_Table {
 	 */
 	public function extra_tablenav( $which ) {
 		parent::extra_tablenav( $which );
+
+		do_action( 'rank_math/redirection/extra_tablenav', $which );
+
 		if ( ! $this->is_trashed_page() ) {
 			return;
 		}

@@ -13,8 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	        $ampforwp_sd_height = ampforwp_get_setting('ampforwp-sd-logo-height');
 	        $ampforwp_sd_width = ampforwp_get_setting('ampforwp-sd-logo-width');
 	        $ampforwp_sd_logo =  ampforwp_get_setting('amp-structured-data-logo','url');
-	        if (! empty( $redux_builder_amp['opt-media']['url'] ) ) {
-	          $structured_data_main_logo = $redux_builder_amp['opt-media']['url'];
+	        if (ampforwp_get_setting('opt-media','url')!='') {
+	          $structured_data_main_logo = ampforwp_get_setting('opt-media','url');
 	        }
 	        if (! empty( $ampforwp_sd_logo ) ) {
 	          $structured_data_logo = esc_url( __(ampforwp_get_setting('amp-structured-data-logo','url'), 'accelerated-mobile-pages') );
@@ -33,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	        //code for adding 'description' meta from Yoast SEO
 
-	       	if('yoast' == ampforwp_get_setting('ampforwp-seo-selection') && ampforwp_get_setting('ampforwp-seo-yoast-description')){
+	       	if('yoast' == ampforwp_get_setting('ampforwp-seo-selection') && ampforwp_get_setting('ampforwp-seo-yoast-description') && !class_exists('Yoast\\WP\\SEO\\Integrations\\Front_End_Integration')){
 	         if ( class_exists('WPSEO_Frontend') ) {
 	           $front = WPSEO_Frontend::get_instance();
 	           $desc = $front->metadesc( false );
@@ -268,10 +268,10 @@ function ampforwp_structured_data_type( $metadata ) {
         	}
         	
 	       	if ( isset( $post->post_type ) && $post->post_type == $post_type ) {
-	       		if( empty( ampforwp_get_setting('ampforwp-sd-type-'.esc_attr($post_type)) ) ){
+	       		if(ampforwp_get_setting('ampforwp-sd-type-'.esc_attr($post_type))==''){
 	       			return;
 	       		}
-        		if ( empty( ampforwp_get_setting('ampforwp-sd-type-'.esc_attr($post_type)) ) && ampforwp_get_setting('ampforwp-seo-yoast-description') == 0 ) {
+        		if ( ampforwp_get_setting('ampforwp-sd-type-'.esc_attr($post_type))=='' && ampforwp_get_setting('ampforwp-seo-yoast-description') == 0 ) {
 					return;
 				}
 				if(isset($metadata['@type']) && $metadata['@type']){
@@ -415,8 +415,9 @@ function ampforwp_sd_sitenavigation(){
     if ( ! class_exists('saswp_fields_generator') ) {
 	    $input = array();           
 	    $navObj = array();
-	    if ( true == get_transient('ampforwp_header_sd_menu') && true == get_transient('ampforwp_footer_sd_menu') && false != get_transient('ampforwp_sd_menu') ) {
-	    	$navObj[] = get_transient('ampforwp_sd_menu');
+	    $ampforwp_sd_menu = get_transient('ampforwp_sd_menu');
+	    if ( true == get_transient('ampforwp_header_sd_menu') && true == get_transient('ampforwp_footer_sd_menu') && false !=  $ampforwp_sd_menu) {
+	    	$navObj[] = $ampforwp_sd_menu;
 	    }
 	    $menuLocations = get_nav_menu_locations();
 	    if(!empty($menuLocations) ){ 
@@ -438,18 +439,18 @@ function ampforwp_sd_sitenavigation(){
 		           		}   
 		            }
 		            if ( 'amp-menu' == $type ) {
-		            	set_transient('ampforwp_header_sd_menu', true , 24*HOUR_IN_SECONDS );
+		            	set_transient('ampforwp_header_sd_menu', true , 15*DAY_IN_SECONDS );
 		            }
 		            if ( 'amp-footer-menu' == $type ) {
-		            	set_transient('ampforwp_footer_sd_menu', true , 24*HOUR_IN_SECONDS );
+		            	set_transient('ampforwp_footer_sd_menu', true , 15*DAY_IN_SECONDS );
 		            }
-	            	set_transient('ampforwp_sd_menu', $navObj , 24*HOUR_IN_SECONDS );
+	            	set_transient('ampforwp_sd_menu', $navObj , 15*DAY_IN_SECONDS );
 		        }
 		    }
 	        if($navObj){  
 	            $input['@context'] = 'https://schema.org'; 
 	            $input['@graph']   = $navObj; ?>       
-	    		<script type="application/ld+json"><?php echo wp_json_encode( $input ); ?></script>
+	    		<script type="application/ld+json"><?php echo wp_json_encode( $input, JSON_UNESCAPED_UNICODE ); ?></script>
 	        <?php }
 	    }
 	}

@@ -41,7 +41,7 @@ class Base {
 		}
 
 		/**
-		 * Filter: Allows changing the %category% and %tag% terms lists.
+		 * Filter: Allows changing the `%category%` and `%tag%` terms lists.
 		 *
 		 * @param string $output   The terms list, comma separated.
 		 * @param string $taxonomy The taxonomy of the terms.
@@ -77,11 +77,14 @@ class Base {
 	 * @return string Either a single term field or a comma delimited list of terms.
 	 */
 	private function get_the_terms( $id, $taxonomy, $return_single = false, $args = [], $field = 'name' ) {
-		$args = wp_parse_args( $args, array(
-			'limit'     => 99,
-			'separator' => ', ',
-			'exclude'   => [],
-		) );
+		$args = wp_parse_args(
+			$args,
+			[
+				'limit'     => 99,
+				'separator' => ', ',
+				'exclude'   => [],
+			]
+		);
 
 		if ( ! empty( $args['exclude'] ) ) {
 			$args['exclude'] = array_map( 'intval', explode( ',', $args['exclude'] ) );
@@ -95,6 +98,10 @@ class Base {
 		array_splice( $terms, $args['limit'] );
 		$output = [];
 		$terms  = $this->filter_exclude( $terms, $args['exclude'] );
+
+		if ( empty( $terms ) ) {
+			return '';
+		}
 
 		return $return_single ? $terms[0]->{$field} :
 			join( $args['separator'], wp_list_pluck( $terms, $field ) );
@@ -113,9 +120,12 @@ class Base {
 			return $terms;
 		}
 
-		return array_filter( $terms, function( $term ) use ( $exclude ) {
-			return in_array( $term->term_id, $exclude, true ) ? false : true;
-		});
+		return array_filter(
+			$terms,
+			function( $term ) use ( $exclude ) {
+				return in_array( $term->term_id, $exclude, true ) ? false : true;
+			}
+		);
 	}
 
 	/**
@@ -135,7 +145,7 @@ class Base {
 	}
 
 	/**
-	 * Get post object.
+	 * Get post `object`.
 	 *
 	 * @return WP_Post
 	 */
@@ -170,7 +180,7 @@ class Base {
 	}
 
 	/**
-	 * Determine the page number of the current post/page/cpt.
+	 * Determine the page number of the current post/page/CPT.
 	 *
 	 * @return int|null
 	 */
@@ -184,7 +194,7 @@ class Base {
 	}
 
 	/**
-	 * Determine the max num of pages of the current post/page/cpt.
+	 * Determine the max num of pages of the current post/page/CPT.
 	 *
 	 * @return int|null
 	 */
@@ -198,7 +208,9 @@ class Base {
 	}
 
 	/**
-	 * Determine the post type names for the current post/page/cpt.
+	 * Determine the post type names for the current post/page/CPT.
+	 *
+	 * Adapted from Yoast (https://github.com/Yoast/wordpress-seo/)
 	 *
 	 * @param string $request Either 'single'|'plural' - whether to return the single or plural form.
 	 *
@@ -249,7 +261,6 @@ class Base {
 			return $this->args->post_type;
 		}
 
-		// Make it work in preview mode.
 		return $wp_query->get_queried_object()->post_type;
 	}
 }

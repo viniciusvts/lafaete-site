@@ -12,6 +12,7 @@
 
 namespace RankMath\Module;
 
+use RankMath\Helper;
 use RankMath\Traits\Hooker;
 
 defined( 'ABSPATH' ) || exit;
@@ -28,10 +29,6 @@ class Base {
 	 */
 	public function __construct() {
 		$this->register_admin_page();
-
-		if ( isset( $this->help ) ) {
-			$this->filter( 'rank_math/help/tabs', 'add_help_section' );
-		}
 
 		if ( isset( $this->page ) && $this->page->is_current_page() ) {
 			$this->register_screen_options();
@@ -50,19 +47,7 @@ class Base {
 	 * Admin initialize.
 	 */
 	public function admin_init() {
-		$this->table = new $this->table;
-	}
-
-	/**
-	 * Add help tab on help page.
-	 *
-	 * @param array $tabs Array of tabs.
-	 * @return array
-	 */
-	public function add_help_section( $tabs ) {
-		$tabs[ $this->id ] = $this->help;
-
-		return $tabs;
+		$this->table = new $this->table();
 	}
 
 	/**
@@ -81,11 +66,14 @@ class Base {
 	 * Add screen options.
 	 */
 	public function add_screen_options() {
-		add_screen_option( 'per_page', array(
-			'option'  => $this->screen_options['id'],
-			'default' => $this->screen_options['default'],
-			'label'   => esc_html__( 'Items per page', 'rank-math' ),
-		) );
+		add_screen_option(
+			'per_page',
+			[
+				'option'  => $this->screen_options['id'],
+				'default' => $this->screen_options['default'],
+				'label'   => esc_html__( 'Items per page', 'rank-math' ),
+			]
+		);
 	}
 
 	/**

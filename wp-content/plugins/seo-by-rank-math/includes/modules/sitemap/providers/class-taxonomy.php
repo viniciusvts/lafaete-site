@@ -6,6 +6,8 @@
  * @package    RankMath
  * @subpackage RankMath\Sitemap
  * @author     Rank Math <support@rankmath.com>
+ *
+ * Some functionality adapted from Yoast (https://github.com/Yoast/wordpress-seo/)
  */
 
 namespace RankMath\Sitemap\Providers;
@@ -87,10 +89,13 @@ class Taxonomy implements Provider {
 
 		$all_taxonomies = [];
 		foreach ( $taxonomies as $taxonomy_name => $object ) {
-			$all_taxonomies[ $taxonomy_name ] = get_terms( $taxonomy_name, [
-				'hide_empty' => $hide_empty,
-				'fields'     => 'ids',
-			]);
+			$all_taxonomies[ $taxonomy_name ] = get_terms(
+				$taxonomy_name,
+				[
+					'hide_empty' => $hide_empty,
+					'fields'     => 'ids',
+				]
+			);
 		}
 
 		$index = [];
@@ -118,18 +123,20 @@ class Taxonomy implements Provider {
 					continue;
 				}
 
-				$query   = new \WP_Query([
-					'post_type'      => $tax->object_type,
-					'tax_query'      => [
-						[
-							'taxonomy' => $tax_name,
-							'terms'    => $terms_page,
+				$query   = new \WP_Query(
+					[
+						'post_type'      => $tax->object_type,
+						'tax_query'      => [
+							[
+								'taxonomy' => $tax_name,
+								'terms'    => $terms_page,
+							],
 						],
-					],
-					'orderby'        => 'modified',
-					'order'          => 'DESC',
-					'posts_per_page' => 1,
-				]);
+						'orderby'        => 'modified',
+						'order'          => 'DESC',
+						'posts_per_page' => 1,
+					]
+				);
 				$index[] = [
 					'loc'     => Router::get_base_url( $tax_name . '-sitemap' . $current_page . '.xml' ),
 					'lastmod' => $query->have_posts() ? $query->posts[0]->post_modified_gmt : $last_modified_gmt,
@@ -155,7 +162,7 @@ class Taxonomy implements Provider {
 
 		foreach ( $terms as $term ) {
 			$url = [];
-			if ( ! Helper::is_term_indexable( $term ) ) {
+			if ( ! Sitemap::is_object_indexable( $term, 'term' ) ) {
 				continue;
 			}
 
@@ -175,7 +182,7 @@ class Taxonomy implements Provider {
 	}
 
 	/**
-	 * Filters the terms query to only include published posts
+	 * Filters the terms query to only include published posts.
 	 *
 	 * @param  string[] $selects Array of fields.
 	 * @return string[]
@@ -199,20 +206,20 @@ class Taxonomy implements Provider {
 	}
 
 	/**
-	 * Get the Image Parser
+	 * Get the Image Parser.
 	 *
 	 * @return Image_Parser
 	 */
 	protected function get_image_parser() {
 		if ( class_exists( 'RankMath\Sitemap\Image_Parser' ) && ! isset( self::$image_parser ) ) {
-			self::$image_parser = new Image_Parser;
+			self::$image_parser = new Image_Parser();
 		}
 
 		return self::$image_parser;
 	}
 
 	/**
-	 * Get terms for taxonomy
+	 * Get terms for taxonomy.
 	 *
 	 * @param  object $taxonomy     Taxonomy name.
 	 * @param  int    $max_entries  Entries per sitemap.
@@ -225,13 +232,24 @@ class Taxonomy implements Provider {
 
 		// Getting terms.
 		$this->filter( 'get_terms_fields', 'filter_terms_query', 20 );
-		$terms = get_terms([
-			'taxonomy'   => $taxonomy->name,
-			'hide_empty' => $hide_empty,
-			'offset'     => $offset,
-			'number'     => $max_entries,
-			'exclude'    => wp_parse_id_list( Helper::get_settings( 'sitemap.exclude_terms' ) ),
-		]);
+		$terms = get_terms(
+			[
+				'taxonomy'               => $taxonomy->name,
+				'orderby'                => 'term_order',
+				'hide_empty'             => $hide_empty,
+				'offset'                 => $offset,
+				'number'                 => $max_entries,
+				'exclude'                => wp_parse_id_list( Helper::get_settings( 'sitemap.exclude_terms' ) ),
+
+				/*
+				 * Limits aren't included in queries when hierarchical is set to true (by default).
+				 *
+				 * @link: https://github.com/WordPress/WordPress/blob/5.3/wp-includes/class-wp-term-query.php#L558-L567
+				 */
+				'hierarchical'           => false,
+				'update_term_meta_cache' => false,
+			]
+		);
 		$this->remove_filter( 'get_terms_fields', 'filter_terms_query', 20 );
 
 		if ( is_wp_error( $terms ) || empty( $terms ) ) {
@@ -242,7 +260,7 @@ class Taxonomy implements Provider {
 	}
 
 	/**
-	 * Get term link
+	 * Get term link.
 	 *
 	 * @param  WP_Term $term Term object.
 	 * @return string

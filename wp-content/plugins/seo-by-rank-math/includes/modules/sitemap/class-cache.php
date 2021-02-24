@@ -6,6 +6,8 @@
  * @package    RankMath
  * @subpackage RankMath\Sitemap
  * @author     Rank Math <support@rankmath.com>
+ *
+ * Forked from Yoast (https://github.com/Yoast/wordpress-seo/)
  */
 
 namespace RankMath\Sitemap;
@@ -97,7 +99,7 @@ class Cache {
 
 		$filename = "sitemap_{$type}_$filename";
 		$sitemap  = get_transient( $filename );
-		return unserialize( $sitemap );
+		return maybe_unserialize( $sitemap );
 	}
 
 	/**
@@ -123,7 +125,7 @@ class Cache {
 		}
 
 		$filename = "sitemap_{$type}_$filename";
-		return set_transient( $filename, serialize( $sitemap ), DAY_IN_SECONDS * 100 );
+		return set_transient( $filename, maybe_serialize( $sitemap ), DAY_IN_SECONDS * 100 );
 	}
 
 	/**
@@ -147,7 +149,8 @@ class Cache {
 	 * @return string
 	 */
 	public static function get_cache_directory() {
-		$default = rank_math()->plugin_dir() . 'sitemap-cache';
+		$dir     = wp_upload_dir();
+		$default = $dir['basedir'] . '/rank-math';
 
 		/**
 		 * Filter XML sitemap cache directory.
@@ -193,7 +196,7 @@ class Cache {
 
 		if ( is_null( $type ) ) {
 			$wp_filesystem->delete( $directory, true );
-			$wp_filesystem->mkdir( $directory, FS_CHMOD_FILE );
+			wp_mkdir_p( $directory );
 			self::clear_transients();
 			self::cached_files( false );
 			Helper::clear_cache();
@@ -224,9 +227,17 @@ class Cache {
 	private static function clear_transients( $type = null ) {
 		global $wpdb;
 		if ( is_null( $type ) ) {
-			return $wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE '_transient_sitemap_%'" );
+			return $wpdb->delete(
+				$wpdb->options,
+				[ 'option_name' => $wpdb->esc_like( '_transient_sitemap_' ) . '%' ],
+				[ '%s' ]
+			);
 		}
 
-		$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE '_transient_sitemap_" . $type . "_%'" ); // phpcs:ignore
+		return $wpdb->delete(
+			$wpdb->options,
+			[ 'option_name' => $wpdb->esc_like( '_transient_sitemap_' . $type ) . '%' ],
+			[ '%s' ]
+		);
 	}
 }

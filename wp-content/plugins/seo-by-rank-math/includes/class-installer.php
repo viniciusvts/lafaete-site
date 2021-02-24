@@ -14,6 +14,7 @@ namespace RankMath;
 
 use RankMath\Traits\Hooker;
 use RankMath\Admin\Watcher;
+use RankMath\Admin\Admin_Helper;
 use MyThemeShop\Helpers\WordPress;
 use RankMath\Role_Manager\Capability_Manager;
 
@@ -105,6 +106,8 @@ class Installer {
 	 * Run network-wide activation/deactivation of the plugin.
 	 *
 	 * @param bool $activate True for plugin activation, false for de-activation.
+	 *
+	 * Forked from Yoast (https://github.com/Yoast/wordpress-seo/)
 	 */
 	private function network_activate_deactivate( $activate ) {
 		global $wpdb;
@@ -127,6 +130,9 @@ class Installer {
 	 * Runs on activation of the plugin.
 	 */
 	private function activate() {
+		// Init to use the common filters.
+		new \RankMath\Defaults();
+
 		$current_version    = get_option( 'rank_math_version', null );
 		$current_db_version = get_option( 'rank_math_db_version', null );
 
@@ -143,17 +149,23 @@ class Installer {
 		update_option( 'rank_math_version', rank_math()->version );
 		update_option( 'rank_math_db_version', rank_math()->db_version );
 
+		// Clear rollback option if necessary.
+		if ( rank_math()->version !== get_option( 'rank_math_rollback_version' ) ) {
+			delete_option( 'rank_math_rollback_version' );
+		}
+
 		// Save install date.
 		if ( false === boolval( get_option( 'rank_math_install_date' ) ) ) {
 			update_option( 'rank_math_install_date', current_time( 'timestamp' ) );
 		}
 
 		// Activate Watcher.
-		$watcher = new Watcher;
+		$watcher = new Watcher();
 		$watcher->check_activated_plugin();
 
 		$this->clear_rewrite_rules( true );
 		Helper::clear_cache();
+
 		$this->do_action( 'activate' );
 	}
 
@@ -164,6 +176,7 @@ class Installer {
 		$this->clear_rewrite_rules( false );
 		$this->remove_cron_jobs();
 		Helper::clear_cache();
+		Admin_Helper::deregister_user();
 		$this->do_action( 'deactivate' );
 	}
 
@@ -226,28 +239,15 @@ class Installer {
 
 			// Link meta.
 			"CREATE TABLE IF NOT EXISTS {$wpdb->prefix}rank_math_internal_meta (
-				object_id bigint(20) UNSIGNED NOT NULL,
+				object_id BIGINT(20) UNSIGNED NOT NULL,
 				internal_link_count int(10) UNSIGNED NULL DEFAULT 0,
 				external_link_count int(10) UNSIGNED NULL DEFAULT 0,
 				incoming_link_count int(10) UNSIGNED NULL DEFAULT 0,
-				UNIQUE KEY object_id (object_id)
-			) $collate;",
-
-			"CREATE TABLE IF NOT EXISTS {$wpdb->prefix}rank_math_sc_analytics (
-				id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-				date DATETIME NOT NULL,
-				property TEXT NOT NULL,
-				clicks mediumint(6) NOT NULL,
-				impressions mediumint(6) NOT NULL,
-				position double NOT NULL,
-				ctr double NOT NULL,
-				dimension VARCHAR(25) NOT NULL,
-				PRIMARY KEY (id),
-				KEY property (property(191))
+				PRIMARY KEY (object_id)
 			) $collate;",
 		];
 
-		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 		foreach ( $table_schema as $table ) {
 			dbDelta( $table );
 		}
@@ -266,17 +266,12 @@ class Installer {
 	 * Create misc options.
 	 */
 	private function create_misc_options() {
-		add_option( 'rank_math_search_console_data', [
-			'authorized' => false,
-			'profiles'   => [],
-		]);
-
 		// Update "known CPTs" list, so we can send notice about new ones later.
 		add_option( 'rank_math_known_post_types', Helper::get_accessible_post_types() );
 
 		$modules = [
 			'link-counter',
-			'search-console',
+			'analytics',
 			'seo-analysis',
 			'sitemap',
 			'rich-snippet',
@@ -284,6 +279,7 @@ class Installer {
 			'buddypress',
 			'bbpress',
 			'acf',
+			'web-stories',
 		];
 
 		// Role Manager.
@@ -309,52 +305,55 @@ class Installer {
 	 * Add defaults for general options.
 	 */
 	private function create_general_options() {
-		add_option( 'rank-math-options-general', $this->do_filter( 'settings/defaults/general', [
-			'strip_category_base'                 => 'off',
-			'attachment_redirect_urls'            => 'on',
-			'attachment_redirect_default'         => get_home_url(),
-			'url_strip_stopwords'                 => 'off',
-			'nofollow_external_links'             => 'off',
-			'nofollow_image_links'                => 'off',
-			'new_window_external_links'           => 'on',
-			'add_img_alt'                         => 'off',
-			'img_alt_format'                      => '%title% %count(alt)%',
-			'add_img_title'                       => 'off',
-			'img_title_format'                    => '%title% %count(title)%',
-			'breadcrumbs'                         => 'off',
-			'breadcrumbs_separator'               => '-',
-			'breadcrumbs_home'                    => 'on',
-			'breadcrumbs_home_label'              => esc_html__( 'Home', 'rank-math' ),
-			/* translators: Archive title */
-			'breadcrumbs_archive_format'          => esc_html__( 'Archives for %s', 'rank-math' ),
-			/* translators: Search query term */
-			'breadcrumbs_search_format'           => esc_html__( 'Results for %s', 'rank-math' ),
-			'breadcrumbs_404_label'               => esc_html__( '404 Error: page not found', 'rank-math' ),
-			'breadcrumbs_ancestor_categories'     => 'off',
-			'breadcrumbs_blog_page'               => 'off',
-			'404_monitor_mode'                    => 'simple',
-			'404_monitor_limit'                   => 100,
-			'404_monitor_ignore_query_parameters' => 'on',
-			'redirections_header_code'            => '301',
-			'redirections_debug'                  => 'off',
-			'console_profile'                     => '',
-			'console_caching_control'             => '90',
-			'link_builder_links_per_page'         => '7',
-			'link_builder_links_per_target'       => '1',
-			'wc_remove_product_base'              => 'off',
-			'wc_remove_category_base'             => 'off',
-			'wc_remove_category_parent_slugs'     => 'off',
-			'rss_before_content'                  => '',
-			'rss_after_content'                   => '',
-			'usage_tracking'                      => 'off',
-			'wc_remove_generator'                 => 'on',
-			'remove_shop_snippet_data'            => 'on',
-			'frontend_seo_score'                  => 'off',
-			'frontend_seo_score_post_types'       => [ 'post' ],
-			'frontend_seo_score_position'         => 'top',
-			'frontend_seo_score'                  => 'off',
-			'enable_auto_update'                  => 'off',
-		]));
+		add_option(
+			'rank-math-options-general',
+			$this->do_filter(
+				'settings/defaults/general',
+				[
+					'strip_category_base'                 => 'off',
+					'attachment_redirect_urls'            => 'on',
+					'attachment_redirect_default'         => get_home_url(),
+					'nofollow_external_links'             => 'off',
+					'nofollow_image_links'                => 'off',
+					'new_window_external_links'           => 'on',
+					'add_img_alt'                         => 'off',
+					'img_alt_format'                      => ' %filename%',
+					'add_img_title'                       => 'off',
+					'img_title_format'                    => '%title% %count(title)%',
+					'breadcrumbs'                         => 'off',
+					'breadcrumbs_separator'               => '-',
+					'breadcrumbs_home'                    => 'on',
+					'breadcrumbs_home_label'              => esc_html__( 'Home', 'rank-math' ),
+					/* translators: Archive title */
+					'breadcrumbs_archive_format'          => esc_html__( 'Archives for %s', 'rank-math' ),
+					/* translators: Search query term */
+					'breadcrumbs_search_format'           => esc_html__( 'Results for %s', 'rank-math' ),
+					'breadcrumbs_404_label'               => esc_html__( '404 Error: page not found', 'rank-math' ),
+					'breadcrumbs_ancestor_categories'     => 'off',
+					'breadcrumbs_blog_page'               => 'off',
+					'404_monitor_mode'                    => 'simple',
+					'404_monitor_limit'                   => 100,
+					'404_monitor_ignore_query_parameters' => 'on',
+					'redirections_header_code'            => '301',
+					'redirections_debug'                  => 'off',
+					'console_caching_control'             => '90',
+					'link_builder_links_per_page'         => '7',
+					'link_builder_links_per_target'       => '1',
+					'wc_remove_product_base'              => 'off',
+					'wc_remove_category_base'             => 'off',
+					'wc_remove_category_parent_slugs'     => 'off',
+					'rss_before_content'                  => '',
+					'rss_after_content'                   => '',
+					'wc_remove_generator'                 => 'on',
+					'remove_shop_snippet_data'            => 'on',
+					'frontend_seo_score'                  => 'off',
+					'frontend_seo_score_post_types'       => [ 'post' ],
+					'frontend_seo_score_position'         => 'top',
+					'frontend_seo_score'                  => 'off',
+					'setup_mode'                          => 'advanced',
+				]
+			)
+		);
 	}
 
 	/**
@@ -412,9 +411,10 @@ class Installer {
 	 * @param array $sitemap Hold sitemap settings.
 	 */
 	private function create_post_type_options( &$titles, &$sitemap ) {
-		$post_types   = Helper::get_accessible_post_types();
-		$post_types[] = 'product';
+		$post_types = Helper::get_accessible_post_types();
+		array_push( $post_types, 'product', 'web-story' );
 
+		$titles['pt_download_default_rich_snippet'] = 'product';
 		foreach ( $post_types as $post_type ) {
 			$defaults = $this->get_post_type_defaults( $post_type );
 
@@ -431,7 +431,7 @@ class Installer {
 				$titles[ 'pt_' . $post_type . '_archive_title' ] = '%title% %page% %sep% %sitename%';
 			}
 
-			if ( 'attachment' === $post_type ) {
+			if ( in_array( $post_type, [ 'attachment', 'web-story' ], true ) ) {
 				$sitemap[ 'pt_' . $post_type . '_sitemap' ]     = 'off';
 				$titles[ 'pt_' . $post_type . '_add_meta_box' ] = 'off';
 				continue;
@@ -463,9 +463,11 @@ class Installer {
 	 */
 	private function get_post_type_defaults( $post_type ) {
 		$rich_snippets = [
-			'post'    => 'article',
-			'page'    => 'article',
-			'product' => 'product',
+			'post'      => 'article',
+			'page'      => 'article',
+			'product'   => 'product',
+			'download'  => 'product',
+			'web-story' => 'article',
 		];
 
 		$defaults = [
@@ -509,6 +511,7 @@ class Installer {
 			$titles[ 'tax_' . $taxonomy . '_robots' ]        = $defaults['robots'];
 			$titles[ 'tax_' . $taxonomy . '_add_meta_box' ]  = $defaults['metabox'];
 			$titles[ 'tax_' . $taxonomy . '_custom_robots' ] = $defaults['is_custom'];
+			$titles[ 'tax_' . $taxonomy . '_description' ]   = '%term_description%';
 
 			$sitemap[ 'tax_' . $taxonomy . '_sitemap' ] = 'category' === $taxonomy ? 'on' : 'off';
 		}
@@ -575,10 +578,8 @@ class Installer {
 	 */
 	private function get_cron_jobs() {
 		return [
-			'tracker/send_event'           => 'weekly', // Add cron job for Usage Tracking (clear it first).
-			'search_console/get_analytics' => 'daily',  // Add cron job for Get Search Console Analytics Data.
-			'redirection/clean_trashed'    => 'daily',  // Add cron for cleaning trashed redirects.
-			'links/internal_links'         => 'daily',  // Add cron for counting links.
+			'redirection/clean_trashed' => 'daily',  // Add cron for cleaning trashed redirects.
+			'links/internal_links'      => 'daily',  // Add cron for counting links.
 		];
 	}
 

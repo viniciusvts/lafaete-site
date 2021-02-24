@@ -16,6 +16,7 @@ use RankMath\Sitemap\Router;
 use RankMath\Traits\Hooker;
 use MyThemeShop\Helpers\Str;
 use MyThemeShop\Helpers\Url;
+use RankMath\Helpers\Security;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -85,7 +86,7 @@ class Paper {
 			return self::$instance;
 		}
 
-		self::$instance = new Paper;
+		self::$instance = new Paper();
 		self::$instance->setup();
 		return self::$instance;
 	}
@@ -97,9 +98,13 @@ class Paper {
 		foreach ( $this->get_papers() as $class_name => $is_valid ) {
 			if ( $this->do_filter( 'paper/is_valid/' . strtolower( $class_name ), $is_valid ) ) {
 				$class_name  = '\\RankMath\\Paper\\' . $class_name;
-				$this->paper = new $class_name;
+				$this->paper = new $class_name();
 				break;
 			}
+		}
+
+		if ( ! method_exists( $this->paper, 'set_object' ) ) {
+			return;
 		}
 
 		if ( Post::is_home_static_page() ) {
@@ -238,6 +243,17 @@ class Paper {
 			return;
 		}
 
+		$this->robots = array_intersect_key(
+			$this->robots,
+			[
+				'index'        => '',
+				'follow'       => '',
+				'noarchive'    => '',
+				'noimageindex' => '',
+				'nosnippet'    => '',
+			]
+		);
+
 		// Add Index and Follow.
 		if ( ! isset( $this->robots['index'] ) ) {
 			$this->robots = [ 'index' => 'index' ] + $this->robots;
@@ -251,7 +267,6 @@ class Paper {
 	 * Add Advanced robots.
 	 */
 	private function advanced_robots() {
-
 		// Early Bail if robots is set to noindex or nosnippet!
 		if ( ( isset( $this->robots['index'] ) && 'noindex' === $this->robots['index'] ) || ( isset( $this->robots['nosnippet'] ) && 'nosnippet' === $this->robots['nosnippet'] ) ) {
 			return;
@@ -270,6 +285,15 @@ class Paper {
 
 			$advanced_robots = self::advanced_robots_combine( $advanced_robots );
 		}
+
+		$advanced_robots = array_intersect_key(
+			$advanced_robots,
+			[
+				'max-snippet'       => '',
+				'max-video-preview' => '',
+				'max-image-preview' => '',
+			]
+		);
 
 		/**
 		 * Allows filtering of the advanced meta robots.
@@ -403,7 +427,7 @@ class Paper {
 		}
 
 		if ( ! $wp_rewrite->using_permalinks() ) {
-			return add_query_arg(
+			return Security::add_query_arg_raw(
 				'paged',
 				get_query_var( 'paged' ),
 				is_front_page() ? trailingslashit( $canonical ) : $canonical
@@ -447,7 +471,17 @@ class Paper {
 	 */
 	public static function get_from_options( $id, $source = [], $default = '' ) {
 		$value = Helper::get_settings( "titles.$id" );
-		return '' !== $value ? Helper::replace_vars( $value, $source ) : $default;
+
+		// Break loop.
+		if ( ! Str::ends_with( 'default_snippet_name', $value ) && ! Str::ends_with( 'default_snippet_desc', $value ) ) {
+			$value = \str_replace(
+				[ '%seo_title%', '%seo_description%' ],
+				[ '%title%', '%excerpt%' ],
+				$value
+			);
+		}
+
+		return Helper::replace_vars( '' !== $value ? $value : $default, $source );
 	}
 
 	/**

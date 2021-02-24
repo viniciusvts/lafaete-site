@@ -13,6 +13,7 @@ namespace RankMath\Replace_Variables;
 use RankMath\Post;
 use RankMath\Paper\Paper;
 use MyThemeShop\Helpers\Str;
+use MyThemeShop\Helpers\WordPress;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -44,7 +45,7 @@ class Post_Variables extends Advanced_Variables {
 				'name'        => esc_html__( 'Post Title of parent page', 'rank-math' ),
 				'description' => esc_html__( 'Title of the parent page of the current post/page', 'rank-math' ),
 				'variable'    => 'parent_title',
-				'example'     => esc_html__( 'Example Parent Title', 'rank-math' ),
+				'example'     => $this->get_parent_title(),
 			],
 			[ $this, 'get_parent_title' ]
 		);
@@ -91,6 +92,28 @@ class Post_Variables extends Advanced_Variables {
 				'example'     => $this->get_excerpt(),
 			],
 			[ $this, 'get_seo_description' ]
+		);
+
+		$this->register_replacement(
+			'url',
+			[
+				'name'        => esc_html__( 'Post URL', 'rank-math' ),
+				'description' => esc_html__( 'URL of the current post/page', 'rank-math' ),
+				'variable'    => 'url',
+				'example'     => $this->get_url(),
+			],
+			[ $this, 'get_url' ]
+		);
+
+		$this->register_replacement(
+			'post_thumbnail',
+			[
+				'name'        => esc_html__( 'Post Thumbnail', 'rank-math' ),
+				'description' => esc_html__( 'Current Post Thumbnail', 'rank-math' ),
+				'variable'    => 'post_thumbnail',
+				'example'     => $this->get_post_thumbnail(),
+			],
+			[ $this, 'get_post_thumbnail' ]
 		);
 
 		$this->setup_post_dates_variables();
@@ -248,7 +271,23 @@ class Post_Variables extends Advanced_Variables {
 	 * @return string
 	 */
 	public function get_seo_title() {
-		return Paper::get()->get_title();
+		if ( is_singular() ) {
+			return Paper::get()->get_title();
+		}
+
+		$object = $this->args;
+
+		// Early Bail!
+		if ( empty( $object ) || empty( $object->ID ) ) {
+			return '';
+		}
+
+		$title = Post::get_meta( 'title', $object->ID );
+		if ( '' !== $title ) {
+			return $title;
+		}
+
+		return Paper::get_from_options( "pt_{$object->post_type}_title", $object, '%title% %sep% %sitename%' );
 	}
 
 	/**
@@ -278,18 +317,14 @@ class Post_Variables extends Advanced_Variables {
 	 * @return string|null
 	 */
 	public function get_excerpt() {
-		$excerpt = $this->get_excerpt_only();
-		if ( ! is_null( $excerpt ) ) {
-			return $excerpt;
+		$object = $this->args;
+
+		// Early Bail!
+		if ( empty( $object ) ) {
+			return '';
 		}
 
-		if ( '' !== $this->args->post_content ) {
-			$content = Paper::should_apply_shortcode() ? do_shortcode( $this->args->post_content ) : $this->args->post_content;
-			$content = wp_strip_all_tags( $content );
-			return wp_html_excerpt( $content, 155 );
-		}
-
-		return null;
+		return ! empty( $object->post_excerpt ) ? wp_strip_all_tags( $object->post_excerpt ) : $this->get_post_content( $object );
 	}
 
 	/**
@@ -413,6 +448,40 @@ class Post_Variables extends Advanced_Variables {
 	}
 
 	/**
+	 * Get the auto generated post content.
+	 *
+	 * @param array $object Post Object.
+	 * @return string|null
+	 */
+	private function get_post_content( $object ) {
+		if ( empty( $object->post_content ) ) {
+			return '';
+		}
+
+		$keywords     = Post::get_meta( 'focus_keyword', $object->ID );
+		$post_content = Paper::should_apply_shortcode() ? do_shortcode( $object->post_content ) : $object->post_content;
+		$post_content = \preg_replace( '/<!--[\s\S]*?-->/iu', '', $post_content );
+		$post_content = wpautop( WordPress::strip_shortcodes( $post_content ) );
+		$post_content = wp_kses( $post_content, [ 'p' => [] ] );
+
+		// Remove empty paragraph tags.
+		$post_content = preg_replace( '/<p[^>]*>[\s|&nbsp;]*<\/p>/', '', $post_content );
+
+		// 4. Paragraph with the focus keyword.
+		if ( ! empty( $keywords ) ) {
+			$regex = '/<p>(.*' . str_replace( [ ',', ' ', '/' ], [ '|', '.', '\/' ], $keywords ) . '.*)<\/p>/iu';
+			\preg_match_all( $regex, $post_content, $matches );
+			if ( isset( $matches[1], $matches[1][0] ) ) {
+				return $matches[1][0];
+			}
+		}
+
+		// 5. The First paragraph of the content.
+		\preg_match_all( '/<p>(.*)<\/p>/iu', $post_content, $matches );
+		return isset( $matches[1], $matches[1][0] ) ? $matches[1][0] : $post_content;
+	}
+
+	/**
 	 * Default post data.
 	 *
 	 * @return array
@@ -427,5 +496,28 @@ class Post_Variables extends Advanced_Variables {
 		}
 
 		return $defaults;
+	}
+
+	/**
+	 * Get the canonical URL to use as a replacement.
+	 *
+	 * @return string|null
+	 */
+	public function get_url() {
+		return Paper::get()->get_canonical() ? Paper::get()->get_canonical() : get_the_permalink( $this->args->ID );
+	}
+
+	/**
+	 * Get the the post thumbnail to use as a replacement.
+	 *
+	 * @return string|null
+	 */
+	public function get_post_thumbnail() {
+		if ( ! has_post_thumbnail( $this->args->ID ) ) {
+			return '';
+		}
+
+		$image = wp_get_attachment_image_src( get_post_thumbnail_id( $this->args->ID ), 'full' );
+		return $image[0];
 	}
 }

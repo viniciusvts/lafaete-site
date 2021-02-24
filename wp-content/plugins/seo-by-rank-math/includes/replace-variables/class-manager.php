@@ -78,7 +78,7 @@ class Manager extends Post_Variables {
 	 *
 	 * For developers see rank_math_register_var_replacement().
 	 *
-	 * @param string $id        Uniquer id of variable, for example custom.
+	 * @param string $id        Uniquer ID of variable, for example custom.
 	 * @param array  $args      Array with additional name, description, variable and example values for the variable.
 	 * @param mixed  $callback  Replacement callback. Should return value, not output it.
 	 *
@@ -98,9 +98,9 @@ class Manager extends Post_Variables {
 	}
 
 	/**
-	 * Check if variable id is valid and unique before further processing.
+	 * Check if variable ID is valid and unique before further processing.
 	 *
-	 * @param string $id Variable id.
+	 * @param string $id Variable ID.
 	 *
 	 * @return bool Whether the variable is valid or not.
 	 */
@@ -119,11 +119,32 @@ class Manager extends Post_Variables {
 	}
 
 	/**
+	 * Should we setup variables or not.
+	 *
+	 * @return bool
+	 */
+	private function should_we_setup() {
+		global $wp_customize;
+		if ( isset( $wp_customize ) || $this->is_setup ) {
+			return false;
+		}
+
+		$current_screen = \function_exists( 'get_current_screen' ) ? get_current_screen() : false;
+		if (
+			$current_screen instanceof \WP_Screen &&
+			\in_array( $current_screen->base, [ 'themes' ], true )
+		) {
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
 	 * Set up replacement variables.
 	 */
 	public function setup() {
-		global $wp_customize;
-		if ( isset( $wp_customize ) || $this->is_setup ) {
+		if ( ! $this->should_we_setup() ) {
 			return;
 		}
 
@@ -131,9 +152,11 @@ class Manager extends Post_Variables {
 		$this->is_setup = true;
 
 		// Internal variables.
-		if ( \function_exists( 'get_current_screen' ) ) {
-			$this->is_post_edit = is_admin() && 'post' === get_current_screen()->base;
-			$this->is_term_edit = is_admin() && 'term' === get_current_screen()->base;
+		$current_screen = \function_exists( 'get_current_screen' ) ? get_current_screen() : false;
+		if ( $current_screen instanceof \WP_Screen ) {
+			$screen_base        = $current_screen->base;
+			$this->is_post_edit = is_admin() && 'post' === $screen_base;
+			$this->is_term_edit = is_admin() && 'term' === $screen_base;
 		}
 
 		/**
@@ -163,7 +186,7 @@ class Manager extends Post_Variables {
 	}
 
 	/**
-	 * Setup json for use in ui.
+	 * Setup JSON for use in ui.
 	 */
 	public function setup_json() {
 		$json = [];

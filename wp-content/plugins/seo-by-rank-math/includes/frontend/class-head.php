@@ -16,11 +16,14 @@ use RankMath\Paper\Paper;
 use RankMath\Traits\Hooker;
 use RankMath\Sitemap\Router;
 use MyThemeShop\Helpers\Str;
+use RankMath\Helpers\Security;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
  * Head class.
+ *
+ * Some functionality inspired from Yoast (https://github.com/Yoast/wordpress-seo/)
  */
 class Head {
 
@@ -93,11 +96,12 @@ class Head {
 
 		foreach ( $tools as $id => $name ) {
 			$content = trim( Helper::get_settings( "general.{$id}" ) );
+			$content = $this->do_filter( 'webmaster/' . $id, $content );
 			if ( empty( $content ) ) {
 				continue;
 			}
 
-			printf( '<meta name="%1$s" content="%2$s">' . "\n", esc_attr( $name ), esc_attr( $content ) );
+			printf( '<meta name="%1$s" content="%2$s" />' . "\n", esc_attr( $name ), esc_attr( $content ) );
 		}
 	}
 
@@ -177,9 +181,7 @@ class Head {
 		$generated = Paper::get()->get_description();
 
 		if ( Str::is_non_empty( $generated ) ) {
-			echo '<meta name="description" content="', $generated, '"/>', "\n";
-		} elseif ( Helper::has_cap( 'general' ) && is_singular() ) {
-			echo '<!-- ', \html_entity_decode( esc_html__( 'Admin only notice: this page has no meta description set. Please edit the page to add one, or setup a template in Rank Math -> Titles &amp; Metas.', 'rank-math' ) ), ' -->', "\n";
+			echo '<meta name="description" content="' . $generated . '"/>', "\n";
 		}
 	}
 
@@ -188,7 +190,7 @@ class Head {
 	 */
 	public function robots() {
 		$robots    = Paper::get()->get_robots();
-		$robotsstr = join( ',', $robots );
+		$robotsstr = join( ', ', $robots );
 		if ( Str::is_non_empty( $robotsstr ) ) {
 			echo '<meta name="robots" content="', esc_attr( $robotsstr ), '"/>', "\n";
 		}
@@ -320,7 +322,7 @@ class Head {
 		global $wp_rewrite;
 
 		if ( $page > 1 ) {
-			$url = ! $wp_rewrite->using_permalinks() ? add_query_arg( $query_arg, $page, $url ) : user_trailingslashit( trailingslashit( $url ) . $this->get_pagination_base() . $page );
+			$url = ! $wp_rewrite->using_permalinks() ? Security::add_query_arg_raw( $query_arg, $page, $url ) : user_trailingslashit( trailingslashit( $url ) . $this->get_pagination_base() . $page );
 		}
 
 		/**

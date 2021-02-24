@@ -385,9 +385,9 @@
 			}else if($res = $this->checkSuperCache($path, $htaccess)){
 				return $res;
 			}else if($this->isPluginActive('fast-velocity-minify/fvm.php')){
-				return array("Fast Velocity Minify", "error");
+				return array("Fast Velocity Minify needs to be deactivated", "error");
 			}else if($this->isPluginActive('far-future-expiration/far-future-expiration.php')){
-				return array("Far Future Expiration Plugin", "error");
+				return array("Far Future Expiration Plugin needs to be deactivated", "error");
 			}else if($this->isPluginActive('sg-cachepress/sg-cachepress.php')){
 				return array("SG Optimizer needs to be deactived", "error");
 			}else if($this->isPluginActive('adrotate/adrotate.php') || $this->isPluginActive('adrotate-pro/adrotate.php')){
@@ -727,10 +727,11 @@
 			if($this->is_trailing_slash()){
 				$trailing_slash_rule = "RewriteCond %{REQUEST_URI} \/$"."\n";
 			}else{
-				//toDo
+				$trailing_slash_rule = "RewriteCond %{REQUEST_URI} ![^\/]+\/$"."\n";
 			}
 
 			$data = "# BEGIN WpFastestCache"."\n".
+					"# Modified Time: ".date("d-m-y G:i:s", current_time('timestamp'))."\n".
 					"<IfModule mod_rewrite.c>"."\n".
 					"RewriteEngine On"."\n".
 					"RewriteBase /"."\n".
@@ -914,69 +915,6 @@
 				</script>
 				<?php
 			}
-		}
-
-		public function get_translation_json(){
-			if(file_exists(WPFC_MAIN_PATH. "languages/wp-fastest-cache-".get_locale().".po")){
-				$files = glob(WPFC_MAIN_PATH. "languages/wp-fastest-cache-".get_locale().".po");
-				if(isset($files) && isset($files[0])){
-					$current_translation = $this->po_to_js($files[0]);
-				}
-			}
-
-			if(isset($this->options->wpFastestCacheLanguage) && $this->options->wpFastestCacheLanguage == "eng"){
-				foreach ($current_translation as $c_key => $c_value){
-					if((strlen($c_value) > 2) && (strlen($c_key) > 2)){
-						echo $c_value.":".$c_key.",\n";
-					}
-				}
-			}else{
-				$translation_file_name = $this->options->wpFastestCacheLanguage;
-
-				if($translation_file_name == "es"){
-					$translation_file_name = "es_ES";
-				}
-
-				if(file_exists(WPFC_MAIN_PATH. "languages/wp-fastest-cache-".$translation_file_name.".po")){
-					$files = glob(WPFC_MAIN_PATH. "languages/wp-fastest-cache-".$translation_file_name.".po");
-
-					if(isset($files) && isset($files[0])){
-						$to = $this->po_to_js($files[0]);
-
-						foreach ($to as $to_key => $to_value){
-							if((strlen($current_translation[$to_key]) > 2) && (strlen($to_value) > 2)){
-								echo $current_translation[$to_key].":".$to_value.",\n";
-							}
-						}
-
-					}
-				}
-			}
-		}
-
-		public function po_to_js($file_path){
-			$translation = array();
-			
-			$tmp_data = $this->read_file($file_path);
-
-			preg_match_all("/^msgid(\s+\"[^\"]*\")+\s+msgstr(\s+\"[^\"]*\")+/m", $tmp_data, $out,  PREG_SET_ORDER);
-
-			foreach ($out as $key => $value) {
-				$value[0] = preg_replace("/\"\s+\"/", "", $value[0]);
-
-				$tmp = explode("\n", $value[0]);
-
-				if($key > 0){
-					$tmp[0] = preg_replace("/msgid\s(.+)/", "$1", $tmp[0]);
-					$tmp[1] = preg_replace("/msgstr\s(.+)/", "$1", $tmp[1]);
-					$tmp[0] = trim($tmp[0]);
-					$tmp[1] = trim($tmp[1]);
-					
-					$translation[$tmp[0]] = $tmp[1];
-				}
-			}
-
-			return $translation;
 		}
 
 		public function optionsPage(){
@@ -1362,11 +1300,11 @@
 							<?php if(class_exists("WpFastestCachePowerfulHtml")){ ?>
 								<?php if(method_exists("WpFastestCachePowerfulHtml", "lazy_load")){ ?>
 									<div class="questionCon">
-										<div class="question"><?php _e('Lazy Load', 'wp-fastest-cache'); ?></div>
+										<div class="question">Lazy Load</div>
 										<div class="inputCon">
 											<input type="hidden" value="<?php echo $wpFastestCacheLazyLoad_placeholder; ?>" id="wpFastestCacheLazyLoad_placeholder" name="wpFastestCacheLazyLoad_placeholder">
 											<input type="hidden" value="<?php echo $wpFastestCacheLazyLoad_keywords; ?>" id="wpFastestCacheLazyLoad_keywords" name="wpFastestCacheLazyLoad_keywords">
-											<input type="hidden" value="<?php echo $wpFastestCacheLazyLoad_exclude_full_size_img; ?>" id="wpFastestCacheLazyLoad_exclude_full_size_img" name="wpFastestCacheLazyLoad_exclude_full_size_img">
+											<input style="display: none;" type="checkbox" <?php echo $wpFastestCacheLazyLoad_exclude_full_size_img; ?>  id="wpFastestCacheLazyLoad_exclude_full_size_img" name="wpFastestCacheLazyLoad_exclude_full_size_img">
 											
 											<input type="checkbox" <?php echo $wpFastestCacheLazyLoad; ?> id="wpFastestCacheLazyLoad" name="wpFastestCacheLazyLoad"><label for="wpFastestCacheLazyLoad"><?php _e("Load images and iframes when they enter the browsers viewport", "wp-fastest-cache"); ?></label>
 										</div>
@@ -1381,14 +1319,14 @@
 
 								<?php }else{ ?>
 									<div class="questionCon update-needed">
-										<div class="question"><?php _e('Lazy Load', 'wp-fastest-cache'); ?></div>
+										<div class="question">Lazy Load</div>
 										<div class="inputCon"><input type="checkbox" id="wpFastestCacheLazyLoad" name="wpFastestCacheLazyLoad"><label for="wpFastestCacheLazyLoad"><?php _e("Load images and iframes when they enter the browsers viewport", "wp-fastest-cache"); ?></label></div>
 										<div class="get-info"><a target="_blank" href="http://www.wpfastestcache.com/premium/lazy-load-reduce-http-request-and-page-load-time/"><img src="<?php echo plugins_url("wp-fastest-cache/images/info.png"); ?>" /></a></div>
 									</div>
 								<?php } ?>
 							<?php }else{ ?>
 								<div class="questionCon disabled">
-									<div class="question"><?php _e('Lazy Load', 'wp-fastest-cache'); ?></div>
+									<div class="question">Lazy Load</div>
 									<div class="inputCon"><input type="checkbox" id="wpFastestCacheLazyLoad" name="wpFastestCacheLazyLoad"><label for="wpFastestCacheLazyLoad"><?php _e("Load images and iframes when they enter the browsers viewport", "wp-fastest-cache"); ?></label></div>
 									<div class="get-info"><a target="_blank" href="http://www.wpfastestcache.com/premium/lazy-load-reduce-http-request-and-page-load-time/"><img src="<?php echo plugins_url("wp-fastest-cache/images/info.png"); ?>" /></a></div>
 								</div>
@@ -1511,7 +1449,7 @@
 							<?php settings_fields( 'wpfc-group' ); ?>
 				    		<input type="hidden" value="deleteCache" name="wpFastestCachePage">
 				    		<div class="questionCon qsubmit left">
-				    			<div class="submit"><input type="submit" value="<?php _e("Delete Cache", "wp-fastest-cache"); ?>" class="button-primary"></div>
+				    			<div class="submit"><input type="submit" value="<?php _e("Clear All Cache", "wp-fastest-cache"); ?>" class="button-primary"></div>
 				    		</div>
 				    		<div class="questionCon right">
 				    			<div style="padding-left:11px;">
@@ -1719,13 +1657,9 @@
 				    			</div>
 				    			<div class="wpfc-premium-step-footer">
 				    				<?php
-				    					if(in_array(get_bloginfo('language'), array("tr-TR", "tr"))){
-				    						$premium_price = "150TL";
-				    						$premium_buy_link = "https://www.wpfastestcache.com/#buy";
-				    					}else{
-					    					$premium_price = "$49.99";
-					    					$premium_buy_link = "https://api.wpfastestcache.net/paypal/buypremium/";
-				    					}
+
+				    					$premium_buy_link = "https://www.wpfastestcache.com/#buy";
+				    					$premium_price = "$49.99";
 
 				    				?>
 				    				<h1 style="float:left;" id="just-h1"><?php _e("Just", "wp-fastest-cache"); ?></h1><h1><span style="margin-left:5px;" id="wpfc-premium-price"><?php echo $premium_price; ?></span></h1>
@@ -2170,6 +2104,7 @@
 				    </div>
 
 				    <?php include_once(WPFC_MAIN_PATH."templates/permission_error.html"); ?>
+				    <?php include_once(WPFC_MAIN_PATH."templates/toolbar_settings.php"); ?>
 
 				    <?php
 				    	if(isset($this->options->wpFastestCacheStatus)){

@@ -34,10 +34,10 @@ function amp_breadcrumb_output(){
        
         // Build the breadcrums
         echo '<ul id="' . esc_attr($breadcrums_id) . '" class="' . esc_attr($breadcrums_class) . '">';
-           
+        $home_url = ampforwp_url_controller( get_home_url('', '/'), $home_non_amp );
+        $home_url = apply_filters('ampforwp_breadcrumbs_home_url',$home_url,$post->ID);   
         // Home page 
-        echo '<li class="item-home"><a class="bread-link bread-home" href="' . ampforwp_url_controller( get_home_url('', '/'), $home_non_amp ) . '" title="' . esc_attr($home_title) . '">' . esc_html($home_title) . '</a></li>';
-
+        echo '<li class="item-home"><a class="bread-link bread-home" href="' . esc_url($home_url) . '" title="' . esc_attr($home_title) . '">' . esc_html($home_title) . '</a></li>';
         if ( is_archive() && !is_tax() && !is_category() && !is_tag() && !is_author() ) {
 
 
@@ -130,11 +130,16 @@ function amp_breadcrumb_output(){
                     // Loop through parent categories and store in variable $cat_display
                     $cat_display = '';
                     foreach($cat_parents as $parents) {
-                        $cat_id = get_cat_ID( $parents);
+                        $categories = get_the_category();
+                        $cat_id = $categories[0]->cat_ID;
+                        if(class_exists( 'WPSEO_Options' )){
+                            $cat_id = $primary_cateogory;
+                        }
                         $cat_link = get_category_link($cat_id);
                         if(ampforwp_get_setting('ampforwp-archive-support-cat') == true && ampforwp_get_setting('ampforwp-archive-support') == true){
                             $cat_link = ampforwp_url_controller( $cat_link );
                         }
+                        $cat_link = apply_filters('ampforwp_breadcrumbs_category_url', $cat_link,$post->ID);
                         $cat_display .=  '<li class="item-cat item-cat-' . esc_attr($cat_id) . '"><a class="bread-cat bread-cat-' . esc_attr($cat_id) . ' bread-cat-' . $parents. '" href="'. esc_url($cat_link).'" title="' . esc_attr($parents) . '">' . esc_html($parents) . '</a></li>';  
                     }
                     if(ampforwp_get_setting('ampforwp-bread-crumb-post')){

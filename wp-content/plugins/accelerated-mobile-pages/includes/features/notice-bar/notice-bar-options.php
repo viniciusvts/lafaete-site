@@ -85,7 +85,15 @@ function ampforwp_notice_bar_options($opt_name){
                'default'   => 'Read More',
                'required' => array('amp-enable-links', '=' , '1'),
            ),
-
+           array(
+               'class'  => 'child_opt',
+               'id'        =>'ampforwp-notifications-nofollow',
+               'type'      => 'switch',
+               'title'     => esc_html__('No Follow link', 'accelerated-mobile-pages'),
+               'default'   => 0,
+               'tooltip-subtitle'  => esc_html__('Add nofollow to the notification link.', 'accelerated-mobile-pages'),
+               'required' => array('amp-enable-links', '=' , '1'),
+           ),
            array(
             'id' => 'ampforwp-notice_1',
             'type' => 'section',
@@ -117,6 +125,20 @@ function ampforwp_notice_bar_options($opt_name){
                     ),
                    'default'=> '1',
                    'required' => array( array('amp-gdpr-compliance-switch', '=' , '1') ),
+            ),
+           array(
+                    'class'  => 'child_opt child_opt_arrow',
+                    'id'    => 'amp-gdpr-type2-position',
+                   'title'  => esc_html__('GDPR Popup Position', 'accelerated-mobile-pages'),
+                   'type'   => 'select',
+                   'options'=> array(
+                        '1' =>  'Top',
+                        '2' =>  'Bottom'
+                    ),
+                   'default'=> '1',
+                  'required' => array(
+                      array('gdpr-type','=',2)
+                    )    
             ),
            array(
                'class'  => 'child_opt child_opt_arrow',

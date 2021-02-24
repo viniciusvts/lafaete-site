@@ -49,6 +49,13 @@ class Redirection {
 	private $domain = null;
 
 	/**
+	 * Hold state.
+	 *
+	 * @var string
+	 */
+	private $is_new = true;
+
+	/**
 	 * Retrieve Redirection instance.
 	 *
 	 * @param integer $id Redirection ID.
@@ -109,6 +116,10 @@ class Redirection {
 	public function __construct( $data, $nocache = false ) {
 		$this->data    = $data;
 		$this->nocache = $nocache;
+
+		if ( isset( $data['id'] ) && $data['id'] > 0 ) {
+			$this->is_new = false;
+		}
 	}
 
 	/**
@@ -158,6 +169,15 @@ class Redirection {
 	}
 
 	/**
+	 * Is new redirection.
+	 *
+	 * @return int
+	 */
+	public function is_new() {
+		return $this->is_new;
+	}
+
+	/**
 	 * Has sources.
 	 *
 	 * @return bool
@@ -191,7 +211,7 @@ class Redirection {
 	public function add_sources( $sources ) {
 		foreach ( $sources as $key => $value ) {
 			$value['comparison'] = empty( $value['comparison'] ) ? 'exact' : $value['comparison'];
-			$this->add_source( $value['pattern'], $value['comparison'] );
+			$this->add_source( $value['pattern'], $value['comparison'], ! empty( $value['ignore'] ) ? 'case' : '' );
 		}
 	}
 
@@ -200,19 +220,21 @@ class Redirection {
 	 *
 	 * @param string $pattern    Pattern to add.
 	 * @param string $comparison Comparison for pattern.
+	 * @param string $ignore     Ignore flag.
 	 */
-	public function add_source( $pattern, $comparison ) {
+	public function add_source( $pattern, $comparison, $ignore = '' ) {
 		$pattern = trim( $pattern );
 		if ( empty( $pattern ) ) {
 			return;
 		}
 
-		$pattern = $this->sanitize_source( $pattern, $comparison );
+		$pattern = $this->sanitize_source( wp_strip_all_tags( $pattern, true ), $comparison );
 		if ( ! $pattern ) {
 			return;
 		}
 
 		$this->data['sources'][] = [
+			'ignore'     => $ignore,
 			'pattern'    => $pattern,
 			'comparison' => $comparison,
 		];
@@ -224,14 +246,14 @@ class Redirection {
 	 * @param string $url URL to process.
 	 */
 	public function add_destination( $url ) {
-		$processed = trim( $url );
+		$processed = trim( wp_strip_all_tags( $url, true ) );
 
-		// If beginning looks like a domain but without protocol then let's add site_url().
+		// If beginning looks like a domain but without protocol then let's add home_url().
 		if ( ! empty( $processed ) && Url::is_relative( $processed ) ) {
-			$processed = site_url( $processed );
+			$processed = home_url( $processed );
 		}
 
-		$this->data['url_to'] = urldecode( $processed );
+		$this->data['url_to'] = $processed;
 	}
 
 	/**
@@ -315,7 +337,7 @@ class Redirection {
 			return false;
 		}
 
-		return urldecode( untrailingslashit( Redirection::strip_subdirectory( $url ) ) );
+		return urldecode( untrailingslashit( self::strip_subdirectory( $url ) ) );
 	}
 
 	/**
@@ -350,7 +372,7 @@ class Redirection {
 		global $wpdb;
 
 		// Check for post.
-		$post_id = url_to_postid( site_url( $slug ) );
+		$post_id = url_to_postid( home_url( $slug ) );
 		if ( $post_id ) {
 			$this->cache[] = [
 				'from_url'    => $slug,
@@ -409,7 +431,7 @@ class Redirection {
 			return $this->domain;
 		}
 
-		$this->domain = Url::get_domain( site_url() );
+		$this->domain = Url::get_domain( home_url() );
 
 		return $this->domain;
 	}
@@ -422,7 +444,7 @@ class Redirection {
 	 * @return string
 	 */
 	public static function strip_subdirectory( $url ) {
-		$home_dir = ltrim( site_url( '', 'relative' ), '/' );
+		$home_dir = ltrim( home_url( '', 'relative' ), '/' );
 
 		return $home_dir ? str_replace( trailingslashit( $home_dir ), '', $url ) : $url;
 	}

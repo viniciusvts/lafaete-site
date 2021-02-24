@@ -6,11 +6,14 @@
  * @package    RankMath
  * @subpackage RankMath\Core
  * @author     Rank Math <support@rankmath.com>
+ *
+ * Some functionality forked from Yoast (https://github.com/Yoast/wordpress-seo/)
  */
 
 namespace RankMath;
 
 use RankMath\Traits\Hooker;
+use RankMath\Helpers\Sitepress;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -48,10 +51,10 @@ class Rewrite {
 	}
 
 	/**
-	 * Change the url to the author's page.
+	 * Change the URL to the author's page.
 	 *
 	 * @param  string $link            The URL to the author's page.
-	 * @param  int    $author_id       The author's id.
+	 * @param  int    $author_id       The author's ID.
 	 * @param  string $author_nicename The author's nice name.
 	 * @return string
 	 */
@@ -169,6 +172,8 @@ class Rewrite {
 	/**
 	 * Remove the category base from the category link.
 	 *
+	 * Forked from Yoast (https://github.com/Yoast/wordpress-seo/)
+	 *
 	 * @param  string $link     Term link.
 	 * @param  object $term     Current Term Object.
 	 * @param  string $taxonomy Current Taxonomy.
@@ -194,7 +199,6 @@ class Rewrite {
 
 		return preg_replace( '`' . preg_quote( $category_base, '`' ) . '`u', '', $link, 1 );
 	}
-
 	/**
 	 * Get category re-write rules.
 	 *
@@ -213,13 +217,77 @@ class Rewrite {
 
 		foreach ( $categories as $category ) {
 			$category_nicename = $this->get_category_parents( $category ) . $category->slug;
+			$category_rewrite  = $this->add_category_rewrites( $category_rewrite, $category_nicename, $blog_prefix, $wp_rewrite->pagination_base );
 
-			$category_rewrite[ $blog_prefix . '(' . $category_nicename . ')/(?:feed/)?(feed|rdf|rss|rss2|atom)/?$' ]                = 'index.php?category_name=$matches[1]&feed=$matches[2]';
-			$category_rewrite[ $blog_prefix . '(' . $category_nicename . ')/' . $wp_rewrite->pagination_base . '/?([0-9]{1,})/?$' ] = 'index.php?category_name=$matches[1]&paged=$matches[2]';
-			$category_rewrite[ $blog_prefix . '(' . $category_nicename . ')/?$' ] = 'index.php?category_name=$matches[1]';
+			// Add rules for upper case encoded nicename.
+			$category_nicename_filtered = $this->convert_encoded_to_upper( $category_nicename );
+
+			if ( $category_nicename !== $category_nicename_filtered ) {
+				$category_rewrite = $this->add_category_rewrites( $category_rewrite, $category_nicename_filtered, $blog_prefix, $wp_rewrite->pagination_base );
+			}
 		}
 
 		return $category_rewrite;
+	}
+
+	/**
+	 * Adds required category rewrites rules.
+	 * 
+	 * Forked from Yoast (https://github.com/Yoast/wordpress-seo/)
+	 * 
+	 * @param array  $category_rewrite   The current set of rules.
+	 * @param string $category_nicename   Category nicename.
+	 * @param string $blog_prefix     Multisite blog prefix.
+	 * @param string $pagination_base WP_Query pagination base.
+	 *
+	 * @return array The added set of rules.
+	 */
+	private function add_category_rewrites( $category_rewrite, $category_nicename, $blog_prefix, $pagination_base ) {
+
+		$category_rewrite[ $blog_prefix . '(' . $category_nicename . ')/(?:feed/)?(feed|rdf|rss|rss2|atom)/?$' ] = 'index.php?category_name=$matches[1]&feed=$matches[2]';
+		$category_rewrite[ $blog_prefix . '(' . $category_nicename . ')/' . $pagination_base . '/?([0-9]{1,})/?$' ] = 'index.php?category_name=$matches[1]&paged=$matches[2]';
+		$category_rewrite[ $blog_prefix . '(' . $category_nicename . ')/?$' ] = 'index.php?category_name=$matches[1]';                                     
+
+		return $category_rewrite;
+	}
+
+	/**
+	 * Walks through category nicename and convert encoded parts
+	 * into uppercase using $this->encode_to_upper().
+	 * 
+	 * Forked from Yoast (https://github.com/Yoast/wordpress-seo/)
+	 * 
+	 * @param string $name The encoded category URI string.
+	 *
+	 * @return string The convered URI string.
+	 */
+	private function convert_encoded_to_upper( $name ) {
+		// Checks if name has any encoding in it.
+		if ( strpos( $name, '%' ) === false ) {
+			return $name;
+		}
+
+		$names = explode( '/', $name );
+		$names = array_map( [ $this, 'encode_to_upper' ], $names );
+
+		return implode( '/', $names );
+	}
+
+	/**
+	 * Converts the encoded URI string to uppercase.
+	 * 
+	 * Forked from Yoast (https://github.com/Yoast/wordpress-seo/)
+	 * 
+	 * @param string $encoded The encoded string.
+	 *
+	 * @return string The uppercased string.
+	 */
+	private function encode_to_upper( $encoded ) {
+		if ( strpos( $encoded, '%' ) === false ) {
+			return $encoded;
+		}
+
+		return strtoupper( $encoded );
 	}
 
 	/**
@@ -244,18 +312,19 @@ class Rewrite {
 	 * @return array
 	 */
 	private function get_categories() {
-		// WPML is present: temporary disable terms_clauses filter to get all categories for rewrite.
-		if ( class_exists( 'Sitepress' ) ) {
-			global $sitepress;
+		/**
+		 * Remove WPML filters while getting terms, to get all languages
+		 */
+		Sitepress::get()->remove_term_filters();
 
-			remove_filter( 'terms_clauses', [ $sitepress, 'terms_clauses' ] );
-			$categories = get_categories( [ 'hide_empty' => false ] );
-			add_filter( 'terms_clauses', [ $sitepress, 'terms_clauses' ], 10, 4 );
+		$categories = get_categories( [ 'hide_empty' => false ] );
 
-			return $categories;
-		}
+		/**
+		 * Register WPML filters back
+		 */
+		Sitepress::get()->restore_term_filters();
 
-		return get_categories( [ 'hide_empty' => false ] );
+		return $categories;
 	}
 
 	/**

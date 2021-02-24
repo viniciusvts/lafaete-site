@@ -36,10 +36,12 @@ class Helper {
 	 * @param array  $args    Context object, can be post, taxonomy or term.
 	 * @param array  $exclude Excluded variables won't be replaced.
 	 *
+	 * Inspired from Yoast (https://github.com/Yoast/wordpress-seo/)
+	 *
 	 * @return string
 	 */
 	public static function replace_vars( $content, $args = [], $exclude = [] ) {
-		$replace = new Replacer;
+		$replace = new Replacer();
 		return $replace->replace( $content, $args, $exclude );
 	}
 
@@ -86,6 +88,8 @@ class Helper {
 	 * @param  string $url  The URL to parse.
 	 * @param  string $part The URL part to retrieve.
 	 * @return string The extracted URL part.
+	 *
+	 * Adapted from Yoast (https://github.com/Yoast/wordpress-seo/)
 	 */
 	public static function get_url_part( $url, $part ) {
 		$url_parts = wp_parse_url( $url );
@@ -116,52 +120,6 @@ class Helper {
 	}
 
 	/**
-	 * Get Search Console auth url.
-	 *
-	 * @return string
-	 */
-	public static function get_console_auth_url() {
-		return \RankMath\Search_Console\Client::get()->get_auth_url();
-	}
-
-	/**
-	 * Get or update Search Console data.
-	 *
-	 * @param  bool|array $data Data to save.
-	 * @return bool|array
-	 */
-	public static function search_console_data( $data = null ) {
-		$key = 'rank_math_search_console_data';
-
-		if ( false === $data ) {
-			delete_option( $key );
-			return false;
-		}
-
-		$saved = get_option( $key, [] );
-		if ( is_null( $data ) ) {
-			return wp_parse_args( $saved, array(
-				'authorized' => false,
-				'profiles'   => [],
-			) );
-		}
-
-		$data = wp_parse_args( $data, $saved );
-		update_option( $key, $data );
-
-		return $data;
-	}
-
-	/**
-	 * Get search console module object.
-	 *
-	 * @return object
-	 */
-	public static function search_console() {
-		return self::get_module( 'search-console' );
-	}
-
-	/**
 	 * Get module by ID.
 	 *
 	 * @param  string $id ID to get module.
@@ -177,12 +135,12 @@ class Helper {
 	 * @param string $modules Modules to modify.
 	 */
 	public static function update_modules( $modules ) {
-		$stored = get_option( 'rank_math_modules' );
+		$stored = get_option( 'rank_math_modules', [] );
 
 		foreach ( $modules as $module => $action ) {
 			if ( 'off' === $action ) {
 				if ( in_array( $module, $stored, true ) ) {
-					$stored = array_diff( $stored, array( $module ) );
+					$stored = array_diff( $stored, [ $module ] );
 				}
 				continue;
 			}
@@ -219,8 +177,8 @@ class Helper {
 			wp_cache_clean_cache( $file_prefix );
 		}
 
-		// If SG CachePress is installed, rese its caches.
-		if ( class_exists( 'SG_CachePress_Supercacher' ) && is_callable( array( 'SG_CachePress_Supercacher', 'purge_cache' ) ) ) {
+		// If SG CachePress is installed, reset its caches.
+		if ( class_exists( 'SG_CachePress_Supercacher' ) && is_callable( [ 'SG_CachePress_Supercacher', 'purge_cache' ] ) ) {
 			\SG_CachePress_Supercacher::purge_cache();
 		}
 
@@ -237,6 +195,7 @@ class Helper {
 
 	/**
 	 * Clear varnish cache for the dynamic files.
+	 * Credit @davidbarratt: https://github.com/davidbarratt/varnish-http-purge
 	 */
 	private static function clear_varnish_cache() {
 		// Parse the URL for proxy proxies.
@@ -250,14 +209,31 @@ class Helper {
 
 		// If we made varniship, let it sail.
 		$purgeme = ( isset( $varniship ) && null !== $varniship ) ? $varniship : $parsed_url['host'];
-		wp_remote_request( 'http://' . $purgeme,
-			array(
+		wp_remote_request(
+			'http://' . $purgeme,
+			[
 				'method'  => 'PURGE',
-				'headers' => array(
+				'headers' => [
 					'host'           => $parsed_url['host'],
 					'X-Purge-Method' => 'default',
-				),
-			)
+				],
+			]
 		);
+	}
+
+	/**
+	 * Is localhost.
+	 *
+	 * @return boolean
+	 */
+	public static function is_localhost() {
+		$whitelist = [
+			'127.0.0.1', // IPv4 address.
+			'::1', // IPv6 address.
+		];
+
+		$ip = filter_input( INPUT_SERVER, 'REMOTE_ADDR', FILTER_VALIDATE_IP );
+
+		return in_array( $ip, $whitelist, true );
 	}
 }

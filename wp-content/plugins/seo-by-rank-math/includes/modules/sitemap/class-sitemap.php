@@ -11,13 +11,15 @@
 namespace RankMath\Sitemap;
 
 use RankMath\Helper;
+use RankMath\Helpers\Sitepress;
 use RankMath\Traits\Hooker;
-use MyThemeShop\Helpers\Str;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
  * Sitemap class.
+ *
+ * Some functionality forked from Yoast (https://github.com/Yoast/wordpress-seo/)
  */
 class Sitemap {
 
@@ -29,15 +31,20 @@ class Sitemap {
 	public function __construct() {
 
 		if ( is_admin() ) {
-			new Admin;
-			new Cache_Watcher;
+			new Admin();
+			new Cache_Watcher();
 		}
 
-		new Router;
-		$this->filter( 'robots_txt', 'add_sitemap_directive', 99 );
-		add_filter( 'rank_math/admin/notice/new_post_type', array( $this, 'new_post_type_notice' ) );
-		add_action( 'rank_math/sitemap/hit_index', array( __CLASS__, 'hit_sitemap_index' ) );
-		add_action( 'rank_math/sitemap/ping_search_engines', array( __CLASS__, 'ping_search_engines' ) );
+		new Router();
+		$this->index = new Sitemap_Index();
+		$this->index->hooks();
+		new Redirect_Core_Sitemaps();
+
+		add_action( 'rank_math/sitemap/hit_index', [ __CLASS__, 'hit_sitemap_index' ] );
+		add_action( 'rank_math/sitemap/ping_search_engines', [ __CLASS__, 'ping_search_engines' ] );
+
+		$this->filter( 'rank_math/admin/notice/new_post_type', 'new_post_type_notice' );
+
 		if ( class_exists( 'SitePress' ) ) {
 			$this->filter( 'rank_math/sitemap/build_type', 'rank_math_build_sitemap_filter' );
 			$this->filter( 'rank_math/sitemap/xml_post_url', 'exclude_hidden_language_posts', 10, 2 );
@@ -90,41 +97,22 @@ class Sitemap {
 	 * @return string
 	 */
 	public function rank_math_build_sitemap_filter( $type ) {
-		global $sitepress, $sitepress_settings;
+		global $sitepress_settings;
 		// Before to build the sitemap and as we are on front-end just make sure the links won't be translated. The setting should not be updated in DB.
 		$sitepress_settings['auto_adjust_ids'] = 0;
 
-		if ( WPML_LANGUAGE_NEGOTIATION_TYPE_DOMAIN === (int) $sitepress->get_setting( 'language_negotiation_type' ) ) {
-			remove_filter( 'terms_clauses', array( $sitepress, 'terms_clauses' ) );
-		}
-
-		remove_filter( 'category_link', array( $sitepress, 'category_link_adjust_id' ), 1 );
-		remove_filter( 'get_terms_args', array( $sitepress, 'get_terms_args_filter' ) );
-		remove_filter( 'get_term', array( $sitepress, 'get_term_adjust_id' ) );
-		remove_filter( 'terms_clauses', array( $sitepress, 'terms_clauses' ) );
+		/**
+		 * Remove WPML filters while getting terms, to get all languages
+		 */
+		Sitepress::get()->remove_term_filters();
 
 		return $type;
 	}
 
 	/**
-	 * Add sitemap directive in robots.txt
+	 * Add new CPT notice.
 	 *
-	 * @param  string $output Robots.txt output.
-	 * @return string
-	 */
-	public function add_sitemap_directive( $output ) {
-
-		if ( Str::contains( 'Sitemap:', $output ) || Str::contains( 'sitemap:', $output ) ) {
-			return $output;
-		}
-
-		return $output . "\n" . 'Sitemap: ' . Router::get_base_url( 'sitemap_index.xml' );
-	}
-
-	/**
-	 * Add New CPT Notice
-	 *
-	 * @param  string $notice New CPT Notice.
+	 * @param  string $notice New CPT notice.
 	 * @return string
 	 */
 	public function new_post_type_notice( $notice ) {
@@ -142,7 +130,7 @@ class Sitemap {
 	}
 
 	/**
-	 * Notify search engines of the updated sitemap.
+	 * Notify Search Engines of the updated sitemap.
 	 *
 	 * @param string|null $url Optional URL to make the ping for.
 	 */
@@ -153,15 +141,15 @@ class Sitemap {
 		}
 
 		if ( empty( $url ) ) {
-			$url = urlencode( Router::get_base_url( 'sitemap_index.xml' ) );
+			$url = rawurlencode( Router::get_base_url( 'sitemap_index.xml' ) );
 		}
 
 		// Ping Google and Bing.
-		wp_remote_get( 'http://www.google.com/webmasters/tools/ping?sitemap=' . $url, array( 'blocking' => false ) );
+		wp_remote_get( 'http://www.google.com/webmasters/tools/ping?sitemap=' . $url, [ 'blocking' => false ] );
 
 		if ( Router::get_base_url( 'geo-sitemap.xml' ) !== $url ) {
-			wp_remote_get( 'http://www.google.com/ping?sitemap=' . $url, array( 'blocking' => false ) );
-			wp_remote_get( 'http://www.bing.com/ping?sitemap=' . $url, array( 'blocking' => false ) );
+			wp_remote_get( 'http://www.google.com/ping?sitemap=' . $url, [ 'blocking' => false ] );
+			wp_remote_get( 'http://www.bing.com/ping?sitemap=' . $url, [ 'blocking' => false ] );
 		}
 	}
 
@@ -184,7 +172,7 @@ class Sitemap {
 	}
 
 	/**
-	 * Exclude object frmofrom sitemap.
+	 * Exclude object from sitemap.
 	 *
 	 * @param  int     $object_id   Object id.
 	 * @param  string  $object_type Object type. Accetps: post, term, user.
@@ -206,7 +194,7 @@ class Sitemap {
 
 			// Remove object.
 			if ( ! $include && in_array( $object_id, $ids, true ) ) {
-				$ids = array_diff( $ids, array( $object_id ) );
+				$ids = array_diff( $ids, [ $object_id ] );
 			}
 
 			$ids = implode( ',', $ids );
@@ -232,7 +220,7 @@ class Sitemap {
 
 		static $post_type_dates = null;
 		if ( ! is_array( $post_types ) ) {
-			$post_types = array( $post_types );
+			$post_types = [ $post_types ];
 		}
 
 		foreach ( $post_types as $post_type ) {
@@ -244,7 +232,7 @@ class Sitemap {
 
 		if ( is_null( $post_type_dates ) ) {
 			$post_type_dates = [];
-			$post_type_names = get_post_types( array( 'public' => true ) );
+			$post_type_names = get_post_types( [ 'public' => true ] );
 
 			if ( ! empty( $post_type_names ) ) {
 				$sql = "
@@ -287,5 +275,31 @@ class Sitemap {
 		 */
 		$xml_sitemap_caching = apply_filters( 'rank_math/sitemap/enable_caching', true );
 		return $xml_sitemap_caching;
+	}
+
+	/**
+	 * Check if `object` is indexable.
+	 *
+	 * @param int/object $object Post|Term Object.
+	 * @param string     $type   Object Type.
+	 *
+	 * @return boolean
+	 */
+	public static function is_object_indexable( $object, $type = 'post' ) {
+		/**
+		 * Filter: 'rank_math/sitemap/include_noindex' - Include noindex data in Sitemap.
+		 *
+		 * @param bool   $value Whether to include noindex terms in Sitemap.
+		 * @param string $type  Object Type.
+		 *
+		 * @return boolean
+		 */
+		if ( apply_filters( 'rank_math/sitemap/include_noindex', false, $type ) ) {
+			return true;
+		}
+
+		$method = 'post' === $type ? 'is_post_indexable' : 'is_term_indexable';
+
+		return Helper::$method( $object );
 	}
 }

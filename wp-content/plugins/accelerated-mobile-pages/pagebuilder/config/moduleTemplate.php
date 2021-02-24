@@ -132,7 +132,6 @@ $front_css = '
 {{row-class}}.amppb-fluid{width:{{fluid-width}};}
 {{row-class}}.amppb-fluid .col, {{row-class}}.amppb-fluid .col-2-wrap{margin:0 auto;max-width:{{fluid-wrapper}}; }
 {{row-class}}.amppb-fixed .col {max-width:{{content-width}};width:{{fixed-width}};margin: 0 auto;}
-
 {{row-class}}{
 	{{if_condition_check_for_brdr==1}}
 		border-width:{{border_sz}};
