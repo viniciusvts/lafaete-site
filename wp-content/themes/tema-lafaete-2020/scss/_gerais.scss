@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400');
+
+// @font-face {
+//     font-family: myFont;
+//     src: local('Oswald-Regular.ttf'), url('../inc/tipografia/Oswald-Regular.ttf');
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: myFontLight;
+//     src: local('Oswald-Light.ttf'), url('../inc/tipografia/Oswald-Light.ttf');
+//     font-display: swap;
+// }
+
+* {
+    font-family: "Oswald", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a.read-more{
+    color: black;
+}
+a.nav-link{
+    color: black;
+}
+
+a{
+    color: $laranja;
+    font-weight: 300;
+    @include transition();
+    &:hover {
+        color: $laranjaClaro;
+        @include transition();
+        text-decoration: none;
+    }
+}
+
+h3.title-card-blog {
+    color: $laranjaClaro;
+    font-weight: bold;
+    margin-top: 0!important;
+}
+#crumbs {
+    a {
+        color: white;
+        font-weight: 700;
+    }
+    span {
+        color: white !important;
+    }
+}
+h1, .h2-home-slider{
+    font-size: 3rem;
+    @include mediaScreenMax($smartphones){
+        font-size: 2rem;
+    }
+}
+
+h1, h2, h3, h4{
+    font-family: "Oswald";
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+h1 b, h2 b, h3 b, h4 b{
+    color: $laranja;
+}
+
+h3{
+    font-size: 1.5rem;
+}
+
+h4{
+    font-size: 1.1rem;
+}
+
+p, ul li{
+    font-size: 18px;
+}
+
+ul li{
+    font-family: "Oswald", "Montserrat", "Trebuchet MS", "Arial", sans-serif;
+}
+
+p{
+    font-family: "Oswald", "Montserrat", "Trebuchet MS", "Arial", sans-serif;
+    letter-spacing: normal;
+    line-height: inherit;
+    font-weight: 400;
+}
+b, strong{
+    font-weight: bold;
+}
+span{
+    font-weight: 300!important;
+}
+
+iframe{
+    display: block;
+    margin: 40px 0;
+}
+
+.laranja{
+    color: $laranja;
+}
+
+.laranjaClaro{
+    color: $laranjaClaro;
+}
+
+.btn{
+    border-radius: 0;
+}
+
+.default-service-column{
+    transform: scale(1);
+    opacity: 1;
+    transition-duration: .8s;
+}
+
+.esconder{
+    transition: 0.5s ease opacity, 0.5s step-end position;
+    opacity: 0;
+    position: absolute!important;//estava conflitando com uma regra de media screen
+    z-index: -1!important;//comflitando com .submenu-categorias
+    right: 100vw!important;
+}
+
+.my-container{
+    padding: 3% 0;
+    overflow: hidden;
+}
+
+.menu-container{
+    padding: 0 4%;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+    background-color: $laranja;
+}
+
+.nav-pills .nav-link{
+    border: 1px solid $cinzaClaro;
+    margin-bottom: 5px;
+}
+
+.modal-body ul li{
+    list-style: none;
+}
+
+.modal-body ul{
+    padding: 0;
+}
+
+
+.submenu-categorias{
+    position: absolute;
+    background-color: $cinzaDark;
+    color: white;
+    padding: 10px 36px;
+    right: 0;
+    top: 40px;
+    z-index: 2;
+    border-radius: 4px;
+
+    @include box-shadow(0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19));
+
+    @include mediaScreenMax($smartphones) {
+        transform: translate(-33px, 25px);
+    }
+
+    ul{
+        list-style: none;
+        padding: 0;
+        color: white;
+        li{
+            padding: 7px 0;
+            a{
+                color: white;
+            }
+        }
+    }
+}
+
+#social-icons {
+    @include breakpoint(smartphones) {
+        display: none;
+    }
+}
+
+.botao-laranja button, .botao-laranja {
+    background: $laranja;
+    padding: 10px 50px 10px 50px;
+    text-transform: uppercase;
+    border: none;
+    color: white;
+    margin-top: 44px;
+    margin-bottom: 20px;
+    @include breakpoint(smartphones) {
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10px;
+        min-width: 150px;
+    }
+}
+#v-pills-tab {
+    @include breakpoint(smartphones) {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+
+.single-tt {
+    color: black !important;
+}
+.bold-text {
+    font-weight: bold;
+}
+.left-b, .mid-b {
+    border-right: #5f5f5f solid 1px;
+}
+#single-title-box {
+    margin-bottom: 10px !important;
+}
+.mt-60{
+    margin-top: 60px;
+}

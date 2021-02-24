@@ -1,0 +1,212 @@
+/*nossos-premios*/
+.nossos-premios{
+    background-color: $cinzaDark;
+    position: relative;    
+    text-align: center;
+    font-size: 1rem;
+
+    h3{
+        color: $laranja;
+        margin: 20px 0;
+        text-align: left;
+    }
+
+    .col-md-2, .col-md-3, .col-sm-3, .col-lg-3, .col-xs-3{
+        margin: 20px 0;
+    }
+
+    p{
+        color: white;
+        text-align: left;
+    }
+
+    .botao button{
+        background: $laranja;
+        color: white;
+        padding: 10px 50px 10px 50px;
+        text-transform: uppercase;
+        border: none;
+        margin: 40px 0;
+    }
+
+    img{
+        @include transition(0.4s ease all);
+        &:hover{
+            transform: scale(1.05);
+            @include transition(0.4s ease all);
+        }
+    }
+
+    .img-fluid{
+        background-color: white;
+        padding: 20px;
+        margin-top: 0px;
+    }
+    
+}
+
+#slider_container {
+    width:1200px;
+    height:200px;
+    overflow:hidden;
+    margin:0 auto;
+    scroll-behavior: smooth;
+    
+    @include breakpoint(desktops){
+        width: 300px; 
+        height:300px;
+    }
+    @include mediaScreenMax($largeDesktops){
+        width: 800px; 
+        height:300px;
+    }
+}
+
+#slider_container.active {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+    transform: scale(1);
+    @include transition(0.4s ease all);
+}
+
+#slider_images {
+    /* This is the bit that moves. It has 4 images, so 4 * 450 = 1800. You could use javascript
+    to work this out instead by counting images. */
+    width:1200px;
+    @include transition(0.8s ease all);
+    @include breakpoint(desktops){
+        width: 1800px; 
+    }
+}
+
+#slider_images img {
+    padding:0 5px;
+    margin:0;
+    float:left;
+    width:200px;
+    height:200px;
+    border-radius: 4px;
+    @include transition(0.4s ease all);
+    &:hover{
+        margin-top: -10px;
+        @include transition(0.4s ease all);
+    }
+    @include breakpoint(desktops){
+        width: 300px; 
+        height:300px;
+        margin: 0;
+    }
+}
+
+#slider_controls{
+    margin: 20px auto;
+    position: relative;
+    display: none;
+    span{
+        border-radius: 50%;
+        height: 15px;
+        width: 15px;
+        position: relative;
+        display: inline-block;
+        background: white;
+        opacity: 0.4;
+        margin: 5px;
+        cursor: pointer;
+    }
+    span.selected{
+        opacity: 1;
+    }
+
+    @include breakpoint(desktops){
+        display: block;
+    }
+}
+
+.mt-np{
+    margin-top: 0;
+    @include mediaScreenMax($desktops){
+        margin-top: -15%
+    }
+    @include mediaScreenMax($tablets){
+        margin-top: -10%
+    }
+    @include mediaScreenMax($smartphones){
+        margin-top: -35%
+    }
+}
+
+
+/*nossos-premios*/
+///bp carousel
+.bp-carousel {
+    display: flex;
+    .bp-carousel-inner {
+        overflow: hidden;
+        width: 100%;
+        height: 200px;
+        scroll-behavior: smooth;
+        display: flex;
+        @include mediaScreenMax($desktops){
+            height: 300px;
+        }
+        @include mediaScreenMax($tablets){
+            height: 600px;
+        }
+        @include mediaScreenMax($smartphones){
+            height: 340px;
+        }
+    }
+    .bp-item {
+        margin-left: auto;
+        margin-right: auto;
+        min-height: 300px;
+    }
+    .arrow-left, .arrow-right {
+        position: relative;
+        margin-top: 35px;
+        cursor: pointer;
+        transition: transform 0.1s ease-in-out;
+        color: white;
+    }
+    .arrow-right {
+        right: 20px;
+        &:before {
+            content: "›";
+            display: inline-block;
+            vertical-align: middle;
+            //margin-right: 10px;
+            font-size: 60px;
+            position: relative;
+            margin-left: 40px;
+            top: 10px;
+        }
+    }
+    .arrow-left:before {
+        content: "‹";
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 30px;
+        font-size: 60px;
+        position: relative;
+        //margin-left: 20px;
+        top: 10px;
+    }
+}
+//fim bp-caroussel
+//
+///inicio bp-carousel especifico para lafaete
+.bp-one {
+    padding: 40px 0 40px 0;
+}
+
+.bp-item {
+    img{
+        width: 100%;
+    }
+}
+@media (min-width: 992px){
+    .col-lg-24 {
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+}

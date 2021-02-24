@@ -1,0 +1,162 @@
+*{
+	font-family: 'Fira Sans',sans-serif;
+}
+
+.page-a-lafaete .tab-content span,
+.page-a-lafaete .tab-content p,
+.page-a-lafaete .nossos-premios p,
+.fale-conosco p,
+.fale-conosco span,
+.blog p,
+.blog li{
+    color: #000;
+    font-family: "Fira Sans";
+    font-size: 16px;
+    font-weight: 400 !important;
+    line-height: 22px;
+}
+.blog p a,
+.blog li a{
+    font-family: "Fira Sans";
+    font-size: 16px;
+    font-weight: 400 !important;
+    line-height: 22px;
+}
+.page-a-lafaete .tab-content h2,
+.post-content h2{ 
+    color: #ff6c0b;
+    font-family: "Fira Sans";
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 34px;
+    letter-spacing: -.32px;
+    text-transform: none;
+    margin-bottom: 30px;
+}
+.page-a-lafaete .tab-content b{
+	font-family: "Fira Sans";
+	font-size: 16px;
+}
+
+.page-a-lafaete .nossos-premios h3{ 
+	color: #ff6c0b;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 24.69px;
+    text-transform: none;
+    text-align: center;
+}
+.page-a-lafaete .nossos-premios p {
+    text-align: center;
+}   
+
+.page-produtos .default-service-column .content h3{
+	color: #ff6c0b;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 32px;
+    text-transform: none;
+}
+.page-produtos .produtos-container ul li{
+	border: none;
+}
+.page-produtos .produtos-container ul li a{
+	border: 1px solid;
+    color: #005cb8;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    line-height: 47px;
+    padding: 0 22px;
+}
+.page-produtos .produtos-container ul li a:hover{
+	background: #ff6c0b;
+    border-color: #ff6c0b;
+    color:#fff;
+}
+
+.tax-prod #produtos .produto-floater .texto p{
+	padding: 0;
+	margin: 10px 0;
+}
+
+.tax-prod #produtos .produto-floater .texto p.bold-text span{
+	color: #ff6c0b;
+}
+
+.titulo-mapa{ 
+    color: #ff6c0b;
+    font-family: "Fira Sans";
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 34px;
+    letter-spacing: -.32px;
+    text-transform: none;
+    margin-bottom: 30px;
+}
+
+.tax-prod #crumbs span {
+    color: #001e60 !important;
+    font-family: "Fira Sans";
+    font-size: 16px;
+    font-weight: 500 !important;
+    line-height: 22px;
+}
+#crumbs a {
+    color: #ff7e3b;
+    font-family: "Fira Sans";
+    font-size: 16px;
+    font-weight: 500 !important;
+    line-height: 22px;
+}
+
+.tax-prod .fale-conosco h4{
+    font-size: 16px;
+}
+
+.page-materiais .card-text{
+    color: #ff6c0b;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 32px;
+    text-transform: none;
+    text-align: center;
+}
+h3.title-card-blog{
+    color: #ff6c0b;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 32px;
+    text-transform: none;
+}
+.card-posts h6 a{
+    color: #001e60 !important;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.default-service-column .inner-most{
+    height: 100%;
+    background: #fff;
+}
+.default-service-column .image-box{
+    z-index: 0;
+}
+.default-service-column .inner-box:hover,
+.card.card-posts:hover{
+    transform: scale(1);
+    transition: .4s ease all;
+    -webkit-transition: .4s ease all;
+    -ms-transition: .4s ease all;
+    -o-transition: .4s ease all;
+    -moz-transition: .4s ease all;
+    box-shadow: 0px 4px 51px -17px rgba(0,0,0,.9);
+    -moz-box-shadow: 0px 4px 51px -17px rgba(0,0,0,.9);
+    -webkit-box-shadow: 0px 4px 51px -17px rgba(0,0,0,.9);
+    margin-top: -10px;
+}
+
+.envelope-servicos .servicos-col p{
+    font-weight: 400 !important;
+}

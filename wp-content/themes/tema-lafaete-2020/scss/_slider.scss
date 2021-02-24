@@ -1,0 +1,196 @@
+/*slider*/
+.bg-light{
+    /*background-color: rgba(0, 0, 0, 0) !important;
+    background: linear-gradient(180deg, black 0%, black 11%, rgba(0, 0, 0, 0) 100%)*/
+    background-color: rgba(0, 0, 0, 0) !important;
+    transition:all 400ms ease;
+	-webkit-transition:all 400ms ease;
+	-ms-transition:all 400ms ease;
+	-o-transition:all 400ms ease;
+    -moz-transition:all 400ms ease;	
+    @include mediaScreenMax($largeDesktops) {
+        background-color: #414141 !important;
+    }
+}
+
+.bg-dark{
+   padding: 0;
+   margin-top: 0px !important;
+   transition:all 400ms ease;
+   -webkit-transition:all 400ms ease;
+   -ms-transition:all 400ms ease;
+   -o-transition:all 400ms ease;
+   -moz-transition:all 400ms ease;	
+}
+
+.carousel-item img{ 
+    -webkit-filter: brightness(45%);
+    filter: brightness(45%);
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+    height: fill-available;
+}
+
+.carousel-caption-expand-height{
+    height: 758px;
+}
+
+.slide-btn {
+    @include mediaScreenMax($smartphones) {
+        display: none;
+    }
+}
+
+.crousel-home {
+    @include mediaScreenMax($smartphones) {
+        top: 75px;
+    }
+}
+
+.carousel-caption{
+    top: 30%;
+    @media (min-width: $fullHdDesktops) {
+        top:40%;
+    }
+    &.home{
+        @include mediaScreenMax($smartFranklin) {
+            top:10%;
+        }
+    }
+    &.blog{
+        top:50px;
+    }
+    h1, .h2-home-slider{
+        @include mediaScreenMax($smartphones){
+            font-size: 30px!important;
+        } 
+        @include mediaScreenMax($tablets){
+            font-size: 30px;
+        } 
+    }
+    p{
+        @include mediaScreenMax($smartphones){
+            font-size: 20px!important;
+        }
+        @include mediaScreenMax($tablets){
+            font-size: 25px;
+        } 
+        font-size: 25px;
+
+    }
+    // @include mediaScreenMax($tablets){
+    //     margin-top: -70px;
+    // }
+}
+#menu-topo{
+    .social img {
+        @include mediaScreenMax($tablets){
+            height: 20px;
+        } 
+    }
+    ul {
+        @include mediaScreenMax($tablets){
+            margin-bottom: 0;
+        } 
+        @include mediaScreenMax($smartphones){
+            margin-bottom: 1rem;
+        } 
+    }
+    li {
+        @include mediaScreenMax($tablets){
+            font-size: 17px
+        } @include mediaScreenMax($smartphones){
+            font-size: 13px
+        } 
+    }
+}
+
+.carousel-flat-height img{
+    height: 500px;
+}
+
+.carousel-caption-flat-height{
+    bottom: 100px;
+}
+/*slider*/
+
+
+@media (max-width: 1199px) {
+    /*slider*/
+
+    .bg-dark{
+        /* padding: 0;*/
+        margin-top: 0px !important;
+        transition:all 400ms ease;
+        -webkit-transition:all 400ms ease;
+        -ms-transition:all 400ms ease;
+        -o-transition:all 400ms ease;
+        -moz-transition:all 400ms ease;
+        background-color: $cinzaDark;
+    }
+
+
+    .carousel-item img{
+        -webkit-filter: brightness(45%);
+        filter: brightness(45%);
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        height: -moz-available;          /* WebKit-based browsers will ignore this. */
+        height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+        height: fill-available;
+    }
+
+    .carousel-caption{
+        bottom: 40px;
+    }
+
+    .carousel-flat-height img{
+        height: 400px;
+    }
+
+    .carousel-caption-flat-height{
+        bottom: 100px;
+    }
+    /*slider*/
+}
+ul.bp-indicators {
+    z-index: 3;
+    position: absolute;
+    display: flex;
+    bottom: 20%;
+    left: 50%;
+    list-style-type: none;
+    padding: 0;
+    transform: translateX(-50%);
+    @include mediaScreenMax($smartphones){
+      display: none;
+    }
+    .dots {
+      width: 14px;
+      height: 14px;
+      background-color: transparent;
+      border: 1px solid white;
+      border-radius: 50%;
+      margin: 5px;
+	  cursor: pointer;
+      &.active {
+        transition-duration: .5s;
+        background-color: white!important;
+      }
+    }
+  }
+
+.carousel-indicators {
+    @include mediaScreenMax($smartphones) {
+        display: none;
+    }
+}
+
+  .carousel-item .destaque-blog {
+      filter: none !important;
+  }
+  .whitelink{
+      color: white!important;
+  }

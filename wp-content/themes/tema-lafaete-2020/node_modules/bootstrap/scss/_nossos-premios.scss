@@ -1,0 +1,32 @@
+/*nossos-premios*/
+.nossos-premios{
+    background-color: $cinzaDark;
+    position: relative;    
+    text-align: center;
+    font-size: 1rem;
+}
+
+.nossos-premios .col-md-2, .nossos-premios .col-md-3, .nossos-premios .col-sm-3, .nossos-premios .col-lg-3, .nossos-premios .col-xs-3{
+    margin: 20px 0;
+}
+
+.nossos-premios h3{
+    color: $laranja;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.nossos-premios p{
+    color: white;
+    text-align: left;
+}
+
+.nossos-premios .botao button{
+    background: $laranja;
+    color: white;
+    padding: 10px 50px 10px 50px;
+    text-transform: uppercase;
+    border: none;
+    margin: 40px 0;
+}
+/*nossos-premios*/

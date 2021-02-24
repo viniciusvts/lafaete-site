@@ -1,0 +1,83 @@
+/*fale-conosco*/
+.fale-conosco{
+    padding: 70px;
+    background: $cinzaLight;
+    color: $cinzaEscuro;
+}
+
+.fale-conosco h3{
+    margin: 10px 0;
+}
+
+.fale-conosco h4{
+    margin-top: 40px;
+}
+
+.fale-conosco-right span{
+    font-size: 0.9rem;
+    margin-bottom: 10px;;
+    display: block;
+}
+
+.fale-conosco p{
+    color: $cinzaEscuro;
+}
+
+.fale-conosco h5{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-check-inline{
+    margin-bottom: 10px;
+}
+.fale-conosco-left, .fale-conosco-right{
+    background: white;
+    padding: 30px;
+    -webkit-box-shadow: 0px 5px 9px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 5px 9px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 5px 9px 0px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+.fale-conosco-left{
+    padding: 30px;
+}
+.fale-conosco-right .telefone{
+    color: $laranja;
+    font-size: 2.5rem;
+    font-family: "Montserrat", "Trebuchet MS", "Arial", sans-serif;
+    margin: 0px;
+    font-weight: 500;
+    line-height: auto;
+}
+
+.fale-conosco-right h4{
+    margin-top: 20px;
+}
+
+.fale-conosco-right p{
+    margin-top: 0px;
+
+}
+
+.fale-conosco-left input[type=text], .fale-conosco-left input[type=email], .fale-conosco textarea, .fale-conosco .div-select select{
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid $cinzaClaro;
+    margin: 10px 0;
+    padding: 10px 0;
+    color: $cinzaMedio;
+}
+
+.fale-conosco-left input[type=checkbox]{
+    margin-left: 0px;
+}
+
+.fale-conosco-left input[type=file]{
+    padding: 10px 0;
+}
+
+.fale-conosco-left input::placeholder, .fale-conosco-left textarea::placeholder{
+    color: $cinzaMedio;
+}
+/*fale-conosco*/

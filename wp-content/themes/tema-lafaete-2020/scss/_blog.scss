@@ -1,0 +1,144 @@
+/*blog*/
+.card{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    ul{
+        list-style: none;
+        padding-left: 0;
+        padding-top: 15px;
+    }
+    &.card-posts {
+        min-height: 430px;
+        transition: ease-in-out 0.4s all;
+        &.material{
+            min-height: 0;
+        }
+        &:hover{
+            transform: scale(1.05);// translateY(-10px);
+        }
+    }
+}
+
+.blog .row .col-4 .card{
+    margin: 20px 0;
+    color: $cinzaEscuro;
+}
+
+.blog-floater{
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+    z-index: 1;
+    label{
+        display: none;
+    }
+}
+
+.blog-floater .container{
+    background: $cinzaEscuro;
+    padding: 20px;
+}
+
+.blog-floater svg{
+    height: 20px;
+    margin: 5px 10px 0 0;
+    fill: white;
+    float: left;
+}
+
+.blog-floater p, #crumbs{
+    padding-top: 2px;
+    font-family: "Oswald", "Montserrat", "Trebuchet MS", "Arial", sans-serif;
+    color: white;
+    @include mediaScreenMax($tablets){
+        margin-bottom: 15px;
+    }
+}
+
+.blog-floater a:hover{
+    text-decoration: none;
+    color: $laranja;
+}
+
+.blog{
+    position: relative;
+    z-index: 0;
+    a{
+        text-decoration: none;
+    }
+    p, li{
+        color: $cinzaEscuro;
+    }
+    h1, h2, h3, h4{
+        margin-top: 60px;
+        margin-bottom: 20px;
+    }
+    .texto{
+        padding: 20px;
+    }
+    p, p *, li, li *, figcaption, td{
+        // regra redundante
+        font-size: 16px;
+        font-family: "Open Sans", sans-serif;
+        @include mediaScreenMax($smartphones){
+          margin-bottom: 5px;
+        }
+    }
+    li::first-letter{
+      text-transform: capitalize;
+    }
+}
+
+.blog-categorias{
+    left:0; right:0; margin:0 auto; display: inline-flex; float: right;
+    @include mediaScreenMax($tablets){
+        display: block;
+        width: 133px;
+        margin: 25px auto 0;
+        float: none;
+    }
+}
+.d-sm-flex{
+    @include mediaScreenMax($smartphones){
+        display: flex;
+    }
+}
+
+.paginate-container {
+    margin: 0 auto;
+}
+.blog-cats {
+    li {
+        list-style: none;
+        font-weight: 600;
+        margin: 5px 0;
+        a {
+            color: white;
+        }
+    }
+}
+.mw-50vw{
+    @include mediaScreenMin($desktops){
+        max-width: 55vw;
+    }
+}
+
+
+// para colocar imagens em 100% videos centralizados
+.img-w100 img{
+    width: 100%!important;
+    height: auto!important;
+}
+.video-center iframe{
+   margin-left: auto;
+   margin-right: auto;
+}
+.blog .wp-block-embed__wrapper iframe{
+   width: 100%!important;
+}
+// #11175 pediu para remover o que tinha solicitado
+// .blog .wp-block-image img{
+//     width: 100%!important;
+//     height: auto!important;
+// }
+/*blog*/

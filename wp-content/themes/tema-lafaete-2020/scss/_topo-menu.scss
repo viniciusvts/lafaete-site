@@ -1,0 +1,88 @@
+/*topo-menu*/
+#menu-topo ul li svg{
+    width: 18px;
+    margin: 0 7px;
+    @include mediaScreenMax($tablets){
+        width: 15px;
+        margin: 0 3px;
+        margin-bottom: 6px;
+    }
+}
+.topo-menu{
+    margin: 10px 0;
+    border-bottom: 1px solid $cinzaEscuro;
+    color: white;
+    @include breakpoint(smartphones) {
+        transform: translateY(55px);
+    }
+}
+
+.topo-menu ul li{
+    list-style: none;
+    display: inline-table;
+    margin-right: 10px; 
+    a{
+        color: white;
+        margin-right: 15px;
+        @include mediaScreenMax($tablets){
+            margin-right: 0;
+        }
+        &:hover{
+            text-decoration: none;
+        }
+    }
+}
+
+#menu-principal{
+    margin-top: 60px;
+    text-transform: uppercase;
+    @include breakpoint(smartphones) {
+        margin-top: 0;
+    }
+}
+
+#menu-principal ul li a{
+    color: white;
+    @include mediaScreenMax($largeDesktops){
+        padding-left: 30px;
+    }
+    @include mediaScreenMax($smartphones){
+        padding-left: 0px;
+    }
+}
+
+.dropdown-menu{
+    background-color: $laranja;
+    margin: 0;
+}
+
+.dropdown-menu a:hover{
+    background: $cinzaEscuro;
+}
+
+.idioma{
+    margin: 0 2px;
+    width: 24px
+}
+
+.idioma-on{
+    opacity: 1;
+}
+
+.idioma-off{
+    opacity: 0.5;
+}
+/*topo-menu*/
+nav.navbar {
+    padding: 0 15px;
+}
+.txtAlignCenter{
+    @include mediaScreenMax($largeDesktops){
+        text-align: center;
+    }
+}
+.pbNav{
+    @include mediaScreenMax($largeDesktops){
+        padding-bottom: 20px;
+    }
+}

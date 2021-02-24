@@ -1,0 +1,106 @@
+/*.floater-destaque */
+.floater-destaque {
+    position: relative;
+    left: 0;
+    right: 0;
+    svg {
+        height: 50px;
+        width: auto;
+        fill: white;
+    }
+    a {
+        color: white;
+    }
+}
+.floater-destaque .cacambas, .floater-destaque .maquina, .floater-destaque .modulos-habitacionais{
+    text-align: center;
+    color: white;
+    padding: 40px;
+    font-family: "Oswald", "Montserrat", "Trebuchet MS", "Arial", sans-serif;
+}
+
+.floater-destaque .cacambas{
+    background: url('../inc/img/cacambas.jpg');
+    svg, h2, p{
+        transition: ease-in-out 0.4s all;
+        &:hover{
+            transform: scale(1.05);
+            border-radius: 5%;
+        }
+    }
+}
+.floater-destaque .maquina{
+    background: url('../inc/img/maquina.jpg');
+    svg, h2, p{
+        transition: ease-in-out 0.4s all;
+        &:hover{
+            transform: scale(1.05);
+            border-radius: 5%;
+        }
+    }
+}
+.floater-destaque .modulos-habitacionais{
+    background: url('../inc/img/modulos-habitacionais.jpg');
+    svg, h2, p{
+        transition: ease-in-out 0.4s all;
+        &:hover{
+            transform: scale(1.05);
+            border-radius: 5%;
+        }
+    }
+}
+
+.floater-destaque img{
+    width: 100px;
+}
+
+.floater-destaque svg{
+    margin: 25px
+}
+/*.floater-destaque */
+.cabecalho span, .cabecalho-light span{
+    display: block;
+    margin: 0px auto 30px auto;
+    width: 80px;
+    height: 2px;
+    background-color: $laranja;
+    transform: skewX(-30deg);
+    clear: both;
+    transition: all 400ms ease;
+    -webkit-transition:all 400ms ease;
+	-ms-transition:all 400ms ease;
+	-o-transition:all 400ms ease;
+	-moz-transition:all 400ms ease;	
+}
+
+.btn-laranja{
+    background: $laranja;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 20px 0;
+}
+
+/*faca-um-orcamento*/
+.bg-orcamento{
+    margin-top: 40px;
+    // background: $cinzaMedio !important;
+}
+
+.faca-um-orcamento{
+    background: url('../inc/img/faca-um-orcamento.jpg');
+}
+
+.scroll-rtl {
+    &::-webkit-scrollbar {
+        width: 12px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: white;  
+    }
+    &::-webkit-scrollbar-track-piece {
+        background-color: $laranjaClaro;
+    }
+}
+
+/*faca-um-orcamento*/

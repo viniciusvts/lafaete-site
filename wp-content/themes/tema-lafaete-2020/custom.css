@@ -1,0 +1,101 @@
+*{
+	font-family: 'Fira Sans',sans-serif;
+}
+.page-a-lafaete .tab-content span,
+.page-a-lafaete .tab-content p,
+.page-a-lafaete .nossos-premios p,
+.fale-conosco p,
+.fale-conosco span{
+    color: #000;
+    font-family: "Fira Sans";
+    font-size: 16px;
+    font-weight: 600 !important;
+    line-height: 22px;
+}
+.page-a-lafaete .tab-content h2{ 
+    color: #ff6c0b;
+    font-family: "Fira Sans";
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 34px;
+    letter-spacing: -.32px;
+    text-transform: none;
+    margin-bottom: 30px;
+}
+.page-a-lafaete .tab-content b{
+	font-family: "Fira Sans";
+	font-size: 16px;
+}
+
+.page-a-lafaete .nossos-premios h3{ 
+	color: #ff6c0b;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 24.69px;
+    text-transform: none;
+    text-align: center;
+}
+.page-a-lafaete .nossos-premios p {
+    text-align: center;
+}   
+
+.page-produtos .default-service-column .content h3{
+	color: #ff6c0b;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 32px;
+    text-transform: none;
+}
+.page-produtos .produtos-container ul li{
+	border: none;
+}
+.page-produtos .produtos-container ul li a{
+	border: 1px solid;
+    color: #005cb8;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    line-height: 47px;
+    padding: 0 22px;
+}
+.page-produtos .produtos-container ul li a:hover{
+	background: #ff6c0b;
+    border-color: #ff6c0b;
+    color:#fff;
+}
+
+.tax-prod #produtos .produto-floater .texto p{
+	padding: 0;
+	margin: 10px 0;
+}
+
+.tax-prod #produtos .produto-floater .texto p.bold-text span{
+	color: #ff6c0b;
+}
+
+.titulo-mapa{ 
+    color: #ff6c0b;
+    font-family: "Fira Sans";
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 34px;
+    letter-spacing: -.32px;
+    text-transform: none;
+    margin-bottom: 30px;
+}
+
+.tax-prod #crumbs span {
+    color: #001e60;
+    font-family: "Fira Sans";
+    font-size: 16px;
+    font-weight: 500 !important;
+    line-height: 22px;
+}
+#crumbs a {
+    color: #ff7e3b;
+    font-family: "Fira Sans";
+    font-size: 16px;
+    font-weight: 500 !important;
+    line-height: 22px;
+}

@@ -1,0 +1,120 @@
+/*depoimentos*/
+
+.depoimentos {
+
+    background: url('../inc/img/depoimentos.jpg');
+    background-attachment: fixed;
+
+    .balao{
+        background: $cinzaClaro;
+        padding: 40px 20px;
+        margin-top: 40px;
+        color: $cinzaEscuro;
+        position: relative;
+        transition: all 400ms ease;
+        -webkit-transition:all 400ms ease;
+        -ms-transition:all 400ms ease;
+        -o-transition:all 400ms ease;
+        -moz-transition:all 400ms ease;	
+    }
+    
+    .balao::after{
+        content: '';
+        position: absolute;
+        bottom: 0px;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border: 20px solid transparent;
+        border-top-color: $cinzaClaro;
+        border-bottom: 0;
+        margin-left: -20px;
+        margin-bottom: -20px;
+        transition: all 400ms ease;
+        -webkit-transition:all 400ms ease;
+        -ms-transition:all 400ms ease;
+        -o-transition:all 400ms ease;
+        -moz-transition:all 400ms ease;	
+    }    
+    
+    .balao-col:hover .balao{
+        background: $laranja;
+        color: white;
+        margin-top: 20px;  
+        transition: all 400ms ease;
+        -webkit-transition:all 400ms ease;
+        -ms-transition:all 400ms ease;
+        -o-transition:all 400ms ease;
+        -moz-transition:all 400ms ease;	
+        -webkit-box-shadow: 0px 4px 51px -17px rgba(0,0,0,.9);
+        -moz-box-shadow: 0px 4px 51px -17px rgba(0,0,0,.9);
+        box-shadow: 0px 4px 51px -17px rgba(0,0,0,.9);
+    }
+    
+    .balao-col:hover .balao p{
+        color: white;
+    }
+
+    .balao-col:hover .iconeHover{
+        fill: white;
+    }
+    
+    .balao-col:hover .balao::after{
+        border-top-color: $laranja;
+    }
+
+    .balao svg{
+        float: left;
+        clear: both;
+        margin: 0;
+        margin-bottom: 20px;
+        fill: $cinzaEscuro;
+        width: 30px;
+        height: auto;
+    }
+    
+    .balao p{
+        text-align: center;
+        margin: 0;
+        clear: both;
+    }
+
+    .avatar{
+        left: 0;
+        right: 0;
+        margin: 40px auto;
+        width: 100px;
+        img{
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+    }
+
+    p{
+        color: $cinzaEscuro;
+    }
+    .nome{
+        font-weight: 500;
+    }
+}
+
+/*depoimentos*/
+
+
+.faca-um-orcamento, .trabalhe-conosco, .projetos-recentes, .depoimentos{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;    
+    padding: 60px;
+    color: white;
+    text-align: center;
+}
+
+.faca-um-orcamento, .trabalhe-conosco{
+    padding: 120px;
+    @include breakpoint(smartphones) {
+        padding: 60px;
+    }
+}

@@ -1,0 +1,81 @@
+@mixin transition($parameter: 0.5s ease all){
+    transition: $parameter;
+	-webkit-transition:$parameter;
+	-ms-transition:$parameter;
+	-o-transition:$parameter;
+	-moz-transition:$parameter;
+}
+
+// colocamos 3 pontos pois é recebido mais de um parêmetro, mas estes são aplicados numa mesma variável 
+@mixin box-shadow($shadow...){
+    box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    -webkit-box-shadow: $shadow;
+}
+
+
+@mixin breakpoint($point) {
+    @if $point == smartphones {
+      @media (max-width: $smartphones) { @content ; }
+   }
+    @else if $point == tablets {
+      @media (max-width: $tablets) { @content ; }
+   }
+     @else if $point == desktops {
+      @media (max-width: $desktops) { @content ; }
+   }
+    @else if $point == largeDesktops {
+      @media (max-width: $largeDesktops)  { @content ; }
+   }
+    @else if $point == hdDesktops {
+      @media (max-width: $hdDesktops)  { @content ; }
+    }
+    @else if $point == fullHdDesktops {
+      @media (max-width: $fullHdDesktops)  { @content ; }
+    }
+}
+
+/// mixin para a construção de um max media query
+///
+/// @access public
+/// @author Vinicius de Santana
+/// @param {Size} $screensizepx — Tamanho da tela
+/// @param {String} $screensizeprefix - Pprefixo a ser usado
+/// @example $screensizepx — 1900px
+/// @media (min-width: $screensizepx) {
+/// }
+/// @example $screensizeprefix — bp-col
+///  .#{$screensizeprefix} {
+///    -ms-flex-preferred-size: 0;
+///    flex-basis: 0;
+///    -ms-flex-positive: 1;
+///    flex-grow: 1;
+///    max-width: 100%;
+///  }
+@mixin mediaScreenMax($tamanhoDeTela) {
+    @media (max-width: $tamanhoDeTela) {
+        @content;
+    }
+}
+/// mixin para a construção de um min media query
+///
+/// @access public
+/// @author Vinicius de Santana
+/// @param {Size} $screensizepx — Tamanho da tela
+/// @param {String} $screensizeprefix - Pprefixo a ser usado
+/// @example $screensizepx — 1900px
+/// @media (min-width: $screensizepx) {
+/// }
+/// @example $screensizeprefix — bp-col
+///  .#{$screensizeprefix} {
+///    -ms-flex-preferred-size: 0;
+///    flex-basis: 0;
+///    -ms-flex-positive: 1;
+///    flex-grow: 1;
+///    max-width: 100%;
+///  }
+@mixin mediaScreenMin($tamanhoDeTela) {
+    @media (min-width: $tamanhoDeTela) {
+        @content;
+    }
+}
