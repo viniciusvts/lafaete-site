@@ -85,7 +85,7 @@
         <a class="nav-link" href="<?php bloginfo('url'); ?>/vendas/">Seminovos</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="<?php bloginfo('url'); ?>/servicos/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#_" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Serviços
         </a>
         <div class="dropdown-menu txtAlignCenter" aria-labelledby="navbarDropdown">
@@ -116,7 +116,7 @@
         <a class="nav-link" href="<?php bloginfo('url'); ?>/clientes/">Clientes</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="<?php bloginfo('url'); ?>/atendimento/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#_" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Projetos
         </a>
         <div class="dropdown-menu txtAlignCenter" aria-labelledby="navbarDropdown">
@@ -127,7 +127,7 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="<?php bloginfo('url'); ?>/atendimento/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#_" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Conteúdos
         </a>
         <div class="dropdown-menu txtAlignCenter" aria-labelledby="navbarDropdown">
@@ -136,7 +136,7 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="<?php bloginfo('url'); ?>/atendimento/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#_" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Atendimento
         </a>
         <div class="dropdown-menu txtAlignCenter" aria-labelledby="navbarDropdown">
