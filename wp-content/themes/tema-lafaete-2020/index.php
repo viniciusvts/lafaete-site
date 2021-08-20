@@ -81,6 +81,7 @@
     
     <?php
     include_once('newsletter.php');
+    get_template_part('inc/politica-integrada');
     include_once('footer.php');
     ?>
   </body>
