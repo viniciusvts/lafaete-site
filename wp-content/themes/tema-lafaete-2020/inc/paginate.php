@@ -21,7 +21,7 @@
 function get_paginate( $postType=null, $prevOrNext = 0, $postsPerPage = 0){
     $paged = $_GET['sheet'];
     $category = $_GET['category'];
-    $HOST_ATUAL = "http://$_SERVER[HTTP_HOST]";
+    $HOST_ATUAL = "$_SERVER[REQUEST_SCHEME]://$_SERVER[HTTP_HOST]";
     $URI_ATUAL = "$_SERVER[REQUEST_URI]";
     $count_posts = wp_count_posts($postType);//obj->publish
     $QTDposts = $count_posts->publish;
@@ -67,7 +67,7 @@ function get_next_page_link($maxNumberPages=null) {
     global $wp_query;
     $maxNumberPages = $maxNumberPages ? $maxNumberPages : $wp_query->max_num_pages;
     $paged = isset( $_GET['sheet'] ) ? $_GET['sheet'] : null ;
-    $HOST_ATUAL = "http://$_SERVER[HTTP_HOST]";
+    $HOST_ATUAL = "$_SERVER[REQUEST_SCHEME]://$_SERVER[HTTP_HOST]";
     $URI_ATUAL = "$_SERVER[REQUEST_URI]";
     
     /*variável para evitar que o numero de pagina seja confundido 
@@ -105,7 +105,7 @@ function get_prev_page_link($maxNumberPages=null) {
     global $wp_query;
     $maxNumberPages = $maxNumberPages ? $maxNumberPages : $wp_query->max_num_pages;
     $paged = isset( $_GET['sheet'] ) ? $_GET['sheet'] : null ;
-    $HOST_ATUAL = "http://$_SERVER[HTTP_HOST]";
+    $HOST_ATUAL = "$_SERVER[REQUEST_SCHEME]://$_SERVER[HTTP_HOST]";
     $URI_ATUAL = "$_SERVER[REQUEST_URI]";
     
     /*variável para evitar que o numero de pagina seja confundido 
