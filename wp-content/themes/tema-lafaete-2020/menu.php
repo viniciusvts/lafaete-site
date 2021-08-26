@@ -24,7 +24,7 @@
               <path d="m307.94 298.4c-1.305-82.342-12.059-105.8-94.352-120.66 0 0-11.584 14.761-38.584 14.761s-38.586-14.761-38.586-14.761c-81.395 14.69-92.803 37.805-94.303 117.98-0.123 6.547-0.18 6.891-0.202 6.131 5e-3 1.424 0.011 4.058 0.011 8.651 0 0 19.592 39.496 133.08 39.496 113.49 0 133.08-39.496 133.08-39.496 0-2.951 2e-3 -5.003 5e-3 -6.399-0.022 0.47-0.066-0.441-0.149-5.708z"/>
             </g>
           </svg>
-          <a href="http://cliente.lafaetelocacao.com.br/" target="_blank">Área do Cliente</a>
+          <a href="https://cliente.lafaetelocacao.com.br/" target="_blank">Área do Cliente</a>
         </li>
       </ul>
     </div>
@@ -142,7 +142,7 @@
         <div class="dropdown-menu txtAlignCenter" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="<?php bloginfo('url'); ?>/atendimento/orcamento/">Orçamento</a>
           <a class="dropdown-item" href="<?php bloginfo('url'); ?>/atendimento/fale-conosco/">Contato</a>
-          <a class="dropdown-item" href="http://lafaete.solides.jobs/" target="_blank">Trabalhe Conosco</a>
+          <a class="dropdown-item" href="https://lafaete.solides.jobs/" target="_blank">Trabalhe Conosco</a>
           <a class="dropdown-item" href="<?php bloginfo('url'); ?>/atendimento/abertura-de-chamado/">Abertura de Chamado</a>
         </div>
       </li>
