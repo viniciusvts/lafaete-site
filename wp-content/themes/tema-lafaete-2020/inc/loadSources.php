@@ -9,6 +9,10 @@
 function add_css_and_js() {
   //remove jquery padrão do wp
   wp_deregister_script( 'jquery' );
+  // renmove os dashicons
+  if (!current_user_can( 'update_core' )){
+    wp_deregister_style('dashicons');
+  }
   //scripts: wp_enqueue_script( $nome, $origem, $dependencia, $versao, $rodape );
   $jsInternalPath = get_template_directory() . "/"."js/";
   $jsUriPath = get_template_directory_uri() . "/"."js/";
@@ -69,29 +73,29 @@ function add_css_and_js() {
   $fileVersion = filemtime($internalPath);
   wp_enqueue_style( $archive, $urlPath, array('bootstrap.css'), $fileVersion, $media );
 
-  $archive = 'animate.css';
-  $urlPath = $cssUriPath . $archive;
-  $internalPath = $cssInternalPath . $archive;
-  $fileVersion = filemtime($internalPath);
-  wp_enqueue_style( $archive, $urlPath, array('style.css'), $fileVersion, $media );
+  // $archive = 'animate.css';
+  // $urlPath = $cssUriPath . $archive;
+  // $internalPath = $cssInternalPath . $archive;
+  // $fileVersion = filemtime($internalPath);
+  // wp_enqueue_style( $archive, $urlPath, array('style.css'), $fileVersion, $media );
   
-  $archive = 'fontOsvald';
-  $urlPath = "https://fonts.googleapis.com/css?family=Oswald:300,400";
-  // no have => $internalPath = $cssInternalPath . $archive;
-  $fileVersion = 1;// no have => filemtime($internalPath);
-  wp_enqueue_style( $archive, $urlPath, array(), $fileVersion, $media );
+  // $archive = 'fontOsvald';
+  // $urlPath = "https://fonts.googleapis.com/css?family=Oswald:300,400";
+  // // no have => $internalPath = $cssInternalPath . $archive;
+  // $fileVersion = 1;// no have => filemtime($internalPath);
+  // wp_enqueue_style( $archive, $urlPath, array(), $fileVersion, $media );
 
-  $archive = 'fontMontserrat';
-  $urlPath = "https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,700,900";
-  // no have => $internalPath = $cssInternalPath . $archive;
-  $fileVersion = 1;// no have => filemtime($internalPath);
-  wp_enqueue_style( $archive, $urlPath, array(), $fileVersion, $media );
+  // $archive = 'fontMontserrat';
+  // $urlPath = "https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,700,900";
+  // // no have => $internalPath = $cssInternalPath . $archive;
+  // $fileVersion = 1;// no have => filemtime($internalPath);
+  // wp_enqueue_style( $archive, $urlPath, array(), $fileVersion, $media );
 
-  $archive = 'fontOpenSans';
-  $urlPath = "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600";
-  // no have => $internalPath = $cssInternalPath . $archive;
-  $fileVersion = 1;// no have => filemtime($internalPath);
-  wp_enqueue_style( $archive, $urlPath, array(), $fileVersion, $media );
+  // $archive = 'fontOpenSans';
+  // $urlPath = "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600";
+  // // no have => $internalPath = $cssInternalPath . $archive;
+  // $fileVersion = 1;// no have => filemtime($internalPath);
+  // wp_enqueue_style( $archive, $urlPath, array(), $fileVersion, $media );
   
 }
 //do it
