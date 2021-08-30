@@ -217,7 +217,8 @@
           <div class="col-md-4 pagamento">
             <h4>Condições de Pagamento</h4>
             
-            <img src="<?php bloginfo('template_url'); ?>/inc/img/pagseguro.png">
+            <img src="<?php bloginfo('template_url'); ?>/inc/img/pagseguro.png"
+            alt="metodos de pagamento"
           </div>
         </div>
       </div>

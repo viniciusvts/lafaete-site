@@ -12,7 +12,9 @@
           <div class="carousel-caption carousel-caption-flat-height">
             <h1>Categoria: <?php $categories = get_the_category(); foreach($categories as $category) : echo $category->name; endforeach; ?></h1>
           </div>
-          <img src="<?php bloginfo('template_url'); ?>/inc/img/header-blog.jpg" class="img-fluid w-100">
+          <img src="<?php bloginfo('template_url'); ?>/inc/img/header-blog.jpg"
+          class="img-fluid w-100"
+          alt="header do blog">
         </div>
       </div>
       <div class="container floater-destaque">

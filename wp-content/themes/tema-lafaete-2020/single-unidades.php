@@ -12,7 +12,8 @@
           <div class="carousel-caption carousel-caption-flat-height">
             <h1>Unidade em <?php the_title(); ?></h1>
           </div>
-          <img src="<?php bloginfo('template_url'); ?>/inc/img/trabalhe-conosco.jpg">
+          <img src="<?php bloginfo('template_url'); ?>/inc/img/trabalhe-conosco.jpg"
+          alt="header unidades trabalhe conosco">
         </div>
       </div>
       <div class="container floater-destaque">

@@ -236,74 +236,90 @@ foreach ($catgrs as $catgr) {
                       <?php
                       if ($modelo['pintura']) {
                       ?>
-                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/pin.png">
+                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/pin.png"
+                        alt="tem pintura">
                       <?php
                       } else {
                       ?>
-                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/pin-off.png">
+                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/pin-off.png"
+                        alt="não tem pintura">
                       <?php
                       }
                       if ($modelo['revestimento_interno']) {
                       ?>
-                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/revint.png">
+                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/revint.png"
+                        alt="tem revestimento interno">
                       <?php
                       } else {
                       ?>
-                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/revint-off.png">
+                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/revint-off.png"
+                        alt="não tem revestimento interno">
                       <?php
                       }
                       if ($modelo['revestimento_de_piso']) {
                       ?>
-                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/revpis.png">
+                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/revpis.png"
+                        alt="tem revestimento piso">
                       <?php
                       } else {
                       ?>
-                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/revpis-off.png">
+                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/revpis-off.png"
+                        alt="não tem revestimento piso">
                       <?php
                       }
                       if ($modelo['pontos_para_lampada']) {
                       ?>
-                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/lamp.png">
+                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/lamp.png"
+                        alt="tem pontos lâmpada">
                       <?php
                       } else {
                       ?>
-                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/lamp-off.png">
+                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/lamp-off.png"
+                        alt="não tem pontos lâmpada">
                       <?php
                       }
                       if ($modelo['pontos_de_tomada']) {
                       ?>
-                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/ptom.png">
+                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/ptom.png"
+                        alt="tem pontos tomada">
                       <?php
                       } else {
                       ?>
-                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/ptom-off.png">
+                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/ptom-off.png"
+                        alt="não tem pontos tomada">
                       <?php
                       }
                       if ($modelo['pontos_de_logica']) {
                       ?>
-                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/plog.png">
+                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/plog.png"
+                        alt="tem pontos lógica">
                       <?php
                       } else {
                       ?>
-                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/plog-off.png">
+                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/plog-off.png"
+                        alt="não tem pontos lógica">
                       <?php
                       }
                       if ($modelo['pontos_de_telefonia']) {
                       ?>
-                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/ptel.png">
+                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/ptel.png"
+                        alt="tem pontos de telefonia"
                       <?php
                       } else {
                       ?>
-                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/ptel-off.png">
+                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/ptel-off.png"
+                        alt="não tem pontos de telefonia"
                       <?php
                       }
                       if ($modelo['sanitarios']) {
                       ?>
-                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/san.png">
+                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/san.png"
+                        alt="tem sanitário"
                       <?php
                       } else {
                       ?>
-                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/san-off.png">
+                        <img class="item-modelo" src="<?php bloginfo('template_url') ?>/inc/img/icos/san-off.png"
+                        alt="não tem sanitário"
                       <?php
                       }
                       ?>
