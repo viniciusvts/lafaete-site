@@ -2,7 +2,7 @@
 <div class="container floater-destaque">
   <div class="row">
     <div class="col-md-4 modulos-habitacionais">
-      <a href="produtos/modulos-habitacionais">
+      <a href="<?php bloginfo('url'); ?>/produtos/modulos-habitacionais">
         <?php echo file_get_contents('wp-content/themes/lafaete/inc/svg/container.svg') ?>
         <h2>Módulos Container</h2>
         <p>Módulos Container de longa durabilidade, mesmo quando expostos ao sol e à chuva.</p>
