@@ -7,6 +7,8 @@
       include_once('menu.php'); 
     ?>
     <?php $imgs = get_template_directory_uri()."/inc/img/update/"; ?>
+    <!-- resolve página não possui h1 -->
+    <h1 class="d-none">Lafaete locação de equipamentos</h1>
 <section id="megabanner">
   <div class="container-fluid">
     <div class="row">
