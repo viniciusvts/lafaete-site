@@ -30,7 +30,7 @@
         foreach($categorias as $categoria) : 
     ?>
     <li>
-        <a href="<?php bloginfo('url') ?>/<?php echo $categoria->taxonomy; ?>/<?php echo $categoria->slug; ?>">
+        <a href="<?php bloginfo('url') ?>/<?php echo $categoria->taxonomy; ?>/<?php echo $categoria->slug; ?>/">
         <?php echo $categoria->name; ?>
         </a>
     </li>

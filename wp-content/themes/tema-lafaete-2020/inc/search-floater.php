@@ -35,7 +35,7 @@
                                 $slug = $category->slug;
                                 ?>
                                 <li>
-                                    <a href="<?php echo bloginfo("url"); ?>/category/<?php echo $slug ?>">
+                                    <a href="<?php echo bloginfo("url"); ?>/category/<?php echo $slug ?>/">
                                         <?php echo $name; ?>
                                     </a>
                                 </li>
