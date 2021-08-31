@@ -40,27 +40,21 @@
     <!-- paginação -->
     <div class="row container paginate-container">
 			<div class="paginate">
-				<div class="line-L col-6">
-					<?php
-					//links da paginação
-					$prev = get_prev_page_link( $card->max_num_pages);
-					$next = get_next_page_link( $card->max_num_pages);
-						if($prev){
-							echo "<a class='page-btn' href='".$prev."'>";
-							echo "Anterior";
-							echo "</a>";
-						}
-					?>
-				</div>
-				<div class="line-Right col-6">
-					<?php
-						if($next){
-							echo "<a class='page-btn' href='".$next."'>";
-							echo "Próxima";
-							echo "</a>";
-						}
-					?>
-				</div>
+        <?php
+        $args = array(
+            'screen_reader_text' => ' ',
+            'mid_size' => 5,
+            'prev_next' => true,
+            'prev_text' => __('Anterior'),
+            'next_text' => __('Próxima'),
+            // personalizar paginação para a lafaete
+            'format' => '?sheet=%#%',
+            'current' => max(1, $paged),
+            'total' => $card->max_num_pages
+        );
+        
+        echo paginate_links($args);
+        ?>
 			</div>
 		</div>
     <!-- /paginação -->

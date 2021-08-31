@@ -1829,7 +1829,7 @@ ul.bp-indicators .dots.active {
 .paginate {
   margin: 0 auto 30px;
 }
-.paginate .page-btn {
+.paginate .page-btn, .paginate .page-numbers {
   color: #ff7e3b;
   transition: all 400ms ease;
   -webkit-transition: all 400ms ease;
@@ -1839,8 +1839,26 @@ ul.bp-indicators .dots.active {
   border: solid 1px;
   padding: 5px 15px;
 }
-.paginate .page-btn:hover {
-  color: #ff7e3b;
+.paginate .page-btn:hover, .paginate .page-numbers:hover {
+  color: white;
+  background-color: #ff7e3b;
+}
+.paginate .page-numbers {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.paginate .page-numbers.current {
+  color: white;
+  background-color: #ff7e3b;
+}
+.paginate .page-numbers.dots {
+  color: black;
+  border: none;
+}
+.paginate .page-numbers.dots:hover {
+  color: black;
+  background-color: white;
+  border: none;
 }
 
 .line-L {

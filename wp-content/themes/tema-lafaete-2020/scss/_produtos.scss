@@ -655,7 +655,7 @@
 }
 .paginate{
 	margin: 0 auto 30px;
-	.page-btn{
+	.page-btn, .page-numbers{
 		color:#ff7e3b;
 		transition:all 400ms ease;
 		-webkit-transition:all 400ms ease;
@@ -663,11 +663,29 @@
 		-o-transition:all 400ms ease;
 		-moz-transition:all 400ms ease;
 		border: solid 1px;
-		padding: 5px 15px
+		padding: 5px 15px;
+        &:hover{
+            color:white;
+            background-color: #ff7e3b;
+        }
 	}
-	.page-btn:hover{
-		color:#ff7e3b;
-	}
+    .page-numbers{
+        display: inline-block;
+        margin-bottom: 10px;
+        &.current{
+            color:white;
+            background-color: #ff7e3b;
+        }
+        &.dots{
+            color:black;
+            border: none;
+            &:hover{
+                color:black;
+                background-color: white;
+                border: none;
+            }
+        }
+    }
 }
 .line-L {
     text-align: left;
