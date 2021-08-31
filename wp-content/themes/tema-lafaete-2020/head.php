@@ -24,13 +24,6 @@ ga('send', 'pageview');
     <title>Lafaete Locação de Equipamentos</title> 
 
     <?php wp_head(); ?>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/lity.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/update.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/custom.css?v=<?php echo rand(); ?>">
-
     
     <style type="text/css">
         .lity-iframe-container iframe{margin:0;}

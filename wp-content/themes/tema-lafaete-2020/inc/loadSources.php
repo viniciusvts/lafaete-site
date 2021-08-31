@@ -35,6 +35,12 @@ function add_css_and_js() {
   $fileVersion = filemtime($internalPath);
   wp_enqueue_script( $archive, $urlPath, array ('popper.min.js'), $fileVersion, true);
 
+  $archive = 'lity.js';
+  $urlPath = $jsUriPath . $archive;
+  $internalPath = $jsInternalPath . $archive;
+  $fileVersion = filemtime($internalPath);
+  wp_enqueue_script( $archive, $urlPath, array ('jquery.min.js'), $fileVersion, true);
+  
   $archive = 'main.js';
   $urlPath = $jsUriPath . $archive;
   $internalPath = $jsInternalPath . $archive;
@@ -73,29 +79,35 @@ function add_css_and_js() {
   $fileVersion = filemtime($internalPath);
   wp_enqueue_style( $archive, $urlPath, array('bootstrap.css'), $fileVersion, $media );
 
-  // $archive = 'animate.css';
-  // $urlPath = $cssUriPath . $archive;
-  // $internalPath = $cssInternalPath . $archive;
-  // $fileVersion = filemtime($internalPath);
-  // wp_enqueue_style( $archive, $urlPath, array('style.css'), $fileVersion, $media );
+  // $archive = 'fontAwe';
+  // $urlPath = "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+  // // no have => $internalPath = $cssInternalPath . $archive;
+  // $fileVersion = 1;// no have => filemtime($internalPath);
+  // wp_enqueue_style( $archive, $urlPath, array(), $fileVersion, $media );
   
-  // $archive = 'fontOsvald';
-  // $urlPath = "https://fonts.googleapis.com/css?family=Oswald:300,400";
-  // // no have => $internalPath = $cssInternalPath . $archive;
-  // $fileVersion = 1;// no have => filemtime($internalPath);
-  // wp_enqueue_style( $archive, $urlPath, array(), $fileVersion, $media );
+  $archive = 'firaSans';
+  $urlPath = "https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;600;800&display=swap";
+  // no have => $internalPath = $cssInternalPath . $archive;
+  $fileVersion = 1;// no have => filemtime($internalPath);
+  wp_enqueue_style( $archive, $urlPath, array(), $fileVersion, $media );
 
-  // $archive = 'fontMontserrat';
-  // $urlPath = "https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,700,900";
-  // // no have => $internalPath = $cssInternalPath . $archive;
-  // $fileVersion = 1;// no have => filemtime($internalPath);
-  // wp_enqueue_style( $archive, $urlPath, array(), $fileVersion, $media );
+  $archive = 'lity.css';
+  $urlPath = $cssUriPath . $archive;
+  $internalPath = $cssInternalPath . $archive;
+  $fileVersion = filemtime($internalPath);
+  wp_enqueue_style( $archive, $urlPath, array('style.css'), $fileVersion, $media );
 
-  // $archive = 'fontOpenSans';
-  // $urlPath = "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600";
-  // // no have => $internalPath = $cssInternalPath . $archive;
-  // $fileVersion = 1;// no have => filemtime($internalPath);
-  // wp_enqueue_style( $archive, $urlPath, array(), $fileVersion, $media );
+  $archive = 'update.css';
+  $urlPath = $cssUriPath . $archive;
+  $internalPath = $cssInternalPath . $archive;
+  $fileVersion = filemtime($internalPath);
+  wp_enqueue_style( $archive, $urlPath, array('style.css'), $fileVersion, $media );
+
+  $archive = 'custom.css';
+  $urlPath = $cssUriPath . $archive;
+  $internalPath = $cssInternalPath . $archive;
+  $fileVersion = filemtime($internalPath);
+  wp_enqueue_style( $archive, $urlPath, array('style.css'), $fileVersion, $media );
   
 }
 //do it
