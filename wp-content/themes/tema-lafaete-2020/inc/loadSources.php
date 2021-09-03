@@ -79,11 +79,11 @@ function add_css_and_js() {
   $fileVersion = filemtime($internalPath);
   wp_enqueue_style( $archive, $urlPath, array('bootstrap.css'), $fileVersion, $media );
 
-  // $archive = 'fontAwe';
-  // $urlPath = "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
-  // // no have => $internalPath = $cssInternalPath . $archive;
-  // $fileVersion = 1;// no have => filemtime($internalPath);
-  // wp_enqueue_style( $archive, $urlPath, array(), $fileVersion, $media );
+  $archive = 'fontAwe';
+  $urlPath = "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+  // no have => $internalPath = $cssInternalPath . $archive;
+  $fileVersion = 1;// no have => filemtime($internalPath);
+  wp_enqueue_style( $archive, $urlPath, array(), $fileVersion, $media );
   
   $archive = 'firaSans';
   $urlPath = "https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;600;800&display=swap";
