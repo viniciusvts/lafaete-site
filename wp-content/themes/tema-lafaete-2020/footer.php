@@ -75,7 +75,7 @@
                         <ul>
                             <li><a href="<?php bloginfo('url');?>/atendimento/fale-conosco/">Fale Conosco</a></li>
                             <li><a href="<?php bloginfo('url');?>/atendimento/orcamento/">Orçamento</a></li>
-                            <li><a href="http://lafaete.solides.jobs/" target="_blank">Trabalhe conosco</a></li>
+                            <li><a href="https://lafaete.solides.jobs/" target="_blank">Trabalhe conosco</a></li>
                             <li><a href="<?php bloginfo('url');?>/atendimento/abertura-de-chamado/">Abertura de chamado</a></li>
                         </ul>
                     </div>
