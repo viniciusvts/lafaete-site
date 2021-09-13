@@ -32,6 +32,11 @@ function SeoTitleProdutos() {
   $seoTitle .= " - Lafaete Locação";
   return $seoTitle;
 }
+function SeoTitleProdutosExample(){
+  global $post;
+  var_dump($post);
+  return 'Locação de '. $post->post_title .' em Minas Gerais - Lafaete';
+}
 /**
  * Action: 'rank_math/vars/register_extra_replacements' - Allows adding extra variables.
  */
@@ -42,7 +47,7 @@ add_action( 'rank_math/vars/register_extra_replacements', function(){
       'name'        => esc_html__( 'Custom variable name.', 'product seo title' ),
       'description' => esc_html__( 'Custom variable description.', 'Variável para setar o Seo title do produto correto' ),
       'variable'    => 'produtoSeoTitle',
-      'example'     => 'Locação de Módulo Termoacústico em Minas Gerais - Lafaete',
+      'example'     => SeoTitleProdutosExample(),
     ],
     'SeoTitleProdutos'
   );
