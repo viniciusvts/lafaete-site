@@ -34,7 +34,6 @@ function SeoTitleProdutos() {
 }
 function SeoTitleProdutosExample(){
   global $post;
-  var_dump($post);
   return 'Locação de '. $post->post_title .' em Minas Gerais - Lafaete';
 }
 /**
